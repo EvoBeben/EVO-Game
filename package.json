@@ -1,0 +1,13 @@
+{
+  "name": "techpulse",
+  "version": "1.0.0",
+  "description": "Zero-dependency Node app that ranks the top trending tech & gaming items from live public signals and generates a printable PDF report.",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT"
+}

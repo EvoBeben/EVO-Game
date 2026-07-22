@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TechPulse — Trending Tech &amp; Gaming</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%A1%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <div id="demo-banner" class="demo-banner" hidden>
+    ⚠ Showing a labeled <strong>DEMO dataset</strong> — every live source was
+    unreachable. Numbers below are illustrative, not current.
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">📡</span>
+      <div>
+        <h1>TechPulse</h1>
+        <p class="tagline">Top 10 trending tech &amp; gaming items right now — ranked by buzz</p>
+      </div>
+    </div>
+    <div class="controls">
+      <label class="switch" title="Re-fetch on an interval">
+        <input type="checkbox" id="autorefresh" />
+        <span>Auto-refresh</span>
+      </label>
+      <button id="refresh" class="btn" title="Fetch now">↻ Refresh</button>
+      <a class="btn" href="/report" target="_blank" rel="noopener">📄 Report</a>
+      <button id="theme" class="btn icon" title="Toggle light / dark" aria-label="Toggle theme">🌗</button>
+    </div>
+  </header>
+
+  <p class="disclaimer">
+    For research and general interest only — not purchasing, financial, or
+    investment advice. Signals reflect online attention, which is not the same
+    as quality or value.
+  </p>
+
+  <main>
+    <section class="tiles" id="tiles" aria-label="Summary statistics"></section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Attention over time — top movers</h2>
+        <p class="hint">Wikipedia pageviews, indexed to 100 at series start. Click a legend chip to toggle a series.</p>
+      </div>
+      <div class="combined-wrap">
+        <canvas id="combined" height="320" aria-label="Combined attention chart"></canvas>
+        <div id="combined-legend" class="legend" role="list"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Ranked leaderboard</h2>
+        <p class="hint">Buzz score blends Hacker News, Reddit, news volume, and Wikipedia interest.</p>
+      </div>
+      <div class="table-scroll">
+        <table class="rank-table" id="rank-table">
+          <thead>
+            <tr>
+              <th class="col-rank">#</th>
+              <th class="col-name">Item</th>
+              <th class="col-spark">Trend (30d)</th>
+              <th class="col-num">7-day views</th>
+              <th class="col-num">Δ</th>
+              <th class="col-num">Buzz</th>
+              <th class="col-src">Sources</th>
+            </tr>
+          </thead>
+          <tbody id="rank-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Per-item trends</h2>
+        <p class="hint">Each item's 30-day Wikipedia pageview series.</p>
+      </div>
+      <div class="grid" id="mini-grid"></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span id="meta-line">Loading…</span>
+    <span>·</span>
+    <a href="/api/dashboard" target="_blank" rel="noopener">/api/dashboard</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
