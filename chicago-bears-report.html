@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Chicago Bears Intel Report</title>
+<style>
+  @page { size: letter; margin: 0; }
+  :root{
+    --navy:#0B162A;
+    --navy2:#152A44;
+    --orange:#C83803;
+    --orange-lt:#E8600F;
+    --paper:#FFFFFF;
+    --ink:#12203A;
+    --muted:#5A6879;
+    --rule:#D8DEE6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    width:8.5in; height:11in;
+    display:flex; flex-direction:column;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+
+  /* ---------- Masthead ---------- */
+  header{
+    background:var(--navy);
+    color:#fff;
+    padding:0.24in 0.42in 0.20in;
+    position:relative;
+    border-bottom:5px solid var(--orange);
+  }
+  header:after{
+    content:""; position:absolute; right:0; top:0; bottom:0; width:2.1in;
+    background:linear-gradient(115deg, transparent 0%, transparent 42%, rgba(200,56,3,.85) 42%, rgba(200,56,3,.85) 56%, transparent 56%);
+  }
+  .kicker{
+    font-size:7.5pt; letter-spacing:.20em; text-transform:uppercase;
+    color:var(--orange-lt); font-weight:700; margin-bottom:5px;
+  }
+  h1{
+    font-size:23pt; line-height:.98; font-weight:800; letter-spacing:-.015em;
+    text-transform:uppercase;
+  }
+  h1 .b{ color:var(--orange); }
+  .subhead{
+    margin-top:6px; font-size:8pt; color:#B9C4D2; letter-spacing:.02em;
+    max-width:5.6in;
+  }
+  .stamp{
+    position:absolute; right:.42in; bottom:.24in; text-align:right; z-index:2;
+  }
+  .stamp .lbl{font-size:6.5pt; letter-spacing:.16em; color:#8E9DB0; text-transform:uppercase;}
+  .stamp .val{font-size:11pt; font-weight:800; color:#fff;}
+
+  /* ---------- Status strip ---------- */
+  .strip{
+    display:flex; background:var(--navy2); color:#fff;
+  }
+  .strip div{
+    flex:1; padding:5px 0 6px; text-align:center; border-right:1px solid rgba(255,255,255,.13);
+  }
+  .strip div:last-child{border-right:none;}
+  .strip .n{font-size:12pt; font-weight:800; color:#fff; line-height:1.1;}
+  .strip .n em{font-style:normal; color:var(--orange-lt);}
+  .strip .k{font-size:6pt; letter-spacing:.14em; text-transform:uppercase; color:#93A3B6; margin-top:2px;}
+
+  /* ---------- Body grid ---------- */
+  main{
+    flex:1; display:grid; grid-template-columns:1fr 1fr; gap:0 .30in;
+    padding:.15in .42in .10in;
+  }
+  .col{display:flex; flex-direction:column;}
+
+  section{margin-bottom:.11in;}
+  h2{
+    font-size:8pt; letter-spacing:.15em; text-transform:uppercase; font-weight:800;
+    color:var(--navy); padding-bottom:2.5px; margin-bottom:5px;
+    border-bottom:2px solid var(--orange); display:flex; align-items:center; gap:6px;
+  }
+  h2 span.dot{
+    display:inline-block; width:7px; height:7px; background:var(--orange); transform:rotate(45deg);
+  }
+
+  ul{list-style:none;}
+  li{
+    font-size:6.9pt; line-height:1.30; margin-bottom:3.2px; padding-left:8px; position:relative;
+    color:#22334D;
+  }
+  li:before{
+    content:""; position:absolute; left:0; top:4.2px;
+    width:4px; height:4px; background:var(--orange); transform:rotate(45deg);
+  }
+  li b{color:var(--navy); font-weight:800;}
+  .tag{
+    display:inline-block; font-size:5.6pt; font-weight:800; letter-spacing:.09em;
+    text-transform:uppercase; color:#fff; background:var(--navy2);
+    padding:1px 4px; border-radius:2px; margin-right:4px; vertical-align:1.2px;
+  }
+  .tag.hot{background:var(--orange);}
+  .tag.watch{background:#6C7A8C;}
+
+  /* movement table */
+  table{width:100%; border-collapse:collapse;}
+  td{font-size:6.7pt; padding:1.8px 4px; border-bottom:1px solid var(--rule); vertical-align:top;}
+  tr td:first-child{font-weight:800; color:var(--navy); width:38%;}
+  tr td:last-child{color:#3C4C63;}
+  .in td:first-child:before{content:"▲ "; color:#1E7A4B;}
+  .out td:first-child:before{content:"▼ "; color:var(--orange);}
+  thead td{
+    font-size:6pt; letter-spacing:.13em; text-transform:uppercase; color:var(--muted);
+    font-weight:700 !important; border-bottom:1.5px solid var(--navy);
+  }
+
+  .note{
+    background:#F4F6F9; border-left:3px solid var(--orange);
+    padding:6px 8px; font-size:6.8pt; line-height:1.32; color:#33445E;
+  }
+  .note b{color:var(--navy);}
+
+  footer{
+    background:var(--navy); color:#8E9DB0; font-size:5.9pt; line-height:1.45;
+    padding:7px .42in 8px; border-top:4px solid var(--orange);
+  }
+  footer b{color:#D7DEE7; letter-spacing:.1em; text-transform:uppercase; font-size:5.9pt;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">Front Office &middot; Roster &middot; Rumor Mill</div>
+  <h1>Chicago <span class="b">Bears</span><br>Intel Report</h1>
+  <div class="subhead">2026 training camp edition &mdash; rookies reported to Halas Hall today; veterans follow Tuesday, July 28. Camp practices run through late August in Lake Forest.</div>
+  <div class="stamp">
+    <div class="lbl">Updated</div>
+    <div class="val">July 25, 2026</div>
+  </div>
+</header>
+
+<div class="strip">
+  <div><div class="n">11<em>&ndash;</em>6</div><div class="k">2025 Record</div></div>
+  <div><div class="n">NFC North</div><div class="k">2025 Champions</div></div>
+  <div><div class="n">Ben Johnson</div><div class="k">HC &middot; Year 2</div></div>
+  <div><div class="n">Ryan Poles</div><div class="k">GM thru 2029</div></div>
+  <div><div class="n">33</div><div class="k">2025 Takeaways (1st)</div></div>
+</div>
+
+<main>
+  <!-- LEFT COLUMN -->
+  <div class="col">
+    <section>
+      <h2><span class="dot"></span>Front Office &amp; Leadership</h2>
+      <ul>
+        <li><b>Poles &amp; Johnson locked in step.</b> GM Ryan Poles' extension aligned him with head coach Ben Johnson &mdash; both under contract through the <b>2029</b> season, giving Halas Hall its cleanest continuity window in a decade.</li>
+        <li><b>Coordinators unchanged.</b> Dennis Allen (DC, play-caller) and Declan Doyle (OC) return for Year 2; Richard Hightower stays on special teams. Johnson continues calling the offense.</li>
+        <li><b>Stadium file still open.</b> President/CEO Kevin Warren reiterated the Arlington Heights project &mdash; pitched as zero state construction dollars &mdash; while the club keeps doing due diligence on a Hammond, Ind. site, where enabling legislation has already passed. Springfield has signaled the project isn't a 2026 priority.</li>
+        <li><b>Caleb extension groundwork.</b> Poles can't formally negotiate with Williams until after year three, but the Bears have set the table for a long-term deal next offseason. The green light is Williams' to earn in 2026.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="dot"></span>Trades &amp; Major Transactions</h2>
+      <ul>
+        <li><span class="tag hot">Trade</span><b>DJ Moore to Buffalo.</b> Moore plus a 2026 fifth-rounder shipped to the Bills for a <b>2026 second-round pick</b>. Widely graded a win-win: Buffalo gets Josh Allen a proven separator, Chicago banks a top-64 asset and clears the WR room for its young pass catchers.</li>
+        <li><span class="tag hot">Trade</span><b>Garrett Bradbury from New England</b> for a 2027 fifth-rounder &mdash; the answer at center after Drew Dalman's abrupt retirement this offseason.</li>
+        <li><span class="tag">Signed</span><b>Devin Bush, LB</b> &mdash; three years, $30M. The tone-setter in a faster, more aggressive front seven.</li>
+        <li><span class="tag">Signed</span><b>Coby Bryant, S</b> &mdash; three years, fresh off Seattle's Super Bowl LX run (15 starts, career-high 4 INTs in 2025).</li>
+        <li><span class="tag">Signed</span><b>Neville Gallimore, DT</b> (2 yr / $12M), <b>Cam Lewis, CB</b> (2 yr), <b>Kalif Raymond, WR</b> (Johnson/Randle El reunion), <b>Braxton Jones, LT</b> back on a 1-year deal worth up to $10M.</li>
+        <li><span class="tag">Re-signed</span>DL Daniel Hardy (2 yr), LB D'Marco Jackson (2 yr), QB Case Keenum (2 yr), DB Elijah Hicks (1 yr), OL Jordan McFadden (1 yr).</li>
+        <li><span class="tag watch">Cap</span>Cole Kmet and Jonah Jackson contracts reworked for space; Kmet now a lock on the 53 with Moore's targets up for grabs.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="dot"></span>Rumor Mill</h2>
+      <ul>
+        <li><span class="tag watch">Speculation</span><b>Trade-deadline swing at edge rusher</b> is the most persistent national projection &mdash; the 2025 defense led the NFL in takeaways but ranked poorly rushing the passer and stopping the run.</li>
+        <li><span class="tag watch">Speculation</span>ESPN's Benjamin Solak floated a blockbuster for Colts RB <b>Jonathan Taylor</b> in his season-prediction slate. Analyst forecast, not a reported conversation.</li>
+        <li><span class="tag watch">Speculation</span><b>Kyler Gordon's</b> standing is the quiet camp storyline &mdash; five games played in 2025 and a soft-tissue cascade have him fighting for his place in Year 2 of a 3-year, $40M deal.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="dot"></span>What's Next</h2>
+      <table>
+        <tbody>
+          <tr><td>Sat, Jul 25</td><td>Rookies &amp; quarterbacks report to Halas Hall</td></tr>
+          <tr><td>Tue, Jul 28</td><td>Veterans report &mdash; full squad assembled</td></tr>
+          <tr><td>Jul 29 &ndash; Aug 27</td><td>Training camp practices, Lake Forest</td></tr>
+          <tr><td>Preseason 1</td><td>vs. Cleveland Browns (home)</td></tr>
+          <tr><td>Preseason 2</td><td>at Cincinnati Bengals</td></tr>
+          <tr><td>Preseason 3</td><td>at Tennessee Titans</td></tr>
+          <tr><td>Week 1</td><td>at Carolina Panthers &mdash; season opener on the road</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div class="col">
+    <section>
+      <h2><span class="dot"></span>Player Updates &amp; Camp Battles</h2>
+      <ul>
+        <li><b>Caleb Williams, QB.</b> Year 3 after a genuine leap: 3,942 yards, 27 TD, 7 INT, 90.1 rating. Johnson has publicly set a higher completion-percentage bar and praised his offseason work; Williams has also been vocal about wanting grass playing surfaces.</li>
+        <li><b>Rome Odunze, WR.</b> The stress fracture in his left foot healed <b>without surgery</b>. With Moore gone he's the presumptive WR1 &mdash; but Luther Burden III is chasing that title.</li>
+        <li><b>Colston Loveland, TE.</b> Finished ninth among TEs at 713 yards in a limited rookie role; projection models have him leading Chicago in receiving with 1,000-yard upside.</li>
+        <li><b>Ozzy Trapilo, OT.</b> Patellar tendon injury in the Wild Card round &mdash; expected to open the season on <b>PUP</b>, freeing a roster spot.</li>
+        <li><b>Left tackle battle.</b> Braxton Jones took every first-team spring rep (44 career starts, healthy) and leads Jedrick Wills Jr. and Theo Benedet for Week 1.</li>
+        <li><b>Jaylon Johnson, CB.</b> Make-or-break year: missed 10 games in 2025, and his 4-yr/$76M deal has no guarantees left after this season with an out following 2026.</li>
+        <li><b>Dillon Thieneman, S.</b> No. 25 overall (Oregon), 4.35 forty, ranked the draft's 11th-best pick by ESPN's Matt Miller. Starts opposite Bryant in an all-new safety tandem.</li>
+        <li><b>Kyle Monangai, RB &amp; Austin Booker, EDGE</b> headline a rising sophomore class expected to absorb real snaps.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="dot"></span>Latest Roster Moves</h2>
+      <table>
+        <thead><tr><td>Move</td><td>Detail</td></tr></thead>
+        <tbody>
+          <tr class="in"><td>Sam Roush, TE</td><td>4-year deal &mdash; last unsigned 2026 draft pick, in before camp</td></tr>
+          <tr class="in"><td>Thieneman &amp; L. Jones</td><td>1st-rounder and OL Logan Jones signed rookie deals</td></tr>
+          <tr class="in"><td>Miller, Hudson, WR</td><td>Scotty Miller and Kyron Hudson added to camp roster</td></tr>
+          <tr class="in"><td>Rhattigan, Matthews III</td><td>Linebacker depth signings</td></tr>
+          <tr class="in"><td>Ahmed, A. Johnson Jr.</td><td>RB Salvon Ahmed; ex-Packers DB Anthony Johnson Jr.</td></tr>
+          <tr class="out"><td>Tory Taylor, P</td><td>Placed on international player exemption &mdash; doesn't count vs. 90</td></tr>
+          <tr class="out"><td>Deion Hankins, RB</td><td>Waived</td></tr>
+          <tr class="out"><td>Olamide Zaccheaus, WR</td><td>Departed to Atlanta in free agency</td></tr>
+          <tr class="out"><td>Drew Dalman, C</td><td>Abrupt retirement &mdash; replaced by Bradbury</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2><span class="dot"></span>The Bottom Line</h2>
+      <div class="note">
+        Chicago spent a cap-constrained offseason raising the floor rather than swinging big: mid-tier defensive money, a traded-for center, and a first-round safety. The offense is now unmistakably <b>Ben Johnson's</b>, built around Williams, Loveland, Odunze and Burden instead of a veteran WR1. The season hinges on whether a rebuilt secondary and a faster front seven can pair last year's league-best takeaway rate with an actual pass rush &mdash; and whether Williams' Year 3 earns the extension Poles already has drafted.
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <b>Sourced from</b> &nbsp;ChicagoBears.com official roster moves &middot; ESPN (Courtney Cronin, training camp preview &amp; players-at-stake) &middot; NFL.com &middot; Windy City Gridiron &middot; Chicago Sun-Times &middot; Sports Illustrated / Bear Digest &middot; Buffalo Bills official release &middot; PFF draft recap &middot; Bleacher Nation.<br>
+  Items marked <b>Speculation</b> are analyst projections, not reported transactions. Compiled July 25, 2026 &mdash; roster status changes daily once camp opens. Independent report; not affiliated with or endorsed by the Chicago Bears or the NFL.
+</footer>
+
+</body>
+</html>
