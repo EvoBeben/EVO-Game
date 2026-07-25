@@ -257,6 +257,27 @@
   .move-why{ font-size:.96rem; color:#BCC8D8; }
   .move-why b{ color:#FFF; }
 
+  /* ---------- slot template ---------- */
+  .slots{ display:grid; grid-template-columns:repeat(auto-fit,minmax(258px,1fr)); gap:12px; margin:24px 0 10px; }
+  .slot{
+    background:var(--panel); border:1px solid var(--line); border-radius:4px;
+    padding:15px 18px 16px; display:flex; flex-direction:column; gap:10px;
+  }
+  .slot-top{ display:flex; align-items:baseline; gap:10px; }
+  .slot-n{ font-family:var(--display); font-weight:800; font-size:1.45rem; letter-spacing:-.035em; line-height:1; }
+  .slot-picks{ font-family:var(--data); font-size:10.5px; letter-spacing:.07em; color:var(--dim); }
+  .verdict{
+    margin-left:auto; font-family:var(--data); font-size:9.5px; font-weight:700;
+    letter-spacing:.11em; text-transform:uppercase; padding:3px 7px; border-radius:3px; color:#0A0E13;
+  }
+  .v-RB{ background:var(--rb); } .v-WR{ background:var(--wr); } .v-any{ background:#8FA0B6; }
+  .slot p{ font-size:.93rem; line-height:1.55; margin:0; color:#BCC8D8; }
+  .slot .then{
+    font-family:var(--data); font-size:10.5px; line-height:1.6; color:var(--muted);
+    border-top:1px solid var(--line); padding-top:9px; margin-top:auto;
+  }
+  .slot .then b{ color:var(--accent); font-weight:400; }
+
   /* ---------- checklist ---------- */
   .checks{
     list-style:none; padding:0; margin:22px 0 10px; display:grid; gap:1px;
@@ -322,6 +343,7 @@
         <li><a class="n-TE" href="#te">Tight end</a></li>
         <li><a class="n-QB" href="#qb">Quarterback</a></li>
         <li><span class="div" aria-hidden="true"></span></li>
+        <li><a href="#template">Your plan</a></li>
         <li><a href="#checklist">Draft day</a></li>
         <li><a href="#sources">Sources</a></li>
       </ul>
@@ -1376,6 +1398,125 @@
       <li><span class="k">02</span><span><b>Las Vegas' Week 1 starter.</b> Veteran or Mendoza changes Bowers' floor more than it changes any quarterback's value.</span></li>
       <li><span class="k">03</span><span><b>Jaxson Dart and the Nabers timeline.</b> Dart's top-10 case leans on his receivers being available.</span></li>
     </ul>
+  </div>
+</section>
+
+<!-- ==================== TEMPLATE ==================== -->
+<section id="template" class="wrap">
+  <p class="eyebrow">The plan</p>
+  <h2>Your draft template, by slot</h2>
+  <div class="prose">
+    <p class="lede">The four files above tell you who. This tells you when — and answers the only question that actually matters before your first pick: do I open running back or wide receiver?</p>
+
+    <h3>The short answer</h3>
+    <p>It depends entirely on where you're sitting, and it depends for a reason you can read straight off the tier boards. There are <strong>two</strong> Tier-1 running backs and <strong>four</strong> Tier-1 receivers. That asymmetry decides everything:</p>
+
+    <div class="callout">
+      <p class="eyebrow">The rule</p>
+      <p><strong>Picks 1–2:</strong> open running back. Gibbs and Bijan are a tier of their own and one of them will be there.<br>
+      <strong>Picks 3–6:</strong> open wide receiver. Both Tier-1 backs are gone, so an RB here means reaching <em>down</em> a tier while a Tier-1 receiver is still sitting there. Take the better tier.<br>
+      <strong>Picks 7–12:</strong> open running back again. The Tier-1 receivers are gone too, and now you're choosing between Tier-2 at both spots — where the running back cliff behind them is steeper than the receiver cliff.</p>
+    </div>
+
+    <p>That's the whole logic: <em>never reach across a tier break to fill a position</em>. You open receiver in the middle of Round 1 not because receivers are better, but because at picks 3 through 6 the receivers available are a full tier above the backs available. Six picks later that's reversed.</p>
+
+    <h3>Slot by slot</h3>
+    <p>Twelve-team snake, PPR. Your first three picks are listed on each card, because the turn is what actually shapes your roster — not the first pick in isolation.</p>
+  </div>
+
+  <div class="slots">
+    <div class="slot">
+      <div class="slot-top"><span class="slot-n">1</span><span class="slot-picks">1.01 · 2.12 · 3.01</span><span class="verdict v-RB">Open RB</span></div>
+      <p>Take <strong>Jahmyr Gibbs</strong>. The ceiling pick, the biggest projected workload of his career, and the easiest RB schedule in the league.</p>
+      <p class="then">Then: <b>back-to-back at the 2/3 turn.</b> Take one Tier-3 RB and one Tier-3 WR — Chase Brown and DeVonta Smith is the dream pair.</p>
+    </div>
+    <div class="slot">
+      <div class="slot-top"><span class="slot-n">2</span><span class="slot-picks">1.02 · 2.11 · 3.02</span><span class="verdict v-RB">Open RB</span></div>
+      <p>Whichever of <strong>Gibbs</strong> or <strong>Bijan Robinson</strong> is left. If you want the floor over the ceiling, Bijan has never missed a game.</p>
+      <p class="then">Then: <b>same turn logic as slot 1.</b> One back, one receiver, in that order if the board is thin at RB.</p>
+    </div>
+    <div class="slot">
+      <div class="slot-top"><span class="slot-n">3</span><span class="slot-picks">1.03 · 2.10 · 3.03</span><span class="verdict v-WR">Open WR</span></div>
+      <p>Both Tier-1 backs are gone. Take <strong>Ja'Marr Chase</strong> and don't talk yourself into McCaffrey's 403 touches.</p>
+      <p class="then">Then: <b>Hero RB.</b> Your 2.10 should be a back — Chase Brown, Achane or Irving. Don't leave the turn with zero.</p>
+    </div>
+    <div class="slot">
+      <div class="slot-top"><span class="slot-n">4</span><span class="slot-picks">1.04 · 2.09 · 3.04</span><span class="verdict v-WR">Open WR</span></div>
+      <p>Two or three Tier-1 receivers are still on the board. <strong>Nacua</strong> or <strong>Smith-Njigba</strong> — take whichever you rank higher and move on.</p>
+      <p class="then">Then: <b>RB with 2.09, hard.</b> This is the slot where people drift to a second receiver and spend the rest of the draft chasing.</p>
+    </div>
+    <div class="slot">
+      <div class="slot-top"><span class="slot-n">5</span><span class="slot-picks">1.05 · 2.08 · 3.05</span><span class="verdict v-WR">Open WR</span></div>
+      <p>Still a Tier-1 receiver here in most drafts. Take him. If somehow all four are gone, <strong>Ashton Jeanty</strong> is the pivot.</p>
+      <p class="then">Then: <b>RB at 2.08, TE only if Bowers or McBride falls.</b> One of them occasionally slips this far.</p>
+    </div>
+    <div class="slot">
+      <div class="slot-top"><span class="slot-n">6</span><span class="slot-picks">1.06 · 2.07 · 3.06</span><span class="verdict v-WR">Open WR</span></div>
+      <p><strong>Amon-Ra St. Brown</strong> is usually the Tier-1 receiver who lasts. If the run has emptied that tier, take <strong>Jeanty</strong> or <strong>Cook</strong> instead of reaching for a Tier-2 WR.</p>
+      <p class="then">Then: <b>RB, then best available.</b> You're in the cleanest position on the board to run Hero RB properly.</p>
+    </div>
+    <div class="slot">
+      <div class="slot-top"><span class="slot-n">7</span><span class="slot-picks">1.07 · 2.06 · 3.07</span><span class="verdict v-RB">Open RB</span></div>
+      <p>The flip point. Tier-1 receivers are gone, so you're comparing Tier 2 to Tier 2 — and the RB cliff is steeper. Take <strong>Jeanty</strong>, <strong>Cook</strong> or <strong>Jonathan Taylor</strong>.</p>
+      <p class="then">Then: <b>Lamb or Jefferson at 2.06</b> if either slides. Both routinely do.</p>
+    </div>
+    <div class="slot">
+      <div class="slot-top"><span class="slot-n">8</span><span class="slot-picks">1.08 · 2.05 · 3.08</span><span class="verdict v-RB">Open RB</span></div>
+      <p>Same logic as slot 7 — take the last Tier-2 back. This is also the first slot where an elite tight end at 2.05 is genuinely live.</p>
+      <p class="then">Then: <b>Bowers or McBride is a real option here.</b> If you take one, you've committed to receiver in Rounds 3 and 4.</p>
+    </div>
+    <div class="slot">
+      <div class="slot-top"><span class="slot-n">9</span><span class="slot-picks">1.09 · 2.04 · 3.09</span><span class="verdict v-any">Either</span></div>
+      <p>Genuinely a coin flip. If <strong>Justin Jefferson</strong> or <strong>CeeDee Lamb</strong> is still there, take the receiver. If both are gone, take the back.</p>
+      <p class="then">Then: <b>whichever you didn't take.</b> Your 2.04 should balance the pick you just made, not double down on it.</p>
+    </div>
+    <div class="slot">
+      <div class="slot-top"><span class="slot-n">10</span><span class="slot-picks">1.10 · 2.03 · 3.10</span><span class="verdict v-any">Either</span></div>
+      <p>You're close enough to the turn to plan both picks as one move. Take the best player available at 1.10 and fill the gap at 2.03.</p>
+      <p class="then">Then: <b>you will get one Tier-2 RB and one Tier-2 WR.</b> Decide the order by which tier is emptying faster.</p>
+    </div>
+    <div class="slot">
+      <div class="slot-top"><span class="slot-n">11</span><span class="slot-picks">1.11 · 2.02 · 3.11</span><span class="verdict v-any">Either</span></div>
+      <p>A near-turn slot with a short wait. Take whichever tier has fewer names left — that's the one that won't survive twenty-two picks.</p>
+      <p class="then">Then: <b>an elite TE at 2.02 is a legitimate play here</b>, since you can still get a Tier-3 back at 3.11.</p>
+    </div>
+    <div class="slot">
+      <div class="slot-top"><span class="slot-n">12</span><span class="slot-picks">1.12 · 2.01 · 3.12</span><span class="verdict v-any">Either</span></div>
+      <p>The best turn on the board this year. Back-to-back picks let you take a Tier-2 running back <em>and</em> a Tier-2 receiver, or a back and Bowers.</p>
+      <p class="then">Then: <b>you're done worrying about structure.</b> Best available from Round 3 onward.</p>
+    </div>
+  </div>
+
+  <div class="prose">
+    <h3>Four pivots for when the board misbehaves</h3>
+  </div>
+  <ul class="checks" style="--pc:var(--accent)">
+    <li><span class="k">01</span><span><b>Four or more backs go in the first six picks.</b> The room is RB-hungry. Take receivers, let the dead zone come to you, and buy the Round 4–6 leverage tier — Tuten, Skattebo, Price — at a discount. This is the one scenario where Zero RB switches on this year.</span></li>
+    <li><span class="k">02</span><span><b>Bowers or McBride is there at your Round 2 pick.</b> Take him. It's the only non-RB/WR pick worth making before Round 5, and it means committing to receiver in Rounds 3 and 4 — which is fine, that's where the value is anyway.</span></li>
+    <li><span class="k">03</span><span><b>You opened WR-WR.</b> You must take a back with each of your next two picks. Not "best available" — a back. Two receivers and no RB1 is how good drafts become mediocre teams.</span></li>
+    <li><span class="k">04</span><span><b>A Tier-1 name falls two rounds past his ADP.</b> Take him, whatever your plan said. Nabers in Round 5 or Rashee Rice in Round 4 are entirely different propositions from Nabers in Round 3 and Rice in Round 2 — price is the whole argument on both.</span></li>
+  </ul>
+
+  <div class="prose">
+    <h3>What the finished roster should look like</h3>
+    <p>A shape to draft toward, not a script. Sixteen rounds, twelve teams, one quarterback.</p>
+  </div>
+  <div class="tablewrap">
+    <table>
+      <caption>Target roster construction · 16 rounds</caption>
+      <thead><tr><th>Position</th><th class="num">Count</th><th>Where they come from</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Running back</td><td class="num">5</td><td>One anchor in Rounds 1–2. One from the Round 4–6 leverage tier. Three from Round 7 onward, at least two of them with a standalone role rather than a pure handcuff.</td></tr>
+        <tr><td class="name">Wide receiver</td><td class="num">6</td><td>Two by the end of Round 4. Two more from the Rounds 5–8 vacated-target-tree group — this is the most profitable stretch of the draft. Two darts after Round 13.</td></tr>
+        <tr><td class="name">Tight end</td><td class="num">2</td><td>Either one in Round 2 and none after, or zero until Round 11 and then two. Nothing in between.</td></tr>
+        <tr><td class="name">Quarterback</td><td class="num">1–2</td><td>Round 5 at the earliest, and only for Jackson or Daniels. Otherwise take two from the Tier-4 pool in your last five rounds and stream the matchup.</td></tr>
+        <tr><td class="name">Defense · Kicker</td><td class="num">1 · 1</td><td>Your final two picks. Stream defenses on matchup all season; never roster two.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose">
+    <p>If you end the draft with fewer than five backs, you're one injury from a bad month with no waiver wire to fix it — the thin rookie class means the replacement-level back who saved your season last year may not exist in 2026. If you end it with more than two tight ends or three quarterbacks, you spent picks on positions that don't decide leagues.</p>
   </div>
 </section>
 
