@@ -34,6 +34,19 @@ IF CHANGED
 - **Named anchors.** The date string and its three locations are spelled out, so
   there is no hunting.
 
+## Page structure
+
+The page is an indexed app, not a scroll: a table-of-contents landing view opens
+into nine section views, each split into tabbed panels. Views are `.view` divs
+with `id="v-<section>"`, routed by URL hash. Panels are `.panel` divs wired to
+tab buttons via `aria-controls`. An edit to a player almost always lands inside
+one panel — grep the player's name and you are already in the right place.
+
+If you add or remove a panel, keep three things in sync: the tab button's
+`aria-controls`, the panel's `id`, and the panel count in that section's
+`.toc-meta` line on the home view. Exactly one panel per view carries the
+`active` class.
+
 ## When the season starts
 
 Swap the WATCH list for in-season concerns — snap counts, target share, waiver adds —
