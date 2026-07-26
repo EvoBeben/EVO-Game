@@ -208,6 +208,22 @@
   .srcgrid li{ break-inside:avoid; margin-bottom:9px; font-size:.9rem; }
   .srcgrid a{ font-weight:600; }
 
+  /* ---------- predictions ---------- */
+  .predict-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; margin:18px 0 8px; }
+  .predict-col{ background:var(--panel); border:1px solid var(--line); border-radius:4px; overflow:hidden; }
+  .predict-head{ padding:12px 16px; background:var(--panel-2); border-bottom:1px solid var(--line); display:flex; align-items:baseline; justify-content:space-between; gap:8px; }
+  .predict-head .slot{ font-weight:800; font-size:1.05rem; letter-spacing:-.02em; }
+  .predict-head .tag{ font-family:var(--data); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--dim); }
+  .predict-list{ list-style:none; margin:0; padding:0; }
+  .predict-list li{
+    display:grid; grid-template-columns:26px 1fr auto; gap:9px; align-items:center;
+    padding:6px 16px; border-bottom:1px solid var(--line); font-size:.87rem;
+  }
+  .predict-list li:last-child{ border-bottom:0; }
+  .predict-list .rd{ font-family:var(--data); font-size:10px; color:var(--dim); }
+  .predict-list .nm{ color:var(--text); font-weight:600; }
+  .p-DST, .p-K{ background:#8FA0B6; }
+
   footer{ margin-top:52px; border-top:1px solid var(--line); background:var(--ground-2); padding:28px 0 40px; color:var(--dim); font-size:.88rem; }
   footer .wrap{ display:flex; flex-wrap:wrap; gap:12px 40px; justify-content:space-between; align-items:baseline; }
   footer .fmark{ font-family:var(--data); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); }
@@ -248,6 +264,7 @@
         <li><a class="n-QB" href="#qb">QB</a></li>
         <li><span class="div" aria-hidden="true"></span></li>
         <li><a href="#plan">Your plan</a></li>
+        <li><a href="#predictions">Predictions</a></li>
         <li><a href="#sources">Sources</a></li>
       </ul>
     </nav>
@@ -1087,6 +1104,81 @@
     <li><a href="https://www.draftsharks.com/article/fantasy-football-sleepers">Draft Sharks — Sleepers</a></li>
     <li><a href="https://www.fantasypros.com/nfl/adp/overall.php">FantasyPros — Consensus ADP</a></li>
   </ul>
+</section>
+
+<!-- ==================== PREDICTIONS ==================== -->
+<section id="predictions" class="wrap">
+  <p class="eyebrow">Mock it out</p>
+  <h2>Three drafts, pick by pick</h2>
+  <p>Full 16-round mocks for three seats, built off the boards above. Name and position only.</p>
+
+  <div class="predict-grid">
+    <div class="predict-col">
+      <div class="predict-head"><span class="slot">1st pick</span><span class="tag">1.01</span></div>
+      <ul class="predict-list">
+        <li><span class="rd">R1</span><span class="nm">Jahmyr Gibbs</span><span class="pos-badge p-RB">RB</span></li>
+        <li><span class="rd">R2</span><span class="nm">Chase Brown</span><span class="pos-badge p-RB">RB</span></li>
+        <li><span class="rd">R3</span><span class="nm">DeVonta Smith</span><span class="pos-badge p-WR">WR</span></li>
+        <li><span class="rd">R4</span><span class="nm">Emeka Egbuka</span><span class="pos-badge p-WR">WR</span></li>
+        <li><span class="rd">R5</span><span class="nm">Bhayshul Tuten</span><span class="pos-badge p-RB">RB</span></li>
+        <li><span class="rd">R6</span><span class="nm">Luther Burden III</span><span class="pos-badge p-WR">WR</span></li>
+        <li><span class="rd">R7</span><span class="nm">Colston Loveland</span><span class="pos-badge p-TE">TE</span></li>
+        <li><span class="rd">R8</span><span class="nm">Bo Nix</span><span class="pos-badge p-QB">QB</span></li>
+        <li><span class="rd">R9</span><span class="nm">Josh Downs</span><span class="pos-badge p-WR">WR</span></li>
+        <li><span class="rd">R10</span><span class="nm">Jadarian Price</span><span class="pos-badge p-RB">RB</span></li>
+        <li><span class="rd">R11</span><span class="nm">Ryan Flournoy</span><span class="pos-badge p-WR">WR</span></li>
+        <li><span class="rd">R12</span><span class="nm">Kenneth Gainwell</span><span class="pos-badge p-RB">RB</span></li>
+        <li><span class="rd">R13</span><span class="nm">Gunnar Helm</span><span class="pos-badge p-TE">TE</span></li>
+        <li><span class="rd">R14</span><span class="nm">Tyler Shough</span><span class="pos-badge p-QB">QB</span></li>
+        <li><span class="rd">R15</span><span class="nm">Defense</span><span class="pos-badge p-DST">DST</span></li>
+        <li><span class="rd">R16</span><span class="nm">Kicker</span><span class="pos-badge p-K">K</span></li>
+      </ul>
+    </div>
+
+    <div class="predict-col">
+      <div class="predict-head"><span class="slot">Middle pick</span><span class="tag">1.06</span></div>
+      <ul class="predict-list">
+        <li><span class="rd">R1</span><span class="nm">Amon-Ra St. Brown</span><span class="pos-badge p-WR">WR</span></li>
+        <li><span class="rd">R2</span><span class="nm">James Cook</span><span class="pos-badge p-RB">RB</span></li>
+        <li><span class="rd">R3</span><span class="nm">George Pickens</span><span class="pos-badge p-WR">WR</span></li>
+        <li><span class="rd">R4</span><span class="nm">De'Von Achane</span><span class="pos-badge p-RB">RB</span></li>
+        <li><span class="rd">R5</span><span class="nm">Rashee Rice</span><span class="pos-badge p-WR">WR</span></li>
+        <li><span class="rd">R6</span><span class="nm">Cam Skattebo</span><span class="pos-badge p-RB">RB</span></li>
+        <li><span class="rd">R7</span><span class="nm">Luther Burden III</span><span class="pos-badge p-WR">WR</span></li>
+        <li><span class="rd">R8</span><span class="nm">Bo Nix</span><span class="pos-badge p-QB">QB</span></li>
+        <li><span class="rd">R9</span><span class="nm">Josh Downs</span><span class="pos-badge p-WR">WR</span></li>
+        <li><span class="rd">R10</span><span class="nm">Kenneth Gainwell</span><span class="pos-badge p-RB">RB</span></li>
+        <li><span class="rd">R11</span><span class="nm">Gunnar Helm</span><span class="pos-badge p-TE">TE</span></li>
+        <li><span class="rd">R12</span><span class="nm">Jadarian Price</span><span class="pos-badge p-RB">RB</span></li>
+        <li><span class="rd">R13</span><span class="nm">Chig Okonkwo</span><span class="pos-badge p-TE">TE</span></li>
+        <li><span class="rd">R14</span><span class="nm">Tyler Shough</span><span class="pos-badge p-QB">QB</span></li>
+        <li><span class="rd">R15</span><span class="nm">Defense</span><span class="pos-badge p-DST">DST</span></li>
+        <li><span class="rd">R16</span><span class="nm">Kicker</span><span class="pos-badge p-K">K</span></li>
+      </ul>
+    </div>
+
+    <div class="predict-col">
+      <div class="predict-head"><span class="slot">Last pick</span><span class="tag">1.12</span></div>
+      <ul class="predict-list">
+        <li><span class="rd">R1</span><span class="nm">Bijan Robinson</span><span class="pos-badge p-RB">RB</span></li>
+        <li><span class="rd">R2</span><span class="nm">CeeDee Lamb</span><span class="pos-badge p-WR">WR</span></li>
+        <li><span class="rd">R3</span><span class="nm">Jonathan Taylor</span><span class="pos-badge p-RB">RB</span></li>
+        <li><span class="rd">R4</span><span class="nm">Nico Collins</span><span class="pos-badge p-WR">WR</span></li>
+        <li><span class="rd">R5</span><span class="nm">Bucky Irving</span><span class="pos-badge p-RB">RB</span></li>
+        <li><span class="rd">R6</span><span class="nm">Malik Nabers</span><span class="pos-badge p-WR">WR</span></li>
+        <li><span class="rd">R7</span><span class="nm">TreVeyon Henderson</span><span class="pos-badge p-RB">RB</span></li>
+        <li><span class="rd">R8</span><span class="nm">Colston Loveland</span><span class="pos-badge p-TE">TE</span></li>
+        <li><span class="rd">R9</span><span class="nm">Josh Downs</span><span class="pos-badge p-WR">WR</span></li>
+        <li><span class="rd">R10</span><span class="nm">Bhayshul Tuten</span><span class="pos-badge p-RB">RB</span></li>
+        <li><span class="rd">R11</span><span class="nm">Bo Nix</span><span class="pos-badge p-QB">QB</span></li>
+        <li><span class="rd">R12</span><span class="nm">Ryan Flournoy</span><span class="pos-badge p-WR">WR</span></li>
+        <li><span class="rd">R13</span><span class="nm">Gunnar Helm</span><span class="pos-badge p-TE">TE</span></li>
+        <li><span class="rd">R14</span><span class="nm">Tyler Shough</span><span class="pos-badge p-QB">QB</span></li>
+        <li><span class="rd">R15</span><span class="nm">Defense</span><span class="pos-badge p-DST">DST</span></li>
+        <li><span class="rd">R16</span><span class="nm">Kicker</span><span class="pos-badge p-K">K</span></li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 </main>
