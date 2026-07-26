@@ -13,7 +13,10 @@
     "db:reset": "tsx scripts/db-reset.ts",
     "seed": "tsx scripts/seed.ts",
     "gen-seed": "tsx scripts/gen-seed.ts",
-    "refresh": "tsx scripts/refresh.ts"
+    "refresh": "tsx scripts/refresh.ts",
+    "export-snapshot": "tsx scripts/export-snapshot.ts",
+    "build-artifact": "tsx scripts/build-artifact.ts",
+    "artifact": "npm run export-snapshot && npm run build-artifact"
   },
   "dependencies": {
     "better-sqlite3": "^11.7.0",

@@ -1,0 +1,1274 @@
+<title>RAM Watch — component price &amp; stock board</title>
+
+<style>
+  /* ---------------------------------------------------------------------
+     Tokens. Neutrals carry a slight blue bias toward the accent so they
+     read as chosen rather than inherited. Series slots 1-6 are the
+     colour-vision-validated set from the app's globals.css — light and dark
+     are separately selected steps, not an inversion.
+     --------------------------------------------------------------------- */
+  :root {
+    color-scheme: light;
+
+    --ground: #f6f8fb;
+    --panel: #ffffff;
+    --sunken: #eaeef4;
+    --ink: #0c1017;
+    --ink-2: #4d5a6b;
+    --ink-3: #7b8798;
+    --rule: #dbe2ec;
+    --rule-soft: #e8edf4;
+
+    --accent: #2a78d6;
+    --accent-soft: rgba(42, 120, 214, 0.1);
+
+    --good: #0ca30c;
+    --warn: #d98b00;
+    --critical: #d03b3b;
+    --rise: #d03b3b;
+    --fall: #00701f;
+
+    --s1: #2a78d6;
+    --s2: #eb6834;
+    --s3: #1baf7a;
+    --s4: #eda100;
+    --s5: #e87ba4;
+    --s6: #008300;
+
+    --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+
+      --ground: #0d1117;
+      --panel: #151a21;
+      --sunken: #1c222b;
+      --ink: #e9eef4;
+      --ink-2: #9aa5b4;
+      --ink-3: #737f8f;
+      --rule: #262d38;
+      --rule-soft: #1e242d;
+
+      --accent: #3987e5;
+      --accent-soft: rgba(57, 135, 229, 0.16);
+
+      --good: #29b029;
+      --warn: #fab219;
+      --critical: #e05a5a;
+      --rise: #e66767;
+      --fall: #29b029;
+
+      --s1: #3987e5;
+      --s2: #d95926;
+      --s3: #199e70;
+      --s4: #c98500;
+      --s5: #d55181;
+      --s6: #17a217;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+
+    --ground: #0d1117;
+    --panel: #151a21;
+    --sunken: #1c222b;
+    --ink: #e9eef4;
+    --ink-2: #9aa5b4;
+    --ink-3: #737f8f;
+    --rule: #262d38;
+    --rule-soft: #1e242d;
+
+    --accent: #3987e5;
+    --accent-soft: rgba(57, 135, 229, 0.16);
+
+    --good: #29b029;
+    --warn: #fab219;
+    --critical: #e05a5a;
+    --rise: #e66767;
+    --fall: #29b029;
+
+    --s1: #3987e5;
+    --s2: #d95926;
+    --s3: #199e70;
+    --s4: #c98500;
+    --s5: #d55181;
+    --s6: #17a217;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0 20px 72px;
+  }
+
+  /* Figures ---------------------------------------------------------- */
+  .num {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  /* Banner ----------------------------------------------------------- */
+  .banner {
+    background: color-mix(in srgb, var(--warn) 16%, var(--ground));
+    border-bottom: 1px solid color-mix(in srgb, var(--warn) 38%, transparent);
+    padding: 9px 20px;
+    font-size: 13.5px;
+    text-align: center;
+    color: var(--ink);
+  }
+  .banner b { font-weight: 650; }
+
+  /* Masthead --------------------------------------------------------- */
+  .masthead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 26px 0 18px;
+  }
+  .wordmark {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+  .wordmark span { color: var(--ink-3); font-weight: 500; }
+  .tagline {
+    margin: 4px 0 0;
+    color: var(--ink-2);
+    font-size: 14px;
+    max-width: 62ch;
+    text-wrap: balance;
+  }
+  .stamp {
+    font-size: 12px;
+    color: var(--ink-3);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  /* Index strip ------------------------------------------------------ */
+  .board {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 260px;
+  }
+  @media (max-width: 820px) {
+    .board { grid-template-columns: minmax(0, 1fr); }
+  }
+  .board-chart { padding: 16px 18px 10px; min-width: 0; }
+  .board-rail {
+    border-left: 1px solid var(--rule);
+    display: grid;
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+  }
+  @media (max-width: 820px) {
+    .board-rail {
+      border-left: 0;
+      border-top: 1px solid var(--rule);
+      grid-template-rows: none;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .tile {
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--rule-soft);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .tile:last-child { border-bottom: 0; }
+  @media (max-width: 820px) {
+    .tile { border-bottom: 0; border-right: 1px solid var(--rule-soft); }
+    .tile:last-child { border-right: 0; }
+  }
+  .tile-label {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .tile-value {
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1.15;
+    margin-top: 3px;
+  }
+  .tile-note { font-size: 12px; color: var(--ink-2); margin-top: 1px; }
+
+  .chart-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .chart-title { font-size: 13.5px; font-weight: 650; margin: 0; }
+  .chart-title em { font-style: normal; font-weight: 400; color: var(--ink-3); }
+  .src { font-size: 11.5px; color: var(--ink-3); }
+
+  /* Controls --------------------------------------------------------- */
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 14px;
+    padding: 22px 0 12px;
+  }
+  .tabs { display: flex; flex-wrap: wrap; gap: 4px; }
+  .tab {
+    font: inherit;
+    font-size: 13px;
+    padding: 5px 11px;
+    border: 1px solid var(--rule);
+    background: var(--panel);
+    color: var(--ink-2);
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .tab:hover { color: var(--ink); }
+  .tab[aria-pressed="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    font-weight: 550;
+  }
+  .spacer { flex: 1 1 auto; }
+  .field {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--ink-2);
+  }
+  .field input[type="search"],
+  .field select {
+    font: inherit;
+    font-size: 13px;
+    padding: 5px 8px;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--panel);
+    color: var(--ink);
+  }
+  .field input[type="search"] { width: 170px; }
+
+  /* Layout ----------------------------------------------------------- */
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+  }
+  @media (max-width: 1000px) {
+    .split { grid-template-columns: minmax(0, 1fr); }
+  }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .panel-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .panel-title {
+    font-size: 11px;
+    font-weight: 650;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0;
+  }
+  .count { font-size: 12px; color: var(--ink-3); }
+
+  /* Instrument list -------------------------------------------------- */
+  .list { list-style: none; margin: 0; padding: 0; max-height: 74vh; overflow-y: auto; }
+  @media (max-width: 1000px) { .list { max-height: none; } }
+
+  .row {
+    display: grid;
+    grid-template-columns: 3px minmax(0, 1fr) 76px 62px 92px;
+    align-items: center;
+    gap: 0 12px;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid var(--rule-soft);
+    background: none;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  .row:hover { background: var(--sunken); }
+  .row[aria-current="true"] { background: var(--accent-soft); }
+  @media (max-width: 560px) {
+    .row { grid-template-columns: 3px minmax(0, 1fr) 92px; }
+    .row .cell-spark, .row .cell-gb { display: none; }
+  }
+
+  /* Severity stripe: scarcity encoded in form, not only in the pill. */
+  .stripe { align-self: stretch; background: var(--good); }
+  .stripe[data-sev="none"] { background: var(--critical); }
+  .stripe[data-sev="low"] { background: var(--warn); }
+
+  .cell-main { padding: 9px 0; min-width: 0; }
+  .row-name {
+    font-size: 13.5px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .row-meta {
+    font-size: 11.5px;
+    color: var(--ink-3);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .cell-spark { padding: 9px 0; }
+  .cell-gb, .cell-price { padding: 9px 0; text-align: right; }
+  .cell-price { padding-right: 14px; }
+  .row-price { font-size: 14px; font-weight: 600; }
+  .row-sub { font-size: 11px; color: var(--ink-3); margin-top: 1px; }
+
+  .delta { font-size: 12px; font-weight: 550; white-space: nowrap; }
+  .delta[data-dir="up"] { color: var(--rise); }
+  .delta[data-dir="down"] { color: var(--fall); }
+  .delta[data-dir="flat"] { color: var(--ink-3); }
+
+  /* Stock pills: colour + glyph + word, never colour alone. */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 550;
+    padding: 1px 7px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .pill[data-k="in_stock"] { color: var(--good); background: color-mix(in srgb, var(--good) 14%, transparent); }
+  .pill[data-k="limited"] { color: var(--warn); background: color-mix(in srgb, var(--warn) 18%, transparent); }
+  .pill[data-k="preorder"], .pill[data-k="backorder"] { color: var(--warn); background: color-mix(in srgb, var(--warn) 14%, transparent); }
+  .pill[data-k="out_of_stock"] { color: var(--critical); background: color-mix(in srgb, var(--critical) 13%, transparent); }
+  .pill[data-k="unknown"] { color: var(--ink-3); background: var(--sunken); }
+
+  /* Detail ----------------------------------------------------------- */
+  .detail { position: sticky; top: 14px; }
+  @media (max-width: 1000px) { .detail { position: static; } }
+
+  .detail-body { padding: 14px; }
+  .detail-name {
+    font-size: 16px;
+    font-weight: 650;
+    letter-spacing: -0.015em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .detail-meta { font-size: 12px; color: var(--ink-3); margin-top: 3px; }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--rule-soft);
+    border: 1px solid var(--rule-soft);
+    border-radius: 3px;
+    margin: 14px 0;
+  }
+  @media (max-width: 520px) { .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .stat { background: var(--panel); padding: 8px 10px; }
+  .stat-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .stat-value { font-size: 16px; font-weight: 600; margin-top: 2px; }
+  .stat-note { font-size: 11px; color: var(--ink-3); }
+
+  .sub-title {
+    font-size: 11px;
+    font-weight: 650;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 18px 0 7px;
+  }
+
+  .scroll-x { overflow-x: auto; }
+
+  table.offers { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 430px; }
+  table.offers caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  table.offers th, table.offers td { padding: 7px 8px; border-bottom: 1px solid var(--rule-soft); }
+  table.offers thead th {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    text-align: right;
+    white-space: nowrap;
+  }
+  table.offers thead th:first-child { text-align: left; }
+  table.offers tbody th { text-align: left; font-weight: 500; }
+  table.offers td { text-align: right; }
+  table.offers td.left { text-align: left; }
+  table.offers tr[data-best="1"] { background: color-mix(in srgb, var(--good) 8%, transparent); }
+  .dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex: 0 0 auto;
+  }
+  .store-cell { display: flex; align-items: center; gap: 7px; }
+  .tag {
+    font-size: 9.5px;
+    font-weight: 650;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 1px 5px;
+    border-radius: 2px;
+    color: var(--ink-3);
+    background: var(--sunken);
+  }
+  .tag[data-t="best"] { color: var(--good); background: color-mix(in srgb, var(--good) 16%, transparent); }
+  .cond { font-size: 11px; color: var(--ink-3); }
+  .go {
+    font: inherit;
+    font-size: 11.5px;
+    text-decoration: none;
+    color: var(--ink-2);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 2px 7px;
+    white-space: nowrap;
+  }
+  .go:hover { color: var(--ink); border-color: var(--ink-3); }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+    font-size: 11.5px;
+    color: var(--ink-2);
+  }
+  .legend li { display: flex; align-items: center; gap: 6px; }
+
+  dl.specs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px 14px;
+    margin: 0;
+    font-size: 12.5px;
+  }
+  @media (max-width: 520px) { dl.specs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  dl.specs dt { font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-3); }
+  dl.specs dd { margin: 1px 0 0; }
+
+  .empty { padding: 40px 16px; text-align: center; color: var(--ink-2); font-size: 13.5px; }
+
+  .foot {
+    margin-top: 26px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    color: var(--ink-3);
+    display: grid;
+    gap: 5px;
+  }
+  .foot a { color: var(--ink-2); }
+
+  svg { display: block; }
+  svg text { font-family: var(--sans); }
+  .tick { font-size: 10.5px; fill: var(--ink-3); }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+
+<div class="banner">
+  <b>Sample data.</b> Prices and stock below are generated demo readings, not live
+  retailer data — the catalogue is real, the numbers are a modelled shortage curve.
+</div>
+
+<div class="wrap">
+  <header class="masthead">
+    <div>
+      <h1 class="wordmark">RAM<span>Watch</span></h1>
+      <p class="tagline">
+        Memory is being traded like a commodity. This board tracks what every US
+        retailer charges for a part, whether they actually have it, and how both
+        have moved — with the DRAM spot market behind it.
+      </p>
+    </div>
+    <div class="stamp" id="stamp"></div>
+  </header>
+
+  <section class="board" aria-label="Market overview">
+    <div class="board-chart">
+      <div class="chart-head">
+        <h2 class="chart-title" id="index-title"></h2>
+        <span class="src" id="index-src"></span>
+      </div>
+      <div id="index-chart"></div>
+    </div>
+    <div class="board-rail" id="rail"></div>
+  </section>
+
+  <div class="controls">
+    <div class="tabs" id="tabs" role="group" aria-label="Category"></div>
+    <span class="spacer"></span>
+    <label class="field">
+      <span>Find</span>
+      <input type="search" id="q" placeholder="brand, model, MPN" autocomplete="off" />
+    </label>
+    <label class="field">
+      <input type="checkbox" id="instock" />
+      <span>In stock only</span>
+    </label>
+    <label class="field">
+      <span>Sort</span>
+      <select id="sort">
+        <option value="price">Lowest price</option>
+        <option value="per_gb">Lowest $/GB</option>
+        <option value="rise">Biggest rise</option>
+        <option value="drop">Biggest fall</option>
+        <option value="stock">Most in stock</option>
+        <option value="name">Name</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="split">
+    <section class="panel" aria-label="Products">
+      <div class="panel-head">
+        <h2 class="panel-title">Instruments</h2>
+        <span class="count" id="count"></span>
+      </div>
+      <ul class="list" id="list"></ul>
+    </section>
+
+    <section class="panel detail" aria-label="Comparison" aria-live="polite">
+      <div class="panel-head">
+        <h2 class="panel-title">Store comparison</h2>
+        <span class="count" id="detail-hint"></span>
+      </div>
+      <div class="detail-body" id="detail"></div>
+    </section>
+  </div>
+
+  <footer class="foot">
+    <div id="foot-stats"></div>
+    <div>
+      Prices and availability go stale immediately. Always confirm on the
+      retailer's own page before buying.
+    </div>
+    <div>
+      Snapshot of a Next.js + SQLite app —
+      <a href="https://github.com/sbantog720/EVO-Game/tree/claude/tech-pricing-stock-comparison-j8j5sa">source on GitHub</a>.
+      Filtering and sorting work here; live refresh needs the running app.
+    </div>
+  </footer>
+</div>
+
+<script id="snapshot" type="application/json">__SNAPSHOT__</script>
+
+<script>
+(function () {
+  'use strict';
+
+  const DATA = JSON.parse(document.getElementById('snapshot').textContent);
+  const CODES = DATA.statusCodes;
+  const DAY = 86400000;
+
+  const CATEGORY_LABELS = {
+    ram: 'Memory', gpu: 'Graphics', cpu: 'Processors',
+    ssd: 'Storage', motherboard: 'Boards', psu: 'Power'
+  };
+  const STOCK_LABELS = {
+    in_stock: 'In stock', limited: 'Low stock', preorder: 'Pre-order',
+    backorder: 'Backorder', out_of_stock: 'Out of stock', unknown: 'Unknown'
+  };
+  const STOCK_GLYPHS = {
+    in_stock: '●', limited: '◐', preorder: '◔',
+    backorder: '◔', out_of_stock: '○', unknown: '?'
+  };
+  const PER_GB = { ram: 1, ssd: 1 };
+  const SPEC_LABELS = {
+    ddr_gen: 'Generation', capacity_gb: 'Module', kit_count: 'Modules',
+    speed_mts: 'Speed', cas: 'Latency', form_factor: 'Form factor',
+    chipset: 'Chipset', vram_gb: 'VRAM', cores: 'Cores', socket: 'Socket',
+    interface: 'Interface', wattage: 'Wattage', efficiency: 'Efficiency'
+  };
+
+  const STORES = {};
+  DATA.stores.forEach(function (s) { STORES[s.s] = s; });
+
+  // --- formatting ---------------------------------------------------------
+
+  function money(cents) {
+    if (cents == null) return '—';
+    return '$' + (cents / 100).toLocaleString('en-US', {
+      minimumFractionDigits: 2, maximumFractionDigits: 2
+    });
+  }
+  function perGb(cents) {
+    if (cents == null) return '—';
+    const d = cents / 100;
+    return '$' + d.toFixed(d < 1 ? 3 : 2);
+  }
+  function pct(v) {
+    if (v == null) return '—';
+    return (v > 0 ? '+' : '') + v.toFixed(1) + '%';
+  }
+  function dayToMs(day) { return DATA.originMs + day * DAY; }
+  function shortDate(ms) {
+    return new Date(ms).toLocaleDateString('en-US', {
+      month: 'short', day: 'numeric', timeZone: 'UTC'
+    });
+  }
+  function specLine(p) {
+    const bits = [];
+    if (p.sp.ddr_gen) bits.push(p.sp.ddr_gen);
+    if (p.sp.speed_mts) bits.push(p.sp.speed_mts + ' MT/s');
+    if (p.sp.cas) bits.push('CL' + p.sp.cas);
+    if (p.sp.chipset) bits.push(p.sp.chipset);
+    if (p.sp.vram_gb) bits.push(p.sp.vram_gb + 'GB VRAM');
+    if (p.sp.interface) bits.push(p.sp.interface);
+    if (p.sp.socket) bits.push(p.sp.socket);
+    if (p.sp.wattage) bits.push(p.sp.wattage + 'W');
+    return bits.join(' · ');
+  }
+  function specValue(key, value) {
+    if (key === 'capacity_gb') return value >= 1000 ? (value / 1000) + 'TB' : value + 'GB';
+    if (key === 'speed_mts') return value + ' MT/s';
+    if (key === 'cas') return 'CL' + value;
+    if (key === 'vram_gb') return value + 'GB';
+    if (key === 'wattage') return value + 'W';
+    return String(value);
+  }
+  function el(tag, cls, text) {
+    const node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text != null) node.textContent = text;
+    return node;
+  }
+  function seriesColor(slot) {
+    return 'var(--s' + ((((slot - 1) % 6) + 6) % 6 + 1) + ')';
+  }
+
+  // --- charts ------------------------------------------------------------
+
+  const NS = 'http://www.w3.org/2000/svg';
+  function svgEl(tag, attrs) {
+    const node = document.createElementNS(NS, tag);
+    for (const key in attrs) node.setAttribute(key, attrs[key]);
+    return node;
+  }
+
+  function niceTicks(min, max, count) {
+    if (!isFinite(min) || !isFinite(max) || min === max) return [min];
+    const raw = (max - min) / count;
+    const mag = Math.pow(10, Math.floor(Math.log10(raw)));
+    let step = mag * 10;
+    [1, 2, 2.5, 5, 10].some(function (m) {
+      if (m * mag >= raw) { step = m * mag; return true; }
+      return false;
+    });
+    const out = [];
+    for (let v = Math.ceil(min / step) * step; v <= max; v += step) out.push(v);
+    return out;
+  }
+
+  /**
+   * One line-chart renderer for both the index and the per-store history.
+   * Prices hold until a retailer changes them, so `step` is the honest shape;
+   * a null value is a gap, never an interpolated price.
+   */
+  function drawLines(host, series, opts) {
+    host.textContent = '';
+    const width = Math.max(260, host.clientWidth || 520);
+    const height = opts.height;
+    const pad = { t: 10, r: 12, b: 22, l: 46 };
+    const pw = width - pad.l - pad.r;
+    const ph = height - pad.t - pad.b;
+
+    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    series.forEach(function (s) {
+      s.points.forEach(function (p) {
+        if (p[0] < minX) minX = p[0];
+        if (p[0] > maxX) maxX = p[0];
+        if (p[1] == null) return;
+        if (p[1] < minY) minY = p[1];
+        if (p[1] > maxY) maxY = p[1];
+      });
+    });
+    if (!isFinite(minY)) {
+      host.appendChild(el('div', 'empty', 'No price history recorded.'));
+      return;
+    }
+    if (maxX === minX) maxX = minX + 1;
+    // Not zero-based: these are prices in a narrow band, and a zero baseline
+    // would flatten every movement worth seeing.
+    const spanY = (maxY - minY) || Math.max(maxY * 0.1, 1);
+    const lo = Math.max(0, minY - spanY * 0.12);
+    const hi = maxY + spanY * 0.12;
+
+    const sx = function (x) { return pad.l + ((x - minX) / (maxX - minX)) * pw; };
+    const sy = function (y) { return pad.t + (1 - (y - lo) / (hi - lo)) * ph; };
+
+    const svg = svgEl('svg', {
+      width: width, height: height, role: 'img', 'aria-label': opts.ariaLabel
+    });
+
+    niceTicks(lo, hi, 4).forEach(function (t) {
+      svg.appendChild(svgEl('line', {
+        x1: pad.l, x2: pad.l + pw, y1: sy(t), y2: sy(t),
+        stroke: 'var(--rule-soft)', 'stroke-width': 1
+      }));
+      const label = svgEl('text', {
+        x: pad.l - 7, y: sy(t) + 3.5, 'text-anchor': 'end', class: 'tick'
+      });
+      label.textContent = opts.fmtAxis(t);
+      svg.appendChild(label);
+    });
+
+    svg.appendChild(svgEl('line', {
+      x1: pad.l, x2: pad.l + pw, y1: pad.t + ph, y2: pad.t + ph,
+      stroke: 'var(--rule)', 'stroke-width': 1
+    }));
+
+    [minX, maxX].forEach(function (t, i) {
+      const label = svgEl('text', {
+        x: sx(t), y: height - 6,
+        'text-anchor': i === 0 ? 'start' : 'end', class: 'tick'
+      });
+      label.textContent = shortDate(opts.toMs(t));
+      svg.appendChild(label);
+    });
+
+    series.forEach(function (s) {
+      let d = '';
+      let prev = null;
+      s.points.forEach(function (p) {
+        if (p[1] == null) { prev = null; return; }
+        const x = sx(p[0]).toFixed(1);
+        const y = sy(p[1]).toFixed(1);
+        if (prev === null) {
+          d += ' M ' + x + ' ' + y;
+        } else if (opts.step) {
+          d += ' L ' + x + ' ' + sy(prev).toFixed(1) + ' L ' + x + ' ' + y;
+        } else {
+          d += ' L ' + x + ' ' + y;
+        }
+        prev = p[1];
+      });
+      if (!d) return;
+
+      if (opts.fill && series.length === 1) {
+        const last = s.points.filter(function (p) { return p[1] != null; });
+        const area = d + ' L ' + sx(last[last.length - 1][0]).toFixed(1) + ' ' +
+          (pad.t + ph) + ' L ' + sx(last[0][0]).toFixed(1) + ' ' + (pad.t + ph) + ' Z';
+        svg.appendChild(svgEl('path', {
+          d: area, fill: seriesColor(s.slot), opacity: 0.1, stroke: 'none'
+        }));
+      }
+
+      svg.appendChild(svgEl('path', {
+        d: d.trim(), fill: 'none', stroke: seriesColor(s.slot),
+        'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round'
+      }));
+
+      // Emphasised endpoint — where the series stands now.
+      const shown = s.points.filter(function (p) { return p[1] != null; });
+      if (shown.length) {
+        const end = shown[shown.length - 1];
+        svg.appendChild(svgEl('circle', {
+          cx: sx(end[0]), cy: sy(end[1]), r: 3.5,
+          fill: seriesColor(s.slot), stroke: 'var(--panel)', 'stroke-width': 2
+        }));
+      }
+    });
+
+    host.appendChild(svg);
+  }
+
+  function sparkline(points, dir) {
+    const values = points.filter(function (p) { return p[1] != null; });
+    if (values.length < 2) return el('span', 'row-sub', '—');
+    const w = 68, h = 20;
+    let min = Infinity, max = -Infinity;
+    values.forEach(function (p) {
+      if (p[1] < min) min = p[1];
+      if (p[1] > max) max = p[1];
+    });
+    const span = (max - min) || 1;
+    const step = w / (values.length - 1);
+    let d = '';
+    values.forEach(function (p, i) {
+      const x = (i * step).toFixed(1);
+      const y = (h - 2 - ((p[1] - min) / span) * (h - 4)).toFixed(1);
+      d += (i === 0 ? 'M ' : 'L ') + x + ' ' + y + ' ';
+    });
+    const svg = svgEl('svg', { width: w, height: h, 'aria-hidden': 'true' });
+    svg.appendChild(svgEl('path', {
+      d: d.trim(), fill: 'none',
+      stroke: dir === 'up' ? 'var(--rise)' : dir === 'down' ? 'var(--fall)' : 'var(--ink-3)',
+      'stroke-width': 1.5, 'stroke-linecap': 'round', 'stroke-linejoin': 'round'
+    }));
+    return svg;
+  }
+
+  // --- overview ----------------------------------------------------------
+
+  const marketSeries = [{
+    slot: 1,
+    points: DATA.market.map(function (row) {
+      return [Date.parse(row[0] + 'T00:00:00Z'), row[1]];
+    })
+  }];
+
+  function renderOverview() {
+    document.getElementById('index-title').innerHTML =
+      DATA.marketLabel + ' <em>— the wholesale market behind every price below</em>';
+    document.getElementById('index-src').textContent =
+      DATA.market.length + ' readings · 180 days';
+
+    drawLines(document.getElementById('index-chart'), marketSeries, {
+      height: 176, step: false, fill: true,
+      ariaLabel: 'DRAM spot price index over 180 days',
+      toMs: function (x) { return x; },
+      fmtAxis: function (v) { return '$' + v.toFixed(0); }
+    });
+
+    const first = DATA.market[0][1];
+    const last = DATA.market[DATA.market.length - 1][1];
+    const change = ((last - first) / first) * 100;
+
+    const ram = DATA.products.filter(function (p) {
+      return p.c === 'ram' && p.sp.ddr_gen === 'DDR5' && p.pgb != null && p.inStock > 0;
+    }).sort(function (a, b) { return a.pgb - b.pgb; })[0];
+
+    const oos = DATA.stats.offerCount - DATA.stats.inStockOffers;
+    const oosShare = DATA.stats.offerCount ? (oos / DATA.stats.offerCount) * 100 : 0;
+
+    const tiles = [
+      ['DDR5 spot', '$' + last.toFixed(2), pct(change) + ' over 180 days', null],
+      ['Cheapest DDR5', ram ? perGb(ram.pgb) + '/GB' : '—',
+        ram ? ram.b + ' ' + ram.m : 'nothing in stock', null],
+      ['Unbuyable', oosShare.toFixed(0) + '%',
+        oos + ' of ' + DATA.stats.offerCount + ' offers out of stock',
+        oosShare > 40 ? 'var(--critical)' : null]
+    ];
+
+    const rail = document.getElementById('rail');
+    tiles.forEach(function (t) {
+      const tile = el('div', 'tile');
+      tile.appendChild(el('div', 'tile-label', t[0]));
+      const value = el('div', 'tile-value num', t[1]);
+      if (t[3]) value.style.color = t[3];
+      tile.appendChild(value);
+      tile.appendChild(el('div', 'tile-note', t[2]));
+      rail.appendChild(tile);
+    });
+
+    document.getElementById('stamp').innerHTML =
+      DATA.stats.productCount + ' products · ' + DATA.stats.offerCount +
+      ' offers<br />' + DATA.stats.storeCount + ' retailers · 90-day history';
+
+    document.getElementById('foot-stats').textContent =
+      DATA.stats.productCount + ' products and ' + DATA.stats.offerCount +
+      ' offers across ' + DATA.stats.storeCount + ' retailers: ' +
+      DATA.stores.map(function (s) { return s.n; }).join(', ') + '.';
+  }
+
+  // --- list --------------------------------------------------------------
+
+  const state = { cat: 'all', q: '', inStock: false, sort: 'price', selected: null };
+
+  function visible() {
+    const needle = state.q.trim().toLowerCase();
+    let rows = DATA.products.filter(function (p) {
+      if (state.cat !== 'all' && p.c !== state.cat) return false;
+      if (state.inStock && p.inStock === 0) return false;
+      if (needle) {
+        const hay = (p.n + ' ' + p.b + ' ' + p.m + ' ' + (p.mpn || '')).toLowerCase();
+        if (hay.indexOf(needle) === -1) return false;
+      }
+      return true;
+    });
+
+    const last = function (v) { return v == null ? Infinity : v; };
+    const sorters = {
+      price: function (a, b) { return last(a.best) - last(b.best); },
+      per_gb: function (a, b) { return last(a.pgb) - last(b.pgb); },
+      rise: function (a, b) { return (b.d7 == null ? -Infinity : b.d7) - (a.d7 == null ? -Infinity : a.d7); },
+      drop: function (a, b) { return last(a.d7) - last(b.d7); },
+      stock: function (a, b) { return b.inStock - a.inStock || last(a.best) - last(b.best); },
+      name: function (a, b) { return a.n.localeCompare(b.n); }
+    };
+    return rows.sort(sorters[state.sort]);
+  }
+
+  function dirOf(v) {
+    if (v == null || Math.abs(v) < 0.05) return 'flat';
+    return v > 0 ? 'up' : 'down';
+  }
+
+  function stockPill(code, qty) {
+    const key = CODES[code];
+    const pill = el('span', 'pill');
+    pill.setAttribute('data-k', key);
+    const glyph = el('span', null, STOCK_GLYPHS[key]);
+    glyph.setAttribute('aria-hidden', 'true');
+    pill.appendChild(glyph);
+    pill.appendChild(document.createTextNode(
+      key === 'limited' && qty != null ? qty + ' left' : STOCK_LABELS[key]
+    ));
+    return pill;
+  }
+
+  function renderList() {
+    const rows = visible();
+    const list = document.getElementById('list');
+    list.textContent = '';
+    document.getElementById('count').textContent =
+      rows.length + (rows.length === 1 ? ' product' : ' products');
+
+    if (!rows.length) {
+      const li = document.createElement('li');
+      li.appendChild(el('div', 'empty',
+        'Nothing matches those filters. Clear the search or turn off "in stock only".'));
+      list.appendChild(li);
+      return;
+    }
+
+    rows.forEach(function (p) {
+      const li = document.createElement('li');
+      const btn = el('button', 'row');
+      btn.type = 'button';
+      btn.setAttribute('aria-current', state.selected === p.s ? 'true' : 'false');
+
+      const stripe = el('span', 'stripe');
+      stripe.setAttribute('aria-hidden', 'true');
+      stripe.setAttribute('data-sev', p.inStock === 0 ? 'none' : p.inStock <= 2 ? 'low' : 'ok');
+      btn.appendChild(stripe);
+
+      const main = el('div', 'cell-main');
+      main.appendChild(el('div', 'row-name', p.n));
+      const meta = specLine(p);
+      main.appendChild(el('div', 'row-meta',
+        (meta ? meta + ' · ' : '') + p.inStock + '/' + p.o.length + ' in stock'));
+      btn.appendChild(main);
+
+      const spark = el('div', 'cell-spark');
+      const store = p.bestStore || Object.keys(p.h)[0];
+      spark.appendChild(sparkline(p.h[store] || [], dirOf(p.d7)));
+      btn.appendChild(spark);
+
+      const gb = el('div', 'cell-gb');
+      if (PER_GB[p.c] && p.pgb != null) {
+        gb.appendChild(el('div', 'row-sub', 'per GB'));
+        gb.appendChild(el('div', 'delta num', perGb(p.pgb)));
+      } else {
+        const d = el('div', 'delta num', pct(p.d7));
+        d.setAttribute('data-dir', dirOf(p.d7));
+        gb.appendChild(el('div', 'row-sub', '7 days'));
+        gb.appendChild(d);
+      }
+      btn.appendChild(gb);
+
+      const price = el('div', 'cell-price');
+      price.appendChild(el('div', 'row-price num', money(p.best)));
+      if (PER_GB[p.c] && p.pgb != null) {
+        const d = el('div', 'delta num', pct(p.d7));
+        d.setAttribute('data-dir', dirOf(p.d7));
+        price.appendChild(d);
+      } else {
+        price.appendChild(el('div', 'row-sub',
+          p.bestStore ? STORES[p.bestStore].n : '—'));
+      }
+      btn.appendChild(price);
+
+      btn.addEventListener('click', function () { select(p.s); });
+      li.appendChild(btn);
+      list.appendChild(li);
+    });
+  }
+
+  // --- detail ------------------------------------------------------------
+
+  function renderDetail() {
+    const host = document.getElementById('detail');
+    const hint = document.getElementById('detail-hint');
+    host.textContent = '';
+
+    const p = DATA.products.filter(function (x) { return x.s === state.selected; })[0];
+    if (!p) {
+      hint.textContent = '';
+      host.appendChild(el('div', 'empty', 'Pick a product to compare every retailer side by side.'));
+      return;
+    }
+    hint.textContent = p.o.length + ' offers';
+
+    host.appendChild(el('h3', 'detail-name', p.n));
+    host.appendChild(el('div', 'detail-meta',
+      (p.mpn ? 'MPN ' + p.mpn + ' · ' : '') +
+      CATEGORY_LABELS[p.c] + ' · ' + p.inStock + ' of ' + p.o.length + ' in stock'));
+
+    const spread = (p.low != null && p.high != null) ? p.high - p.low : null;
+    const stats = [
+      ['Buy at', money(p.best),
+        p.bestStore ? STORES[p.bestStore].n + (p.inStock === 0 ? ' (out of stock)' : '') : ''],
+      ['7 days', pct(p.d7), 'vs a week ago'],
+      PER_GB[p.c] && p.pgb != null
+        ? ['Per GB', perGb(p.pgb), 'landed']
+        : ['Retailers', String(p.o.length), 'tracked'],
+      ['Spread', money(spread),
+        (p.low != null ? money(p.low) + ' – ' + money(p.high) : '')]
+    ];
+
+    const grid = el('div', 'stat-grid');
+    stats.forEach(function (s, i) {
+      const cell = el('div', 'stat');
+      cell.appendChild(el('div', 'stat-label', s[0]));
+      const value = el('div', 'stat-value num', s[1]);
+      if (i === 1) value.style.color =
+        dirOf(p.d7) === 'up' ? 'var(--rise)' : dirOf(p.d7) === 'down' ? 'var(--fall)' : '';
+      cell.appendChild(value);
+      cell.appendChild(el('div', 'stat-note', s[2]));
+      grid.appendChild(cell);
+    });
+    host.appendChild(grid);
+
+    // Chart --------------------------------------------------------------
+    host.appendChild(el('h4', 'sub-title', 'Price by retailer · 90 days'));
+    const chart = el('div');
+    host.appendChild(chart);
+
+    const series = Object.keys(p.h).map(function (slug) {
+      return {
+        slug: slug,
+        label: STORES[slug].n,
+        slot: STORES[slug].slot,
+        points: p.h[slug].map(function (row) { return [row[0], row[1] == null ? null : row[1] / 100]; })
+      };
+    }).sort(function (a, b) { return a.slot - b.slot; });
+
+    drawLines(chart, series, {
+      height: 190, step: true, fill: false,
+      ariaLabel: 'Price per retailer over 90 days for ' + p.n,
+      toMs: dayToMs,
+      fmtAxis: function (v) { return '$' + v.toFixed(0); }
+    });
+
+    // A legend is always present for two or more series, so identity never
+    // rests on colour alone; the table below is the non-visual fallback.
+    if (series.length > 1) {
+      const legend = el('ul', 'legend');
+      series.forEach(function (s) {
+        const li = document.createElement('li');
+        const dot = el('span', 'dot');
+        dot.style.background = seriesColor(s.slot);
+        dot.setAttribute('aria-hidden', 'true');
+        li.appendChild(dot);
+        li.appendChild(document.createTextNode(s.label));
+        legend.appendChild(li);
+      });
+      host.appendChild(legend);
+    }
+
+    // Table --------------------------------------------------------------
+    host.appendChild(el('h4', 'sub-title', 'Every offer, cheapest landed total first'));
+
+    const buyable = p.o.filter(function (o) {
+      return (CODES[o.k] === 'in_stock' || CODES[o.k] === 'limited') && o.tot != null;
+    })[0];
+
+    const box = el('div', 'scroll-x');
+    const table = el('table', 'offers');
+    table.appendChild(el('caption', null,
+      'Price and stock by retailer for ' + p.n + ', sorted by total landed cost'));
+
+    const thead = document.createElement('thead');
+    const hrow = document.createElement('tr');
+    ['Store', 'Price', 'Ship', 'Total', 'Stock', ''].forEach(function (label) {
+      const th = el('th', null, label);
+      th.scope = 'col';
+      hrow.appendChild(th);
+    });
+    thead.appendChild(hrow);
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+    p.o.forEach(function (o) {
+      const store = STORES[o.st];
+      const tr = document.createElement('tr');
+      if (buyable && o === buyable) tr.setAttribute('data-best', '1');
+
+      const th = document.createElement('th');
+      th.scope = 'row';
+      const cell = el('div', 'store-cell');
+      const dot = el('span', 'dot');
+      dot.style.background = seriesColor(store.slot);
+      dot.setAttribute('aria-hidden', 'true');
+      cell.appendChild(dot);
+      cell.appendChild(document.createTextNode(store.n));
+      if (buyable && o === buyable) {
+        const tag = el('span', 'tag', 'Best');
+        tag.setAttribute('data-t', 'best');
+        cell.appendChild(tag);
+      }
+      th.appendChild(cell);
+      const bits = [o.cond === 'new' ? 'New' : o.cond.replace('_', ' ')];
+      if (store.mkt) bits.push('marketplace');
+      if (o.lim) bits.push('limit ' + o.lim + '/order');
+      if (o.pick) bits.push('pickup');
+      th.appendChild(el('div', 'cond', bits.join(' · ')));
+      tr.appendChild(th);
+
+      tr.appendChild(el('td', 'num', money(o.p)));
+      tr.appendChild(el('td', 'num', o.p == null ? '—' : o.ship === 0 ? 'Free' : money(o.ship)));
+      const total = el('td', 'num', money(o.tot));
+      total.style.fontWeight = '600';
+      tr.appendChild(total);
+
+      const stock = el('td', 'left');
+      stock.appendChild(stockPill(o.k, o.q));
+      tr.appendChild(stock);
+
+      const go = el('td');
+      const link = el('a', 'go', 'View ↗');
+      link.href = o.u;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer nofollow';
+      go.appendChild(link);
+      tr.appendChild(go);
+
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    box.appendChild(table);
+    host.appendChild(box);
+
+    // Specs --------------------------------------------------------------
+    const keys = Object.keys(p.sp);
+    if (keys.length) {
+      host.appendChild(el('h4', 'sub-title', 'Specifications'));
+      const dl = el('dl', 'specs');
+      keys.forEach(function (key) {
+        dl.appendChild(el('dt', null, SPEC_LABELS[key] || key));
+        dl.appendChild(el('dd', 'num', specValue(key, p.sp[key])));
+      });
+      host.appendChild(dl);
+    }
+  }
+
+  function select(slug) {
+    state.selected = slug;
+    renderList();
+    renderDetail();
+  }
+
+  // --- wiring ------------------------------------------------------------
+
+  function renderTabs() {
+    const tabs = document.getElementById('tabs');
+    const cats = ['all'].concat(Object.keys(CATEGORY_LABELS).filter(function (c) {
+      return DATA.products.some(function (p) { return p.c === c; });
+    }));
+
+    cats.forEach(function (cat) {
+      const count = cat === 'all'
+        ? DATA.products.length
+        : DATA.products.filter(function (p) { return p.c === cat; }).length;
+      const btn = el('button', 'tab',
+        (cat === 'all' ? 'All' : CATEGORY_LABELS[cat]) + ' ' + count);
+      btn.type = 'button';
+      btn.setAttribute('aria-pressed', state.cat === cat ? 'true' : 'false');
+      btn.addEventListener('click', function () {
+        state.cat = cat;
+        [].forEach.call(tabs.children, function (child) {
+          child.setAttribute('aria-pressed', child === btn ? 'true' : 'false');
+        });
+        renderList();
+      });
+      tabs.appendChild(btn);
+    });
+  }
+
+  document.getElementById('q').addEventListener('input', function (event) {
+    state.q = event.target.value;
+    renderList();
+  });
+  document.getElementById('instock').addEventListener('change', function (event) {
+    state.inStock = event.target.checked;
+    renderList();
+  });
+  document.getElementById('sort').addEventListener('change', function (event) {
+    state.sort = event.target.value;
+    renderList();
+  });
+
+  let resizeTimer = null;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      document.getElementById('rail').textContent = '';
+      renderOverview();
+      renderDetail();
+    }, 150);
+  });
+
+  renderOverview();
+  renderTabs();
+  renderList();
+
+  // Open on the sharpest riser — the most interesting thing on the board.
+  const opener = DATA.products.filter(function (p) {
+    return p.c === 'ram' && p.d7 != null;
+  }).sort(function (a, b) { return b.d7 - a.d7; })[0];
+  select(opener ? opener.s : DATA.products[0].s);
+})();
+</script>

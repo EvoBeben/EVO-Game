@@ -141,6 +141,18 @@ history curves are synthetic shapes derived from the 2026 shortage, not observed
 readings. Regenerate with `npm run gen-seed` — it's deterministic, so the file
 diffs cleanly.
 
+## Standalone single-file board
+
+`npm run artifact` exports the current database and inlines it into
+`artifact/board.html` — one self-contained file, no server, no external
+requests, no network. Category filtering, search, sorting and the full store
+comparison all work client-side; live refresh does not, since that needs the
+running app.
+
+Useful for sharing a view of the board with someone who can't run the project.
+`artifact/template.html` is the source; `snapshot.json` and `board.html` are
+generated and gitignored.
+
 ## Development
 
 ```bash
@@ -148,6 +160,7 @@ npm test          # unit tests — parsers, matcher, derived metrics, ingest
 npm run typecheck
 npm run build
 npm run refresh -- --only=bestbuy   # run a single adapter
+npm run artifact                    # rebuild the standalone board
 ```
 
 Adapter parsers are tested against checked-in response fixtures in
