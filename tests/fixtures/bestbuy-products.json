@@ -1,0 +1,55 @@
+{
+  "from": 1,
+  "to": 4,
+  "total": 4,
+  "products": [
+    {
+      "sku": 6577819,
+      "name": "CORSAIR - VENGEANCE RGB 64GB (2x32GB) DDR5 6000MHz C30 Desktop Memory - Black",
+      "manufacturer": "CORSAIR",
+      "modelNumber": "CMH64GX5M2B6000C30",
+      "upc": "840006670001",
+      "regularPrice": 289.99,
+      "salePrice": 259.99,
+      "onSale": true,
+      "onlineAvailability": true,
+      "inStoreAvailability": true,
+      "orderable": "Available",
+      "url": "https://www.bestbuy.com/site/corsair-vengeance-rgb-64gb/6577819.p",
+      "image": "https://pisces.bbystatic.com/image.jpg"
+    },
+    {
+      "sku": 6577820,
+      "name": "G.SKILL - Trident Z5 RGB 96GB (2x48GB) DDR5 6400 Desktop Memory",
+      "manufacturer": "G.SKILL",
+      "modelNumber": "F5-6400J3239F48GX2-TZ5RK",
+      "regularPrice": 549.99,
+      "salePrice": 549.99,
+      "onSale": false,
+      "onlineAvailability": false,
+      "inStoreAvailability": false,
+      "orderable": "SoldOut",
+      "url": "https://www.bestbuy.com/site/gskill-trident-z5/6577820.p"
+    },
+    {
+      "sku": 6577821,
+      "name": "Kingston - FURY Beast 32GB DDR5 6000 Desktop Memory",
+      "manufacturer": "Kingston",
+      "modelNumber": "KF560C30BBK2-32",
+      "regularPrice": 199.99,
+      "onlineAvailability": true,
+      "inStoreAvailability": false,
+      "orderable": "PreOrder",
+      "url": "https://www.bestbuy.com/site/kingston-fury-beast/6577821.p"
+    },
+    {
+      "sku": 6577822,
+      "name": "Crucial - Pro 32GB DDR5 5600 Desktop Memory",
+      "manufacturer": "Crucial",
+      "modelNumber": "CP2K16G56C46U5",
+      "onlineAvailability": true,
+      "orderable": "Available",
+      "url": "https://www.bestbuy.com/site/crucial-pro/6577822.p"
+    }
+  ]
+}

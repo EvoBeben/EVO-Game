@@ -1,0 +1,41 @@
+name: Refresh prices
+
+# Pulls fresh prices and stock from every configured adapter on the deployed
+# instance. Nothing is committed — the deployment owns its own database.
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    # Without these secrets there is nothing to call, so skip rather than fail.
+    if: vars.REFRESH_URL != '' || github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Trigger ingest
+        env:
+          REFRESH_URL: ${{ vars.REFRESH_URL }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+        run: |
+          if [ -z "$REFRESH_URL" ] || [ -z "$REFRESH_TOKEN" ]; then
+            echo "REFRESH_URL variable or REFRESH_TOKEN secret not set; nothing to do."
+            exit 0
+          fi
+
+          status=$(curl -sS -o response.json -w '%{http_code}' \
+            -X POST "$REFRESH_URL" \
+            -H "authorization: Bearer $REFRESH_TOKEN" \
+            -H 'content-type: application/json' \
+            -d '{"skipFixtures": true}' \
+            --max-time 300)
+
+          echo "HTTP $status"
+          cat response.json
+
+          # A single blocked retailer must not fail the schedule; only a total
+          # failure (502) or an auth/config problem is worth going red for.
+          if [ "$status" != "200" ]; then
+            echo "::error::Refresh returned HTTP $status"
+            exit 1
+          fi

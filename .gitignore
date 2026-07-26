@@ -1,0 +1,19 @@
+node_modules/
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# Local database — regenerate with `npm run db:reset && npm run seed`
+data/*.db
+data/*.db-journal
+data/*.db-wal
+data/*.db-shm
+
+# Adapter response cache
+.cache/
+
+.env
+.env.local
+.DS_Store
