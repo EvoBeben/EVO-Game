@@ -1,0 +1,55 @@
+{
+  "abbr": "PIT", "city": "Pittsburgh", "name": "Steelers",
+  "primary": "#101820", "secondary": "#FFB612",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; Mike Tomlin is gone, Mike McCarthy is in, and Aaron Rodgers has announced this will be the last season of his career.",
+  "strip": [
+    {"n": "Mike McCarthy", "k": "New Head Coach"},
+    {"n": "22nd", "k": "Rodgers' Final Season"},
+    {"n": "42", "k": "Rodgers' Age"},
+    {"n": "T.J. Watt", "k": "Contract Standoff"},
+    {"n": "5.8", "k": "Rodgers' Air Yards/Att (2025)"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>The end of the Tomlin era.</b> Pittsburgh is in the middle of one of the most significant transitions in franchise history: <b>Mike McCarthy</b> officially takes over following Mike Tomlin's departure.",
+      "<b>McCarthy and Rodgers, reunited.</b> The two last worked together in Green Bay in 2017. McCarthy has told reporters Rodgers still has <b>\"otherworldly arm strength\"</b> &mdash; while the numbers show a career-low <b>5.8 air yards per attempt</b> in 2025.",
+      "<b>Nothing was left alone.</b> Pittsburgh touched virtually every position group this offseason after another one-and-done postseason &mdash; bold trades, targeted free agency, and a clear draft priority.",
+      "<b>The defense is the storyline</b> that the sweeping changes were built around."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Signed</span><b>Jamel Dean, CB</b> &mdash; three years, $36.75M from Tampa Bay. He allowed a league-best <b>4.7 yards per target</b> among outside corners in 2025.",
+      "<span class=\"tag\">Signed</span>S <b>Jaquan Brisker</b> (1 yr / $5.5M, from Chicago, all 17 starts last season), S <b>Darnell Savage</b>, and DT <b>Sebastian Joseph-Day</b> &mdash; a defensive back seven rebuilt in one wave.",
+      "<b>Offensive weapons in place:</b> WRs <b>DK Metcalf</b> and <b>Michael Pittman Jr.</b>, with a bruising backfield of <b>Jaylen Warren</b> and <b>Rico Dowdle</b> &mdash; the supporting cast assembled for Rodgers' last ride.",
+      "<span class=\"tag\">Draft</span>QB <b>Drew Allar</b> in the third round (four-year rookie deal signed) and QB <b>Will Howard</b> in the sixth &mdash; the succession plan starts now.",
+      "<span class=\"tag watch\">Roster</span><b>Mason Rudolph</b> remains on the roster, though how much longer is a fair question with two drafted quarterbacks in the room."
+    ]},
+    {"title": "Rumor Mill", "type": "ul", "items": [
+      "<span class=\"tag watch\">Speculation</span>National voices have floated a <b>T.J. Watt trade</b> as part of a broader Steelers reset. There is no reported trade &mdash; but the contract friction underneath the chatter is real."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<span class=\"tag hot\">Contract</span><b>T.J. Watt, EDGE.</b> Negotiations have not produced a new deal, and tension has grown into camp. Watt and <b>Cam Heyward</b> both missed practices or worked on their own this offseason while seeking more money.",
+      "<b>How Watt is used.</b> Pittsburgh may move him around more in 2026 to manufacture one-on-one matchups and reduce how often he's chipped.",
+      "<b>Aaron Rodgers, QB.</b> Season 22, and he has said it is his last. At 42 he is a different player than the one McCarthy coached &mdash; the offense will be built to hide that.",
+      "<b>DK Metcalf &amp; Michael Pittman Jr., WR.</b> The best receiver pairing Rodgers has had in years.",
+      "<b>Warren &amp; Dowdle, RB.</b> A deliberately physical backfield, designed to keep the passing game off schedule-neutral downs.",
+      "<b>Drew Allar, QB.</b> The third-rounder is the actual future; how much he shows in camp matters more than the depth chart says."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Mike McCarthy", "Hired as head coach after Tomlin's departure", "in"],
+      ["Jamel Dean, CB", "3 yr / $36.75M from Tampa Bay", "in"],
+      ["Jaquan Brisker, S", "1 yr / $5.5M from Chicago", "in"],
+      ["Darnell Savage, S", "Free-agent signing", "in"],
+      ["Sebastian Joseph-Day, DT", "Free-agent signing", "in"],
+      ["Drew Allar, QB", "Third-round pick, four-year rookie deal", "in"],
+      ["Will Howard, QB", "Sixth-round pick", "in"],
+      ["Mike Tomlin", "Departed as head coach", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Pittsburgh replaced the second-longest-tenured coach in football, handed the job to the man who coached its 42-year-old quarterback a decade ago, and spent the offseason buying that quarterback the best supporting cast he has had since Green Bay. <b>Rodgers says this is the end</b>, which turns 2026 into a single-elimination season for everyone involved. The unresolved item is the best defensive player in the building: T.J. Watt wants paid, and camp starts anyway."
+    ]}
+  ],
+  "sources": "ESPN (2026 Steelers training camp preview &amp; free agency tracker) &middot; Newsweek &middot; Steelers Depot &middot; Behind the Steel Curtain &middot; WTAJ &middot; Sports Illustrated / All Steelers &middot; Still Curtain."
+}

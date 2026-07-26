@@ -1,0 +1,52 @@
+{
+  "abbr": "SF", "city": "San Francisco", "name": "49ers",
+  "primary": "#AA0000", "secondary": "#B3995D",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; a veteran core coming off 50-plus missed starts, two new veteran receivers, and one question: is there enough left?",
+  "strip": [
+    {"n": "Kyle Shanahan", "k": "Head Coach"},
+    {"n": "50+", "k": "2025 Starter Games Lost"},
+    {"n": "41&ndash;6", "k": "2025 Divisional Loss"},
+    {"n": "Mike Evans", "k": "Marquee Signing"},
+    {"n": "Left Guard", "k": "Key Camp Battle"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>The premise of the offseason:</b> health. San Francisco's starters missed a combined <b>north of 50 games</b> in 2025, systematically dismantling Shanahan's timing-based scheme before the season reached January.",
+      "<b>The season ended 41&ndash;6</b> in the divisional round at Seattle &mdash; a result that framed every decision that followed.",
+      "<b>The strategy:</b> rather than rebuild, San Francisco bought proven veteran production at receiver and interior defensive line, betting the existing core plays.",
+      "<span class=\"tag watch\">Question</span>National previews put it directly: <b>did the Niners do enough this offseason?</b> Signing a 32-year-old receiver coming off an eight-game season is a departure from the youth-and-speed identity the front office had been building."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Signed</span><b>Mike Evans, WR</b> &mdash; three years, <b>$60.4M</b>, ending his 12-year run in Tampa Bay. Six-time Pro Bowler and Hall-of-Fame-track producer, but 32 and coming off an injury-plagued eight-game season.",
+      "<span class=\"tag hot\">Trade</span><b>Osa Odighizuwa, DT</b> acquired from Dallas for San Francisco's 2026 third-round pick &mdash; completed two days after the Evans signing.",
+      "<span class=\"tag\">Signed</span>WR <b>Christian Kirk</b> &mdash; the intermediate-route complement to Evans, in a room that otherwise lacked proven options.",
+      "<span class=\"tag\">Signed</span>OL <b>Vederian Lowe</b> (2 yr) and OL <b>Brett Toth</b> (1 yr) &mdash; depth for a line that has to protect better inside.",
+      "<span class=\"tag\">Re-signed</span>TE <b>Jake Tonges</b> on a two-year deal."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Brock Purdy, QB.</b> Reported fine after the shoulder trouble that shaped his 2025. The whole offense's ceiling still runs through him.",
+      "<b>Fred Warner, LB.</b> Already cleared &mdash; the most encouraging health item on the board.",
+      "<b>Nick Bosa, EDGE.</b> Potentially back at the <b>start of camp</b>.",
+      "<b>George Kittle, TE.</b> Optimistic about a <b>Week 1</b> return.",
+      "<b>Left guard is the camp battle that matters.</b> Interior pressure disrupted the 2025 offense more consistently than edge pressure did &mdash; and it lands directly on Purdy.",
+      "<b>Mike Evans &amp; Christian Kirk.</b> Both must be synchronized with Purdy almost immediately; Shanahan's offense does not reward newcomers who need half a season.",
+      "<b>Youth gets reps.</b> With Kittle, Bosa and Warner all managing toward September rather than August, young players will see heavy camp volume &mdash; and some will win jobs."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Mike Evans, WR", "3 yr / $60.4M &mdash; 12 years in Tampa Bay ended", "in"],
+      ["Christian Kirk, WR", "Veteran intermediate target added", "in"],
+      ["Osa Odighizuwa, DT", "Trade with Dallas for a 2026 third", "in"],
+      ["Vederian Lowe, OL", "Two-year deal", "in"],
+      ["Brett Toth, OL", "One-year deal", "in"],
+      ["Jake Tonges, TE", "Re-signed, two years", "in"],
+      ["2026 third-round pick", "Sent to Dallas for Odighizuwa", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "San Francisco's 2025 was not a talent problem, it was an availability catastrophe &mdash; and the response was to add two veteran receivers and an interior rusher rather than reshape the roster. That works only if <b>Bosa, Kittle, Warner and Purdy are all standing in January</b>. The optimistic read is a Hall-of-Fame core with reinforcements. The pessimistic read is that the same core is a year older, a 32-year-old receiver is the marquee addition, and Seattle just put 41 on them. Left guard, of all things, may decide which one it is."
+    ]}
+  ],
+  "sources": "ESPN (2026 49ers training camp preview &amp; free agency tracker; Schefter contract reporting) &middot; 49ers.com &middot; NFL.com &middot; Niners Nation &middot; SF Standard &middot; Sactown Sports."
+}

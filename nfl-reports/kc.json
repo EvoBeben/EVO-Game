@@ -1,0 +1,49 @@
+{
+  "abbr": "KC", "city": "Kansas City", "name": "Chiefs",
+  "primary": "#E31828", "secondary": "#FFB612",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; Patrick Mahomes' ACL recovery, a defensive youth injection, and the end of an era of playoff dominance.",
+  "strip": [
+    {"n": "6&ndash;11", "k": "2025 Record (First Miss Since 2014)"},
+    {"n": "Mahomes ACL", "k": "Recovery on Track"},
+    {"n": "Defensive Class", "k": "4 of First 4 Picks"},
+    {"n": "Kenneth Walker III", "k": "$43M Free Agent RB"},
+    {"n": "Return to Form", "k": "The Storyline"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>A humbling 6-11.</b> Kansas City missed the playoffs for the first time since 2014, ending an era of sustained excellence and raising questions about what's broken when an MVP candidate gets injured.",
+      "<b>Mahomes' recovery is front and center.</b> Patrick Mahomes suffered a torn ACL in Week 15 of 2025 and is <b>reporting he feels stronger going into camp</b>, though he's wearing a brace and compression sleeve for protection.",
+      "<b>Defensive investment is urgent.</b> The Chiefs drafted defensively with <b>four of their first four picks</b>, signaling a conviction that the defense is the immediate problem to solve.",
+      "<b>The narrative:</b> Can Mahomes' return and defensive youth reverse the slide before it becomes a pattern?"
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Signed</span><b>Kenneth Walker III, RB</b> &mdash; <b>Super Bowl MVP running back</b>, three-year deal worth <b>$43.05M</b>, bringing championship pedigree to the backfield.",
+      "<span class=\"tag hot\">Draft</span><b>Mansoor Delane, CB</b> at <b>#6 overall</b> (traded up) &mdash; the team's cornerstone defensive back for the next decade.",
+      "<span class=\"tag\">Draft</span><b>Peter Woods, DT</b> at #29, part of the youth defensive overhaul focused on stopping the run.",
+      "<span class=\"tag\">Retained</span><b>L'Jarius Sneed, CB</b> re-signed to anchor the secondary alongside Delane.",
+      "<span class=\"tag\">Program overhaul</span>Brought back rookie head-start program; early camp returns showing promise in player development."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Patrick Mahomes, QB.</b> Recovering from a torn ACL suffered Week 15, <b>reports feeling stronger than expected</b> going into camp. The confidence is there, but the brace tells the real story of caution and recovery.",
+      "<b>Mahomes' availability is the story.</b> If he's truly back to form, the Chiefs have a path to redemption. If there's even a hint of hesitation, the 6-11 season becomes less of an anomaly and more of a warning sign.",
+      "<b>Kenneth Walker III, RB.</b> The <b>Super Bowl MVP</b> arrives to stabilize the ground game and bring winning experience to a reeling locker room.",
+      "<b>Mansoor Delane, CB.</b> First-overall defensive pick, tasked with becoming the generational cornerback the franchise has lacked.",
+      "<b>The defense must deliver.</b> Four first-four picks on defense mean those players must contribute immediately, not years from now."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Patrick Mahomes, QB", "Recovering from torn ACL; reports strong", "in"],
+      ["Kenneth Walker III, RB", "Super Bowl MVP, 3 yr / $43M", "in"],
+      ["Mansoor Delane, CB", "First-round cornerstone pick", "in"],
+      ["Peter Woods, DT", "First-round defensive tackle", "in"],
+      ["L'Jarius Sneed, CB", "Re-signed to anchor secondary", "in"],
+      ["Defensive youth class", "Four first-four picks invested", "in"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Kansas City's 6-11 season was a shock after 11 consecutive playoff appearances, and the road back starts with Patrick Mahomes' recovery from an ACL injury. The quarterback insists he's healthy, and early camp returns suggest it's true. The Chiefs are betting that Kenneth Walker III's leadership and a youth defensive class built around Mansoor Delane can stabilize the ship before questions about dynasty decline get louder. <b>Everything depends on Mahomes truly being back and the defensive rookies contributing immediately.</b>"
+    ]}
+  ],
+  "sources": "ESPN (2026 Chiefs training camp &amp; offseason coverage) &middot; NFL.com &middot; Chiefs.com &middot; KSHB (Kansas City local coverage) &middot; Sports Illustrated / Chiefs Maven."
+}

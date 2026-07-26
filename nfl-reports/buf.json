@@ -1,0 +1,52 @@
+{
+  "abbr": "BUF", "city": "Buffalo", "name": "Bills",
+  "primary": "#00338D", "secondary": "#C60C30",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; nine seasons of Sean McDermott ended in January. Joe Brady is the head coach, the defense is switching fronts, and Josh Allen finally has a true WR1.",
+  "strip": [
+    {"n": "Joe Brady", "k": "New Head Coach"},
+    {"n": "33&ndash;30 OT", "k": "2025 Divisional Loss"},
+    {"n": "Brandon Beane", "k": "Pres. of Football Ops"},
+    {"n": "DJ Moore", "k": "New WR1"},
+    {"n": "3&ndash;4", "k": "New Base Defense"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>McDermott fired.</b> Nine seasons, no Super Bowl, and a <b>33&ndash;30 overtime loss to Denver</b> in the divisional round ended it. Buffalo announced the decision the following Monday.",
+      "<b>Joe Brady promoted.</b> The offensive coordinator got the job. He was candid about the cost: <b>\"I was broken\"</b> for McDermott and the assistants who were let go.",
+      "<b>Beane elevated.</b> GM <b>Brandon Beane</b> was promoted to <b>president of football operations</b> and oversaw the coaching search that landed on his own play-caller.",
+      "<b>Scheme change on defense.</b> The new coordinator brings a <b>3-4 base</b>, a structural break from McDermott's 4-3 and one of several reasons ESPN describes this as an <b>\"extremely tough\"</b> camp."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Trade</span><b>DJ Moore acquired from Chicago</b> for a 2026 second-round pick (Buffalo also received a 2026 fifth). Josh Allen finally gets a proven WR1 &mdash; and Moore reunites with Joe Brady, his offensive coordinator in Carolina.",
+      "<span class=\"tag\">Signed</span>EDGE <b>Bradley Chubb</b> on a three-year deal &mdash; the marquee defensive addition for the new front.",
+      "<span class=\"tag\">Signed</span>QB <b>Kyle Allen</b> (2 yr / $6.1M, from Detroit) &mdash; another former Bills backup, and a close friend of Josh Allen's.",
+      "<span class=\"tag watch\">Lost</span>T <b>Ryan Van Demark</b> to Minnesota after Buffalo declined to match an offer sheet; G <b>David Edwards</b> to New Orleans on a deal with $45M guaranteed.",
+      "<b>Very little was left untouched</b> for a franchise that had been among the league's most stable."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Josh Allen, QB.</b> Arguably no player in football carries more pressure into 2026. Nine years in, with a new head coach and a new scheme on the other side of the ball, his leadership through the transition is the point. His own words: there's a lot new, and <b>\"we'll really make our team during training camp.\"</b>",
+      "<b>DJ Moore, WR.</b> The separator Buffalo has been missing, arriving into a system run by a coach who already knows how to use him.",
+      "<b>Bradley Chubb, EDGE.</b> Signed to give the new 3-4 front a genuine edge presence.",
+      "<b>Dalton Kincaid, TE.</b> The fourth-year tight end's career keeps getting interrupted &mdash; the <b>left knee</b> most recently. He is genuinely impactful when available; availability is the whole issue.",
+      "<b>Defensive install.</b> Moving from a 4-3 to a 3-4 mid-career for an entire roster is the hardest thing this team is attempting in August.",
+      "<b>Offensive line, thinner.</b> Van Demark and Edwards both left; interior depth is a live question."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Joe Brady", "Promoted from OC to head coach", "in"],
+      ["DJ Moore, WR", "Trade with Chicago for a 2026 second", "in"],
+      ["Bradley Chubb, EDGE", "Three-year deal", "in"],
+      ["Kyle Allen, QB", "2 yr / $6.1M from Detroit", "in"],
+      ["Brandon Beane", "Promoted to president of football operations", "in"],
+      ["Sean McDermott", "Fired after nine seasons", "out"],
+      ["Ryan Van Demark, T", "Offer sheet from Minnesota not matched", "out"],
+      ["David Edwards, G", "Signed with New Orleans", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Buffalo fired a coach who won a lot of regular-season games and never got to a Super Bowl, promoted the man who ran its offense, and handed the defense a new front to learn. Then it went out and got Josh Allen the <b>No. 1 receiver he has never had</b>. That is a franchise spending its remaining Allen years decisively rather than carefully. It is also a lot of change at once, which is exactly why the quarterback keeps saying the team gets made in camp."
+    ]}
+  ],
+  "sources": "ESPN (2026 Bills training camp preview &amp; free agency tracker) &middot; BuffaloBills.com &middot; NFL.com &middot; NBC News &middot; NBC Sports &middot; Bleacher Report."
+}

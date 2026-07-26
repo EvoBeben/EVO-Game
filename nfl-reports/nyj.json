@@ -1,0 +1,52 @@
+{
+  "abbr": "NYJ", "city": "New York", "name": "Jets",
+  "primary": "#125740", "secondary": "#FFFFFF",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; half the staff replaced, three first-round picks, Geno Smith back in green, and a head coach who probably needs results now.",
+  "strip": [
+    {"n": "Aaron Glenn", "k": "HC &middot; Hot Seat"},
+    {"n": "Darren Mougey", "k": "General Manager"},
+    {"n": "3", "k": "First-Round Picks"},
+    {"n": "Jul 28 &ndash; Aug 29", "k": "Training Camp"},
+    {"n": "2", "k": "New Coordinators"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<span class=\"tag watch\">Hot seat</span><b>Aaron Glenn's make-or-break year.</b> He <b>replaced half his coaching staff</b> &mdash; including <b>both coordinators</b> &mdash; rebuilt the defense, and imported a veteran quarterback to stabilize a position that has changed hands almost annually.",
+      "<b>GM Darren Mougey's brief</b> was depth and competition, and the draft reflected it: three first-round picks used on three different position groups.",
+      "<b>The honest assessment</b> from national previews: this collection of players is unlikely to produce immediate results, and expectations remain modest.",
+      "<b>Camp:</b> <b>July 28 &ndash; Aug. 29</b>."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Trade</span><b>Justin Fields to Kansas City</b> &mdash; ushered out after a disappointing 2025, closing another short quarterback chapter.",
+      "<span class=\"tag\">Signed</span>QB <b>Geno Smith</b>, back in New York after a season with the Raiders, plus QB <b>Bailey Zappe</b>.",
+      "<span class=\"tag\">Draft</span>Three first-rounders: EDGE <b>David Bailey</b>, TE <b>Kenyon Sadiq</b> and WR <b>Omar Cooper Jr.</b>, then CB <b>D'Angelo Ponds</b> (2nd) and QB <b>Cade Klubnik</b> (4th).",
+      "<span class=\"tag\">Signed</span>CB <b>Nahshon Wright</b>, EDGE <b>Joseph Ossai</b> and EDGE <b>Kingsley Enagbare</b> &mdash; the rebuilt defensive rotation."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Geno Smith, QB.</b> Brought in to stabilize the position, which for the Jets means simply being the same person taking snaps in December as in September.",
+      "<span class=\"tag hot\">QB battle</span>Behind him, the competition between <b>Bailey Zappe</b>, former undrafted free agent <b>Brady Cook</b> and fourth-round rookie <b>Cade Klubnik</b> is described as the roster's biggest August focus.",
+      "<b>David Bailey, EDGE (1st round).</b> The headliner of a defensive rebuild that also brought in Ossai and Enagbare.",
+      "<b>Kenyon Sadiq, TE &amp; Omar Cooper Jr., WR (both 1st round).</b> Two rookie pass catchers given every chance to start immediately.",
+      "<b>D'Angelo Ponds, CB (2nd round).</b> Pairs with free-agent Nahshon Wright in a reshaped secondary.",
+      "<b>Depth is the actual goal.</b> ESPN's framing of this camp is whether Mougey has added enough of it to create real competition &mdash; a low bar that the Jets have missed before."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Geno Smith, QB", "Signed after a season with the Raiders", "in"],
+      ["David Bailey, EDGE", "First-round pick", "in"],
+      ["Kenyon Sadiq, TE", "First-round pick", "in"],
+      ["Omar Cooper Jr., WR", "First-round pick", "in"],
+      ["D'Angelo Ponds, CB", "Second-round pick", "in"],
+      ["Cade Klubnik, QB", "Fourth-round pick", "in"],
+      ["Wright, Ossai, Enagbare", "Free-agent defensive additions", "in"],
+      ["Justin Fields, QB", "Traded to Kansas City", "out"],
+      ["Two coordinators", "Replaced along with half the staff", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "The Jets did what teams do when the roof is leaking in several rooms at once: replaced half the staff, spent three first-round picks on three different needs, and signed a veteran quarterback who has done this job well somewhere else. It is a coherent plan and it is probably a year early. <b>Aaron Glenn is the one who can't afford it to be</b> &mdash; his seat is the loudest storyline of a camp that otherwise carries modest expectations."
+    ]}
+  ],
+  "sources": "ESPN (2026 Jets training camp preview) &middot; NewYorkJets.com &middot; Newsweek &middot; amNewYork &middot; The Jet Press &middot; Yahoo Sports."
+}

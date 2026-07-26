@@ -1,0 +1,54 @@
+{
+  "abbr": "BAL", "city": "Baltimore", "name": "Ravens",
+  "primary": "#241773", "secondary": "#9E7C0C",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; 18 years of John Harbaugh ended in January. Jesse Minter's first camp opens with Lamar Jackson learning a brand-new offense.",
+  "strip": [
+    {"n": "Jesse Minter", "k": "New Head Coach"},
+    {"n": "Declan Doyle", "k": "NFL's Youngest Playcaller"},
+    {"n": "24th", "k": "2025 Defense Rank"},
+    {"n": "Hendrickson", "k": "Marquee Addition"},
+    {"n": "18 Years", "k": "Harbaugh Era Ended"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>The Harbaugh era is over.</b> Baltimore fired <b>John Harbaugh</b> after 18 seasons and a Super Bowl XLVII title; he was hired by the Giants days later on a five-year deal.",
+      "<b>Jesse Minter takes over</b> and reset the operation around himself. He called the Baltimore job <b>\"the one I wanted,\"</b> and has made building a relationship with Lamar Jackson his first stated priority.",
+      "<b>Declan Doyle runs the offense.</b> Hired from Chicago, he is the <b>NFL's youngest play-caller</b> &mdash; and everything about camp routes through Jackson learning his system.",
+      "<b>Minter's own assignment:</b> fix a defense that finished <b>24th</b> in 2025, which is what got the last staff fired."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Signed</span><b>Trey Hendrickson, EDGE</b> &mdash; the marquee addition, and a fast pivot after Baltimore <b>rescinded a trade for Maxx Crosby</b> that would have cost 2026 first-round capital. The sequence drew criticism around the league.",
+      "<span class=\"tag\">Signed</span>DL <b>Calais Campbell</b> &mdash; the veteran presence on a rebuilt front.",
+      "<span class=\"tag\">Draft</span>G <b>Vega Ioane</b> (Penn State) in the first round, plus pass rusher <b>Zion Young</b> &mdash; a reworked offensive line and more juice off the edge.",
+      "<span class=\"tag\">Re-signed</span>QB <b>Tyler Huntley</b> and CB <b>Daryl Awuzie</b>; OL <b>Gwyn</b> added on a one-year deal for depth.",
+      "<span class=\"tag watch\">Lost</span>TE <b>Charlie Kolar</b> to the Chargers &mdash; <b>Smythe</b> is expected to take over as the blocking tight end. TE <b>Isaiah Likely</b> followed Harbaugh to New York on a 3-year, $40M deal."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Lamar Jackson, QB.</b> Learning an entirely new system for the first time in years. Doyle's install, and how quickly the two of them find a shared language, is the defining question of Baltimore's season.",
+      "<b>Timing with the pass catchers.</b> Jackson's rhythm with <b>Zay Flowers, Rashod Bateman, Mark Andrews</b> and the young receivers has to be rebuilt inside a new scheme &mdash; and without Likely.",
+      "<b>A reworked offensive line.</b> Jackson's comfort behind it is a stated camp storyline; first-round guard Vega Ioane is expected to help immediately.",
+      "<b>Trey Hendrickson, EDGE.</b> Signed to be the pressure Baltimore's 24th-ranked defense never generated.",
+      "<b>Calais Campbell, DL.</b> Veteran anchor next to Hendrickson and Young in Minter's front.",
+      "<b>Lamar arrived on time</b> for the first Minter camp &mdash; a small thing that was, given the offseason, its own headline."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Jesse Minter", "Hired as head coach", "in"],
+      ["Declan Doyle", "Hired as OC from Chicago", "in"],
+      ["Trey Hendrickson, EDGE", "Signed after the Crosby trade was rescinded", "in"],
+      ["Calais Campbell, DL", "Veteran defensive line signing", "in"],
+      ["Vega Ioane, G", "First-round pick, Penn State", "in"],
+      ["Zion Young, EDGE", "Added to the pass rush", "in"],
+      ["Huntley &amp; Awuzie", "Re-signed", "in"],
+      ["John Harbaugh", "Fired after 18 seasons; hired by the Giants", "out"],
+      ["Isaiah Likely, TE", "Followed Harbaugh to New York, 3 yr / $40M", "out"],
+      ["Charlie Kolar, TE", "Signed with the Los Angeles Chargers", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Baltimore did the hardest thing a stable franchise can do: it ended an 18-year marriage and started over on the sideline while keeping a former MVP at quarterback. <b>Jesse Minter inherits the 24th-ranked defense</b> he was hired to fix and hands the offense to the league's youngest play-caller. Hendrickson and Campbell make the front credible; Ioane makes the line better. But the season lives or dies on how fast Lamar Jackson learns Declan Doyle's language. The offseason was aggressive enough that missing the playoffs would count as failure."
+    ]}
+  ],
+  "sources": "ESPN (2026 Ravens training camp preview &amp; free agency tracker) &middot; NFL.com &middot; BaltimoreRavens.com &middot; Yahoo Sports (Ravens offseason takeaways) &middot; The Baltimore Banner &middot; Sports Illustrated."
+}

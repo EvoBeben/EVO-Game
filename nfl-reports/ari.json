@@ -1,0 +1,48 @@
+{
+  "abbr": "ARI", "city": "Arizona", "name": "Cardinals",
+  "primary": "#97233F", "secondary": "#FFB612",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; Kyler Murray is gone, the presumptive starter is holding out, and the Mike LaFleur era begins with a three-man quarterback competition.",
+  "strip": [
+    {"n": "3<em>&ndash;</em>14", "k": "2025 Record"},
+    {"n": "Mike LaFleur", "k": "New Head Coach"},
+    {"n": "3", "k": "QBs Competing"},
+    {"n": "Aug 11", "k": "Camp Ends"},
+    {"n": "First", "k": "Team Fully Reported"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>Gannon out, LaFleur in.</b> A 3&ndash;14 collapse cost <b>Jonathan Gannon</b> his job and launched the <b>Mike LaFleur</b> era. Arizona is not pretending otherwise &mdash; national previews describe this camp under a single instruction: embrace the rebuild.",
+      "<b>The Murray divorce.</b> Arizona moved on from <b>Kyler Murray</b>, who signed with Minnesota for the veteran minimum &mdash; with the Cardinals still <b>paying the remainder of his $36.5M guarantee</b> for 2026. That is the price of a clean break.",
+      "<b>Plan B didn't land either.</b> The club struck out on both Malik Willis and Jimmy Garoppolo before settling on Gardner Minshew and spending a third-round pick on Carson Beck.",
+      "<b>Camp:</b> opened Wednesday, runs through <b>Aug. 11</b> at State Farm Stadium. Arizona and Carolina were the first two teams in the league to fully report."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Departed</span><b>Kyler Murray, QB</b> &mdash; to Minnesota, with Arizona absorbing the guaranteed money.",
+      "<span class=\"tag\">Signed</span>QB <b>Gardner Minshew</b>, presumed as a backup rather than a solution.",
+      "<span class=\"tag\">Signed</span>G <b>Isaac Seumalo</b> &mdash; three years, $31.5M, the clearest signal that the offensive line is being overhauled.",
+      "<span class=\"tag\">Signed</span>WR/RS <b>Devin Duvernay</b>, a former All-Pro returner who takes both return jobs and adds a speed element on offense.",
+      "<span class=\"tag\">Draft</span>QB <b>Carson Beck</b> (3rd round, signed his rookie deal July 22 as camp opened), RB <b>Jeremiyah Love</b>, and 2025 first-rounder DT <b>Walter Nolen III</b> now healthy after an injury-marred rookie year."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<span class=\"tag hot\">Holdout</span><b>Jacoby Brissett, QB.</b> The presumptive starter <b>skipped the entire offseason program</b> seeking a new deal. His absence is why a three-man competition exists at all.",
+      "<b>Carson Beck, QB (3rd round).</b> Signed July 22 and thrown straight into a competition with Brissett and Minshew. A rookie starting Week 1 is a live possibility.",
+      "<b>Jeremiyah Love, RB.</b> The rookie some analysts call the best player on the roster, with a projected <b>1,000-yard, 10-touchdown</b> ceiling. The starting running back job is genuinely open.",
+      "<b>Walter Nolen III, DT.</b> The 2025 first-rounder lost his rookie season to injuries; healthy now, he's the defense's most important developmental case.",
+      "<b>Isaac Seumalo, G.</b> The veteran anchor of a line being rebuilt around him.",
+      "<b>Devin Duvernay, WR/RS.</b> Immediate upgrade on both return units &mdash; the fastest way for a rebuilding roster to steal field position."
+    ]},
+    {"title": "Camp Calendar", "type": "table", "items": [
+      ["Now &ndash; Aug 11", "Training camp, State Farm Stadium, Glendale"],
+      ["QB reps", "Brissett (if he reports) vs. Minshew vs. Beck"],
+      ["RB1", "Jeremiyah Love vs. the incumbents"],
+      ["Watch", "Nolen's health; Seumalo settling the interior line"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Arizona is paying a quarterback $36.5M to play in Minnesota, and the man supposed to replace him hasn't shown up. That is the 2026 Cardinals in one sentence. <b>Mike LaFleur inherits a genuine rebuild</b> &mdash; a rookie third-rounder who might have to start, a running back who could be the roster's best player, and a first-round defensive tackle finally healthy. Seumalo and Duvernay are the only signings that look like wins today. The rest is development, and everybody in the building knows it."
+    ]}
+  ],
+  "sources": "ESPN (2026 Cardinals training camp preview &amp; free agency tracker) &middot; NFL.com &middot; Associated Press &middot; Newsweek &middot; PHNX Sports &middot; Sports Illustrated."
+}

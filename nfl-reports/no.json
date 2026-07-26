@@ -1,0 +1,53 @@
+{
+  "abbr": "NO", "city": "New Orleans", "name": "Saints",
+  "primary": "#101820", "secondary": "#D3BC8D",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; Tyler Shough is the unquestioned starter, the weapons around him are all new, and Kellen Moore's offense is about to look different.",
+  "strip": [
+    {"n": "Kellen Moore", "k": "HC &middot; Year 2"},
+    {"n": "Tyler Shough", "k": "Unquestioned QB1"},
+    {"n": "4&ndash;1", "k": "2025 Finish"},
+    {"n": "$45M", "k": "Edwards Guarantee"},
+    {"n": "Olave / Tyson", "k": "New WR Tandem"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>Year 2 of Kellen Moore.</b> The Saints closed 2025 winning <b>four of their final five</b> with Shough under center &mdash; enough to convert a rebuild into something that looks like a plan.",
+      "<b>The offense is being rebuilt on purpose.</b> Moore is layering in <b>more under-center runs and multi-tight-end sets</b> on top of his existing motion-and-balance principles. Expect it to look meaningfully different from 2025 tape.",
+      "<b>Protect the young quarterback.</b> That was the stated logic behind the biggest contract of the offseason, and it drove the offseason's priority list from the first day of free agency.",
+      "<span class=\"tag watch\">Open questions</span>The futures of <b>Taysom Hill</b> and long-time DE <b>Cameron Jordan</b> remain among the last unresolved items on the roster."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Signed</span><b>David Edwards, G</b> (from Buffalo) &mdash; four years with <b>$45M guaranteed</b> and a $20M signing bonus. The offensive line investment the front office said Shough needed.",
+      "<span class=\"tag\">Signed</span>RB <b>Travis Etienne Jr.</b>, TE <b>Noah Fant</b> and LB <b>Kaden Elliss</b> &mdash; three starters added in one wave.",
+      "<span class=\"tag\">Signed</span>P <b>Ryan Wright</b> (ex-Vikings) &mdash; four years, $8M guaranteed, closing one of the roster's genuine holes.",
+      "<span class=\"tag hot\">Trade</span>Acquired EDGE <b>Tyree Wilson</b> from Las Vegas during the draft, swapping pick No. 150 for Wilson and pick No. 219.",
+      "<span class=\"tag hot\">Trade</span>Sent P <b>Kai Kroeger</b> and a 2028 seventh to Houston for a 2029 sixth.",
+      "<span class=\"tag\">Re-signed</span>QB <b>Hunter Dekkers</b>, 25, with no guaranteed money after an injury-hit UFL season."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Tyler Shough, QB.</b> The 2025 second-rounder took over mid-season and justified the pick, closing the year 4&ndash;1. He opens his second camp as the <b>unquestioned offensive leader</b> &mdash; no competition, no hedge.",
+      "<b>Chris Olave &amp; Jordyn Tyson, WR.</b> The high-flying tandem Moore now builds around. Tyson's arrival changes the geometry of the passing game.",
+      "<b>The backfield split.</b> Travis Etienne Jr. cleared <b>1,000 yards in three of four seasons</b> in Jacksonville. How his workload divides with franchise all-time leading rusher <b>Alvin Kamara</b> is the season's most interesting subplot.",
+      "<b>Noah Fant, TE.</b> Fits directly into the multi-tight-end packages Moore is adding.",
+      "<b>David Edwards, G.</b> Anchors an interior that has to hold up for a quarterback still in his first full year as a starter.",
+      "<b>Tyree Wilson, EDGE.</b> A low-cost draft-weekend swing on a former top-10 pick who needed a change of scenery."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["David Edwards, G", "4 yr, $45M guaranteed, $20M bonus", "in"],
+      ["Travis Etienne Jr., RB", "Free-agent signing from Jacksonville", "in"],
+      ["Noah Fant, TE", "Free-agent signing", "in"],
+      ["Kaden Elliss, LB", "Free-agent signing", "in"],
+      ["Tyree Wilson, EDGE", "Trade with Las Vegas on draft weekend", "in"],
+      ["Ryan Wright, P", "4 yr / $8M guaranteed from Minnesota", "in"],
+      ["Hunter Dekkers, QB", "Re-signed, no guaranteed money", "in"],
+      ["Kai Kroeger, P", "Traded to Houston with a 2028 seventh", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "New Orleans spent this offseason doing the unglamorous thing: it bought a guard, a punter, a running back and a tight end, and told everyone the quarterback job belongs to <b>Tyler Shough</b> with no asterisk. That is what conviction looks like from a front office that had none of it a year ago. Moore's offense will run heavier and more under center; Etienne and Kamara will split a backfield; Olave and Tyson give the whole thing a ceiling. The rebuild is no longer theoretical."
+    ]}
+  ],
+  "sources": "ESPN (2026 Saints training camp preview &amp; free agency tracker) &middot; NewOrleansSaints.com &middot; NFL.com &middot; Canal Street Chronicles &middot; Louisiana Sports."
+}

@@ -1,0 +1,51 @@
+{
+  "abbr": "SEA", "city": "Seattle", "name": "Seahawks",
+  "primary": "#002244", "secondary": "#69BE28",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; defending Super Bowl LX champions, a fifth offensive coordinator in five years for Sam Darnold, and HBO cameras in the building.",
+  "strip": [
+    {"n": "29&ndash;13", "k": "Super Bowl LX Win"},
+    {"n": "14&ndash;3", "k": "2025 Record"},
+    {"n": "Mike Macdonald", "k": "Head Coach"},
+    {"n": "Brian Fleury", "k": "Rookie OC"},
+    {"n": "Aug 4", "k": "Hard Knocks Debut"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>Champions.</b> Seattle beat New England <b>29&ndash;13 in Super Bowl LX</b> at Levi's Stadium after a 14&ndash;3 regular season, then dispatched San Francisco 41&ndash;6 and the Rams 31&ndash;27 to get there.",
+      "<b>New play-caller, familiar scheme.</b> Rookie offensive coordinator <b>Brian Fleury</b> takes over &mdash; Darnold's fifth OC in five years &mdash; but is installing a system similar to Kubiak's, with new position coaches <b>Jake Peetz</b> and <b>Tyson Prince</b> alongside him.",
+      "<b>Schneider's draft posture:</b> the GM said openly the champions wanted to <b>trade down</b> &mdash; \"it's no secret with us\" &mdash; prioritizing volume over a single high pick.",
+      "<b>Hard Knocks.</b> A five-episode season debuts <b>Aug. 4</b>, featuring Macdonald, Darnold, 2025 Offensive Player of the Year Jaxon Smith-Njigba, Devon Witherspoon and Byron Murphy II."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Re-signed</span><b>Rashid Shaheed, WR</b> &mdash; three years, up to <b>$51M</b>. Seattle had acquired him in one of the biggest deals of the 2025 trade deadline; keeping him was the offseason's clearest priority.",
+      "<span class=\"tag\">Signed</span>OLB <b>Dante Fowler Jr.</b> to bolster the edge rotation.",
+      "<span class=\"tag watch\">Lost</span><b>Kenneth Walker III, RB</b> &mdash; the <b>Super Bowl MVP</b> &mdash; departed in free agency, the most striking exit of any champion's offseason.",
+      "<span class=\"tag watch\">Lost</span>EDGE <b>Boye Mafe</b>, CB <b>Riq Woolen</b> (to Philadelphia) and S <b>Coby Bryant</b> (to Chicago) all found new homes.",
+      "<b>Continuity where it counted:</b> Darnold, Smith-Njigba, Witherspoon and Murphy II all return as the spine of the roster."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Sam Darnold, QB.</b> From first-round pick to journeyman backup to Pro Bowler to Super Bowl champion. The uncomfortable footnote: he <b>led the NFL in turnovers during the regular season</b> before playing clean football in the playoffs. Coaxing better decisions out of him is the coaching staff's stated task.",
+      "<b>The OC carousel.</b> Fleury is Darnold's fifth coordinator in five years. Scheme continuity with Kubiak's system is the mitigating factor.",
+      "<b>Tory Horton, WR.</b> The single biggest swing factor on offense. He caught <b>five touchdowns in his first eight games</b> as a rookie, then lost the rest of the season to a shin injury. Health decides how explosive this offense is.",
+      "<b>Jaxon Smith-Njigba, WR.</b> The reigning <b>Offensive Player of the Year</b> and the offense's non-negotiable.",
+      "<b>Running back, wide open.</b> Walker's departure leaves the Super Bowl MVP's carries unclaimed.",
+      "<b>Secondary, reshuffled.</b> Woolen and Bryant both left; Witherspoon and Murphy II now carry more."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Rashid Shaheed, WR", "Re-signed &mdash; 3 yr, up to $51M", "in"],
+      ["Dante Fowler Jr., OLB", "Signed to the edge rotation", "in"],
+      ["Kenneth Walker III, RB", "Super Bowl MVP departed in free agency", "out"],
+      ["Riq Woolen, CB", "Signed with Philadelphia", "out"],
+      ["Coby Bryant, S", "Signed with Chicago, three years", "out"],
+      ["Boye Mafe, EDGE", "Left in free agency", "out"],
+      ["Josh Jobe, CB", "Unrestricted free agent", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Seattle won a title and then watched its Super Bowl MVP running back, two starting defensive backs and an edge rusher walk out the door &mdash; the ordinary tax of a championship cap sheet. What stayed is the part that matters most: Macdonald's defense, Smith-Njigba, and a quarterback who finally has proof to point at. The repeat case rests on two things nobody can schedule &mdash; <b>Tory Horton staying upright</b>, and Darnold carrying his January decision-making into September."
+    ]}
+  ],
+  "sources": "ESPN (2026 Seahawks training camp preview) &middot; Seahawks.com &middot; Field Gulls &middot; NFL.com &middot; Wikipedia (2025 Seahawks season, 2025&ndash;26 playoffs) &middot; Athlon Sports &middot; Heavy.com."
+}

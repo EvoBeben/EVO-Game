@@ -1,0 +1,50 @@
+{
+  "abbr": "NE", "city": "New England", "name": "Patriots",
+  "primary": "#002244", "secondary": "#C60C30",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; defending AFC champions, A.J. Brown in the building, and one starter whose attendance is still an open question.",
+  "strip": [
+    {"n": "14&ndash;3", "k": "2025 Record"},
+    {"n": "AFC Champs", "k": "Lost SB LX 29&ndash;13"},
+    {"n": "Drake Maye", "k": "MVP Runner-Up"},
+    {"n": "A.J. Brown", "k": "June Trade"},
+    {"n": "Thru Aug 20", "k": "Camp at Gillette"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>From worst to the Super Bowl.</b> New England went 14&ndash;3, beat the Chargers and Texans, took the AFC Championship from Denver <b>10&ndash;7</b>, and lost Super Bowl LX to Seattle 29&ndash;13.",
+      "<b>The stated goal for camp:</b> \"weaponize Drake's mind\" as Maye enters his second season in <b>Josh McDaniels'</b> system &mdash; less installation, more autonomy.",
+      "<b>The front office spent like a contender</b>, adding a receiver in free agency and then paying a first-round pick for a second one in June.",
+      "<span class=\"tag watch\">Reality check</span>ESPN's Football Power Index does not rank the defending AFC champions as the best team in their own division &mdash; Buffalo is ahead of them, and New England sits <b>seventh in the conference</b>."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Trade</span><b>A.J. Brown from Philadelphia</b>, completed in June, for a <b>first- and a fifth-round pick</b>. From 2022&ndash;25 no receiver in football commanded a larger share of his team's receiving yards.",
+      "<span class=\"tag\">Signed</span>WR <b>Romeo Doubs</b> &mdash; the big-ticket offensive acquisition before Brown, giving Maye two new outside targets.",
+      "<span class=\"tag\">Signed</span>Further <b>offensive line investment</b>, the quieter priority of the offseason and the one that keeps Maye upright.",
+      "<span class=\"tag\">Added</span>TE <b>Eli Raridon</b> &mdash; another pass-catching option in a room that needed one.",
+      "<b>Chemistry started early:</b> Brown wasted no time working with Maye at minicamp."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Drake Maye, QB.</b> Led New England to a Super Bowl and finished <b>second in MVP voting</b>. With Brown and Doubs added, the coaching staff believes he can be more dangerous in Year 2 of McDaniels' offense.",
+      "<span class=\"tag hot\">Attendance</span><b>Christian Gonzalez, CB.</b> Whether the star corner is at camp at all is the question ESPN built its entire Patriots preview around &mdash; the single biggest unresolved item in the building.",
+      "<b>A.J. Brown, WR.</b> Cost a first-rounder and immediately became the offense's focal point. Already building timing with Maye.",
+      "<b>Romeo Doubs, WR.</b> Signed before Brown; now the complement rather than the centerpiece, which is a better job for him.",
+      "<b>Gabe Jacas</b> is among the young defenders local coverage has flagged as a player to watch through August.",
+      "<b>Camp runs through Aug. 20</b> at Gillette Stadium."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["A.J. Brown, WR", "Trade with Philadelphia for a first and a fifth", "in"],
+      ["Romeo Doubs, WR", "Free-agent signing", "in"],
+      ["Eli Raridon, TE", "Added as a pass-catching option", "in"],
+      ["Offensive line", "Further investment in protection", "in"],
+      ["2028 first-round pick", "Sent to Philadelphia in the Brown deal", "out"],
+      ["2027 fifth-round pick", "Also sent to Philadelphia", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "New England got to a Super Bowl a year early and then behaved like a team that intends to go back: it bought the best available receiver with first-round capital and put him next to the MVP runner-up. The counterweight is that the models don't buy it &mdash; the Bills rank ahead of them, and Denver and Seattle both look the same as they did in January. <b>The one thing that could unravel a very good summer is Christian Gonzalez's attendance</b>, which is still unresolved as camp opens."
+    ]}
+  ],
+  "sources": "ESPN (2026 Patriots training camp preview; Football Power Index) &middot; NFL.com &middot; NBC Sports Boston &middot; 98.5 The Sports Hub &middot; Sports Illustrated / Patriots Country &middot; Heavy.com &middot; Wikipedia (2025 Patriots season)."
+}

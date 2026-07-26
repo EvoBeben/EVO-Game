@@ -1,0 +1,53 @@
+{
+  "abbr": "ATL", "city": "Atlanta", "name": "Falcons",
+  "primary": "#A71930", "secondary": "#000000",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; a new head coach, a nearly new front office, and a quarterback competition nobody saw coming a year ago.",
+  "strip": [
+    {"n": "Kevin Stefanski", "k": "New Head Coach"},
+    {"n": "Tua vs. Penix", "k": "QB1 Battle"},
+    {"n": "July 29", "k": "First Camp Practice"},
+    {"n": "New", "k": "Front Office"},
+    {"n": "3", "k": "Edge Rushers Added"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>Kevin Stefanski takes over.</b> Atlanta opens its first camp under the former Browns head coach, with <b>a coaching staff and front office that are largely new</b> &mdash; one of the most complete organizational resets in the league this offseason.",
+      "<b>The mandate is the quarterback.</b> Stefanski inherits a QB room that now includes both <b>Tua Tagovailoa</b> and <b>Michael Penix Jr.</b>, and settling it is the defining task of his first summer.",
+      "<b>Roster philosophy:</b> fix the two things that cost Atlanta games &mdash; pass rush and pass-catching depth &mdash; with volume rather than one headline contract."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Signed</span><b>Tua Tagovailoa, QB</b> arrives to compete with Michael Penix Jr. for the starting job &mdash; the storyline every national preview leads with.",
+      "<span class=\"tag hot\">Signed</span>RT <b>Jawaan Taylor</b> from Kansas City, then traded for his former Chiefs teammate OT <b>Wanya Morris</b> &mdash; the right side of the line rebuilt in a week.",
+      "<span class=\"tag\">Signed</span>EDGE <b>Azeez Ojulari</b> (from Philadelphia), EDGE <b>Cameron Thomas</b> and EDGE <b>Samson Ebukam</b> &mdash; three additions to a rush that needed all three.",
+      "<span class=\"tag\">Signed</span>WR <b>Jahan Dotson</b> and WR <b>Olamide Zaccheaus</b> (from Chicago); drafted WR <b>Zachariah Branch</b> in the third round.",
+      "<span class=\"tag hot\">Trade</span>Acquired S <b>Sydney Brown</b> and picks 122 and 215 from Philadelphia for picks 114 and 197 (March 20).",
+      "<span class=\"tag\">Re-signed</span>TE <b>Kyle Pitts</b> on a new contract &mdash; the most notable retention of the offseason. K <b>Nick Folk</b>, 41, added along with a new punter; LS Liam McCullough stays."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>QB1 is the camp.</b> Tagovailoa vs. Penix is a real competition, not a formality, and Stefanski's read on it will shape how the rest of the roster is used.",
+      "<b>Kyle Pitts, TE.</b> New deal in hand, and a Stefanski offense is historically friendly to a tight end who can win up the seam.",
+      "<b>Jawaan Taylor &amp; Wanya Morris, OT.</b> Two Chiefs imports handed the right side of the line &mdash; continuity of scheme and familiarity with each other is the bet.",
+      "<b>Zachariah Branch, WR (3rd round).</b> The most explosive rookie in the class of additions; joins Dotson and Zaccheaus in a rebuilt receiver room.",
+      "<b>Edge rotation, from scratch.</b> Ojulari, Thomas and Ebukam were all signed to solve the same problem. Which two emerge is a genuine camp battle.",
+      "<b>Nickel corner, open.</b> Free-agent <b>Darnay Holmes</b> and trade acquisition <b>Sydney Brown</b> are both in the mix."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Kevin Stefanski", "Hired as head coach; staff and front office largely new", "in"],
+      ["Tua Tagovailoa, QB", "Signed to compete with Penix for QB1", "in"],
+      ["Jawaan Taylor, RT", "Signed from Kansas City", "in"],
+      ["Wanya Morris, OT", "Acquired by trade from Kansas City", "in"],
+      ["Ojulari, Thomas, Ebukam", "Three edge rushers added in free agency", "in"],
+      ["Dotson, Zaccheaus, Branch", "Receiver room rebuilt in FA and the draft", "in"],
+      ["Kyle Pitts, TE", "Signed a new contract", "in"],
+      ["Sydney Brown, S", "Acquired from Philadelphia with picks 122 and 215", "in"],
+      ["Nick Folk, K", "Signed at 41 alongside a new punter", "in"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Atlanta blew it up at the top &mdash; new coach, new staff, new front office &mdash; and then spent the offseason buying the two things Stefanski's system cannot function without: a competent right side of the offensive line and enough pass rush to keep games close. The rest is the quarterback. <b>Tagovailoa and Penix will settle it in camp</b>, and whichever way Stefanski rules, it is the decision his tenure gets judged on. First practice is July 29."
+    ]}
+  ],
+  "sources": "ESPN (2026 Falcons training camp preview) &middot; AtlantaFalcons.com position previews &middot; NFL.com &middot; Philadelphia Eagles official release (trade)."
+}

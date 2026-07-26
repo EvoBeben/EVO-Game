@@ -1,0 +1,52 @@
+{
+  "abbr": "MIA", "city": "Miami", "name": "Dolphins",
+  "primary": "#008E97", "secondary": "#FC4C02",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; Tua is gone, Waddle is gone, Jeff Hafley is in, and a $67.5M quarterback from Green Bay inherits one of the league's thinnest receiver rooms.",
+  "strip": [
+    {"n": "Jeff Hafley", "k": "New Head Coach"},
+    {"n": "Malik Willis", "k": "Projected QB1"},
+    {"n": "$67.5M", "k": "Willis Contract"},
+    {"n": "2", "k": "First-Round Picks"},
+    {"n": "1,350", "k": "Achane's 2025 Rush Yards"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>Jeff Hafley takes over</b> a roster in the middle of near-total turnover &mdash; and brought Green Bay's offensive structure with him, including coordinator Sullivan and the quarterback.",
+      "<b>The Tua era ended abruptly.</b> Miami cut <b>Tua Tagovailoa</b>, who signed with Atlanta, and traded <b>Jaylen Waddle</b>. Both moves left the roster, in the words of one national preview, <b>severely talent deficient</b>.",
+      "<b>The honest framing:</b> previews of this camp are titled some version of <i>brace for growing pains</i>. Nobody inside or outside the building is selling 2026 as a contention year.",
+      "<b>The plan is the draft class</b> &mdash; two first-rounders and four more picks expected to play immediately."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Signed</span><b>Malik Willis, QB</b> &mdash; three years, <b>$67.5M</b>, following Hafley and Sullivan from Green Bay. In 11 appearances behind Jordan Love he completed <b>79% of his passes at 10.9 yards per attempt with six touchdowns and zero interceptions</b>.",
+      "<span class=\"tag hot\">Released</span><b>Tua Tagovailoa, QB</b> &mdash; signed with Atlanta, where he now competes for that job.",
+      "<span class=\"tag hot\">Trade</span><b>Jaylen Waddle, WR</b> dealt away, gutting the receiver room in the same offseason.",
+      "<span class=\"tag\">Draft</span>OT <b>Kadyn Proctor</b> (1st), CB <b>Chris Johnson</b> (1st), LB <b>Jacob Rodriguez</b> (2nd), WR <b>Chris Bell</b> (3rd), EDGE <b>Trey Moore</b> (4th), LB <b>Kyle Loui</b> (4th).",
+      "<span class=\"tag\">Signed</span>EDGE <b>Joshua Uche</b> (from Philadelphia) and EDGE <b>David Ojabo</b>; WR <b>Jalen Tolbert</b> added from Dallas."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Malik Willis, QB.</b> Enters camp as the <b>clear-cut projected starter</b>. His Green Bay efficiency numbers are excellent and came in a very small, very protected sample &mdash; that gap is the season's central question.",
+      "<b>Quinn Ewers, QB.</b> The only other quarterback on the roster with NFL experience: three rookie starts, 83 attempts, 66% completions, 7.5 yards per attempt, three touchdowns and three interceptions.",
+      "<b>De'Von Achane, RB.</b> The offense's one unambiguous strength &mdash; <b>1,350 rushing yards and eight touchdowns</b> in 2025. Expect the run game to carry a first-year starter.",
+      "<b>The receiver room is the problem.</b> Chris Bell, TuTu Atwell, Jalen Tolbert and Malik Washington is, by most national assessments, among the weakest groups in the league.",
+      "<b>Kadyn Proctor, OT &amp; Chris Johnson, CB.</b> Two first-round rookies expected to start on a roster with no one blocking their path.",
+      "<b>Uche &amp; Ojabo, EDGE.</b> Low-cost bets on former high-pedigree rushers looking to restart their careers."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Jeff Hafley", "Hired as head coach", "in"],
+      ["Malik Willis, QB", "3 yr / $67.5M, followed Hafley from Green Bay", "in"],
+      ["Kadyn Proctor, OT", "First-round pick", "in"],
+      ["Chris Johnson, CB", "First-round pick", "in"],
+      ["Uche &amp; Ojabo, EDGE", "Free-agent pass-rush additions", "in"],
+      ["Jalen Tolbert, WR", "One-year deal from Dallas", "in"],
+      ["Tua Tagovailoa, QB", "Released &mdash; signed with Atlanta", "out"],
+      ["Jaylen Waddle, WR", "Traded away", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Miami removed its quarterback and its second receiver in the same offseason and replaced them with a coach's familiar backup and two first-round rookies. That is not a retool, it is a teardown with a plausible story attached: <b>Willis was genuinely excellent in limited Green Bay work</b>, Achane can carry an offense, and six early picks will play right away. The receiver room says growing pains. Everyone in South Florida already knows it."
+    ]}
+  ],
+  "sources": "ESPN (2026 Dolphins training camp preview) &middot; MiamiDolphins.com camp previews &middot; Yahoo Sports &middot; WalterFootball &middot; Sports Illustrated / Dolphins OnSI &middot; Dolphin Seer."
+}

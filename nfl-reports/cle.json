@@ -1,0 +1,50 @@
+{
+  "abbr": "CLE", "city": "Cleveland", "name": "Browns",
+  "primary": "#311D00", "secondary": "#FF3C00",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; Myles Garrett is a Ram, Todd Monken is the new head coach, and the quarterback job is genuinely undecided.",
+  "strip": [
+    {"n": "Todd Monken", "k": "New Head Coach"},
+    {"n": "Andrew Berry", "k": "General Manager"},
+    {"n": "Rebuild", "k": "Stated Posture"},
+    {"n": "Jared Verse", "k": "Garrett Return"},
+    {"n": "Too Close", "k": "QB Battle Verdict"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>Todd Monken takes over.</b> The former Ravens offensive coordinator (three seasons) returns to Cleveland, where he served one year as OC in 2019. His predecessor, <b>Kevin Stefanski</b>, is now the head coach in Atlanta.",
+      "<b>Berry accepted reality.</b> Trading Myles Garrett was the front office formally acknowledging <b>the franchise is rebuilding</b> &mdash; not retooling.",
+      "<b>No hard feelings.</b> Monken has publicly said he holds no grudge over the offseason drama that preceded Garrett's exit.",
+      "<b>The assignment:</b> settle the quarterback position, and convert the Garrett return into a young defensive core."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Trade</span><b>Myles Garrett to the Rams</b> &mdash; the biggest deal of the 2026 offseason. Cleveland got back EDGE <b>Jared Verse</b>, a 25-year-old two-time Pro Bowler, plus multiple picks including a <b>2027 first-rounder</b>. Verse's inclusion is what moved the needle.",
+      "<b>Verse is the centerpiece.</b> Getting a young, proven edge rusher rather than pure draft capital is the difference between a teardown and a reset.",
+      "<b>Draft additions</b> including OL <b>Spencer Fano</b> and LB <b>Carson Schwesinger</b> have been highlighted as reasons for optimism in an otherwise grim year.",
+      "<span class=\"tag watch\">Context</span>Garrett trade rumors had swirled for months, tying Cleveland to Philadelphia as well before the Rams closed it in June."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<span class=\"tag hot\">QB1</span><b>Deshaun Watson vs. Shedeur Sanders</b> is the camp. Monken called it <b>too close to call</b> at the end of spring workouts &mdash; which is either honest or ominous depending on your view.",
+      "<b>Deshaun Watson, QB.</b> Healthy after <b>two Achilles surgeries</b> that cost him all of 2025. He has played just <b>19 games since 2022</b> between suspension and injury.",
+      "<b>Shedeur Sanders, QB.</b> The other half of a battle that will determine whether Cleveland believes it has a franchise quarterback at all &mdash; the actual point of the exercise.",
+      "<b>Jared Verse, EDGE.</b> Two Pro Bowls at 25, now the best player on the roster and the face of what Cleveland got for Garrett.",
+      "<b>Spencer Fano, OL &amp; Carson Schwesinger, LB.</b> Young pieces expected to play immediately in a rebuilding year.",
+      "<b>Defensive line, post-Garrett.</b> Replacing a reigning Defensive Player of the Year is not a job one player does; the whole rotation gets rebuilt around Verse."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Todd Monken", "Hired as head coach from Baltimore", "in"],
+      ["Jared Verse, EDGE", "Headlines the Myles Garrett return", "in"],
+      ["2027 first-round pick", "Part of the Garrett package from the Rams", "in"],
+      ["Spencer Fano, OL", "Draft addition", "in"],
+      ["Carson Schwesinger, LB", "Draft addition", "in"],
+      ["Myles Garrett, EDGE", "Traded to the Los Angeles Rams", "out"],
+      ["Kevin Stefanski", "Left; now head coach of the Atlanta Falcons", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Cleveland stopped pretending. Trading the reigning Defensive Player of the Year for a 25-year-old Pro Bowler and a 2027 first is the cleanest possible admission that this roster needs years, not moves. <b>Todd Monken's first camp is really a referendum on two quarterbacks</b> &mdash; a healthy Deshaun Watson who has played 19 games in four years, and Shedeur Sanders. If neither answers it, the Browns will have spent the Garrett capital to find out, which was the point."
+    ]}
+  ],
+  "sources": "ESPN (2026 Browns training camp preview; Garrett trade reporting) &middot; Dawgs By Nature &middot; 247Sports &middot; Sports Illustrated / Browns Digest &middot; Cleveland Browns Community."
+}

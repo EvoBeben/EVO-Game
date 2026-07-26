@@ -1,0 +1,50 @@
+{
+  "abbr": "CIN", "city": "Cincinnati", "name": "Bengals",
+  "primary": "#FB4F14", "secondary": "#000000",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; three straight years out of the playoffs ended the patience. Cincinnati spent a top-10 pick on a defense worthy of Joe Burrow.",
+  "strip": [
+    {"n": "3", "k": "Straight Years Missed"},
+    {"n": "Zac Taylor", "k": "HC &middot; Year 8"},
+    {"n": "No. 10", "k": "Pick Traded for Lawrence"},
+    {"n": "Jul 26 &ndash; Aug 16", "k": "Training Camp"},
+    {"n": "Burrow / Chase", "k": "Offensive Core"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>Aggression, finally.</b> After three straight postseason misses, the front office overhauled the defense specifically to show Burrow the organization is serious about winning <b>while he is in his prime</b> &mdash; the exact criticism leveled at Cincinnati for years.",
+      "<b>Zac Taylor enters Year 8</b> under real pressure. The floor for this season is a playoff berth; anything less is difficult to survive.",
+      "<b>The philosophy shift:</b> Cincinnati traded premium draft capital for a proven star rather than accumulating picks &mdash; a departure from how this front office has historically operated.",
+      "<b>Camp:</b> <b>July 26 &ndash; Aug. 16</b> at the team's downtown Cincinnati headquarters."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Trade</span><b>Dexter Lawrence II from the Giants</b> for the <b>No. 10 overall pick</b> &mdash; one for one. A three-time Pro Bowl nose tackle becomes the anchor of the defensive front.",
+      "<span class=\"tag\">Signed</span>DT <b>Jonathan Allen</b> &mdash; two-time Pro Bowler, lining up next to Lawrence. The interior went from a weakness to the strength of the roster in one offseason.",
+      "<span class=\"tag\">Signed</span>EDGE <b>Boye Mafe</b> from the Super Bowl champion Seahawks.",
+      "<span class=\"tag\">Signed</span>S <b>Bryan Cook</b> &mdash; secondary help behind the new front.",
+      "<span class=\"tag\">Draft</span>EDGE <b>Cashius Howell</b> in the second round, rounding out the rush rotation."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Joe Burrow, QB.</b> The whole plan is built around him being healthy and in his prime. The offense was never the problem &mdash; the question ESPN poses about this camp is whether a better defense can finally complement him.",
+      "<b>Ja'Marr Chase, WR.</b> Returns as the centerpiece of an attack that has carried Cincinnati by itself for three seasons.",
+      "<b>Dexter Lawrence II, DT.</b> The most important addition on the roster and the reason a first-round pick is playing elsewhere.",
+      "<b>Jonathan Allen, DT.</b> Pairs with Lawrence to give the Bengals two Pro Bowl-caliber interior linemen for the first time in years.",
+      "<b>Boye Mafe &amp; Cashius Howell, EDGE.</b> The veteran and the rookie splitting a rebuilt rush rotation.",
+      "<span class=\"tag watch\">Watch</span>National coverage this month has flagged messaging around Burrow heading into camp as something to monitor &mdash; the pressure on this season is not being hidden."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Dexter Lawrence II, DT", "Acquired from the Giants for pick No. 10", "in"],
+      ["Jonathan Allen, DT", "Free-agent signing &mdash; two-time Pro Bowler", "in"],
+      ["Boye Mafe, EDGE", "Signed from Seattle", "in"],
+      ["Bryan Cook, S", "Free-agent signing", "in"],
+      ["Cashius Howell, EDGE", "Second-round pick", "in"],
+      ["No. 10 overall pick", "Sent to New York in the Lawrence deal", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "For three years the criticism of Cincinnati was identical every offseason: an elite quarterback, an elite receiver, and a defense that wasted them. This spring the Bengals answered it in the most direct way available &mdash; <b>a top-10 pick for Dexter Lawrence</b>, Jonathan Allen beside him, Mafe and Howell off the edge. Zac Taylor's eighth season now has no excuses attached to it. If this defense is merely average, Burrow and Chase should do the rest."
+    ]}
+  ],
+  "sources": "ESPN (2026 Bengals training camp preview) &middot; Bengals.com free agency tracker &middot; Bleacher Report &middot; Newsweek &middot; Sports Illustrated / All Bengals &middot; Heavy.com."
+}

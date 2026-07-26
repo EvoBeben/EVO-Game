@@ -1,0 +1,50 @@
+{
+  "abbr": "LV", "city": "Las Vegas", "name": "Raiders",
+  "primary": "#000000", "secondary": "#A5ACAF",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; a unique redshirt-Heisman model, Fernando Mendoza learning behind Kirk Cousins, and Klint Kubiak's Super Bowl OC pedigree.",
+  "strip": [
+    {"n": "Klint Kubiak", "k": "New Head Coach"},
+    {"n": "$280M+", "k": "Free Agency Spend"},
+    {"n": "Fernando Mendoza", "k": "#1 Overall Pick"},
+    {"n": "Kirk Cousins", "k": "Mentor QB"},
+    {"n": "Unprecedented", "k": "Redshirt Heisman Model"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>Unprecedented quarterback strategy.</b> Las Vegas drafted Heisman winner <b>Fernando Mendoza #1 overall</b> with the express plan to have him <b>sit behind Kirk Cousins</b> in a redshirt-rookie model designed to develop rather than rush the prospect.",
+      "<b>Kubiak brings championship pedigree.</b> Hired Super Bowl offensive coordinator <b>Klint Kubiak</b> (ex-Denver OC) as head coach, signaling ambition to build a contender with veteran leadership and experienced coaching.",
+      "<b>Aggressive free agency.</b> The Raiders spent <b>over $280M</b> in free agency, building a veteran roster with the intention of competing immediately while Mendoza develops.",
+      "<b>The bet: patience with a prize.</b> Most teams can't afford to sit a #1 pick; Las Vegas is betting that developing Mendoza slowly creates a generational advantage when he takes over."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Signed</span><b>Kirk Cousins, QB</b> &mdash; <b>$20M/1yr guaranteed</b>, brought in as both starting QB and mentor to Ferdinand Mendoza in an unprecedented arrangement.",
+      "<span class=\"tag hot\">Drafted</span><b>Fernando Mendoza, QB #1 overall</b> &mdash; Heisman winner, <b>41 TDs, 6 INTs, 72% completion, 3,535 yards, National Champion, Consensus All-American</b> &mdash; sitting Year 1.",
+      "<span class=\"tag hot\">Signed</span><b>Tyler Linderbaum, C</b> &mdash; <b>highest-paid center in football</b>, anchoring the offensive line for Kirk Cousins' operation.",
+      "<span class=\"tag\">Signed</span>LBs <b>Nakobe Dean</b> and <b>Quay Walker</b> &mdash; elite defensive additions to complement a veteran pass rush and coverage group.",
+      "<span class=\"tag\">Coaching staff overhaul</span>Kubiak brings a proven Super Bowl offensive system to the franchise, creating continuity for Cousins and Mendoza."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Kirk Cousins, QB.</b> Playing mentor to the future franchise QB while leading a veteran roster in 2026. His on-field teaching and locker-room presence will directly impact Mendoza's development.",
+      "<b>Fernando Mendoza, QB (sitting Year 1).</b> The Heisman winner is in a unique situation: learn the pro game, study Cousins, develop timing with receivers, and take over a veteran-ready roster in 2027 &mdash; not immediately thrust into starting before he's ready.",
+      "<b>Tyler Linderbaum, C.</b> The highest-paid center in football, tasked with stabilizing the line for both Cousins and the eventual Mendoza transition.",
+      "<b>Nakobe Dean &amp; Quay Walker, LBs.</b> Elite defensive acquisitions adding immediate impact to a unit being built around veteran leadership.",
+      "<b>The offensive philosophy.</b> Klint Kubiak's Super Bowl system arrives intact; Cousins knows it, and Mendoza will learn it during Year 1 of sitdown."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Kirk Cousins, QB", "Starting QB, 1 yr / $20M guaranteed", "in"],
+      ["Fernando Mendoza, QB", "No. 1 overall, redshirt year", "in"],
+      ["Tyler Linderbaum, C", "Highest-paid center, OL anchor", "in"],
+      ["Nakobe Dean, LB", "Elite defensive acquisition", "in"],
+      ["Quay Walker, LB", "Defensive investment", "in"],
+      ["Klint Kubiak, HC", "Super Bowl OC hired as coach", "in"],
+      ["Veteran roster build", "280M+ free agency spend", "in"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Las Vegas has implemented an unprecedented strategy: draft a Heisman winner #1 overall, sit him for a year, and develop him behind a Super Bowl offensive coordinator and veteran quarterback. Fernando Mendoza's credentials are impeccable (41 TDs, 6 INTs, National Champion), but the redshirt approach risks losing a year of elite rookie receiver production and salary cap flexibility. <b>If Mendoza truly thrives after a year of patient development, Las Vegas will have built something generational</b>. If the strategy doesn't work, questions about the #1 overall decision will linger. For now, Kirk Cousins runs the offense, Klint Kubiak's system gets implemented, and Mendoza watches from the sideline &mdash; a camp storyline unlike any other in football."
+    ]}
+  ],
+  "sources": "ESPN (2026 Raiders training camp &amp; offseason coverage) &middot; NFL.com &middot; Raiders.com &middot; Las Vegas Review-Journal &middot; Sports Illustrated / Raiders Maven."
+}

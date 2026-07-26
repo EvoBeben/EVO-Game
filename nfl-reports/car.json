@@ -1,0 +1,52 @@
+{
+  "abbr": "CAR", "city": "Carolina", "name": "Panthers",
+  "primary": "#0085CA", "secondary": "#101820",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; first playoff berth since 2017, the offseason's biggest edge contract, and a rebuild the league now describes as ahead of schedule.",
+  "strip": [
+    {"n": "Playoffs", "k": "2025 &mdash; First Since 2017"},
+    {"n": "Dave Canales", "k": "Head Coach"},
+    {"n": "Dan Morgan", "k": "General Manager"},
+    {"n": "$120M", "k": "Phillips Contract"},
+    {"n": "First", "k": "Team Fully Reported"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>Morgan went hunting for pass rush.</b> The GM said quarterback pressure in 2025 was <b>\"not acceptable\"</b> and promised to be aggressive about it. He then wrote the largest edge contract of the offseason.",
+      "<b>Canales hands off the play sheet.</b> Offensive coordinator <b>Brad Idzik</b> takes over play-calling from the head coach &mdash; a real change in how this offense operates day to day, and the quietest big story of the camp.",
+      "<b>Scheme fit was the sell.</b> Jaelan Phillips thrived under Vic Fangio in Philadelphia, and Carolina runs a similar 3-4 with the flexibility to shift to a 4-3 &mdash; the front office's explicit reasoning for the price.",
+      "<b>Camp readiness:</b> Carolina and Arizona were the <b>first two teams in the NFL to fully report</b> for 2026 camp."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Signed</span><b>Jaelan Phillips, EDGE</b> &mdash; four years, <b>$120M</b> with $80M guaranteed, prised away from Philadelphia. He ranked <b>ninth in the NFL in quarterback pressures (73)</b> in 2025.",
+      "<span class=\"tag hot\">Signed</span><b>Devin Lloyd, LB</b> &mdash; three years, $45M, from Jacksonville.",
+      "<span class=\"tag\">Signed</span>WR <b>John Metchie III</b>, reuniting with his college quarterback. In their last season together in 2021 he posted a team-high 96 catches for 1,142 yards and eight scores.",
+      "<span class=\"tag\">Signed</span>QB <b>Kenny Pickett</b> to the backup job.",
+      "<span class=\"tag hot\">Trade</span>QB <b>Andy Dalton to Philadelphia</b> on a three-year, $24.75M deal.",
+      "<span class=\"tag\">Draft</span>Six of seven picks signed, including OT <b>Monroe Freeling</b> and WR <b>Chris Brazzell</b>."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Bryce Young, QB.</b> Career-best season &mdash; first time past <b>3,000 yards and 20 touchdown passes</b> &mdash; and he led Carolina back to the playoffs. The counterargument is still on the stat sheet: EPA per dropback third-worst among qualified starters, QBR 25th. Year 4 is the verdict year.",
+      "<b>Tetairoa McMillan, WR.</b> Coming off an award-winning rookie season. His ascension is the offense's most likely leap.",
+      "<b>A crowded receiver room.</b> Xavier Legette, Chris Brazzell and Jimmy Horn Jr. are all competing for the snaps behind McMillan &mdash; chemistry with Young is the tiebreaker.",
+      "<b>Jaelan Phillips, EDGE.</b> $120M arrives to fix the pressure problem by himself if necessary.",
+      "<b>Devin Lloyd, LB.</b> Adds range and downhill play behind the new front.",
+      "<b>Offensive line health</b> is the open question &mdash; injuries have muddied how the front five sorts out."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Jaelan Phillips, EDGE", "4 yr / $120M, $80M guaranteed", "in"],
+      ["Devin Lloyd, LB", "3 yr / $45M from Jacksonville", "in"],
+      ["John Metchie III, WR", "Reunited with Bryce Young", "in"],
+      ["Kenny Pickett, QB", "Signed as the veteran backup", "in"],
+      ["Monroe Freeling, OT", "Rookie deal signed", "in"],
+      ["Chris Brazzell, WR", "Rookie deal signed", "in"],
+      ["Andy Dalton, QB", "Traded to Philadelphia", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Carolina got to January a year early, and Dan Morgan responded by paying full price for the one thing that keeps you there: pressure. <b>Phillips and Lloyd cost $165M combined</b>, and both fit a front that can flip between 3-4 and 4-3. The offense is the more interesting experiment &mdash; Brad Idzik now calls it, McMillan is ready for more, and Bryce Young has to prove that a playoff season was a floor rather than a ceiling. The underlying numbers still say the jury is out."
+    ]}
+  ],
+  "sources": "ESPN (2026 Panthers training camp preview &amp; free agency tracker) &middot; Panthers.com &middot; NFL.com &middot; Sports Illustrated &middot; Last Word on Sports."
+}

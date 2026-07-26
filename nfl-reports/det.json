@@ -1,0 +1,60 @@
+{
+  "abbr": "DET", "city": "Detroit", "name": "Lions",
+  "primary": "#0076B6", "secondary": "#B0B7BC",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; a retooled offensive line, a new offensive coordinator and one central question hanging over Allen Park: has the Super Bowl window closed?",
+  "strip": [
+    {"n": "Dan Campbell", "k": "Head Coach"},
+    {"n": "Brad Holmes", "k": "General Manager"},
+    {"n": "Drew Petzing", "k": "New OC"},
+    {"n": "Goff / Gibbs", "k": "Offensive Core"},
+    {"n": "Missed", "k": "2025 Expectations"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>New offensive coordinator.</b> Detroit hired <b>Drew Petzing</b> to run the offense &mdash; the latest coordinator turnover of the Dan Campbell era, and the most consequential given how far the 2025 season fell short of expectations.",
+      "<b>Campbell and Holmes both back.</b> The head coach/GM pairing survived a disappointing 2025 intact, but the roster around them was reshaped aggressively rather than preserved.",
+      "<b>Holmes' stated approach:</b> re-sign the players he already knows fit the culture &mdash; CB Rock Ya-Sin and LB Malcolm Rodriguez headlined that group &mdash; then fill gaps with mid-tier veterans rather than top-of-market strikes."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Trade</span><b>David Montgomery to Houston.</b> The veteran back who formed half of Detroit's signature committee was dealt to the Texans, ending the Montgomery&ndash;Gibbs pairing.",
+      "<span class=\"tag hot\">Released</span><b>Taylor Decker and Graham Glasgow</b> both cut loose as Detroit tore down and rebuilt an offensive line that had been the team's identity.",
+      "<span class=\"tag\">Signed</span><b>Isiah Pacheco, RB</b> &mdash; the splashiest addition of the offseason and Montgomery's direct replacement. Two-time Super Bowl champion in Kansas City, but coming off two injury-impacted seasons.",
+      "<span class=\"tag\">Signed</span>C <b>Cade Mays</b>, T <b>Larry Borom</b> and G <b>Ben Bartch</b> &mdash; the offensive line reset in three moves.",
+      "<span class=\"tag\">Signed</span>TE <b>Tyler Conklin</b>, CB <b>Roger McCreary</b>, DB <b>Christian Izien</b>, S <b>Chuck Clark</b>, CB <b>Avonte Maddox</b>, QB <b>Teddy Bridgewater</b>, EDGE <b>D.J. Wonnum</b> (1 yr, up to $6M).",
+      "<span class=\"tag\">Re-signed</span>CB Rock Ya-Sin and LB Malcolm Rodriguez.",
+      "<span class=\"tag watch\">Lost</span>NT <b>DJ Reader</b> to the New York Giants; QB <b>Kyle Allen</b> to Buffalo (2 yr / $6.1M)."
+    ]},
+    {"title": "Rumor Mill", "type": "ul", "items": [
+      "<span class=\"tag watch\">Speculation</span><b>\"Has the window closed?\"</b> is the framing national outlets have attached to this camp. From 2023&ndash;25 Detroit opened every season as a legitimate contender; 2025 ended well short, and the offseason churn read as a response to that.",
+      "<span class=\"tag watch\">Speculation</span>The <b>safety room</b> is the quiet worry &mdash; a tandem that powered the 2023 run now carries real availability questions into a season Detroit can't afford to waste."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Penei Sewell, OT.</b> Voted the NFL's <b>No. 1 offensive tackle</b> in an ESPN poll of executives, coaches and scouts &mdash; and now moving from right tackle to <b>left</b>, the single biggest technical adjustment on the roster.",
+      "<b>Jared Goff, QB.</b> Back under a new coordinator in Petzing. The core he throws to is intact, which is why Detroit's offense still projects as one of the league's most explosive.",
+      "<b>Jahmyr Gibbs, RB.</b> No longer splitting with Montgomery. How much of that vacated workload he absorbs &mdash; versus Pacheco &mdash; is the offense's defining camp question.",
+      "<b>Amon-Ra St. Brown &amp; Jameson Williams, WR.</b> Both return, giving Goff continuity at receiver even as the line and backfield turn over.",
+      "<b>Isiah Pacheco, RB.</b> Health is the whole story. Two injury-shortened seasons in Kansas City preceded this deal.",
+      "<b>Offensive line, rebuilt.</b> With Decker and Glasgow gone and Sewell sliding left, Detroit is auditioning a substantially new five-man front in camp.",
+      "<b>Safety tandem.</b> Both starters carry serious availability concerns into 2026 &mdash; a unit that was a strength is now a question."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Isiah Pacheco, RB", "Free-agent signing &mdash; replaces Montgomery", "in"],
+      ["Cade Mays, C", "Signed to start the OL rebuild", "in"],
+      ["Larry Borom &amp; Ben Bartch", "Tackle and guard depth added", "in"],
+      ["Tyler Conklin, TE", "Veteran signing", "in"],
+      ["McCreary, Izien, Clark, Maddox", "Secondary overhaul in free agency", "in"],
+      ["Ya-Sin &amp; Rodriguez", "Re-signed by Holmes", "in"],
+      ["David Montgomery, RB", "Traded to Houston Texans", "out"],
+      ["Taylor Decker, OT", "Released", "out"],
+      ["Graham Glasgow, G", "Released", "out"],
+      ["DJ Reader, NT", "Signed with the New York Giants", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Detroit answered a disappointing 2025 by changing everything except the people in charge: new coordinator, new line, new backfield partner, same Campbell and Holmes. The skill core &mdash; Goff, Gibbs, St. Brown, Williams &mdash; is good enough to carry an explosive offense, but it now sits behind a front five that has to be assembled in real time, with <b>Sewell learning left tackle on the fly</b>. If the line settles early, the window is still open. If it doesn't, this becomes the season the national narrative already wrote."
+    ]}
+  ],
+  "sources": "ESPN (2026 Lions training camp preview &amp; free agency tracker) &middot; DetroitLions.com &middot; Pride of Detroit &middot; Detroit News &middot; Side Lion Report &middot; Spotrac."
+}

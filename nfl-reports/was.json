@@ -1,0 +1,54 @@
+{
+  "abbr": "WAS", "city": "Washington", "name": "Commanders",
+  "primary": "#5A1414", "secondary": "#FFB612",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; two first-time coordinators, $100M spent on the edge, and a healthy Jayden Daniels asked to run a different offense.",
+  "strip": [
+    {"n": "5<em>&ndash;</em>12", "k": "2025 Record"},
+    {"n": "Dan Quinn", "k": "Head Coach"},
+    {"n": "David Blough", "k": "New OC"},
+    {"n": "Daronte Jones", "k": "New DC"},
+    {"n": "4", "k": "Daniels' Full Games"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>Both coordinators replaced.</b> Quinn promoted assistant QB coach <b>David Blough</b> to offensive coordinator (Kliff Kingsbury left for the Rams) and hired ex-Vikings pass game coordinator <b>Daronte Jones</b> as DC, replacing Joe Whitt Jr.",
+      "<b>Two first-time NFL play-callers.</b> Neither Blough nor Jones has called plays in the league; Jones has one year of coordinator experience at LSU. National coverage has framed these as genuine gambles &mdash; Quinn has publicly stood firm on both.",
+      "<span class=\"tag watch\">Rumor</span><b>Quinn's own seat.</b> After a 5&ndash;12 collapse, hot-seat chatter has followed him into camp. A third straight uneven season with hand-picked, unproven coordinators would be difficult to explain.",
+      "<b>The scheme shift.</b> Blough's offense leans on <b>more under-center play-action</b> &mdash; a real departure from the shotgun-heavy attack Daniels ran as a rookie."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Signed</span><b>Odafe Oweh, EDGE</b> &mdash; four years, <b>$100M</b>. The largest commitment of the offseason and the anchor of a rebuilt pass rush.",
+      "<span class=\"tag\">Signed</span>DT <b>Tim Settle Jr.</b> (3 yr / $24M), LB <b>Leo Chenal</b>, S <b>Nick Cross</b>, CB <b>Amik Robertson</b>; EDGE <b>Dorance Armstrong</b> brought back.",
+      "<span class=\"tag\">Signed</span>TE <b>Chig Okonkwo</b> and RB <b>Rachaad White</b>; WR <b>Treylon Burks</b> re-signed.",
+      "<span class=\"tag\">Draft</span>WR <b>Antonio Williams</b> added to a receiver room that needed young legs.",
+      "<span class=\"tag watch\">Lost</span>WR <b>Deebo Samuel</b> allowed to walk after one season; RB <b>Austin Ekeler</b> not re-signed; TE <b>Zach Ertz</b> departed."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Jayden Daniels, QB.</b> The 2024 Offensive Rookie of the Year lost 2025 to a cascade of injuries &mdash; <b>knee sprain, hamstring strain, and a dislocated elbow</b> that ended his season. He played only four full games. Spring and summer reports have been encouraging: comfortable, moving well, back in sync with Terry McLaurin.",
+      "<b>The adjustment.</b> Daniels' transition to Blough's under-center, play-action-heavy system is the single most important variable in Washington's season.",
+      "<b>Odafe Oweh, EDGE.</b> $100M says the pass rush is now his responsibility. Paired with Armstrong and Settle inside, the front is unrecognizable from 2025.",
+      "<b>Terry McLaurin, WR.</b> Still the offense's anchor, and the chemistry reports with a healthy Daniels are the most positive signal out of the spring.",
+      "<b>Receiver room, reset.</b> With Samuel gone, rookie Antonio Williams and re-signed Treylon Burks compete for snaps behind McLaurin.",
+      "<b>Backfield, reset.</b> Rachaad White replaces Ekeler as the veteran presence."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Odafe Oweh, EDGE", "4 yr / $100M &mdash; biggest signing of the offseason", "in"],
+      ["Tim Settle Jr., DT", "3 yr / $24M", "in"],
+      ["Chenal, Cross, Robertson", "LB and secondary additions", "in"],
+      ["Dorance Armstrong, EDGE", "Brought back on the edge", "in"],
+      ["Chig Okonkwo, TE", "Free-agent signing", "in"],
+      ["Rachaad White, RB", "Replaces Ekeler in the backfield", "in"],
+      ["Deebo Samuel, WR", "Allowed to leave after one season", "out"],
+      ["Austin Ekeler, RB", "Not re-signed", "out"],
+      ["Zach Ertz, TE", "Departed", "out"],
+      ["Kliff Kingsbury, OC", "Left for the Los Angeles Rams", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Washington's 2025 was a health story disguised as a collapse &mdash; <b>four full games from Jayden Daniels</b> and a 5&ndash;12 finish. The fix was money on defense (Oweh's $100M leading a rebuilt front) and a philosophical reset on offense. The risk is concentrated in one place: Dan Quinn handed both play-calling jobs to men who have never held them in the NFL, in a year his own seat is being discussed. A healthy Daniels makes it look bold. Anything less makes it look like the last decision he gets to make."
+    ]}
+  ],
+  "sources": "ESPN (2026 Commanders training camp preview &amp; free agency tracker) &middot; NFL.com &middot; WJLA &middot; A to Z Sports &middot; Sports Illustrated &middot; Hogs Haven &middot; Heavy.com."
+}

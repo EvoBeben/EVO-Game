@@ -1,0 +1,48 @@
+{
+  "abbr": "MIN", "city": "Minnesota", "name": "Vikings",
+  "primary": "#4F2683", "secondary": "#FFC62F",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; no general manager, an open quarterback competition, and a head coach who has quietly become the most powerful person in the building.",
+  "strip": [
+    {"n": "Kevin O'Connell", "k": "HC &middot; 2024 COY"},
+    {"n": "Vacated", "k": "GM Seat"},
+    {"n": "Murray vs. McCarthy", "k": "Open QB Battle"},
+    {"n": "Aug 1&ndash;20", "k": "Camp, TCO Center"},
+    {"n": "Brian Flores", "k": "Def. Coordinator"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>GM fired.</b> Minnesota dismissed <b>Kwesi Adofo-Mensah</b> and deliberately did not name a replacement before the draft. Longtime executive <b>Rob Brzezinski</b> took over day-to-day football operations in the interim.",
+      "<b>O'Connell's power grows.</b> The 2024 Coach of the Year already drove personnel alongside Adofo-Mensah; league sources expect he ends up with <b>more formal authority</b> even if it never appears in contract language. Functionally, everything now starts with him.",
+      "<span class=\"tag watch\">Rumor</span>Reporting since the firing has hinted at friction and \"imperfect power dynamics\" between coach and GM. O'Connell has pushed back publicly, calling the relationship strong and any suggestion otherwise \"not accurate in any way, shape, or form.\"",
+      "<b>Brian Flores returns</b> as defensive coordinator &mdash; the one piece of the operation nobody questioned."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Signed</span><b>Kyler Murray, QB</b> &mdash; the former No. 1 overall pick on a one-year deal at the veteran minimum, with <b>Arizona paying the remainder of his $36.5M guarantee</b> for 2026. One of the most lopsided cost structures in the league.",
+      "<span class=\"tag\">Re-signed</span>QB <b>Carson Wentz</b>, filling out a room of McCarthy, Murray and Wentz.",
+      "<span class=\"tag\">Signed</span>T <b>Ryan Van Demark</b> via offer sheet &mdash; Buffalo declined to match. LB <b>Eric Wilson</b> on a multiyear deal after one of his best seasons since 2020.",
+      "<span class=\"tag\">Signed</span>CB <b>Pierre</b> from Pittsburgh, who overlapped with Flores there &mdash; a scheme-fit add to the corner room.",
+      "<span class=\"tag\">Signed</span>P <b>Johnny Hekker</b> (1 yr), completing an all-Pro-credentialed specialist trio with K Will Reichard and LS Andrew DePaola.",
+      "<span class=\"tag watch\">Lost</span>P <b>Ryan Wright</b> to New Orleans on a four-year deal after four seasons in Minnesota."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>QB1 is genuinely open.</b> O'Connell declared an open competition between <b>Kyler Murray and J.J. McCarthy</b>. Murray is the heavy favorite &mdash; a steadier option after a season in which McCarthy was handed the job having never taken a regular-season NFL snap.",
+      "<b>Rookie DL Banks (Florida), 1st round.</b> Recovering from a foot injury, but O'Connell has publicly backed his ability to get on the field.",
+      "<b>Harrison Smith, S.</b> Unless he chooses to play rather than retire, Minnesota has <b>an opening at safety for the first time in 15 seasons</b>.",
+      "<b>Center, wide open.</b> Ryan Kelly's retirement leaves the job to utility lineman <b>Blake Brandel</b>, who started nine games there in 2025 and gets the first look.",
+      "<b>Christian Darrisaw, LT.</b> Started just 10 games last season after a knee injury &mdash; part of an offensive line battered all year. Kelly landed in concussion protocol three separate times and played only eight games.",
+      "<b>Specialists are a strength.</b> Hekker, Reichard and DePaola give Minnesota arguably the league's best kicking operation."
+    ]},
+    {"title": "Camp Calendar", "type": "table", "items": [
+      ["Aug 1 &ndash; Aug 20", "Training camp, TCO Performance Center"],
+      ["QB rep split", "First real look at Murray vs. McCarthy under live conditions"],
+      ["Watch", "Banks' foot, Brandel at center, Smith's retirement decision"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Minnesota is running a season without a permanent general manager, with a quarterback room that includes the man they drafted in the first round, a former No. 1 overall pick playing for the minimum, and a veteran third. That is either flexibility or instability depending on how August goes. <b>Kevin O'Connell owns all of it now</b> &mdash; the roster, the call on McCarthy, and the outcome. Flores' defense buys margin; the offensive line's health decides how much."
+    ]}
+  ],
+  "sources": "ESPN (Vikings camp preview &amp; free agency tracker) &middot; Vikings.com position previews &middot; NFL.com &middot; Daily Norseman &middot; Bleacher Report &middot; Pro Football Rumors &middot; KARE 11 &middot; Sports Illustrated."
+}

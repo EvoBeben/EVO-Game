@@ -1,0 +1,47 @@
+{
+  "abbr": "JAX", "city": "Jacksonville", "name": "Jaguars",
+  "primary": "#006B3F", "secondary": "#000000",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; defending AFC South champions return intact, Liam Coen's second year, and the challenge of repeating in a competitive division.",
+  "strip": [
+    {"n": "13&ndash;4", "k": "2025 Record"},
+    {"n": "AFC South Champs", "k": "Lost Wild Card 24&ndash;27"},
+    {"n": "Liam Coen", "k": "Year 2 Head Coach"},
+    {"n": "Travis Hunter", "k": "TE Trade Acquisition"},
+    {"n": "Conservative", "k": "Free Agency Approach"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>Continuity is the strategy.</b> Jacksonville won the AFC South at <b>13&ndash;4</b> with <b>Liam Coen</b> in his first year, then <b>lost a Wild Card game to Buffalo 27&ndash;24</b> that could easily have gone the other way.",
+      "<b>Minimal roster moves.</b> Rather than overhaul, the Jaguars took a conservative approach in free agency with <b>only limited external signings</b>, trusting the foundation already in place.",
+      "<b>Trevor Lawrence secured long-term.</b> The quarterback is locked in on a <b>five-year, $275M deal with $200M guaranteed</b>, giving the franchise continuity at the most important position.",
+      "<b>The narrative going forward:</b> Can a young core built by Coen repeat their success in a competitive AFC South?"
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Trade</span><b>Travis Hunter, TE</b> acquired (trade details TBD) &mdash; depth at tight end to support Lawrence.",
+      "<span class=\"tag\">Signed</span>RB <b>Chris Rodriguez Jr.</b> &mdash; the lone significant external free agent addition.",
+      "<span class=\"tag\">Draft</span>Limited by previous Travis Hunter trade capital, selected <b>Nate Boerkircher, TE</b> at <b>#56</b> in the second round &mdash; a depth move criticized as early.",
+      "<span class=\"tag\">Retained</span>Core roster kept together with minimal departures, maintaining the chemistry that led to division championship."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Trevor Lawrence, QB.</b> Playing on an <b>$88M annual average</b> deal and operating as an MVP candidate entering Year 4. The continuity in system and staff under Coen should accelerate development.",
+      "<b>The defense that won it.</b> Jacksonville's defense was the backbone of their AFC South title run and returns largely intact, a major advantage in the repeat bid.",
+      "<b>Chris Rodriguez Jr., RB.</b> Added as a free agent, tasked with providing depth in the backfield alongside the established rotation.",
+      "<b>Nate Boerkircher, TE.</b> Second-round pick competing for depth snaps behind established tight ends.",
+      "<b>Coen's system maturity.</b> Year 2 of a head coach's system typically sees marked improvement; expectations are accordingly high."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Trevor Lawrence, QB", "Locked in with 5 yr / $275M deal", "in"],
+      ["Travis Hunter, TE", "Trade acquisition for depth", "in"],
+      ["Chris Rodriguez Jr., RB", "Free-agent signing", "in"],
+      ["Nate Boerkircher, TE", "Second-round draft pick", "in"],
+      ["Minimal departures", "Core 13-4 roster retained", "in"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Jacksonville built something real in 2025 and trusted it enough to stay conservative in the offseason. <b>Trevor Lawrence is locked in on a massive deal</b>, the defense returns intact, and Liam Coen gets Year 2 to refine his system. The challenge is repeating in the AFC South while facing a potential Super Bowl rematch with Buffalo. This is a team banking on continuity over overhaul."
+    ]}
+  ],
+  "sources": "ESPN (2026 Jaguars training camp &amp; offseason coverage) &middot; NFL.com &middot; Jaguars.com &middot; Sports Illustrated / Jaguars Nation."
+}

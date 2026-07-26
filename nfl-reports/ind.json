@@ -1,0 +1,51 @@
+{
+  "abbr": "IND", "city": "Indianapolis", "name": "Colts",
+  "primary": "#002C5F", "secondary": "#A2AAAD",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; $88M says Daniel Jones is the starter, three key players are rehabbing surgeries, and Anthony Richardson is back in the building.",
+  "strip": [
+    {"n": "Daniel Jones", "k": "2 yr / $88M"},
+    {"n": "3", "k": "Key Players Post-Surgery"},
+    {"n": "Sauce Gardner", "k": "Cost Two 1sts"},
+    {"n": "$114M", "k": "Pierce Contract"},
+    {"n": "PUP", "k": "Pierce &amp; Buckner Watch"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>The Colts committed to Daniel Jones</b> on a <b>two-year, $88M</b> deal &mdash; an emphatic answer to a quarterback question that has followed this franchise for years.",
+      "<b>Anthony Richardson Sr. returned.</b> He <b>requested a trade</b> earlier in the offseason, then came back during the voluntary program and drew praise from coaches and teammates for his professionalism and mentality.",
+      "<b>Last year's bill is still being paid.</b> Indianapolis traded <b>two first-round picks</b> for CB Sauce Gardner &mdash; the kind of move that removes any patience from the timeline.",
+      "<b>The pass rush was allowed to leave.</b> Kwity Paye and Samson Ebukam both walked in free agency, an unusual choice for a team otherwise pushing chips in."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Signed</span><b>Daniel Jones, QB</b> &mdash; two years, $88M, back as the unambiguous starter.",
+      "<span class=\"tag hot\">Signed</span><b>Alec Pierce, WR</b> &mdash; four years, <b>$114M</b> on March 9, one of the largest receiver contracts of the offseason.",
+      "<span class=\"tag\">Signed</span>EDGE <b>Arden Key</b> &mdash; the veteran expected to absorb some of the vacated pass-rush role.",
+      "<span class=\"tag\">Signed</span>S <b>Thomas</b> from Dallas, joining a safety room that was thin behind Cam Bynum.",
+      "<span class=\"tag watch\">Lost</span>EDGE <b>Kwity Paye</b> and EDGE <b>Samson Ebukam</b> (to Atlanta) both departed in free agency."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Daniel Jones, QB.</b> Rehabbed an <b>Achilles</b> this offseason and is <b>expected to be ready for the start of camp</b>, operating the starting offense in team sessions from day one.",
+      "<b>Alec Pierce, WR.</b> Signed for $114M in March, then underwent a <b>\"clean-up procedure\" on his left ankle</b>. A candidate to open camp on <b>PUP</b>.",
+      "<b>DeForest Buckner, DT.</b> Rehabbing a <b>neck</b> issue and also a PUP candidate &mdash; the third influential Colt coming off surgery.",
+      "<b>Anthony Richardson Sr., QB.</b> Trade request behind him, back in the building, and by all accounts handling a backup role the right way. How the room shakes out behind Jones is a genuine camp question.",
+      "<b>Riley Leonard, QB.</b> The third name in a quarterback room the team's own preview treats as unsettled beyond QB1.",
+      "<b>Arden Key, EDGE.</b> Carrying more than a veteran signing usually does, given who left."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Daniel Jones, QB", "Re-signed &mdash; 2 yr / $88M", "in"],
+      ["Alec Pierce, WR", "4 yr / $114M signed March 9", "in"],
+      ["Arden Key, EDGE", "Veteran pass-rush signing", "in"],
+      ["Thomas, S", "Signed from Dallas", "in"],
+      ["Anthony Richardson Sr., QB", "Returned after an offseason trade request", "in"],
+      ["Kwity Paye, EDGE", "Left in free agency", "out"],
+      ["Samson Ebukam, EDGE", "Signed with Atlanta", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Indianapolis has spent aggressively in every direction &mdash; two first-round picks for Sauce Gardner, $88M for Daniel Jones, $114M for Alec Pierce &mdash; and now waits to see who is healthy enough to use it. <b>Jones (Achilles), Pierce (ankle) and Buckner (neck) all spent the offseason rehabbing</b>, with two of them PUP candidates. Meanwhile the edge rush walked out the door. It is a roster with a very high ceiling and an unusually large number of medical asterisks."
+    ]}
+  ],
+  "sources": "ESPN (2026 Colts training camp preview &amp; free agency tracker) &middot; Colts.com &middot; FOX59 &middot; Sports Illustrated / Colts OnSI &middot; Horseshoe Heroes."
+}

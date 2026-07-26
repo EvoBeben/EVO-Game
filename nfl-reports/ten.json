@@ -1,0 +1,50 @@
+{
+  "abbr": "TEN", "city": "Tennessee", "name": "Titans",
+  "primary": "#0C2C56", "secondary": "#A2AAAD",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; a historic 3-14 meltdown triggers a massive overhaul, Robert Saleh takes over, and Cam Ward's development is everything.",
+  "strip": [
+    {"n": "3&ndash;14", "k": "2025 Disaster"},
+    {"n": "$300M+", "k": "Free Agency Spend"},
+    {"n": "Robert Saleh", "k": "New Head Coach"},
+    {"n": "20+", "k": "Veteran Additions"},
+    {"n": "Cam Ward", "k": "Year 2 Crucible"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>Complete regime reset.</b> Tennessee's <b>3-14 collapse</b> in 2025 led to the mid-season firing of Brian Callahan and a complete overhaul, with <b>Robert Saleh</b> installed as the new head coach to salvage Cam Ward's career.",
+      "<b>Go-all-in mentality.</b> The Titans spent <b>over $300M in free agency</b>, adding <b>more than 20 veteran players</b> to reset the roster in a single offseason &mdash; an aggressive strategy that signals desperation and commitment.",
+      "<b>Saleh's reputation on the line.</b> Hired from his defensive coordinator role with San Francisco, Saleh must engineer a turnaround in Year 1 or face questions about his ability to lead.",
+      "<b>Camp timeline:</b> Rookies report July 23, veterans July 28."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Signed</span><b>Wan'Dale Robinson, WR</b> &mdash; four-year, <b>$78M deal</b> for a proven pass-catcher to support Ward.",
+      "<span class=\"tag hot\">Trade</span><b>Jermaine Johnson II, EDGE</b> acquired from New York Jets to anchor the pass rush.",
+      "<span class=\"tag\">Signed</span><b>Franklin-Myers, EDGE</b>, <b>Solomon Thomas, DT</b> (trade), <b>Taylor, CB</b>, <b>Flott, CB</b>, and <b>Daniel Bellinger, TE</b> &mdash; veterans across the depth chart.",
+      "<span class=\"tag hot\">Drafted</span>Supporting Ward's development: WR <b>Carnell Tate</b>, DE <b>Keldric Faulk</b> in first two rounds to surround the quarterback with playmakers."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Cam Ward, QB.</b> The focal point of every move this offseason. His development in Saleh's system, with real pass catchers and pass protection, will determine whether this rebuild works. This is his make-or-break moment in Year 2.",
+      "<b>Wan'Dale Robinson, WR.</b> Signed to be the #1 target and stabilizing presence for a sophomore quarterback who needs reliable options.",
+      "<b>Robert Saleh's defense.</b> The former 49ers DC brings a proven defensive philosophy; this unit should be far better than 2025's disaster.",
+      "<b>Jermaine Johnson II, EDGE.</b> Acquired to provide immediate pass-rush impact &mdash; the Titans need sacks and pressure around Ward.",
+      "<b>The youth movement.</b> Carnell Tate and Keldric Faulk were drafted to support Ward long-term, creating a young receiving and defensive core."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Cam Ward, QB", "Entering Year 2 in Saleh's system", "in"],
+      ["Wan'Dale Robinson, WR", "4 yr / $78M signed deal", "in"],
+      ["Jermaine Johnson II, EDGE", "Trade from New York Jets", "in"],
+      ["Carnell Tate, WR", "First-round draft pick", "in"],
+      ["Keldric Faulk, DE", "First-round edge rusher", "in"],
+      ["Daniel Bellinger, TE", "Added as receiving option", "in"],
+      ["20+ veteran signings", "Across all position groups", "in"],
+      ["Brian Callahan", "Fired mid-2025 season", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Tennessee threw everything at the 3-14 problem, spending over $300M to overhaul the roster in a single offseason. Robert Saleh arrives to engineer the turnaround, Cam Ward gets real weapons and protection, and Wan'Dale Robinson becomes his safety blanket. This is a team betting on aggressive veteran addition and coach change to salvage a sophomore quarterback who had every excuse to fail last year. <b>If Saleh and Ward both thrive, this camp will be remembered as the turning point. If not, expect questions about whether this massive bet was the answer to the wrong question.</b>"
+    ]}
+  ],
+  "sources": "ESPN (2026 Titans training camp &amp; offseason coverage) &middot; NFL.com &middot; Titans.com &middot; The Tennessean &middot; Sports Illustrated / Titans Daily."
+}

@@ -1,0 +1,49 @@
+{
+  "abbr": "LAC", "city": "Los Angeles", "name": "Chargers",
+  "primary": "#0080C6", "secondary": "#FFC52F",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; Mike McDaniel arrives to fix a broken offensive line, Jim Harbaugh faces Year 2 pressure, and redemption begins now.",
+  "strip": [
+    {"n": "11&ndash;6", "k": "2025 Record"},
+    {"n": "3&ndash;16", "k": "Wild Card Loss to NE"},
+    {"n": "60 Sacks", "k": "2025 Catastrophe"},
+    {"n": "Mike McDaniel", "k": "New Offensive Coordinator"},
+    {"n": "OL Overhaul", "k": "Top Priority"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>The protection nightmare cost them.</b> Los Angeles won 11 games but allowed <b>60 sacks in 2025</b> &mdash; a catastrophic offensive line performance that <b>overshadowed an 11-6 record</b> and led to a <b>3-16 Wild Card loss to New England</b>.",
+      "<b>The loss exposed everything.</b> In that playoff game, the Chargers managed only 159 passing yards, took 6 sacks, and fumbled once &mdash; a systematic failure on the offensive line that can't be ignored.",
+      "<b>Mike McDaniel is the fix.</b> Jim Harbaugh brought in the respected offensive coordinator to redesign the scheme and hopefully improve protection schemes and execution.",
+      "<b>Harbaugh's seat gets warmer.</b> Year 2 of the experiment; another playoff loss and questions about the hire will intensify."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Signed</span><b>Tyler Biadasz, C</b> &mdash; <b>#1 priority for offensive line</b>, addressing the center position that was a weakness in 2025.",
+      "<span class=\"tag hot\">Signed</span><b>Cole Strange, G</b> &mdash; guard help to stabilize the interior line, pairing with Biadasz.",
+      "<span class=\"tag\">Signed</span>TE <b>Charlie Kolar</b> &mdash; <b>$24.3M/3yr</b> for receiving depth and pass-catching support.",
+      "<span class=\"tag\">Retained</span><b>Khalil Mack</b> kept on the defensive end to anchor the pass rush despite salary considerations.",
+      "<span class=\"tag\">Draft focus</span>Additional offensive line depth through the draft to complete the overhaul of the unit that gave up 60 sacks."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>The offensive line is ground zero.</b> Tyler Biadasz, Cole Strange, and additional draft picks will be competing to fix a unit that embarrassed itself in the Wild Card game.",
+      "<b>Justin Herbert, QB.</b> A year after avoiding catastrophic injury, Herbert needs competent pass protection to operate. The 60 sacks tell the story of how poorly he was protected in 2025.",
+      "<b>Mike McDaniel's scheme test.</b> The offensive coordinator arrives to fix the protection issues; his first camp will show whether the problem was personnel, scheme, or both.",
+      "<b>Khalil Mack, EDGE.</b> Retained on the defense to keep pass rush consistent, though the offensive line overhaul is the clear priority.",
+      "<b>Charlie Kolar, TE.</b> Added as a pass-catching option to give Herbert more targets in a league where that's increasingly important."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Tyler Biadasz, C", "Center #1 priority, signed", "in"],
+      ["Cole Strange, G", "Guard addition for interior", "in"],
+      ["Charlie Kolar, TE", "Pass-catching option, 3 yr / $24.3M", "in"],
+      ["Khalil Mack, EDGE", "Retained on defense", "in"],
+      ["OL draft additions", "Multiple picks invested in line", "in"],
+      ["Khalil Mack trade consideration", "Kept despite salary discussion", "in"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Los Angeles allowed 60 sacks, lost a playoff game badly, and called in Mike McDaniel to fix the offense. Tyler Biadasz and Cole Strange address the center and guard spots, but the offensive line rebuild is a work in progress that will dominate this camp. <b>Jim Harbaugh's second season is already proving to be a prove-it moment; the 3-16 playoff loss erased the 11-6 regular season from the narrative.</b> If McDaniel's scheme and the new pieces don't immediately improve protection, questions about Harbaugh's long-term fit will grow loudly."
+    ]}
+  ],
+  "sources": "ESPN (2026 Chargers training camp &amp; offseason coverage) &middot; NFL.com &middot; Chargers.com &middot; San Diego Union-Tribune &middot; Sports Illustrated / Chargers Maven."
+}

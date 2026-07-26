@@ -1,0 +1,52 @@
+{
+  "abbr": "PHI", "city": "Philadelphia", "name": "Eagles",
+  "primary": "#004C54", "secondary": "#A5ACAF",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; A.J. Brown is gone, the offense is being rebuilt around a new play-caller's vision, and every question routes back to Jalen Hurts.",
+  "strip": [
+    {"n": "Nick Sirianni", "k": "Head Coach"},
+    {"n": "Howie Roseman", "k": "Football Ops"},
+    {"n": "Sean Mannion", "k": "New OC"},
+    {"n": "Wild Card", "k": "2025 Exit"},
+    {"n": "32.6%", "k": "Target Share Lost"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>New offensive voice.</b> <b>Sean Mannion</b>, 34, formerly Green Bay's quarterbacks coach, is installing a scheme built on more <b>under center, more motion, and more throws over the middle</b> &mdash; concepts this offense has not leaned into with Hurts.",
+      "<b>End of an era on the line.</b> <b>Jeff Stoutland</b>, the offensive line coach since 2013 and the most respected position coach in the building, has departed. <b>Chris Kuper</b> takes over &mdash; this is the linemen's first camp under him.",
+      "<b>Roseman kept trading.</b> Philadelphia converted its best receiver into future capital and used the draft board aggressively again, extending the front office's pattern of selling a year early rather than a year late."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Trade</span><b>A.J. Brown to New England</b> for a <b>2028 first-round pick</b> and a 2027 fifth. From 2022&ndash;25 no NFL receiver commanded a greater share of his team's receiving yards (32.6%), and he was Hurts' safety valve against man coverage.",
+      "<span class=\"tag hot\">Trade</span><b>Andy Dalton</b> acquired from Carolina on a three-year, $24.75M deal ($15M guaranteed) &mdash; a serious investment in the backup room.",
+      "<span class=\"tag hot\">Trade</span>Sent S <b>Sydney Brown</b> and picks 122 and 215 to Atlanta for picks <b>114 and 197</b> (March 20).",
+      "<span class=\"tag\">Signed</span>CB <b>Riq Woolen</b> &mdash; one year, up to $15M. WR <b>Elijah Moore</b>. RB <b>Dameon Pierce</b> (1 yr, March 19).",
+      "<span class=\"tag watch\">Lost</span>EDGE <b>Jaelan Phillips</b> to Carolina on a stunning <b>4-year, $120M</b> deal; EDGE <b>Azeez Ojulari</b> to Atlanta; EDGE <b>Josh Uche</b> to Miami; QB <b>Sam Howell</b> to Dallas."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Jalen Hurts, QB.</b> The single biggest question in Philadelphia: whether his skill set and Mannion's under-center, middle-of-the-field vision actually align. Everything else on this roster is downstream of that answer.",
+      "<b>Landon Dickerson, G.</b> Traveled to Columbia for <b>stem cell injections in his knees and ankles</b>, hoping to buy a healthier 2026.",
+      "<b>Cam Jurgens, C.</b> Received <b>stem cell treatment for back issues</b> &mdash; the second of two starting interior linemen managing chronic problems.",
+      "<b>Receiver room, reordered.</b> With Brown traded and Elijah Moore added, the target hierarchy behind DeVonta Smith is genuinely unsettled going into camp.",
+      "<b>Riq Woolen, CB.</b> A one-year, high-upside bet on a corner whose traits have never been in question &mdash; the kind of prove-it deal Philadelphia has hit on before.",
+      "<b>Edge rush, thinned out.</b> Phillips, Ojulari and Uche all left in the same offseason. Replacing that rotation is the defense's central camp assignment."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Andy Dalton, QB", "Trade + 3 yr / $24.75M ($15M gtd)", "in"],
+      ["Riq Woolen, CB", "1 yr, up to $15M", "in"],
+      ["Elijah Moore, WR", "Free-agent signing", "in"],
+      ["Dameon Pierce, RB", "1-year deal, March 19", "in"],
+      ["Picks 114 &amp; 197", "From Atlanta in the Sydney Brown swap", "in"],
+      ["A.J. Brown, WR", "Traded to New England for a 2028 first", "out"],
+      ["Jaelan Phillips, EDGE", "Signed with Carolina, 4 yr / $120M", "out"],
+      ["Azeez Ojulari, EDGE", "Signed with Atlanta", "out"],
+      ["Jeff Stoutland, OL coach", "Departed after 13 seasons", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Philadelphia responded to a wild-card exit by changing the two things that had defined it: the receiver who bent defenses and the coach who built the offensive line. In their place is a first-time play-caller asking <b>Jalen Hurts to run a different kind of offense</b>, behind two interior starters seeking stem-cell relief, with an edge rotation that emptied out in free agency. Roseman banked a 2028 first for the trouble. Whether that reads as foresight or as a step back depends almost entirely on August."
+    ]}
+  ],
+  "sources": "ESPN (2026 Eagles training camp preview &amp; free agency tracker) &middot; PhiladelphiaEagles.com &middot; NFL.com &middot; PhillyVoice &middot; Bleeding Green Nation &middot; Sports Illustrated."
+}

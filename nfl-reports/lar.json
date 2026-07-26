@@ -1,0 +1,55 @@
+{
+  "abbr": "LAR", "city": "Los Angeles", "name": "Rams",
+  "primary": "#003594", "secondary": "#FFA300",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; two blockbuster trades, the reigning MVP and the reigning Defensive Player of the Year on one roster, and Super Bowl favorite odds to carry.",
+  "strip": [
+    {"n": "Sean McVay", "k": "Head Coach"},
+    {"n": "Stafford", "k": "Reigning MVP"},
+    {"n": "Myles Garrett", "k": "Reigning DPOY"},
+    {"n": "NFC Title Game", "k": "2025 Exit"},
+    {"n": "SB Favorite", "k": "DraftKings Odds"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>All-in, stated plainly.</b> After losing the NFC Championship Game to Seattle, Los Angeles spent the offseason signing big in free agency and making two blockbuster trades. Nobody in the building is describing this as anything other than a championship push.",
+      "<b>Kliff Kingsbury joins the staff</b> from Washington, adding another offensive voice around McVay and the reigning MVP.",
+      "<b>Stafford, extended &mdash; sort of.</b> The Rams got a deal done, but the arrangement remains effectively <b>year-to-year</b>, buying rookie Ty Simpson time to develop behind a 38-year-old starter.",
+      "<b>Camp:</b> players reported <b>July 25</b>; practices run <b>July 26 &ndash; Aug. 7</b> at Loyola Marymount."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Trade</span><b>Myles Garrett acquired in June</b> &mdash; the reigning Defensive Player of the Year. The cost was steep: EDGE <b>Jared Verse</b>, a 25-year-old two-time Pro Bowler, plus multiple picks including a <b>2027 first-rounder</b>.",
+      "<span class=\"tag hot\">Trade</span><b>Trent McDuffie from Kansas City</b> in March, then signed the All-Pro corner to a <b>four-year, $120M extension</b>. Called the biggest trade of the offseason before Garrett topped it.",
+      "<span class=\"tag\">Signed</span>CB <b>Jaylen Watson</b> &mdash; Kansas City's other starting corner from last season, giving Los Angeles both halves of the Chiefs' 2025 secondary.",
+      "<span class=\"tag\">Signed</span>LS <b>Joe Cardona</b> to a two-year deal, solidifying the specialist operation.",
+      "<span class=\"tag\">Draft</span>QB <b>Ty Simpson</b> &mdash; the succession plan, still unsigned as camp opened."
+    ]},
+    {"title": "Rumor Mill", "type": "ul", "items": [
+      "<span class=\"tag watch\">Speculation</span><b>Aaron Donald, un-retired?</b> Trading for Garrett in June revived talk of a Donald return to play alongside the reigning DPOY. McVay said the team is \"of course\" open to it &mdash; and that the decision belongs entirely to Donald.",
+      "<span class=\"tag watch\">Contract</span><b>Puka Nacua</b> has a looming, potentially top-of-market extension ahead of him."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Matthew Stafford, QB.</b> Reigning <b>MVP</b>, entering his age-38 season. The recurring question is whether the Rams should again limit his camp workload &mdash; a real debate given how 2025 ended for him.",
+      "<b>Myles Garrett, EDGE.</b> Arrives as the best defensive player in football and the single biggest reason Los Angeles opened as a Super Bowl favorite.",
+      "<b>Trent McDuffie, CB.</b> $120M extension in hand, paired with former Chiefs teammate Jaylen Watson &mdash; a secondary rebuilt in one transaction cycle.",
+      "<b>Puka Nacua, WR.</b> Back after a stint in rehab and continuing that work, with a major extension on the horizon. Both matter to how 2026 goes.",
+      "<b>Backup QB battle.</b> Rookie <b>Ty Simpson</b>, still unsigned as camp opened, against <b>Stetson Bennett</b> for the job behind Stafford.",
+      "<b>The hype problem.</b> ESPN's framing of this camp is simply whether the Rams can live up to it &mdash; there is no version of 2026 where a conference title game is a satisfying result."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Myles Garrett, EDGE", "Acquired by trade in June &mdash; reigning DPOY", "in"],
+      ["Trent McDuffie, CB", "Trade from Kansas City + 4 yr / $120M", "in"],
+      ["Jaylen Watson, CB", "Signed from Kansas City", "in"],
+      ["Kliff Kingsbury", "Joined the staff from Washington", "in"],
+      ["Joe Cardona, LS", "Two-year deal", "in"],
+      ["Matthew Stafford, QB", "Extended, still effectively year-to-year", "in"],
+      ["Ty Simpson, QB", "Drafted; unsigned as camp opened", "in"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Los Angeles lost a conference championship game and responded by acquiring the reigning Defensive Player of the Year, both of Kansas City's starting corners, and an extension for the MVP who is about to turn 38. There is no hedge in this roster and no patience built into it. <b>The window is this year</b>, McVay knows it, and the only questions left are Stafford's workload, Nacua's extension, and whether Aaron Donald picks up the phone."
+    ]}
+  ],
+  "sources": "ESPN (2026 Rams training camp preview &amp; free agency tracker) &middot; NFL.com &middot; TheRams.com &middot; Turf Show Times &middot; Sports Illustrated / Ram Digest &middot; Spotrac."
+}

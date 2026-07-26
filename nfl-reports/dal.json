@@ -1,0 +1,53 @@
+{
+  "abbr": "DAL", "city": "Dallas", "name": "Cowboys",
+  "primary": "#003594", "secondary": "#869397",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; a new defensive coordinator, a rebuilt front, and a franchise-tagged receiver reporting to Oxnard without a holdout.",
+  "strip": [
+    {"n": "Schottenheimer", "k": "HC &middot; Year 2"},
+    {"n": "Christian Parker", "k": "New DC"},
+    {"n": "$27.3M", "k": "Pickens Franchise Tag"},
+    {"n": "Missed", "k": "2025 Playoffs"},
+    {"n": "Oxnard", "k": "Camp Site"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>Eberflus fired.</b> Dallas dismissed defensive coordinator <b>Matt Eberflus</b> after one of the worst defensive seasons in franchise history and hired Eagles defensive backs coach <b>Christian Parker</b> to replace him.",
+      "<b>Defensive staff turnover.</b> Parker brought in his own assistants; the offensive staff stayed largely intact, adding only Kyle Fuller (asst. OL/QC) and Stephen Bravo-Brown (asst. WRs).",
+      "<b>Front office unchanged.</b> Calls for outside leadership &mdash; including fan speculation about Troy Aikman &mdash; go nowhere. Dallas remains a family business, and any succession runs through <b>Stephen Jones</b>.",
+      "<b>Year 2 under Schottenheimer.</b> The first season had highs, but missing the playoffs again made it a clear disappointment."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Trade</span><b>Rashan Gary from Green Bay</b> (March 9) for a 2027 fourth-rounder &mdash; the headline answer to a pass rush that had much to prove.",
+      "<span class=\"tag hot\">Trade</span><b>Osa Odighizuwa to San Francisco</b> for a 2026 third-round pick (No. 92).",
+      "<span class=\"tag\">Signed</span>S <b>Jalen Thompson</b> &mdash; three years, up to $33M, the biggest free-agent commitment of the offseason.",
+      "<span class=\"tag\">Signed</span>QB <b>Sam Howell</b> from Philadelphia, plus one-year deals for a former Charger (up to $3M) and a former Ram ($5.5M).",
+      "<span class=\"tag watch\">Parsons haul</span>The 2025 Micah Parsons trade closed out through this draft: first-round picks in 2026 and 2027 plus DL <b>Kenny Clark</b> became, among others, edge <b>Malachi Lawrence</b> (23rd), CB <b>Devin Moore</b> (114th) and DL <b>LT Overton</b> (137th). Stephen Jones says the club feels \"really good\" about it.",
+      "<span class=\"tag watch\">Lost</span>WR <b>Jalen Tolbert</b> to Miami; S <b>Thomas</b> to Indianapolis."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>George Pickens, WR.</b> Playing on the <b>franchise tag at $27.3M</b> after career highs of 93 catches, 1,429 yards and nine touchdowns. He plans to participate fully &mdash; <b>no holdout</b> &mdash; and joined Dak Prescott's Park City workout with CeeDee Lamb and the skill group. Dallas wants a second season of evidence before committing long term.",
+      "<b>Dak Prescott, QB.</b> The offense was the functional half of 2025 and returns essentially intact, with Lamb and Pickens both in camp.",
+      "<b>The new defense.</b> ESPN's framing of this camp is blunt: how fast can Parker's scheme get up to speed? Dallas is installing a new system with a substantially new front.",
+      "<b>Rashan Gary, EDGE.</b> The pass rush's centerpiece addition, acquired to replace production Dallas has been chasing since the Parsons trade.",
+      "<b>Kenny Clark &amp; the interior.</b> Clark plus rookie LT Overton reset a defensive line that also shipped out Odighizuwa.",
+      "<b>Malachi Lawrence, EDGE (23rd overall).</b> The most direct on-field return from the Parsons deal, arriving into an immediate role."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Rashan Gary, EDGE", "Trade with Green Bay for a 2027 fourth", "in"],
+      ["Jalen Thompson, S", "3 yr, up to $33M", "in"],
+      ["Sam Howell, QB", "Signed from Philadelphia", "in"],
+      ["Lawrence, Moore, Overton", "2026 draft class from the Parsons haul", "in"],
+      ["Christian Parker", "Hired as defensive coordinator", "in"],
+      ["Matt Eberflus, DC", "Fired after historically poor defense", "out"],
+      ["Osa Odighizuwa, DT", "Traded to San Francisco for pick No. 92", "out"],
+      ["Jalen Tolbert, WR", "Signed with Miami", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Dallas spent 2025 proving that a very good offense cannot outrun a historically bad defense. The response was surgical rather than sweeping: fire the coordinator, import Gary, spend the Parsons capital on the front seven, and let the offense alone. The best news of the summer is the least dramatic &mdash; <b>George Pickens is showing up, tagged and unhappy-free</b>, throwing with Prescott in Utah. If Christian Parker's install takes, this roster is a playoff team. If it doesn't, the questions move up a floor."
+    ]}
+  ],
+  "sources": "ESPN (2026 Cowboys training camp preview &amp; free agency tracker) &middot; DallasCowboys.com coaching tracker &middot; NBC Sports &middot; CBS Sports &middot; Blogging The Boys &middot; Sports Illustrated &middot; Heavy.com."
+}

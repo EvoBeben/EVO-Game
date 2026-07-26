@@ -1,0 +1,54 @@
+{
+  "abbr": "NYG", "city": "New York", "name": "Giants",
+  "primary": "#0B2265", "secondary": "#A71930",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; John Harbaugh takes over, nearly every skill player around Jaxson Dart is new, and expectations have moved for the first time in years.",
+  "strip": [
+    {"n": "John Harbaugh", "k": "New Head Coach"},
+    {"n": "5 Years", "k": "Harbaugh Contract"},
+    {"n": "Jaxson Dart", "k": "Undisputed QB1"},
+    {"n": "Matt Nagy", "k": "Offensive Coordinator"},
+    {"n": "$40M", "k": "Likely Contract"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>Harbaugh hired.</b> Fired by Baltimore after 18 seasons, <b>John Harbaugh</b>, 63, agreed to a <b>five-year contract</b> and was introduced as head coach in January. Ownership wanted a proven winner who runs a tight ship; they got the coach who won Super Bowl XLVII.",
+      "<b>Full staff named.</b> <b>Matt Nagy</b> runs the offense, <b>Dennard Wilson</b> the defense, and <b>Chris Horton</b> special teams while also serving as assistant head coach.",
+      "<b>Nagy's fingerprint:</b> heavy multiple-tight-end usage, the same structure he leaned on in Kansas City and Chicago &mdash; which explains where the money went in March.",
+      "<b>The mandate has changed.</b> Between a Super Bowl-winning coach and a second-year quarterback, this is the first Giants camp in years opening with real expectations attached."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Signed</span><b>Isaiah Likely, TE</b> &mdash; three years, <b>$40M</b>, following Harbaugh from Baltimore. Widely graded one of the best value moves of the offseason and the centerpiece of Nagy's two-TE plan.",
+      "<span class=\"tag\">Signed</span>WR <b>Darnell Mooney</b> and WR <b>Calvin Austin III</b> earlier in free agency; WR <b>Isaiah Hodgins</b> re-signed. Six receivers added in total.",
+      "<span class=\"tag hot\">Trade</span><b>Dexter Lawrence II to Cincinnati</b> for the <b>No. 10 overall pick</b> &mdash; a straight one-for-one swap of a three-time Pro Bowl nose tackle for premium draft capital.",
+      "<span class=\"tag\">Signed</span>DT <b>DJ Reader</b> (from Detroit) and DT <b>Shelby Harris</b> &mdash; the interior rebuilt after Lawrence's exit.",
+      "<span class=\"tag\">Signed</span>S <b>Ar'Darius Washington</b>, plus <b>Edmunds</b>, <b>Newsome</b>, <b>Reese</b> and <b>Hood</b> across the front seven and secondary.",
+      "<span class=\"tag watch\">Lost</span>The team's leading slot target departed for <b>$78M</b> elsewhere &mdash; the one significant subtraction from an otherwise additive offseason."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Jaxson Dart, QB.</b> Threw for 15 touchdowns and ran for nine more in 12 rookie starts. He is the undisputed starter, but told ESPN this spring it feels like last year all over again &mdash; <b>learning a new offense for the second straight season</b>. His development is the franchise's whole 2026.",
+      "<b>Jameis Winston, QB2.</b> Described internally as a premium, stabilizing insurance policy &mdash; a real backup rather than a competition.",
+      "<b>Isaiah Likely, TE.</b> Arrives knowing Harbaugh's standard and steps into a scheme designed to feature the position.",
+      "<b>Receiver room, rebuilt from scratch.</b> Mooney, Austin III and four more additions mean Dart is throwing to an almost entirely different group than he did as a rookie.",
+      "<b>Interior defensive line.</b> Reader and Harris give New York the run-stuffing weight it lacked; combined with Edmunds and Newsome, the defense should simply be more competitive.",
+      "<b>Continuity is the risk.</b> New coach, new coordinator, new pass catchers &mdash; installation speed is the story of this camp."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["John Harbaugh", "Hired as head coach, five-year deal", "in"],
+      ["Isaiah Likely, TE", "3 yr / $40M, followed Harbaugh from Baltimore", "in"],
+      ["Darnell Mooney, WR", "Free-agent signing", "in"],
+      ["Calvin Austin III, WR", "Free-agent signing", "in"],
+      ["DJ Reader, DT", "Signed away from Detroit", "in"],
+      ["Shelby Harris, DT", "Interior defensive line depth", "in"],
+      ["Ar'Darius Washington, S", "Secondary addition", "in"],
+      ["Isaiah Hodgins, WR", "Re-signed", "in"],
+      ["Leading slot receiver", "Departed on a $78M deal elsewhere", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "New York did the two things a rebuilding team almost never gets to do in the same offseason: hire a coach with a Super Bowl ring and eighteen years of institutional credibility, and hand him a young quarterback who already flashed. Then it spent, replacing nearly every skill player around <b>Jaxson Dart</b> and finally putting weight on the interior defensive line. The catch is that Dart is learning his second offense in two years. If Nagy's install lands by September, this is the most improved roster in the division."
+    ]}
+  ],
+  "sources": "Giants.com (coaching staff, free agency tracker) &middot; ESPN (2026 Giants training camp preview) &middot; NFL.com &middot; NBC Sports &middot; Associated Press &middot; Newsweek &middot; Big Blue View &middot; ClutchPoints."
+}

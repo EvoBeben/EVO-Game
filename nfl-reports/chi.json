@@ -1,0 +1,71 @@
+{
+  "abbr": "CHI", "city": "Chicago", "name": "Bears",
+  "primary": "#0B162A", "secondary": "#C83803",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; rookies reported to Halas Hall today; veterans follow Tuesday, July 28. Camp practices run through late August in Lake Forest.",
+  "strip": [
+    {"n": "11<em>&ndash;</em>6", "k": "2025 Record"},
+    {"n": "NFC North", "k": "2025 Champions"},
+    {"n": "Ben Johnson", "k": "HC &middot; Year 2"},
+    {"n": "Ryan Poles", "k": "GM thru 2029"},
+    {"n": "33", "k": "2025 Takeaways (1st)"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>Poles &amp; Johnson locked in step.</b> GM Ryan Poles' extension aligned him with head coach Ben Johnson &mdash; both under contract through the <b>2029</b> season, giving Halas Hall its cleanest continuity window in a decade.",
+      "<b>New OC, same offense.</b> Baltimore hired away coordinator Declan Doyle, so Johnson promoted passing game coordinator <b>Press Taylor</b> (Jaguars OC, 2022&ndash;24) from within. Johnson still calls the plays, so the scheme doesn't change. Dennis Allen returns as DC and defensive play-caller; Richard Hightower stays on special teams.",
+      "<b>Stadium file still open.</b> President/CEO Kevin Warren reiterated the Arlington Heights project &mdash; pitched as zero state construction dollars &mdash; while the club keeps doing due diligence on a Hammond, Ind. site, where enabling legislation has already passed. Springfield has signaled the project isn't a 2026 priority.",
+      "<b>Caleb extension groundwork.</b> Poles can't formally negotiate with Williams until after year three, but the Bears have set the table for a long-term deal next offseason. The green light is Williams' to earn in 2026."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Trade</span><b>DJ Moore to Buffalo.</b> Moore plus a 2026 fifth-rounder shipped to the Bills for a <b>2026 second-round pick</b>. Widely graded a win-win: Buffalo gets Josh Allen a proven separator, Chicago banks a top-64 asset and clears the WR room for its young pass catchers.",
+      "<span class=\"tag hot\">Trade</span><b>Garrett Bradbury from New England</b> for a 2027 fifth-rounder &mdash; the answer at center after Drew Dalman's abrupt retirement this offseason.",
+      "<span class=\"tag\">Signed</span><b>Devin Bush, LB</b> &mdash; three years, $30M. The tone-setter in a faster, more aggressive front seven.",
+      "<span class=\"tag\">Signed</span><b>Coby Bryant, S</b> &mdash; three years, fresh off Seattle's Super Bowl LX run (15 starts, career-high 4 INTs in 2025).",
+      "<span class=\"tag\">Signed</span><b>Neville Gallimore, DT</b> (2 yr / $12M), <b>Cam Lewis, CB</b> (2 yr), <b>Kalif Raymond, WR</b> (Johnson/Randle El reunion), <b>Braxton Jones, LT</b> back on a 1-year deal worth up to $10M.",
+      "<span class=\"tag\">Re-signed</span>DL Daniel Hardy (2 yr), LB D'Marco Jackson (2 yr), QB Case Keenum (2 yr), DB Elijah Hicks (1 yr), OL Jordan McFadden (1 yr).",
+      "<span class=\"tag watch\">Cap</span>Cole Kmet and Jonah Jackson contracts reworked for space; Kmet now a lock on the 53 with Moore's targets up for grabs."
+    ]},
+    {"title": "Rumor Mill", "type": "ul", "items": [
+      "<span class=\"tag watch\">Speculation</span><b>Trade-deadline swing at edge rusher</b> is the most persistent national projection &mdash; the 2025 defense led the NFL in takeaways but ranked poorly rushing the passer and stopping the run.",
+      "<span class=\"tag watch\">Speculation</span>ESPN's Benjamin Solak floated a blockbuster for Colts RB <b>Jonathan Taylor</b> in his season-prediction slate. Analyst forecast, not a reported conversation.",
+      "<span class=\"tag watch\">Speculation</span><b>Kyler Gordon's</b> standing is the quiet camp storyline &mdash; five games played in 2025 and a soft-tissue cascade have him fighting for his place in Year 2 of a 3-year, $40M deal."
+    ]},
+    {"title": "What's Next", "type": "table", "items": [
+      ["Sat, Jul 25", "Rookies &amp; quarterbacks report to Halas Hall"],
+      ["Tue, Jul 28", "Veterans report &mdash; full squad assembled"],
+      ["Jul 29 &ndash; Aug 27", "Training camp practices, Lake Forest"],
+      ["Preseason 1", "vs. Cleveland Browns (home)"],
+      ["Preseason 2", "at Cincinnati Bengals"],
+      ["Preseason 3", "at Tennessee Titans"],
+      ["Week 1", "at Carolina Panthers &mdash; season opener on the road"]
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Caleb Williams, QB.</b> Year 3 after a genuine leap: 3,942 yards, 27 TD, 7 INT, 90.1 rating. Johnson has publicly set a higher completion-percentage bar and praised his offseason work; Williams has also been vocal about wanting grass playing surfaces.",
+      "<b>Rome Odunze, WR.</b> The stress fracture in his left foot healed <b>without surgery</b>. With Moore gone he's the presumptive WR1 &mdash; but Luther Burden III is chasing that title.",
+      "<b>Colston Loveland, TE.</b> Finished ninth among TEs at 713 yards in a limited rookie role; projection models have him leading Chicago in receiving with 1,000-yard upside.",
+      "<b>Ozzy Trapilo, OT.</b> Patellar tendon injury in the Wild Card round &mdash; expected to open the season on <b>PUP</b>, freeing a roster spot.",
+      "<b>Left tackle battle.</b> Braxton Jones took every first-team spring rep (44 career starts, healthy) and leads Jedrick Wills Jr. and Theo Benedet for Week 1.",
+      "<b>Jaylon Johnson, CB.</b> Make-or-break year: missed 10 games in 2025, and his 4-yr/$76M deal has no guarantees left after this season with an out following 2026.",
+      "<b>Dillon Thieneman, S.</b> No. 25 overall (Oregon), 4.35 forty, ranked the draft's 11th-best pick by ESPN's Matt Miller. Starts opposite Bryant in an all-new safety tandem.",
+      "<b>Kyle Monangai, RB &amp; Austin Booker, EDGE</b> headline a rising sophomore class expected to absorb real snaps."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Sam Roush, TE", "4-year deal &mdash; last unsigned 2026 draft pick, in before camp", "in"],
+      ["Thieneman &amp; L. Jones", "1st-rounder and OL Logan Jones signed rookie deals", "in"],
+      ["Miller, Hudson, WR", "Scotty Miller and Kyron Hudson added to camp roster", "in"],
+      ["Rhattigan, Matthews III", "Linebacker depth signings", "in"],
+      ["Ahmed, A. Johnson Jr.", "RB Salvon Ahmed; ex-Packers DB Anthony Johnson Jr.", "in"],
+      ["Tory Taylor, P", "Placed on international player exemption &mdash; doesn't count vs. 90", "out"],
+      ["Deion Hankins, RB", "Waived", "out"],
+      ["Olamide Zaccheaus, WR", "Departed to Atlanta in free agency", "out"],
+      ["Drew Dalman, C", "Abrupt retirement &mdash; replaced by Bradbury", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Chicago spent a cap-constrained offseason raising the floor rather than swinging big: mid-tier defensive money, a traded-for center, and a first-round safety. The offense is now unmistakably <b>Ben Johnson's</b>, built around Williams, Loveland, Odunze and Burden instead of a veteran WR1. The season hinges on whether a rebuilt secondary and a faster front seven can pair last year's league-best takeaway rate with an actual pass rush &mdash; and whether Williams' Year 3 earns the extension Poles already has drafted."
+    ]}
+  ],
+  "sources": "ChicagoBears.com official roster moves &middot; ESPN (Courtney Cronin, training camp preview &amp; players-at-stake) &middot; NFL.com &middot; Windy City Gridiron &middot; Chicago Sun-Times &middot; Sports Illustrated / Bear Digest &middot; Buffalo Bills official release &middot; PFF draft recap &middot; Bleacher Nation."
+}

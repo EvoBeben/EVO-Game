@@ -1,0 +1,52 @@
+{
+  "abbr": "HOU", "city": "Houston", "name": "Texans",
+  "primary": "#03202F", "secondary": "#A71930",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; a divisional-round exit, a rebuilt offensive line for the second straight year, and a franchise quarterback still waiting on an extension.",
+  "strip": [
+    {"n": "DeMeco Ryans", "k": "Head Coach"},
+    {"n": "Divisional", "k": "2025 Exit (28&ndash;16 at NE)"},
+    {"n": "5th-Yr Option", "k": "Stroud's Status"},
+    {"n": "July 28", "k": "Veterans Report"},
+    {"n": "2 Straight", "k": "OL Rebuilds"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>The Stroud contract is the story.</b> Houston <b>picked up C.J. Stroud's fifth-year option</b> but there have been <b>no extension talks</b>. Stroud's own framing this spring: <i>\"I've held up my bargain.\"</i>",
+      "<b>Offensive line, rebuilt again.</b> For the <b>second consecutive offseason</b>, Houston reworked the line &mdash; and drew criticism for how it went about it in the draft.",
+      "<b>The offensive identity shift:</b> the front office wants a punishing run game to make Houston a better <b>red-zone and play-action</b> team, which is exactly why it went and got a veteran back.",
+      "<b>Camp:</b> veterans report <b>July 28</b>."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Trade</span><b>David Montgomery, RB</b> acquired from Detroit, then signed to a <b>two-year, $16.5M extension</b> &mdash; the centerpiece of the new run-first plan.",
+      "<span class=\"tag\">Signed</span>TE <b>Foster Moreau</b>, filling in after starter <b>Dalton Schultz</b> was lost to injury during the postseason.",
+      "<span class=\"tag hot\">Trade</span>Acquired P <b>Kai Kroeger</b> and a 2028 seventh from New Orleans for a 2029 sixth.",
+      "<span class=\"tag\">Line work</span>Multiple offensive line additions across free agency and the draft &mdash; the position group Houston has now spent two straight offseasons trying to fix."
+    ]},
+    {"title": "Rumor Mill", "type": "ul", "items": [
+      "<span class=\"tag watch\">Speculation</span>With no extension signed, national outlets have run <b>hypothetical C.J. Stroud trade pitches</b> and published estimates of his trade value. These are analyst exercises, not reported conversations &mdash; but they exist because the contract doesn't."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>C.J. Stroud, QB.</b> Nobody in camp will be under a brighter spotlight. He is <b>noticeably leaner and more mobile</b> after a stricter diet and training regimen, and has posted faster conditioning times. One person around the team called it the <b>best offseason he's had</b>.",
+      "<b>How he's handled it matters.</b> Stroud has responded to the contract limbo by looking sharp rather than sulking &mdash; the Texans have gone out of their way to say so publicly.",
+      "<b>David Montgomery, RB.</b> Brought in to change what Houston's offense is: heavier, more physical, better inside the 20.",
+      "<b>Dalton Schultz, TE.</b> The postseason injury that cost Houston its starter is why Foster Moreau is here.",
+      "<b>The offensive line.</b> Two years of investment, and it still has to prove it can protect the franchise quarterback the club hasn't paid yet.",
+      "<b>DeMeco Ryans' defense</b> carried Houston to a divisional round; it returns as the roster's most reliable unit."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["David Montgomery, RB", "Trade with Detroit + 2 yr / $16.5M extension", "in"],
+      ["Foster Moreau, TE", "Signed after Schultz's postseason injury", "in"],
+      ["Kai Kroeger, P", "Acquired from New Orleans", "in"],
+      ["Offensive line", "Reworked for the second straight offseason", "in"],
+      ["C.J. Stroud, QB", "Fifth-year option exercised; no extension talks", "in"],
+      ["2029 sixth-round pick", "Sent to New Orleans in the punter trade", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Houston is a good team with one unresolved sentence in its future. The defense is legitimate, the run game just got heavier, and the offensive line has absorbed two offseasons of resources. But <b>C.J. Stroud is playing on a fifth-year option with no extension conversation happening</b>, and the longer that lasts, the louder the hypotheticals get. To his credit, he showed up in the best shape of his career. The Texans have every incentive to make this a non-story by September."
+    ]}
+  ],
+  "sources": "ESPN &middot; Heavy.com &middot; Click2Houston &middot; ClutchPoints &middot; Sports Illustrated / Texans Daily &middot; New Orleans Saints transaction reporting."
+}

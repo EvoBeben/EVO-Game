@@ -1,0 +1,54 @@
+{
+  "abbr": "GB", "city": "Green Bay", "name": "Packers",
+  "primary": "#203731", "secondary": "#FFB612",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; two torn ACLs headline camp, and the roster around Jordan Love may be the best in the NFC once they heal.",
+  "strip": [
+    {"n": "Matt LaFleur", "k": "Head Coach"},
+    {"n": "Gutekunst", "k": "General Manager"},
+    {"n": "Jordan Love", "k": "QB1"},
+    {"n": "2", "k": "ACL Rehabs"},
+    {"n": "Parsons", "k": "Opens on PUP"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>Continuity at the top.</b> Matt LaFleur and GM Brian Gutekunst both return, and Gutekunst spent the offseason patching the two units that failed Green Bay in 2025: the interior defensive line and the offensive line.",
+      "<b>Gutekunst on the rehabs:</b> Tucker Kraft is <b>slightly ahead of schedule</b> and Micah Parsons is progressing quickly &mdash; the GM's own framing heading into camp.",
+      "<b>Roster math.</b> With Parsons expected to open on PUP, Green Bay gets a free 53-man spot early &mdash; a dilemma insiders have flagged as a real edge in a deep front seven."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Trade</span><b>Zaire Franklin, LB</b> acquired to replace Quay Walker, who left in free agency &mdash; a direct swap of tackling production at a position of need.",
+      "<span class=\"tag\">Signed</span><b>Javon Hargrave, DT</b> &mdash; the veteran presence Green Bay wanted on a defensive front that could not stop the run.",
+      "<span class=\"tag\">Re-signed</span>WR <b>Bo Melton</b> and G <b>Donovan Jennings</b> in April.",
+      "<span class=\"tag\">Draft</span>DT <b>Chris McClellan</b> in the third round &mdash; more interior help. Five draft picks and 10 rookie free agents signed May 1.",
+      "<span class=\"tag watch\">Lost</span>LB <b>Quay Walker</b> departed in free agency."
+    ]},
+    {"title": "Rumor Mill", "type": "ul", "items": [
+      "<span class=\"tag watch\">Speculation</span>National projections have Green Bay as a <b>top-tier NFC roster the moment Parsons and Kraft are back</b> &mdash; which is also the argument that the season turns entirely on Jordan Love's play in the meantime.",
+      "<span class=\"tag watch\">Speculation</span>Rotational defensive linemen are the roster bubble to watch; run defense was the stated reason the depth chart changed."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Micah Parsons, EDGE.</b> Torn ACL against Denver. LaFleur said he'd <b>begin camp on PUP</b>, and Parsons himself expects to miss the first three or four games.",
+      "<b>Tucker Kraft, TE.</b> Torn ACL in Week 9 vs. Carolina. Kraft insists he'll play <b>Week 1 with no restricted workload</b> &mdash; and the front office says he's ahead of schedule.",
+      "<b>Zach Tom, RT.</b> The Packers call him their best offensive lineman. He played through injuries, shut it down for the final four games, had <b>knee surgery to repair a partially torn patellar tendon</b>, and did not practice this spring. His return is the key to settling a line that struggled.",
+      "<b>Jordan Love, QB.</b> Underlying numbers point to a monster season if the supporting cast holds &mdash; the roster is built for it.",
+      "<b>Javon Hargrave, DT.</b> Signed to fix a run defense that leaked all season; pairs with rookie Chris McClellan inside.",
+      "<b>Bubble watch.</b> Several rotational defensive linemen must perform in camp to keep roster spots after the depth-chart shakeup."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Zaire Franklin, LB", "Acquired by trade to replace Quay Walker", "in"],
+      ["Javon Hargrave, DT", "Free-agent signing &mdash; veteran DL presence", "in"],
+      ["Chris McClellan, DT", "Third-round pick, interior defense", "in"],
+      ["Bo Melton &amp; D. Jennings", "Re-signed in April", "in"],
+      ["5 draft picks, 10 UDFAs", "All signed May 1", "in"],
+      ["Micah Parsons, EDGE", "Expected to open training camp on PUP", "out"],
+      ["Quay Walker, LB", "Left in free agency", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Green Bay's 2026 is a health story before it's anything else. The roster &mdash; with <b>Parsons and Kraft back</b> &mdash; is arguably the NFC's deepest, but Parsons has already put a three-to-four-game absence on the record and Zach Tom hasn't practiced since knee surgery. The front office response was targeted rather than splashy: Franklin for Walker, Hargrave and a third-round tackle for a run defense that couldn't hold up. Survive September, and the back half of this schedule looks very different."
+    ]}
+  ],
+  "sources": "ESPN (2026 Packers training camp preview) &middot; Packers.com &middot; Bleacher Report &middot; Heavy.com &middot; ClutchPoints &middot; CBS Sports transactions &middot; Yardbarker."
+}

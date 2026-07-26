@@ -1,0 +1,50 @@
+{
+  "abbr": "DEN", "city": "Denver", "name": "Broncos",
+  "primary": "#FB4F14", "secondary": "#002244",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; AFC #1 seed with a bold Jaylen Waddle trade, Bo Nix's health critical, and Super Bowl expectations met with urgency.",
+  "strip": [
+    {"n": "14&ndash;3", "k": "AFC #1 Seed"},
+    {"n": "7&ndash;10 SB Loss", "k": "Patriots Beat Them"},
+    {"n": "Jaylen Waddle", "k": "$1st-3rd-4th Trade"},
+    {"n": "64 Rec, 910 Yds", "k": "Waddle 2025 Stats"},
+    {"n": "Rookies July 22", "k": "Veterans July 28"}
+  ],
+  "left": [
+    {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
+      "<b>14-3 and seeded #1 in the AFC.</b> Denver earned the top seed, beat Buffalo 33-30 in the Divisional Round, then <b>lost to New England 7-10 in the AFC Championship</b> in a game that could have gone either way.",
+      "<b>The bold bet: Jaylen Waddle.</b> Rather than stand pat, the Broncos <b>traded their 1st, 3rd, and 4th round picks</b> to acquire the elite receiver, called the <b>\"most impactful trade of the offseason\"</b> by multiple analysts.",
+      "<b>Waddle's credentials are impeccable.</b> In 2025, he had <b>64 receptions for 910 yards and 6 TDs on 100 targets</b> &mdash; a proven No. 1 receiver at the peak of his powers.",
+      "<b>The downside: No draft capital.</b> First pick at #62 after trading away early rounds; all-in gamble on adding proven talent over future uncertainty."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Trade</span><b>Jaylen Waddle, WR</b> acquired for <b>1st, 3rd, &amp; 4th round picks</b> &mdash; the boldest move of Denver's offseason, adding an <b>elite receiving talent</b> to a contending roster.",
+      "<span class=\"tag\">Signed</span>Supporting Waddle with <b>defensive depth signings</b> to maintain the <b>AFC Championship defense</b> that was strong through the playoff run.",
+      "<span class=\"tag\">Draft</span><b>DT Tyler Onyedim</b> at #62 (first available pick) &mdash; fits Vance Joseph's one-gap defensive scheme.",
+      "<span class=\"tag watch\">Injury concern</span>Bo Nix suffered injuries in playoff losses; his health going into camp is <b>critical to the Super Bowl equation</b>.",
+      "<span class=\"tag\">Retained</span>Defensive core and offensive weapons kept together to maintain continuity in a Super Bowl push."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>Bo Nix, QB.</b> The rookie sensation had a strong 2025 but suffered <b>injuries in the playoff losses</b>; his health status entering camp is the single biggest variable in a Super Bowl trajectory.",
+      "<b>Jaylen Waddle, WR.</b> The acquisition signal: <b>Denver believes it's ready to win now</b>. Waddle's integration with Nix and the offensive scheme will dominate offensive film study this August.",
+      "<b>The chemistry question.</b> A rookie QB with a new No. 1 receiver creates timing and chemistry work; Waddle is proven but hasn't played with Nix.",
+      "<b>Vance Joseph's defense.</b> The defensive coordinator's unit was strong through the AFC Championship loss; it returns as the roster's established strength.",
+      "<b>Tyler Onyedim, DT.</b> The one draft pick represents a one-gap scheme fit rather than a BPA approach; scheme continuity is the priority."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Jaylen Waddle, WR", "Trade for 1st + 3rd + 4th picks", "in"],
+      ["Bo Nix, QB", "Rookie sensation, injury watch", "in"],
+      ["Tyler Onyedim, DT", "First draft pick at #62", "in"],
+      ["Defense core", "Maintained for AFC Championship unit", "in"],
+      ["2028 first-round pick", "Traded to acquire Waddle", "out"],
+      ["2026 third-round pick", "Traded to acquire Waddle", "out"],
+      ["2026 fourth-round pick", "Traded to acquire Waddle", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Denver went all-in by trading 1st, 3rd, and 4th round picks for Jaylen Waddle, betting that proven elite talent beats draft uncertainty on a Super Bowl contender. <b>Bo Nix's health is the pivot point</b> &mdash; if the rookie QB is fully recovered, Nix-to-Waddle becomes one of the most potent QB-to-receiver combinations in football. If there are lingering issues from the playoff injuries, the trade's value becomes questionable. This camp will show whether the Waddle gamble was genius or premature. Vance Joseph's defense remains the most reliable unit; if it delivers again, and if Nix is healthy, Denver has a legitimate Super Bowl pathway."
+    ]}
+  ],
+  "sources": "ESPN (2026 Broncos training camp &amp; offseason coverage) &middot; NFL.com &middot; Broncos.com &middot; Denver Post &middot; Sports Illustrated / Broncos Blitz &middot; FOX31 Denver."
+}

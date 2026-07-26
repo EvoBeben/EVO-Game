@@ -1,0 +1,50 @@
+{
+  "abbr": "TB", "city": "Tampa Bay", "name": "Buccaneers",
+  "primary": "#D50A0A", "secondary": "#34302B",
+  "date": "July 25, 2026",
+  "subhead": "2026 training camp edition &mdash; Mike Evans is a 49er, Baker Mayfield still has no extension, and the deadline he set arrives July 28.",
+  "strip": [
+    {"n": "Todd Bowles", "k": "Head Coach"},
+    {"n": "July 28", "k": "Report Date &amp; Deadline"},
+    {"n": "No Deal", "k": "Mayfield Extension"},
+    {"n": "~$50M", "k": "Mayfield's APY Target"},
+    {"n": "Zac Robinson", "k": "Offensive Coordinator"}
+  ],
+  "left": [
+    {"title": "The Mayfield Standoff", "type": "ul", "items": [
+      "<b>No extension, and a hard line.</b> Baker Mayfield publicly called Tampa Bay's initial offer disappointing, said he wants to stay long term, and stated he <b>will not negotiate once training camp begins</b>. The Bucs report <b>July 28</b>.",
+      "<b>The number.</b> Mayfield is seeking roughly <b>$50M per year</b>, the tier occupied by Brock Purdy and the league's other top-paid quarterbacks.",
+      "<span class=\"tag watch\">Reported</span>SI's Albert Breer says the Buccaneers are ready to \"dive in\" on negotiations and expects a long-term deal <b>before Week 1</b> &mdash; which would mean blowing through Mayfield's own stated deadline.",
+      "<b>The leverage math.</b> Analysts have framed it plainly: the longer Tampa Bay waits, the more it likely pays. Despite an injury-filled, playoff-less 2025, the club still considers Mayfield its franchise quarterback."
+    ]},
+    {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
+      "<span class=\"tag hot\">Lost</span><b>Mike Evans, WR</b> &mdash; the most decorated offensive player in franchise history signed a <b>three-year, $60.4M deal with San Francisco</b>. Bowles said the Bucs would have loved him back: \"He knows how we feel about him, we think the world of him.\" Evans had earned the right to look.",
+      "<span class=\"tag hot\">Lost</span><b>Jamel Dean, CB</b> to Pittsburgh &mdash; three years, $36.75M. He allowed just <b>4.7 yards per target</b> last season, the best mark in the NFL among outside corners, and was the glue of Bowles' secondary.",
+      "<span class=\"tag\">Signed</span>LB <b>Alex Anzalone</b>, OLB <b>Al-Quadin Muhammad</b> and DL <b>A'Shawn Robinson</b> &mdash; depth-chart holes filled rather than headlines bought.",
+      "<span class=\"tag\">Re-signed</span>NT <b>Rakeem Nu&ntilde;ez-Roches</b>; WR <b>David Sills</b> added on a one-year deal.",
+      "<span class=\"tag watch\">Assessment</span>National grading of the offseason was blunt: depth signings can't paper over losing Evans and Dean in the same March."
+    ]}
+  ],
+  "right": [
+    {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
+      "<b>The receiver room is wide open.</b> Bowles spent OTAs talking about competition at the position &mdash; with Evans gone, the depth chart behind the top returners is genuinely unsettled.",
+      "<b>Zac Robinson's offense, Year 2.</b> The coordinator's system continues to develop, and Bowles has emphasized execution in practice as the specific thing that has to improve.",
+      "<b>Secondary, post-Dean.</b> Replacing the league's most efficient outside corner is the defense's central problem; nobody on the roster has done that job at that level.",
+      "<b>Alex Anzalone, LB.</b> The most experienced addition, into a linebacker room that looks different from 2025.",
+      "<b>Health first.</b> The 2025 season was defined by injuries and ended without a playoff berth &mdash; availability, more than talent, is what Tampa Bay is trying to buy back."
+    ]},
+    {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
+      ["Alex Anzalone, LB", "Free-agent signing", "in"],
+      ["Al-Quadin Muhammad, OLB", "Free-agent signing", "in"],
+      ["A'Shawn Robinson, DL", "Free-agent signing", "in"],
+      ["Rakeem Nu&ntilde;ez-Roches, NT", "Re-signed", "in"],
+      ["David Sills, WR", "One-year deal", "in"],
+      ["Mike Evans, WR", "Signed with San Francisco, 3 yr / $60.4M", "out"],
+      ["Jamel Dean, CB", "Signed with Pittsburgh, 3 yr / $36.75M", "out"]
+    ]},
+    {"title": "The Bottom Line", "type": "note", "items": [
+      "Tampa Bay lost the best receiver in its history and the best cover corner in the league by yards per target in the same offseason, replaced them with depth signings, and now walks into camp with its quarterback publicly unhappy about an offer. <b>July 28 is the date that matters</b> &mdash; Mayfield says negotiations end when camp starts; the reporting says a deal lands before Week 1. One of those is wrong, and the answer sets the tone for the entire season."
+    ]}
+  ],
+  "sources": "Buccaneers.com free agency tracker &middot; NFL.com &middot; Sports Illustrated / Bucs OnSI (Albert Breer reporting) &middot; Athlon Sports &middot; The Pewter Plank &middot; Yardbarker."
+}
