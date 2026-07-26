@@ -3,12 +3,12 @@
 <style>
   :root{
     color-scheme: dark;
-    --ground:#0A0E13; --ground-2:#070A0E;
-    --panel:#111720; --panel-2:#161E29; --panel-3:#1B2431;
-    --line:#232E3C; --line-2:#314052;
-    --text:#E8EEF6; --muted:#93A1B5; --dim:#66748A;
-    --accent:#F0B429; --accent-soft:#F0B42918;
-    --qb:#E8695E; --rb:#4FB477; --wr:#5A93F0; --te:#B87BE0;
+    --ground:#0F1112; --ground-2:#0A0C0C;
+    --panel:#171A1A; --panel-2:#1D2121; --panel-3:#232827;
+    --line:#2B302F; --line-2:#3A403E;
+    --text:#E7E9E5; --muted:#9AA19C; --dim:#848B86;
+    --accent:#C7B9A4; --accent-soft:#C7B9A418;
+    --qb:#C0847C; --rb:#93AE7F; --wr:#6FA49C; --te:#B393C4;
     --pc:var(--accent); --pc-soft:var(--accent-soft);
 
     --display: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, system-ui, sans-serif;
@@ -24,8 +24,8 @@
     font-family:var(--display); font-size:16px; line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
-  ::selection{ background:var(--accent); color:#0A0E13; }
-  a{ color:var(--accent); text-decoration:none; border-bottom:1px solid #F0B42940; }
+  ::selection{ background:var(--accent); color:#0F1112; }
+  a{ color:var(--accent); text-decoration:none; border-bottom:1px solid #C7B9A440; }
   a:hover{ border-bottom-color:var(--accent); }
   a:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:3px; }
 
@@ -33,7 +33,7 @@
 
   /* ================= chrome ================= */
   .topbar{
-    position:sticky; top:0; z-index:60; background:rgba(10,14,19,.9);
+    position:sticky; top:0; z-index:60; background:rgba(15,17,18,.92);
     backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
   }
   .topbar-in{
@@ -72,17 +72,17 @@
   /* ================= home / TOC ================= */
   .hero{
     position:relative; overflow:hidden; border-bottom:1px solid var(--line);
-    background:linear-gradient(180deg,#0E141C 0%,var(--ground) 100%);
+    background:linear-gradient(180deg,#141717 0%,var(--ground) 100%);
   }
   .hero::before{ content:""; position:absolute; inset:0; pointer-events:none;
-    background:repeating-linear-gradient(90deg,transparent 0 59px,#7D93AF14 59px 60px); }
+    background:repeating-linear-gradient(90deg,transparent 0 59px,#A8B3AA10 59px 60px); }
   .hero::after{ content:""; position:absolute; left:0; right:0; top:0; height:2px;
-    background:linear-gradient(90deg,var(--accent) 0%,#F0B42900 62%); }
+    background:linear-gradient(90deg,var(--accent) 0%,#C7B9A400 62%); }
   .hero-in{ position:relative; padding:28px 0 24px; }
   .kicker{ font-family:var(--data); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent); margin:0 0 10px; }
-  h1{ font-weight:800; font-size:clamp(1.9rem,4.4vw,2.9rem); line-height:1; letter-spacing:-.035em; margin:0 0 10px; max-width:20ch; }
+  h1{ font-weight:800; font-size:clamp(1.8rem,3.6vw,2.5rem); line-height:1.02; letter-spacing:-.032em; margin:0 0 10px; max-width:30ch; }
   h1 em{ font-style:normal; color:var(--accent); }
-  .standfirst{ font-family:var(--prose); font-size:1rem; color:#C3CFDE; max-width:50ch; margin:0; }
+  .standfirst{ font-family:var(--prose); font-size:1rem; color:#C6CCC5; max-width:50ch; margin:0; }
 
   .toc{ padding:18px 0 14px; }
   .toc-lbl{
@@ -91,6 +91,7 @@
   }
   .toc-lbl::after{ content:""; flex:1; height:1px; background:var(--line); }
   .toc-lbl + .toc-lbl{ margin-top:16px; }
+  .toc-grid + .toc-lbl{ margin-top:22px; }
   .toc-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:10px; }
   .toc-card{
     display:block; border:1px solid var(--line); border-left:3px solid var(--pc);
@@ -147,18 +148,18 @@
   .stack{ display:flex; flex-direction:column; gap:26px; }
   p{ margin:0 0 12px; max-width:68ch; }
   p:last-child{ margin-bottom:0; }
-  strong{ color:#FFF; font-weight:600; }
+  strong{ color:#F2F4F0; font-weight:600; }
 
   .rules{ list-style:none; padding:0; margin:0; display:grid; gap:9px; max-width:80ch; }
-  .rules li{ display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:baseline; color:#BCC8D8; font-size:.96rem; }
+  .rules li{ display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:baseline; color:#BEC4BE; font-size:.96rem; }
   .rules li::before{ content:"—"; color:var(--pc); }
-  .rules b{ color:#FFF; font-weight:600; }
+  .rules b{ color:#F2F4F0; font-weight:600; }
 
   /* ================= components ================= */
-  .pos-badge{ font-family:var(--data); font-size:10px; font-weight:700; letter-spacing:.1em; padding:2px 6px; border-radius:3px; color:#0A0E13; }
+  .pos-badge{ font-family:var(--data); font-size:10px; font-weight:700; letter-spacing:.1em; padding:2px 6px; border-radius:3px; color:#0F1112; }
   .p-QB{ background:var(--qb); } .p-RB{ background:var(--rb); }
   .p-WR{ background:var(--wr); } .p-TE{ background:var(--te); }
-  .p-DST, .p-K{ background:#8FA0B6; }
+  .p-DST, .p-K{ background:#A3A9A3; }
   .cost{
     font-family:var(--data); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
     color:var(--pc); background:var(--pc-soft);
@@ -212,7 +213,7 @@
     font-size:10.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--dim);
     font-weight:600; border-bottom:1px solid var(--line); white-space:nowrap;
   }
-  td{ padding:11px 16px; border-bottom:1px solid var(--line); background:var(--panel); vertical-align:top; color:#BCC8D8; }
+  td{ padding:11px 16px; border-bottom:1px solid var(--line); background:var(--panel); vertical-align:top; color:#BEC4BE; }
   tbody tr:last-child td{ border-bottom:0; }
   td.num, th.num{ font-family:var(--data); font-variant-numeric:tabular-nums; white-space:nowrap; color:var(--muted); }
   td.name{ font-weight:600; white-space:nowrap; color:var(--text); }
@@ -223,8 +224,8 @@
   .move .nm{ font-weight:700; font-size:.96rem; letter-spacing:-.01em; }
   .move .path{ font-family:var(--data); font-size:11px; letter-spacing:.06em; color:var(--dim); display:block; margin-top:2px; }
   .move .path .to{ color:var(--pc); }
-  .move .why{ font-size:.93rem; color:#BCC8D8; margin:0; }
-  .move .why b{ color:#FFF; }
+  .move .why{ font-size:.93rem; color:#BEC4BE; margin:0; }
+  .move .why b{ color:#F2F4F0; }
 
   .slots{ display:grid; grid-template-columns:repeat(auto-fit,minmax(216px,1fr)); gap:10px; }
   .slot{ background:var(--panel); border:1px solid var(--line); border-radius:4px; padding:12px 15px 13px; display:flex; flex-direction:column; gap:7px; }
@@ -233,10 +234,10 @@
   .slot-picks{ font-family:var(--data); font-size:10px; letter-spacing:.07em; color:var(--dim); }
   .verdict{
     margin-left:auto; font-family:var(--data); font-size:9.5px; font-weight:700;
-    letter-spacing:.11em; text-transform:uppercase; padding:3px 7px; border-radius:3px; color:#0A0E13;
+    letter-spacing:.11em; text-transform:uppercase; padding:3px 7px; border-radius:3px; color:#0F1112;
   }
-  .v-RB{ background:var(--rb); } .v-WR{ background:var(--wr); } .v-any{ background:#8FA0B6; }
-  .slot p{ font-size:.89rem; line-height:1.48; margin:0; color:#BCC8D8; max-width:none; }
+  .v-RB{ background:var(--rb); } .v-WR{ background:var(--wr); } .v-any{ background:#A3A9A3; }
+  .slot p{ font-size:.89rem; line-height:1.48; margin:0; color:#BEC4BE; max-width:none; }
 
   .mock{ max-width:760px; border:1px solid var(--line); border-radius:4px; overflow:hidden; }
   .mock-head{ padding:11px 16px; background:var(--panel-2); border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
@@ -264,7 +265,7 @@
   .srcgrid li{ break-inside:avoid; margin-bottom:9px; font-size:.89rem; }
   .srcgrid a{ font-weight:600; }
 
-  .legend{ display:flex; flex-wrap:wrap; gap:14px; margin:0; padding:0; list-style:none; }
+  .legend{ display:flex; flex-wrap:wrap; gap:14px; margin:16px 0 0; padding:0; list-style:none; }
   .legend li{ display:flex; align-items:center; gap:7px; font-family:var(--data); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--dim); }
   .swatch{ width:11px; height:11px; border-radius:2px; }
 
@@ -301,6 +302,12 @@
       <p class="kicker">2026 Season · Draft Guide · 25 July 2026</p>
       <h1>Everything you need before you're <em>on the clock</em></h1>
       <p class="standfirst">Nine sections. Pick one.</p>
+      <ul class="legend">
+        <li><span class="swatch" style="background:var(--rb)"></span> RB</li>
+        <li><span class="swatch" style="background:var(--wr)"></span> WR</li>
+        <li><span class="swatch" style="background:var(--te)"></span> TE</li>
+        <li><span class="swatch" style="background:var(--qb)"></span> QB</li>
+      </ul>
     </div>
   </div>
 
@@ -362,12 +369,6 @@
       </a>
     </div>
 
-    <ul class="legend" style="margin-top:14px">
-      <li><span class="swatch" style="background:var(--rb)"></span> RB</li>
-      <li><span class="swatch" style="background:var(--wr)"></span> WR</li>
-      <li><span class="swatch" style="background:var(--te)"></span> TE</li>
-      <li><span class="swatch" style="background:var(--qb)"></span> QB</li>
-    </ul>
   </div>
 </div>
 
@@ -453,7 +454,7 @@
 </div>
 
 <!-- ==================== 03 · RUNNING BACK ==================== -->
-<div class="view" id="v-rb" data-name="Running Back" style="--pc:var(--rb); --pc-soft:#4FB4771C;">
+<div class="view" id="v-rb" data-name="Running Back" style="--pc:var(--rb); --pc-soft:#93AE7F1C;">
   <div class="sec-head">
     <div class="wrap">
       <span class="sec-glyph">RB</span>
@@ -639,7 +640,7 @@
 </div>
 
 <!-- ==================== 04 · WIDE RECEIVER ==================== -->
-<div class="view" id="v-wr" data-name="Wide Receiver" style="--pc:var(--wr); --pc-soft:#5A93F01C;">
+<div class="view" id="v-wr" data-name="Wide Receiver" style="--pc:var(--wr); --pc-soft:#6FA49C1C;">
   <div class="sec-head">
     <div class="wrap">
       <span class="sec-glyph">WR</span>
@@ -848,7 +849,7 @@
 </div>
 
 <!-- ==================== 05 · TIGHT END ==================== -->
-<div class="view" id="v-te" data-name="Tight End" style="--pc:var(--te); --pc-soft:#B87BE01C;">
+<div class="view" id="v-te" data-name="Tight End" style="--pc:var(--te); --pc-soft:#B393C41C;">
   <div class="sec-head">
     <div class="wrap">
       <span class="sec-glyph">TE</span>
@@ -1008,7 +1009,7 @@
 </div>
 
 <!-- ==================== 06 · QUARTERBACK ==================== -->
-<div class="view" id="v-qb" data-name="Quarterback" style="--pc:var(--qb); --pc-soft:#E8695E1C;">
+<div class="view" id="v-qb" data-name="Quarterback" style="--pc:var(--qb); --pc-soft:#C0847C1C;">
   <div class="sec-head">
     <div class="wrap">
       <span class="sec-glyph">QB</span>
