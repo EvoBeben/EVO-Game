@@ -25,7 +25,7 @@ ORDER = ['recap', 'strategy', 'rb', 'wr', 'te', 'qb', 'def', 'plan', 'mocks', 's
 
 # Ink-side equivalents of the screen palette: same hues, dropped in lightness so
 # they clear 4.5:1 on paper instead of on a dark ground.
-PRINT_POS = {'RB': '#4F6B43', 'WR': '#2C6A62', 'TE': '#6B4C81', 'QB': '#9E5348', 'DST': '#565D5A'}
+PRINT_POS = {'RB': '#3E7A55', 'WR': '#2A7079', 'TE': '#6E4A8C', 'QB': '#A0483F', 'DST': '#5A5F5A'}
 
 
 def balanced(src, start):
@@ -191,8 +191,8 @@ a{ color:#1B1E1D; text-decoration:none; }
 .pcard .facts li{ font-size:8.2pt; line-height:1.42; color:#4A504D; display:flex; gap:1.6mm; margin-bottom:1mm; }
 .pcard .facts li::before{ content:"›"; color:var(--pc,#8A7B63); }
 .pos-badge{ font-family:ui-monospace,"SFMono-Regular",Menlo,monospace; font-size:6.6pt; font-weight:700; letter-spacing:.08em; padding:.5mm 1.4mm; border-radius:.8mm; color:#fff; background:var(--pc,#8A7B63); }
-.p-RB{ background:#4F6B43; } .p-WR{ background:#2C6A62; } .p-TE{ background:#6B4C81; }
-.p-QB{ background:#9E5348; } .p-DST{ background:#565D5A; } .p-K{ background:#7A807C; }
+.p-RB{ background:#3E7A55; } .p-WR{ background:#2A7079; } .p-TE{ background:#6E4A8C; }
+.p-QB{ background:#A0483F; } .p-DST{ background:#5A5F5A; } .p-K{ background:#7A807C; }
 
 /* ---------- tables ---------- */
 table{ border-collapse:collapse; width:100%; font-size:8.6pt; border:.5pt solid #DAD8D1; }
@@ -223,7 +223,7 @@ td small{ display:block; font-family:ui-monospace,"SFMono-Regular",Menlo,monospa
 .slot-n{ font-weight:800; font-size:12pt; letter-spacing:-.03em; }
 .slot-picks{ font-family:ui-monospace,"SFMono-Regular",Menlo,monospace; font-size:6.8pt; color:#8A8078; }
 .verdict{ margin-left:auto; font-family:ui-monospace,"SFMono-Regular",Menlo,monospace; font-size:6.4pt; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:.5mm 1.4mm; border-radius:.8mm; color:#fff; }
-.v-RB{ background:#4F6B43; } .v-WR{ background:#2C6A62; } .v-any{ background:#7A807C; }
+.v-RB{ background:#3E7A55; } .v-WR{ background:#2A7079; } .v-any{ background:#7A807C; }
 .slot p{ font-size:8.2pt; line-height:1.4; margin:0; color:#4A504D; }
 
 .mock{ border:.5pt solid #DAD8D1; border-radius:1.5mm; overflow:hidden; break-inside:avoid; }
