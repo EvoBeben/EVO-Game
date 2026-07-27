@@ -12,7 +12,7 @@ Usage: python3 finish-pdf.py The-Board-2026.pdf
 import sys
 import fitz
 
-COVER_INK = (0x14 / 255, 0x10 / 255, 0x0C / 255)
+COVER_INK = (0.0, 0.0, 0.0)
 
 
 def main(path):

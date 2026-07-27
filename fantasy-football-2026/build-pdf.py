@@ -23,9 +23,9 @@ OUT = 'print.html'
 # Section order as it appears in the dashboard.
 ORDER = ['recap', 'strategy', 'rb', 'wr', 'te', 'qb', 'def', 'plan', 'mocks', 'sources']
 
-# Ink-side equivalents of the screen palette: same hues, dropped in lightness so
-# they clear 4.5:1 on paper instead of on a dark ground.
-PRINT_POS = {'RB': '#3E7A55', 'WR': '#2A7079', 'TE': '#6E4A8C', 'QB': '#A0483F', 'DST': '#5A5F5A'}
+# Screen is gold-on-black duotone, so print carries a single accent. Metallic
+# gold is unreadable on paper (2.1:1), so this is a deeper bronze at 5.9:1.
+PRINT_ACCENT = '#7A6117'
 
 
 def balanced(src, start):
@@ -112,15 +112,15 @@ a{ color:#1B1E1D; text-decoration:none; }
 /* ---------- cover ---------- */
 .cover{
   height:279.4mm; padding:32mm 22mm 20mm; break-after:page;
-  background:#14100C; color:#F3F0EA; position:relative; overflow:hidden;
+  background:#000000; color:#F3F0EA; position:relative; overflow:hidden;
 }
 .cover::after{
   content:""; position:absolute; inset:0;
   background:repeating-linear-gradient(90deg,transparent 0 17mm,#FFFFFF0D 17mm 17.2mm);
 }
-.cover-kick{ font-family:ui-monospace,"SFMono-Regular",Menlo,monospace; font-size:8pt; letter-spacing:.22em; text-transform:uppercase; color:#C7B9A4; margin-bottom:10mm; }
+.cover-kick{ font-family:ui-monospace,"SFMono-Regular",Menlo,monospace; font-size:8pt; letter-spacing:.22em; text-transform:uppercase; color:#D4AF37; margin-bottom:10mm; }
 .cover h1{ font-size:44pt; line-height:.98; letter-spacing:-.03em; max-width:15ch; margin-bottom:8mm; }
-.cover h1 em{ font-style:normal; color:#C7B9A4; }
+.cover h1 em{ font-style:normal; color:#D4AF37; }
 .cover-sub{ font-size:12pt; color:#C9C4BA; max-width:44ch; }
 .cover-meta{
   position:absolute; left:22mm; right:22mm; bottom:20mm; padding-top:5mm;
@@ -145,14 +145,14 @@ a{ color:#1B1E1D; text-decoration:none; }
 
 /* ---------- sections ---------- */
 .section{ break-before:page; }
-.sec-head{ border-bottom:1.4pt solid var(--pc,#8A7B63); padding-bottom:3mm; margin-bottom:6mm; display:flex; align-items:baseline; gap:5mm; }
-.sec-glyph{ font-size:22pt; font-weight:800; letter-spacing:-.04em; color:var(--pc,#8A7B63); line-height:1; }
+.sec-head{ border-bottom:1.4pt solid var(--pc,#7A6117); padding-bottom:3mm; margin-bottom:6mm; display:flex; align-items:baseline; gap:5mm; }
+.sec-glyph{ font-size:22pt; font-weight:800; letter-spacing:-.04em; color:var(--pc,#7A6117); line-height:1; }
 .sec-head h2{ font-size:19pt; letter-spacing:-.025em; }
 .sec-head .blurb{ font-size:9pt; color:#5C625F; margin-left:auto; text-align:right; max-width:42ch; }
 
 .panel-h{
   font-family:ui-monospace,"SFMono-Regular",Menlo,monospace; font-size:8pt;
-  letter-spacing:.2em; text-transform:uppercase; color:var(--pc,#8A7B63);
+  letter-spacing:.2em; text-transform:uppercase; color:var(--pc,#7A6117);
   margin:7mm 0 3mm; padding-bottom:1.4mm; border-bottom:.4pt solid #E2E0DA;
   break-after:avoid;
 }
@@ -162,7 +162,7 @@ a{ color:#1B1E1D; text-decoration:none; }
 /* ---------- rules list ---------- */
 .rules{ list-style:none; margin:0; padding:0; }
 .rules li{ display:flex; gap:3mm; margin-bottom:2.4mm; break-inside:avoid; }
-.rules li::before{ content:"—"; color:var(--pc,#8A7B63); flex:none; }
+.rules li::before{ content:"—"; color:var(--pc,#7A6117); flex:none; }
 .rules b{ font-weight:700; }
 
 /* ---------- tier board ---------- */
@@ -174,7 +174,7 @@ a{ color:#1B1E1D; text-decoration:none; }
 .tier-label .d{ display:block; font-family:ui-monospace,"SFMono-Regular",Menlo,monospace; font-size:7pt; letter-spacing:.1em; text-transform:uppercase; color:#7A807C; }
 .tier-body{ flex:1; padding:2.6mm 3mm; display:flex; flex-wrap:wrap; gap:1.6mm; }
 .plr{
-  display:inline-block; border:.4pt solid #DAD8D1; border-left:1.2pt solid var(--pc,#8A7B63);
+  display:inline-block; border:.4pt solid #DAD8D1; border-left:1.2pt solid var(--pc,#7A6117);
   border-radius:1mm; padding:1.2mm 2.2mm; font-size:8.6pt; font-weight:700;
 }
 .plr .tm{ font-family:ui-monospace,"SFMono-Regular",Menlo,monospace; font-size:6.8pt; letter-spacing:.08em; color:#7A807C; font-weight:400; margin-left:1.4mm; }
@@ -182,17 +182,17 @@ a{ color:#1B1E1D; text-decoration:none; }
 
 /* ---------- cards ---------- */
 .cards{ display:grid; grid-template-columns:1fr 1fr; gap:3mm; }
-.pcard{ border:.5pt solid #DAD8D1; border-top:1.2pt solid var(--pc,#8A7B63); border-radius:1.5mm; padding:3mm; break-inside:avoid; }
+.pcard{ border:.5pt solid #DAD8D1; border-top:1.2pt solid var(--pc,#7A6117); border-radius:1.5mm; padding:3mm; break-inside:avoid; }
 .pcard-head{ display:flex; align-items:baseline; gap:2mm; flex-wrap:wrap; }
 .pcard h4{ font-size:10pt; }
 .pcard .team{ font-family:ui-monospace,"SFMono-Regular",Menlo,monospace; font-size:7pt; letter-spacing:.08em; color:#7A807C; }
-.pcard .cost{ margin-left:auto; font-family:ui-monospace,"SFMono-Regular",Menlo,monospace; font-size:7pt; letter-spacing:.06em; text-transform:uppercase; color:var(--pc,#8A7B63); border:.4pt solid currentColor; border-radius:1mm; padding:.5mm 1.4mm; }
+.pcard .cost{ margin-left:auto; font-family:ui-monospace,"SFMono-Regular",Menlo,monospace; font-size:7pt; letter-spacing:.06em; text-transform:uppercase; color:var(--pc,#7A6117); border:.4pt solid currentColor; border-radius:1mm; padding:.5mm 1.4mm; }
 .pcard .facts{ list-style:none; margin:2.4mm 0 0; padding:2mm 0 0; border-top:.4pt solid #E2E0DA; }
 .pcard .facts li{ font-size:8.2pt; line-height:1.42; color:#4A504D; display:flex; gap:1.6mm; margin-bottom:1mm; }
-.pcard .facts li::before{ content:"›"; color:var(--pc,#8A7B63); }
-.pos-badge{ font-family:ui-monospace,"SFMono-Regular",Menlo,monospace; font-size:6.6pt; font-weight:700; letter-spacing:.08em; padding:.5mm 1.4mm; border-radius:.8mm; color:#fff; background:var(--pc,#8A7B63); }
-.p-RB{ background:#3E7A55; } .p-WR{ background:#2A7079; } .p-TE{ background:#6E4A8C; }
-.p-QB{ background:#A0483F; } .p-DST{ background:#5A5F5A; } .p-K{ background:#7A807C; }
+.pcard .facts li::before{ content:"›"; color:var(--pc,#7A6117); }
+.pos-badge{ font-family:ui-monospace,"SFMono-Regular",Menlo,monospace; font-size:6.6pt; font-weight:700; letter-spacing:.08em; padding:.5mm 1.4mm; border-radius:.8mm; color:#fff; background:var(--pc,#7A6117); }
+.p-RB,.p-WR,.p-TE,.p-QB{ background:#7A6117; }
+.p-DST,.p-K{ background:#6E736F; }
 
 /* ---------- tables ---------- */
 table{ border-collapse:collapse; width:100%; font-size:8.6pt; border:.5pt solid #DAD8D1; }
@@ -213,7 +213,7 @@ td small{ display:block; font-family:ui-monospace,"SFMono-Regular",Menlo,monospa
 .move > div{ width:52mm; flex:none; }
 .move .nm{ font-weight:700; font-size:9pt; }
 .move .path{ display:block; font-family:ui-monospace,"SFMono-Regular",Menlo,monospace; font-size:7pt; letter-spacing:.06em; color:#8A8078; }
-.move .path .to{ color:var(--pc,#8A7B63); }
+.move .path .to{ color:var(--pc,#7A6117); }
 .move .why{ font-size:8.6pt; color:#4A504D; margin:0; }
 
 /* ---------- slots + mocks ---------- */
@@ -223,7 +223,7 @@ td small{ display:block; font-family:ui-monospace,"SFMono-Regular",Menlo,monospa
 .slot-n{ font-weight:800; font-size:12pt; letter-spacing:-.03em; }
 .slot-picks{ font-family:ui-monospace,"SFMono-Regular",Menlo,monospace; font-size:6.8pt; color:#8A8078; }
 .verdict{ margin-left:auto; font-family:ui-monospace,"SFMono-Regular",Menlo,monospace; font-size:6.4pt; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:.5mm 1.4mm; border-radius:.8mm; color:#fff; }
-.v-RB{ background:#3E7A55; } .v-WR{ background:#2A7079; } .v-any{ background:#7A807C; }
+.v-RB,.v-WR{ background:#7A6117; } .v-any{ background:#6E736F; }
 .slot p{ font-size:8.2pt; line-height:1.4; margin:0; color:#4A504D; }
 
 .mock{ border:.5pt solid #DAD8D1; border-radius:1.5mm; overflow:hidden; break-inside:avoid; }
@@ -243,7 +243,7 @@ td small{ display:block; font-family:ui-monospace,"SFMono-Regular",Menlo,monospa
 .mock li{ padding-top:1.15mm; padding-bottom:1.15mm; }
 
 /* ---------- callout ---------- */
-.callout{ border:.5pt solid #DAD8D1; border-left:1.4pt solid var(--pc,#8A7B63); background:#F8F7F4; padding:3mm 3.4mm; border-radius:0 1.5mm 1.5mm 0; break-inside:avoid; }
+.callout{ border:.5pt solid #DAD8D1; border-left:1.4pt solid var(--pc,#7A6117); background:#F8F7F4; padding:3mm 3.4mm; border-radius:0 1.5mm 1.5mm 0; break-inside:avoid; }
 .callout p{ margin:0; } .callout p + p{ margin-top:2mm; }
 
 /* ---------- sources ---------- */
@@ -291,7 +291,7 @@ def build(toc_pages=None):
 
     # sections
     for s in secs:
-        pc = PRINT_POS.get(s['pos'] or '', '#8A7B63')
+        pc = PRINT_ACCENT
         body = []
         for label, inner in s['panels']:
             if label:

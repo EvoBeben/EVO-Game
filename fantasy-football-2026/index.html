@@ -4,30 +4,26 @@
   :root{
     color-scheme: dark;
 
-    /* Ground and rules. Structure comes from hairlines and space, so there are
-       only two lifted surfaces and one radius in the whole system. */
-    --ground:#0B0C0C;
-    --ground-2:#080909;
-    --raise:#131515;          /* gutters, table heads — the only fill */
-    --raise-2:#1A1D1C;        /* hover only */
-    --rule:#222624;
-    --rule-2:#333937;
+    /* Gold on solid black. Two colours; the interface carries no other hue. */
+    --ground:#000000;
+    --ground-2:#000000;
+    --raise:#0B0A07;
+    --raise-2:#141109;
+    --rule:#1E1A10;
+    --rule-2:#332C1A;
 
-    /* Type. The interface is monochrome; colour is reserved for position. */
-    --bone:#ECEDEA;
-    --text:#D6D9D5;
-    --muted:#969B97;
-    --dim:#7A817C;
+    --gold:#D4AF37;
+    --gold-hi:#E7C75C;
+    --gold-dim:#8C7530;
 
-    /* The only chroma on the page. */
-    --rb:#5CA579;
-    --wr:#4E9FA8;
-    --te:#A87CC4;
-    --qb:#C97A72;
-    --dst:#949791;
-    --pc:var(--bone);         /* rebound per section */
+    --bone:#F2EFE6;
+    --text:#D8D3C4;
+    --muted:#9C968A;
+    --dim:#877F6E;
 
-    --display: Georgia, "Iowan Old Style", "Source Serif Pro", "Times New Roman", serif;
+    --pc:var(--gold);
+
+    --display: "Helvetica Neue", Helvetica, Arial, system-ui, -apple-system, sans-serif;
     --ui: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, system-ui, sans-serif;
     --data: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   }
@@ -36,7 +32,8 @@
 
   *{ box-sizing:border-box; }
   body{
-    margin:0; background:var(--ground); color:var(--text);
+    margin:0; min-height:100vh; display:flex; flex-direction:column;
+    background:var(--ground); color:var(--text);
     font-family:var(--ui); font-size:15.5px; line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
@@ -45,12 +42,14 @@
   a:hover{ border-bottom-color:var(--bone); }
   a:focus-visible, button:focus-visible{ outline:1px solid var(--bone); outline-offset:3px; }
 
+  main{ flex:1 0 auto; }
+  footer{ flex:none; }
   .wrap{ max-width:1080px; margin:0 auto; padding:0 26px; }
 
   /* ================= chrome ================= */
   .topbar{
     position:sticky; top:0; z-index:60;
-    background:rgba(11,12,12,.94); backdrop-filter:blur(8px);
+    background:rgba(0,0,0,.92); backdrop-filter:blur(8px);
     border-bottom:1px solid var(--rule);
   }
   .topbar-in{ max-width:1080px; margin:0 auto; padding:11px 26px; display:flex; align-items:center; gap:14px; }
@@ -83,57 +82,52 @@
   }
 
   /* ================= masthead ================= */
-  .hero{ border-bottom:1px solid var(--rule); }
+  .hero{ border-bottom:0; position:relative; }
   .hero-in{ padding:34px 0 26px; }
   .kicker{
-    font-family:var(--data); font-size:10.5px; letter-spacing:.24em; text-transform:uppercase;
-    color:var(--dim); margin:0 0 14px;
+    font-family:var(--data); font-size:9.5px; letter-spacing:.26em; text-transform:uppercase;
+    color:var(--gold-dim); margin:0 0 12px;
   }
   h1{
-    font-family:var(--display); font-weight:400; font-style:normal;
-    font-size:clamp(1.9rem,3.8vw,2.75rem); line-height:1.06; letter-spacing:-.018em;
-    color:var(--bone); margin:0 0 12px; max-width:30ch;
+    font-family:var(--display); font-weight:800; text-transform:uppercase;
+    font-size:clamp(1.25rem,2.3vw,1.7rem); line-height:1.12; letter-spacing:.005em;
+    color:var(--bone); margin:0 0 10px; max-width:30ch;
   }
-  h1 em{ font-style:italic; color:var(--muted); }
-  .standfirst{ font-size:.98rem; color:var(--muted); max-width:52ch; margin:0; }
-  .legend{ display:flex; flex-wrap:wrap; gap:16px; margin:16px 0 0; padding:0; list-style:none; }
-  .legend li{
-    display:flex; align-items:center; gap:7px; font-family:var(--data);
-    font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--dim);
+  h1 em{ font-style:normal; color:var(--gold); }
+  .standfirst{
+    font-family:var(--data); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--muted); margin:0;
   }
-  .swatch{ width:7px; height:7px; }
+  /* Yard-line hash marks stand in for a divider rule. */
+  .hashes{
+    height:14px;
+    background:repeating-linear-gradient(90deg,
+      var(--gold-dim) 0 2px, transparent 2px 26px);
+    opacity:.5;
+  }
+  .legend{ display:none; }
 
-  /* ================= index ledger ================= */
-  .toc{ padding:20px 0 24px; }
+  /* ================= index buttons ================= */
+  .toc{ padding:30px 0 40px; }
   .toc-lbl{
-    font-family:var(--data); font-size:9.5px; letter-spacing:.24em; text-transform:uppercase;
-    color:var(--dim); max-width:none; margin:0 0 2px; padding-bottom:7px;
-    border-bottom:1px solid var(--rule-2);
+    font-family:var(--data); font-size:9.5px; letter-spacing:.26em; text-transform:uppercase;
+    color:var(--gold-dim); max-width:none; margin:0 0 12px; padding:0; border:0;
   }
-  .toc-grid + .toc-lbl{ margin-top:20px; }
-  .toc-grid{ display:grid; grid-template-columns:1fr 1fr; column-gap:44px; }
+  .toc-grid + .toc-lbl{ margin-top:28px; }
+  .toc-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
   .toc-card{
-    --pc:var(--dim);          /* non-position rows stay neutral */
-    display:flex; align-items:baseline; gap:14px; position:relative;
-    padding:9px 4px 9px 0; border:0; border-bottom:1px solid var(--rule);
-    text-decoration:none; cursor:pointer;
-    transition:padding-left .18s ease, background .18s ease;
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    min-height:66px; padding:0 16px; border:1px solid var(--gold-dim); background:#000;
+    color:var(--gold); text-decoration:none; cursor:pointer;
+    font-family:var(--display); font-weight:700; font-size:.82rem;
+    letter-spacing:.075em; text-transform:uppercase; line-height:1.2;
+    transition:background .16s ease, color .16s ease, border-color .16s ease;
   }
-  .toc-card::before{
-    content:""; width:7px; height:7px; flex:none; background:var(--pc);
-    transform:translateY(-1px);
-  }
-  .toc-card::after{
-    content:"→"; margin-left:auto; color:var(--dim); font-family:var(--ui); font-size:.95rem;
-    transition:transform .18s ease, color .18s ease;
-  }
-  .toc-card:hover{ background:var(--raise); padding-left:8px; }
-  .toc-card:hover::after{ color:var(--bone); transform:translateX(4px); }
-  .toc-card[data-pos="RB"]{ --pc:var(--rb); } .toc-card[data-pos="WR"]{ --pc:var(--wr); }
-  .toc-card[data-pos="TE"]{ --pc:var(--te); } .toc-card[data-pos="QB"]{ --pc:var(--qb); }
-  .toc-card[data-pos="DST"]{ --pc:var(--dst); }
-  .toc-idx{ font-family:var(--data); font-size:10.5px; letter-spacing:.12em; color:var(--dim); }
-  .toc-name{ font-family:var(--display); font-size:1.14rem; color:var(--bone); letter-spacing:-.01em; }
+  .toc-card::before{ content:none; }
+  .toc-card::after{ content:"›"; font-size:1.15rem; line-height:1; color:inherit; opacity:.55; }
+  .toc-card:hover{ background:var(--gold); color:#000; border-color:var(--gold); }
+  .toc-card:hover::after{ opacity:1; }
+  .toc-card:focus-visible{ outline:2px solid var(--gold-hi); outline-offset:2px; }
 
   /* ================= section head ================= */
   .sec-head{ border-bottom:1px solid var(--rule-2); padding:34px 0 16px; margin-bottom:0; background:none; }
@@ -145,8 +139,9 @@
   }
   .sec-title{ flex:1; min-width:220px; display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
   .sec-title h2{
-    font-family:var(--display); font-weight:400; font-size:clamp(1.6rem,3.2vw,2.2rem);
-    letter-spacing:-.015em; line-height:1.1; color:var(--bone); margin:0;
+    font-family:var(--display); font-weight:800; text-transform:uppercase;
+    font-size:clamp(1.15rem,2.1vw,1.5rem); letter-spacing:.03em; line-height:1.15;
+    color:var(--bone); margin:0;
   }
   .sec-title p{ margin:0; color:var(--muted); font-size:.92rem; max-width:46ch; }
 
@@ -279,7 +274,7 @@
     margin-left:auto; font-family:var(--data); font-size:9.5px; letter-spacing:.14em; text-transform:uppercase;
     padding:0; border-radius:0; background:none; font-weight:400;
   }
-  .v-RB{ color:var(--rb); } .v-WR{ color:var(--wr); } .v-any{ color:var(--dim); }
+  .v-RB, .v-WR{ color:var(--gold); } .v-any{ color:var(--dim); }
   .slot p{ font-size:.88rem; line-height:1.5; margin:0; color:var(--muted); max-width:none; }
 
   /* ================= mocks ================= */
@@ -309,9 +304,8 @@
     font-family:var(--data); font-size:9.5px; font-weight:400; letter-spacing:.14em;
     padding:0; border-radius:0; background:none;
   }
-  .p-QB{ color:var(--qb); } .p-RB{ color:var(--rb); }
-  .p-WR{ color:var(--wr); } .p-TE{ color:var(--te); }
-  .p-DST{ color:var(--dst); } .p-K{ color:var(--dim); }
+  .p-QB, .p-RB, .p-WR, .p-TE{ color:var(--gold); }
+  .p-DST, .p-K{ color:var(--dim); }
 
   /* ================= sources ================= */
   .srcgrid{ columns:4; column-gap:28px; margin:0; list-style:none; padding:0; }
@@ -354,59 +348,32 @@
       <p class="kicker">2026 Season · Draft Guide · 25 July 2026</p>
       <h1>Everything you need before you're <em>on the clock</em></h1>
       <p class="standfirst">Ten sections. Pick one.</p>
-      <ul class="legend">
-        <li><span class="swatch" style="background:var(--rb)"></span> RB</li>
-        <li><span class="swatch" style="background:var(--wr)"></span> WR</li>
-        <li><span class="swatch" style="background:var(--te)"></span> TE</li>
-        <li><span class="swatch" style="background:var(--qb)"></span> QB</li>
-        <li><span class="swatch" style="background:var(--dst)"></span> DEF</li>
-      </ul>
     </div>
+    <div class="hashes" aria-hidden="true"></div>
   </div>
 
   <div class="wrap toc">
     <p class="toc-lbl">Groundwork</p>
     <div class="toc-grid">
-      <a class="toc-card" href="#recap">
-        <span class="toc-idx">01</span><span class="toc-name">2025 Recap</span>
-      </a>
-      <a class="toc-card" href="#strategy">
-        <span class="toc-idx">02</span><span class="toc-name">Strategy</span>
-      </a>
+      <a class="toc-card" href="#recap">2025 Recap</a>
+      <a class="toc-card" href="#strategy">Strategy</a>
     </div>
 
-    <p class="toc-lbl">Position files</p>
+    <p class="toc-lbl">Position Files</p>
     <div class="toc-grid">
-      <a class="toc-card" data-pos="RB" href="#rb">
-        <span class="toc-idx">03</span><span class="toc-name">Running Back</span>
-      </a>
-      <a class="toc-card" data-pos="WR" href="#wr">
-        <span class="toc-idx">04</span><span class="toc-name">Wide Receiver</span>
-      </a>
-      <a class="toc-card" data-pos="TE" href="#te">
-        <span class="toc-idx">05</span><span class="toc-name">Tight End</span>
-      </a>
-      <a class="toc-card" data-pos="QB" href="#qb">
-        <span class="toc-idx">06</span><span class="toc-name">Quarterback</span>
-      </a>
-      <a class="toc-card" data-pos="DST" href="#def">
-        <span class="toc-idx">07</span><span class="toc-name">Defense</span>
-      </a>
+      <a class="toc-card" href="#rb">Running Back</a>
+      <a class="toc-card" href="#wr">Wide Receiver</a>
+      <a class="toc-card" href="#te">Tight End</a>
+      <a class="toc-card" href="#qb">Quarterback</a>
+      <a class="toc-card" href="#def">Defense</a>
     </div>
 
-    <p class="toc-lbl">Draft day</p>
+    <p class="toc-lbl">Draft Day</p>
     <div class="toc-grid">
-      <a class="toc-card" href="#plan">
-        <span class="toc-idx">08</span><span class="toc-name">Draft Plan</span>
-      </a>
-      <a class="toc-card" href="#mocks">
-        <span class="toc-idx">09</span><span class="toc-name">Mock Drafts</span>
-      </a>
-      <a class="toc-card" href="#sources">
-        <span class="toc-idx">10</span><span class="toc-name">Sources</span>
-      </a>
+      <a class="toc-card" href="#plan">Draft Plan</a>
+      <a class="toc-card" href="#mocks">Mock Drafts</a>
+      <a class="toc-card" href="#sources">Sources</a>
     </div>
-
   </div>
 </div>
 
@@ -492,7 +459,7 @@
 </div>
 
 <!-- ==================== 03 · RUNNING BACK ==================== -->
-<div class="view" id="v-rb" data-name="Running Back" style="--pc:var(--rb); --pc-soft:#93AE7F1C;">
+<div class="view" id="v-rb" data-name="Running Back">
   <div class="sec-head">
     <div class="wrap">
       <span class="sec-glyph">RB</span>
@@ -652,7 +619,7 @@
 </div>
 
 <!-- ==================== 04 · WIDE RECEIVER ==================== -->
-<div class="view" id="v-wr" data-name="Wide Receiver" style="--pc:var(--wr); --pc-soft:#6FA49C1C;">
+<div class="view" id="v-wr" data-name="Wide Receiver">
   <div class="sec-head">
     <div class="wrap">
       <span class="sec-glyph">WR</span>
@@ -829,7 +796,7 @@
 </div>
 
 <!-- ==================== 05 · TIGHT END ==================== -->
-<div class="view" id="v-te" data-name="Tight End" style="--pc:var(--te); --pc-soft:#B393C41C;">
+<div class="view" id="v-te" data-name="Tight End">
   <div class="sec-head">
     <div class="wrap">
       <span class="sec-glyph">TE</span>
@@ -965,7 +932,7 @@
 </div>
 
 <!-- ==================== 06 · QUARTERBACK ==================== -->
-<div class="view" id="v-qb" data-name="Quarterback" style="--pc:var(--qb); --pc-soft:#C0847C1C;">
+<div class="view" id="v-qb" data-name="Quarterback">
   <div class="sec-head">
     <div class="wrap">
       <span class="sec-glyph">QB</span>
@@ -1082,7 +1049,7 @@
 </div>
 
 <!-- ==================== 07 · DEFENSE ==================== -->
-<div class="view" id="v-def" data-name="Defense" style="--pc:var(--dst); --pc-soft:#A0A8A41C;">
+<div class="view" id="v-def" data-name="Defense">
   <div class="sec-head">
     <div class="wrap">
       <span class="sec-glyph">DEF</span>
