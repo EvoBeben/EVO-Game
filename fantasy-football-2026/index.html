@@ -78,34 +78,42 @@
     background:repeating-linear-gradient(90deg,transparent 0 59px,#A8B3AA10 59px 60px); }
   .hero::after{ content:""; position:absolute; left:0; right:0; top:0; height:2px;
     background:linear-gradient(90deg,var(--accent) 0%,#C7B9A400 62%); }
-  .hero-in{ position:relative; padding:28px 0 24px; }
+  .hero-in{ position:relative; padding:38px 0 32px; }
   .kicker{ font-family:var(--data); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent); margin:0 0 10px; }
-  h1{ font-weight:800; font-size:clamp(1.8rem,3.6vw,2.5rem); line-height:1.02; letter-spacing:-.032em; margin:0 0 10px; max-width:30ch; }
+  h1{ font-weight:800; font-size:clamp(1.9rem,3.8vw,2.7rem); line-height:1.02; letter-spacing:-.032em; margin:0 0 14px; max-width:30ch; }
   h1 em{ font-style:normal; color:var(--accent); }
   .standfirst{ font-family:var(--prose); font-size:1rem; color:#C6CCC5; max-width:50ch; margin:0; }
 
-  .toc{ padding:18px 0 14px; }
+  .toc{ padding:30px 0 34px; }
   .toc-lbl{
-    font-family:var(--data); font-size:10.5px; letter-spacing:.2em; text-transform:uppercase;
-    color:var(--dim); margin:0 0 8px; display:flex; align-items:center; gap:12px;
+    font-family:var(--data); font-size:10px; letter-spacing:.24em; text-transform:uppercase;
+    color:var(--dim); margin:0 0 14px; max-width:none; display:flex; align-items:center; gap:14px;
   }
   .toc-lbl::after{ content:""; flex:1; height:1px; background:var(--line); }
-  .toc-lbl + .toc-lbl{ margin-top:16px; }
-  .toc-grid + .toc-lbl{ margin-top:22px; }
-  .toc-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:10px; }
+  .toc-grid + .toc-lbl{ margin-top:32px; }
+  .toc-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; }
   .toc-card{
-    display:block; border:1px solid var(--line); border-left:3px solid var(--pc);
-    background:var(--panel); border-radius:4px; padding:12px 15px 13px; cursor:pointer;
-    transition:background .18s ease, border-color .18s ease, transform .18s ease;
+    position:relative; overflow:hidden;
+    display:flex; align-items:center; gap:16px;
+    border:1px solid var(--line); border-radius:10px; background:var(--panel);
+    padding:21px 22px; cursor:pointer;
+    transition:background .22s ease, border-color .22s ease, transform .22s ease;
   }
-  .toc-card:hover{ background:var(--panel-2); border-color:var(--line-2); border-left-color:var(--pc); transform:translateY(-2px); }
+  .toc-card::before{
+    content:""; position:absolute; left:0; top:0; bottom:0; width:2px;
+    background:var(--pc); transition:width .22s ease;
+  }
+  .toc-card::after{
+    content:"→"; margin-left:auto; color:var(--dim); font-size:1rem;
+    transition:transform .22s ease, color .22s ease;
+  }
+  .toc-card:hover{ background:var(--panel-2); border-color:var(--line-2); transform:translateY(-3px); }
+  .toc-card:hover::before{ width:4px; }
+  .toc-card:hover::after{ color:var(--pc); transform:translateX(4px); }
   .toc-card[data-pos="RB"]{ --pc:var(--rb); } .toc-card[data-pos="WR"]{ --pc:var(--wr); }
   .toc-card[data-pos="TE"]{ --pc:var(--te); } .toc-card[data-pos="QB"]{ --pc:var(--qb); }
-  .toc-top{ display:flex; align-items:baseline; gap:9px; margin-bottom:3px; }
-  .toc-idx{ font-family:var(--data); font-size:10px; letter-spacing:.1em; color:var(--pc); }
-  .toc-name{ font-weight:700; font-size:1rem; letter-spacing:-.015em; }
-  .toc-desc{ font-size:.87rem; line-height:1.45; color:var(--muted); margin:0 0 7px; }
-  .toc-meta{ font-family:var(--data); font-size:9.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--dim); }
+  .toc-idx{ font-family:var(--data); font-size:10.5px; letter-spacing:.14em; color:var(--pc); }
+  .toc-name{ font-weight:700; font-size:1.18rem; letter-spacing:-.022em; }
 
   /* ================= section header ================= */
   .sec-head{
@@ -315,57 +323,39 @@
     <p class="toc-lbl">Groundwork</p>
     <div class="toc-grid">
       <a class="toc-card" href="#recap">
-        <div class="toc-top"><span class="toc-idx">01</span><span class="toc-name">2025 Recap</span></div>
-        <p class="toc-desc">What happened, and what it repriced.</p>
-        <p class="toc-meta">4 results · 3 structural facts</p>
+        <span class="toc-idx">01</span><span class="toc-name">2025 Recap</span>
       </a>
       <a class="toc-card" href="#strategy">
-        <div class="toc-top"><span class="toc-idx">02</span><span class="toc-name">Strategy</span></div>
-        <p class="toc-desc">Six rules and a round-by-round phase plan.</p>
-        <p class="toc-meta">2 panels</p>
+        <span class="toc-idx">02</span><span class="toc-name">Strategy</span>
       </a>
     </div>
 
     <p class="toc-lbl">Position files</p>
     <div class="toc-grid">
       <a class="toc-card" data-pos="RB" href="#rb">
-        <div class="toc-top"><span class="toc-idx">03</span><span class="toc-name">Running Back</span></div>
-        <p class="toc-desc">Expensive, thin past twelve. Two names in Tier 1.</p>
-        <p class="toc-meta">8 panels · 5 tiers · 6 gems</p>
+        <span class="toc-idx">03</span><span class="toc-name">Running Back</span>
       </a>
       <a class="toc-card" data-pos="WR" href="#wr">
-        <div class="toc-top"><span class="toc-idx">04</span><span class="toc-name">Wide Receiver</span></div>
-        <p class="toc-desc">Stable at the top. Money is in Rounds 4–9.</p>
-        <p class="toc-meta">8 panels · 5 tiers · 5 gems</p>
+        <span class="toc-idx">04</span><span class="toc-name">Wide Receiver</span>
       </a>
       <a class="toc-card" data-pos="TE" href="#te">
-        <div class="toc-top"><span class="toc-idx">05</span><span class="toc-name">Tight End</span></div>
-        <p class="toc-desc">Round 2 or Round 11. Nothing in between.</p>
-        <p class="toc-meta">8 panels · 4 tiers · 5 gems</p>
+        <span class="toc-idx">05</span><span class="toc-name">Tight End</span>
       </a>
       <a class="toc-card" data-pos="QB" href="#qb">
-        <div class="toc-top"><span class="toc-idx">06</span><span class="toc-name">Quarterback</span></div>
-        <p class="toc-desc">Twelve usable starters, twelve teams. Don't pay.</p>
-        <p class="toc-meta">7 panels · 4 tiers · 4 gems</p>
+        <span class="toc-idx">06</span><span class="toc-name">Quarterback</span>
       </a>
     </div>
 
     <p class="toc-lbl">Draft day</p>
     <div class="toc-grid">
       <a class="toc-card" href="#plan">
-        <div class="toc-top"><span class="toc-idx">07</span><span class="toc-name">Draft Plan</span></div>
-        <p class="toc-desc">RB or WR at pick 1? Answered for all twelve seats.</p>
-        <p class="toc-meta">5 panels · 12 slots</p>
+        <span class="toc-idx">07</span><span class="toc-name">Draft Plan</span>
       </a>
       <a class="toc-card" href="#mocks">
-        <div class="toc-top"><span class="toc-idx">08</span><span class="toc-name">Mock Drafts</span></div>
-        <p class="toc-desc">Full 16-round mocks for three seats.</p>
-        <p class="toc-meta">3 panels · name and position only</p>
+        <span class="toc-idx">08</span><span class="toc-name">Mock Drafts</span>
       </a>
       <a class="toc-card" href="#sources">
-        <div class="toc-top"><span class="toc-idx">09</span><span class="toc-name">Sources</span></div>
-        <p class="toc-desc">Forty links, and what this page can't promise.</p>
-        <p class="toc-meta">Verified 25 July 2026</p>
+        <span class="toc-idx">09</span><span class="toc-name">Sources</span>
       </a>
     </div>
 
@@ -466,26 +456,14 @@
   </div>
   <div class="wrap">
     <div class="tabs" role="tablist">
-      <button class="tab" role="tab" aria-selected="true" aria-controls="p-rb-read">Read</button>
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p-rb-board">Board</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-rb-moves">Moves</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p-rb-board">Board</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-rb-names">Names</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-rb-rookies">Rookies</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-rb-gems">Gems</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p-rb-fade">Fade</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p-rb-watch">Watch</button>
     </div>
 
-    <div class="panel active body-brief" id="p-rb-read" role="tabpanel">
-      <ul class="rules">
-        <li><b>Gibbs is the ceiling</b> — RB1 and RB3 the last two years, 21.4 PPG, and Montgomery is gone.</li>
-        <li><b>Bijan is the floor</b> — RB3 and RB2, and he has never missed a game.</li>
-        <li><b>McCaffrey is the coin flip</b> — top scorer alive, on 403 touches.</li>
-        <li><b>Past pick 12 it collapses.</b> The rookie class didn't restock it.</li>
-      </ul>
-    </div>
-
-    <div class="panel body-list" id="p-rb-moves" role="tabpanel">
+<div class="panel body-list" id="p-rb-moves" role="tabpanel">
       <div class="ledger">
             <div class="move">
               <div><span class="nm">Kenneth Walker III</span><span class="path">SEA → <span class="to">KC</span></span></div>
@@ -506,7 +484,7 @@
       </div>
     </div>
 
-    <div class="panel body-board" id="p-rb-board" role="tabpanel">
+    <div class="panel active body-board" id="p-rb-board" role="tabpanel">
       <div class="board">
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 1</span><span class="d">The 1.01</span></div>
@@ -622,21 +600,7 @@
       </div>
     </div>
 
-    <div class="panel body-list" id="p-rb-fade" role="tabpanel">
-      <ul class="rules">
-        <li><b>Christian McCaffrey.</b> 403 touches isn't a workload you underwrite twice — but he was also the top scorer. Risk tolerance, not talent.</li>
-        <li><b>Any Round 3–5 committee back.</b> If you can't name his third-down role, pay flex prices.</li>
-      </ul>
-    </div>
-
-    <div class="panel body-list" id="p-rb-watch" role="tabpanel">
-      <ul class="rules">
-        <li><b>Charbonnet's timeline.</b> Every week of silence raises Price's floor.</li>
-        <li><b>Jacksonville's split.</b> Chris Rodriguez out-earned Rachaad White in free agency.</li>
-        <li><b>Arizona snaps.</b> Love, Conner, Benson — watch preseason distribution.</li>
-      </ul>
-    </div>
-  </div>
+</div>
 </div>
 
 <!-- ==================== 04 · WIDE RECEIVER ==================== -->
@@ -652,25 +616,14 @@
   </div>
   <div class="wrap">
     <div class="tabs" role="tablist">
-      <button class="tab" role="tab" aria-selected="true" aria-controls="p-wr-read">Read</button>
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p-wr-board">Board</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-wr-moves">Moves</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p-wr-board">Board</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-wr-names">Names</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-wr-rookies">Rookies</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-wr-gems">Gems</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p-wr-fade">Fade</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p-wr-watch">Watch</button>
     </div>
 
-    <div class="panel active body-brief" id="p-wr-read" role="tabpanel">
-      <ul class="rules">
-        <li><b>Four in Tier 1</b> — Chase, Nacua, Smith-Njigba, St. Brown. Take any of them and stop thinking.</li>
-        <li><b>Lamb and Jefferson are QB-proof.</b> Jefferson was WR2 at 18.7 PPG with Darnold throwing.</li>
-        <li><b>Six offenses lost a primary receiver.</b> The inheritors are priced on last year's role.</li>
-      </ul>
-    </div>
-
-    <div class="panel body-list" id="p-wr-moves" role="tabpanel">
+<div class="panel body-list" id="p-wr-moves" role="tabpanel">
       <div class="ledger">
             <div class="move">
               <div><span class="nm">A.J. Brown</span><span class="path">PHI → <span class="to">NE</span></span></div>
@@ -695,7 +648,7 @@
       </div>
     </div>
 
-    <div class="panel body-board" id="p-wr-board" role="tabpanel">
+    <div class="panel active body-board" id="p-wr-board" role="tabpanel">
       <div class="board">
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 1</span><span class="d">Round 1</span></div>
@@ -824,28 +777,7 @@
       </div>
     </div>
 
-    <div class="panel body-list" id="p-wr-fade" role="tabpanel">
-      <div class="stack">
-        <ul class="rules">
-          <li><b>Rashee Rice</b> in Round 2. Knee surgery in May, 30-day jail sentence, hard schedule. Top-five upside — if he plays 17.</li>
-          <li><b>Malik Nabers</b> in Round 3. Same player is a fine pick two rounds later.</li>
-          <li><b>Jameson Williams</b> at WR25. Great offense, one ball.</li>
-          <li><b>Malik Washington.</b> "No. 1 receiver" on 0.9 yards per route run.</li>
-        </ul>
-        <div class="callout">
-          <p>Last year <strong>Brian Thomas Jr.</strong> was the consensus safe-and-high-upside pick. Jacksonville traded for Jakobi Meyers midseason; he finished WR45. Enthusiasm isn't a secured role.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel body-list" id="p-wr-watch" role="tabpanel">
-      <ul class="rules">
-        <li><b>Nabers' ramp-up</b> and <b>Rice's availability</b> — both ADPs assume full seasons.</li>
-        <li><b>Chicago's three-way split.</b> Whoever wins the summer wins a lot of points.</li>
-        <li><b>Brian Thomas Jr.'s role.</b> Trade rumours all spring; the GM called them "fraudulent."</li>
-      </ul>
-    </div>
-  </div>
+</div>
 </div>
 
 <!-- ==================== 05 · TIGHT END ==================== -->
@@ -861,25 +793,14 @@
   </div>
   <div class="wrap">
     <div class="tabs" role="tablist">
-      <button class="tab" role="tab" aria-selected="true" aria-controls="p-te-read">Read</button>
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p-te-board">Board</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-te-moves">Moves</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p-te-board">Board</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-te-names">Names</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-te-rookies">Rookies</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-te-gems">Gems</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p-te-fade">Fade</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p-te-watch">Watch</button>
     </div>
 
-    <div class="panel active body-brief" id="p-te-read" role="tabpanel">
-      <ul class="rules">
-        <li><b>Nobody agrees on the order.</b> PFF: McBride, Bowers. CBS: Bowers first. SI: McBride, Warren, Bowers. NFL.com: Bowers, Loveland, McBride.</li>
-        <li><b>So take whichever falls.</b> Bowers saw 150+ targets and has Kubiak now; McBride was last year's TE1.</li>
-        <li><b>Or skip to Round 11</b> and take two. That pool is deep this year.</li>
-      </ul>
-    </div>
-
-    <div class="panel body-list" id="p-te-moves" role="tabpanel">
+<div class="panel body-list" id="p-te-moves" role="tabpanel">
       <div class="ledger">
             <div class="move">
               <div><span class="nm">Chig Okonkwo</span><span class="path">TEN → <span class="to">WAS</span></span></div>
@@ -896,7 +817,7 @@
       </div>
     </div>
 
-    <div class="panel body-board" id="p-te-board" role="tabpanel">
+    <div class="panel active body-board" id="p-te-board" role="tabpanel">
       <div class="board">
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 1</span><span class="d">Round 2</span></div>
@@ -992,20 +913,7 @@
       </div>
     </div>
 
-    <div class="panel body-list" id="p-te-fade" role="tabpanel">
-      <ul class="rules">
-        <li><b>Travis Kelce</b> before Round 8. Mahomes' knee adds a second unknown.</li>
-        <li><b>The whole Round 5–8 tier.</b> Starter prices for Round 11 production.</li>
-      </ul>
-    </div>
-
-    <div class="panel body-list" id="p-te-watch" role="tabpanel">
-      <ul class="rules">
-        <li><b>Any Tier 4 tight end who wins a job outright.</b> It's usually settled in August.</li>
-        <li><b>Las Vegas' Week 1 starter.</b> Bowers' price assumes competent QB play.</li>
-      </ul>
-    </div>
-  </div>
+</div>
 </div>
 
 <!-- ==================== 06 · QUARTERBACK ==================== -->
@@ -1021,23 +929,13 @@
   </div>
   <div class="wrap">
     <div class="tabs" role="tablist">
-      <button class="tab" role="tab" aria-selected="true" aria-controls="p-qb-read">Read</button>
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p-qb-board">Board</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-qb-moves">Moves</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p-qb-board">Board</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-qb-rookies">Rookies</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-qb-gems">Gems</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p-qb-fade">Fade</button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="p-qb-watch">Watch</button>
     </div>
 
-    <div class="panel active body-brief" id="p-qb-read" role="tabpanel">
-      <ul class="rules">
-        <li><b>Buy the bounce-backs.</b> Lamar was QB16 at 17.1 PPG in a wrecked year — and QB1 the year before. Daniels was QB5 as a rookie at 20.9.</li>
-        <li><b>Otherwise wait.</b> Two arms from Tier 4 in your last five rounds, stream the matchup.</li>
-      </ul>
-    </div>
-
-    <div class="panel body-list" id="p-qb-moves" role="tabpanel">
+<div class="panel body-list" id="p-qb-moves" role="tabpanel">
       <div class="ledger">
             <div class="move">
               <div><span class="nm">Patrick Mahomes</span><span class="path">KC · <span class="to">ACL + LCL</span>, Week 15</span></div>
@@ -1058,7 +956,7 @@
       </div>
     </div>
 
-    <div class="panel body-board" id="p-qb-board" role="tabpanel">
+    <div class="panel active body-board" id="p-qb-board" role="tabpanel">
       <div class="board">
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 1</span><span class="d">If you must pay</span></div>
@@ -1132,20 +1030,7 @@
       </div>
     </div>
 
-    <div class="panel body-list" id="p-qb-fade" role="tabpanel">
-      <ul class="rules">
-        <li><b>Jalen Hurts.</b> 18.7 PPG and single-digit rushing TDs for the first time since his rookie year.</li>
-        <li><b>Any QB before Round 5.</b> Superflex is the exception — there it inverts.</li>
-      </ul>
-    </div>
-
-    <div class="panel body-list" id="p-qb-watch" role="tabpanel">
-      <ul class="rules">
-        <li><b>Mahomes' knee.</b> Every Chiefs pass-catcher and Kenneth Walker are priced off it.</li>
-        <li><b>Las Vegas' Week 1 starter.</b> Veteran or Mendoza.</li>
-      </ul>
-    </div>
-  </div>
+</div>
 </div>
 
 <!-- ==================== 07 · DRAFT PLAN ==================== -->

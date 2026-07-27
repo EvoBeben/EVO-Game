@@ -42,10 +42,10 @@ with `id="v-<section>"`, routed by URL hash. Panels are `.panel` divs wired to
 tab buttons via `aria-controls`. An edit to a player almost always lands inside
 one panel — grep the player's name and you are already in the right place.
 
-If you add or remove a panel, keep three things in sync: the tab button's
-`aria-controls`, the panel's `id`, and the panel count in that section's
-`.toc-meta` line on the home view. Exactly one panel per view carries the
-`active` class.
+Position sections run Board, Moves, Names, Rookies, Gems (quarterback has no
+Names panel). Board is the landing tab. If you add or remove a panel, keep the
+tab button's `aria-controls` and the panel's `id` in sync; exactly one panel per
+view carries the `active` class, and it must be the one the first tab controls.
 
 ## When the season starts
 
