@@ -1,28 +1,28 @@
 {
   "abbr": "CHI", "city": "Chicago", "name": "Bears",
   "primary": "#0B162A", "secondary": "#C83803",
-  "date": "July 25, 2026",
-  "subhead": "2026 training camp edition &mdash; rookies reported to Halas Hall today; veterans follow Tuesday, July 28. Camp practices run through late August in Lake Forest.",
+  "date": "July 26, 2026",
+  "subhead": "2026 training camp edition &mdash; Caleb Williams reported healthy and in peak condition; veterans arrive Tuesday, July 28. New safety tandem debuts. Can defense pair elite takeaways with actual pass rush?",
   "strip": [
     {"n": "11<em>&ndash;</em>6", "k": "2025 Record"},
     {"n": "NFC North", "k": "2025 Champions"},
-    {"n": "Ben Johnson", "k": "HC &middot; Year 2"},
-    {"n": "Ryan Poles", "k": "GM thru 2029"},
-    {"n": "33", "k": "2025 Takeaways (1st)"}
+    {"n": "3,942", "k": "Williams Passing Yards (Record)"},
+    {"n": "Coby Bryant", "k": "Super Bowl Safety"},
+    {"n": "Dillon Thieneman", "k": "#25 Overall Pick"}
   ],
   "left": [
     {"title": "Front Office &amp; Leadership", "type": "ul", "items": [
       "<b>Poles &amp; Johnson locked in step.</b> GM Ryan Poles' extension aligned him with head coach Ben Johnson &mdash; both under contract through the <b>2029</b> season, giving Halas Hall its cleanest continuity window in a decade.",
-      "<b>New OC, same offense.</b> Baltimore hired away coordinator Declan Doyle, so Johnson promoted passing game coordinator <b>Press Taylor</b> (Jaguars OC, 2022&ndash;24) from within. Johnson still calls the plays, so the scheme doesn't change. Dennis Allen returns as DC and defensive play-caller; Richard Hightower stays on special teams.",
+      "<b>Coaching staff deepened.</b> Press Taylor promoted to offensive coordinator (Jaguars OC, 2022&ndash;24); Ben Johnson still calls offensive plays. New hires: <b>Eric Studesville</b> (RBs coach), <b>Will Lawing</b> (offensive analyst), <b>Isaiah Ford</b> (OC coach; ex-NFL receiver). Dennis Allen returns as DC; Richard Hightower anchors special teams.",
       "<b>Stadium file still open.</b> President/CEO Kevin Warren reiterated the Arlington Heights project &mdash; pitched as zero state construction dollars &mdash; while the club keeps doing due diligence on a Hammond, Ind. site, where enabling legislation has already passed. Springfield has signaled the project isn't a 2026 priority.",
       "<b>Caleb extension groundwork.</b> Poles can't formally negotiate with Williams until after year three, but the Bears have set the table for a long-term deal next offseason. The green light is Williams' to earn in 2026."
     ]},
     {"title": "Trades &amp; Major Transactions", "type": "ul", "items": [
       "<span class=\"tag hot\">Trade</span><b>DJ Moore to Buffalo.</b> Moore plus a 2026 fifth-rounder shipped to the Bills for a <b>2026 second-round pick</b>. Widely graded a win-win: Buffalo gets Josh Allen a proven separator, Chicago banks a top-64 asset and clears the WR room for its young pass catchers.",
       "<span class=\"tag hot\">Trade</span><b>Garrett Bradbury from New England</b> for a 2027 fifth-rounder &mdash; the answer at center after Drew Dalman's abrupt retirement this offseason.",
-      "<span class=\"tag\">Signed</span><b>Devin Bush, LB</b> &mdash; three years, $30M. The tone-setter in a faster, more aggressive front seven.",
-      "<span class=\"tag\">Signed</span><b>Coby Bryant, S</b> &mdash; three years, fresh off Seattle's Super Bowl LX run (15 starts, career-high 4 INTs in 2025).",
-      "<span class=\"tag\">Signed</span><b>Neville Gallimore, DT</b> (2 yr / $12M), <b>Cam Lewis, CB</b> (2 yr), <b>Kalif Raymond, WR</b> (Johnson/Randle El reunion), <b>Braxton Jones, LT</b> back on a 1-year deal worth up to $10M.",
+      "<span class=\"tag hot\">Signed</span><b>Devin Bush, LB</b> &mdash; three years, $30M. The tone-setter in a faster, more aggressive front seven; priority defensive move.",
+      "<span class=\"tag hot\">Signed</span><b>Coby Bryant, S</b> &mdash; three years, three-time Pro Bowler fresh off Seattle's Super Bowl LX championship (4 INTs in 2025). Starts opposite rookie Dillon Thieneman in all-new safety tandem.",
+      "<span class=\"tag\">Signed</span><b>Neville Gallimore, DT</b> (2 yr), <b>Cam Lewis, CB</b> (2 yr; seven-year Bills veteran), <b>Kalif Raymond, WR</b> (reunites with Ben Johnson from Jacksonville), <b>Braxton Jones, LT</b> (1 yr, up to $10M).",
       "<span class=\"tag\">Re-signed</span>DL Daniel Hardy (2 yr), LB D'Marco Jackson (2 yr), QB Case Keenum (2 yr), DB Elijah Hicks (1 yr), OL Jordan McFadden (1 yr).",
       "<span class=\"tag watch\">Cap</span>Cole Kmet and Jonah Jackson contracts reworked for space; Kmet now a lock on the 53 with Moore's targets up for grabs."
     ]},
@@ -43,13 +43,15 @@
   ],
   "right": [
     {"title": "Player Updates &amp; Camp Battles", "type": "ul", "items": [
-      "<b>Caleb Williams, QB.</b> Year 3 after a genuine leap: 3,942 yards, 27 TD, 7 INT, 90.1 rating. Johnson has publicly set a higher completion-percentage bar and praised his offseason work; Williams has also been vocal about wanting grass playing surfaces.",
+      "<b>Caleb Williams, QB.</b> <b>Reported to camp Saturday in peak physical condition</b>, having set franchise single-season record with 3,942 passing yards in Year 2. Johnson has set higher completion-percentage bar for Year 3; Williams has responded with excellent offseason work. The <b>extension Poles drafted can be signed next offseason</b> if Williams continues his trajectory.",
       "<b>Rome Odunze, WR.</b> The stress fracture in his left foot healed <b>without surgery</b>. With Moore gone he's the presumptive WR1 &mdash; but Luther Burden III is chasing that title.",
       "<b>Colston Loveland, TE.</b> Finished ninth among TEs at 713 yards in a limited rookie role; projection models have him leading Chicago in receiving with 1,000-yard upside.",
       "<b>Ozzy Trapilo, OT.</b> Patellar tendon injury in the Wild Card round &mdash; expected to open the season on <b>PUP</b>, freeing a roster spot.",
       "<b>Left tackle battle.</b> Braxton Jones took every first-team spring rep (44 career starts, healthy) and leads Jedrick Wills Jr. and Theo Benedet for Week 1.",
       "<b>Jaylon Johnson, CB.</b> Make-or-break year: missed 10 games in 2025, and his 4-yr/$76M deal has no guarantees left after this season with an out following 2026.",
-      "<b>Dillon Thieneman, S.</b> No. 25 overall (Oregon), 4.35 forty, ranked the draft's 11th-best pick by ESPN's Matt Miller. Starts opposite Bryant in an all-new safety tandem.",
+      "<b>Dillon Thieneman, S.</b> No. 25 overall from Oregon: 4.35 forty-time, 41-inch vertical, elite ballhawk rated draft's <b>11th-best pick overall</b> by ESPN. Starts opposite Coby Bryant in all-new safety tandem tasked with complementing last year's league-leading takeaway rate.",
+      "<b>Logan Jones, C.</b> Round 2 pick addressing center void left by Dalman's retirement; immediate need filler with upside.",
+      "<b>Malik Muhammad, CB.</b> Round 4 corner competing opposite Jaylon Johnson; must help stabilize a secondary needing depth.",
       "<b>Kyle Monangai, RB &amp; Austin Booker, EDGE</b> headline a rising sophomore class expected to absorb real snaps."
     ]},
     {"title": "Latest Roster Moves", "type": "table", "head": ["Move", "Detail"], "items": [
@@ -64,7 +66,7 @@
       ["Drew Dalman, C", "Abrupt retirement &mdash; replaced by Bradbury", "out"]
     ]},
     {"title": "The Bottom Line", "type": "note", "items": [
-      "Chicago spent a cap-constrained offseason raising the floor rather than swinging big: mid-tier defensive money, a traded-for center, and a first-round safety. The offense is now unmistakably <b>Ben Johnson's</b>, built around Williams, Loveland, Odunze and Burden instead of a veteran WR1. The season hinges on whether a rebuilt secondary and a faster front seven can pair last year's league-best takeaway rate with an actual pass rush &mdash; and whether Williams' Year 3 earns the extension Poles already has drafted."
+      "Chicago built defensively for scheme continuity over splashes: Coby Bryant's Super Bowl pedigree at safety, Devin Bush's speed at linebacker, Dillon Thieneman's ballhawking. The offense is unmistakably <b>Ben Johnson's</b> now, built around Caleb Williams (who reported in peak condition), Colston Loveland, Rome Odunze, and Luther Burden instead of DJ Moore. <b>The central question</b>: can Dennis Allen's defense pair 2025's league-best 33 takeaways with an actual pass rush? Chicago ranked poorly rushing the passer last year despite the pickoffs. If the new safety tandem and faster linebacker corps lift that dimension, the Bears have a legitimate playoff trajectory. Williams' extension awaits if he executes Johnson's vision in Year 3."
     ]}
   ],
   "sources": "ChicagoBears.com official roster moves &middot; ESPN (Courtney Cronin, training camp preview &amp; players-at-stake) &middot; NFL.com &middot; Windy City Gridiron &middot; Chicago Sun-Times &middot; Sports Illustrated / Bear Digest &middot; Buffalo Bills official release &middot; PFF draft recap &middot; Bleacher Nation."
