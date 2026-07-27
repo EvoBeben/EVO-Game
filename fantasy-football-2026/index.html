@@ -8,7 +8,7 @@
     --line:#2B302F; --line-2:#3A403E;
     --text:#E7E9E5; --muted:#9AA19C; --dim:#848B86;
     --accent:#C7B9A4; --accent-soft:#C7B9A418;
-    --qb:#C0847C; --rb:#93AE7F; --wr:#6FA49C; --te:#B393C4;
+    --qb:#C0847C; --rb:#93AE7F; --wr:#6FA49C; --te:#B393C4; --dst:#A0A8A4;
     --pc:var(--accent); --pc-soft:var(--accent-soft);
 
     --display: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, system-ui, sans-serif;
@@ -91,12 +91,12 @@
   }
   .toc-lbl::after{ content:""; flex:1; height:1px; background:var(--line); }
   .toc-grid + .toc-lbl{ margin-top:32px; }
-  .toc-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; }
+  .toc-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(198px,1fr)); gap:12px; }
   .toc-card{
     position:relative; overflow:hidden;
-    display:flex; align-items:center; gap:16px;
+    display:flex; align-items:center; gap:12px;
     border:1px solid var(--line); border-radius:10px; background:var(--panel);
-    padding:21px 22px; cursor:pointer;
+    padding:19px 18px; cursor:pointer;
     transition:background .22s ease, border-color .22s ease, transform .22s ease;
   }
   .toc-card::before{
@@ -104,7 +104,7 @@
     background:var(--pc); transition:width .22s ease;
   }
   .toc-card::after{
-    content:"→"; margin-left:auto; color:var(--dim); font-size:1rem;
+    content:"→"; margin-left:auto; color:var(--dim); font-size:.95rem;
     transition:transform .22s ease, color .22s ease;
   }
   .toc-card:hover{ background:var(--panel-2); border-color:var(--line-2); transform:translateY(-3px); }
@@ -112,8 +112,9 @@
   .toc-card:hover::after{ color:var(--pc); transform:translateX(4px); }
   .toc-card[data-pos="RB"]{ --pc:var(--rb); } .toc-card[data-pos="WR"]{ --pc:var(--wr); }
   .toc-card[data-pos="TE"]{ --pc:var(--te); } .toc-card[data-pos="QB"]{ --pc:var(--qb); }
+  .toc-card[data-pos="DST"]{ --pc:var(--dst); }
   .toc-idx{ font-family:var(--data); font-size:10.5px; letter-spacing:.14em; color:var(--pc); }
-  .toc-name{ font-weight:700; font-size:1.18rem; letter-spacing:-.022em; }
+  .toc-name{ font-weight:700; font-size:1.05rem; letter-spacing:-.022em; white-space:nowrap; }
 
   /* ================= section header ================= */
   .sec-head{
@@ -167,7 +168,8 @@
   .pos-badge{ font-family:var(--data); font-size:10px; font-weight:700; letter-spacing:.1em; padding:2px 6px; border-radius:3px; color:#0F1112; }
   .p-QB{ background:var(--qb); } .p-RB{ background:var(--rb); }
   .p-WR{ background:var(--wr); } .p-TE{ background:var(--te); }
-  .p-DST, .p-K{ background:#A3A9A3; }
+  .p-DST{ background:var(--dst); }
+  .p-K{ background:#A3A9A3; }
   .cost{
     font-family:var(--data); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
     color:var(--pc); background:var(--pc-soft);
@@ -309,12 +311,13 @@
     <div class="wrap hero-in">
       <p class="kicker">2026 Season · Draft Guide · 25 July 2026</p>
       <h1>Everything you need before you're <em>on the clock</em></h1>
-      <p class="standfirst">Nine sections. Pick one.</p>
+      <p class="standfirst">Ten sections. Pick one.</p>
       <ul class="legend">
         <li><span class="swatch" style="background:var(--rb)"></span> RB</li>
         <li><span class="swatch" style="background:var(--wr)"></span> WR</li>
         <li><span class="swatch" style="background:var(--te)"></span> TE</li>
         <li><span class="swatch" style="background:var(--qb)"></span> QB</li>
+        <li><span class="swatch" style="background:var(--dst)"></span> DEF</li>
       </ul>
     </div>
   </div>
@@ -344,18 +347,21 @@
       <a class="toc-card" data-pos="QB" href="#qb">
         <span class="toc-idx">06</span><span class="toc-name">Quarterback</span>
       </a>
+      <a class="toc-card" data-pos="DST" href="#def">
+        <span class="toc-idx">07</span><span class="toc-name">Defense</span>
+      </a>
     </div>
 
     <p class="toc-lbl">Draft day</p>
     <div class="toc-grid">
       <a class="toc-card" href="#plan">
-        <span class="toc-idx">07</span><span class="toc-name">Draft Plan</span>
+        <span class="toc-idx">08</span><span class="toc-name">Draft Plan</span>
       </a>
       <a class="toc-card" href="#mocks">
-        <span class="toc-idx">08</span><span class="toc-name">Mock Drafts</span>
+        <span class="toc-idx">09</span><span class="toc-name">Mock Drafts</span>
       </a>
       <a class="toc-card" href="#sources">
-        <span class="toc-idx">09</span><span class="toc-name">Sources</span>
+        <span class="toc-idx">10</span><span class="toc-name">Sources</span>
       </a>
     </div>
 
@@ -1033,11 +1039,95 @@
 </div>
 </div>
 
-<!-- ==================== 07 · DRAFT PLAN ==================== -->
+<!-- ==================== 07 · DEFENSE ==================== -->
+<div class="view" id="v-def" data-name="Defense" style="--pc:var(--dst); --pc-soft:#A0A8A41C;">
+  <div class="sec-head">
+    <div class="wrap">
+      <span class="sec-glyph">DEF</span>
+      <div class="sec-title">
+        <h2>Defense</h2>
+        <p>Your second-to-last pick. Four are worth owning; the rest you rent.</p>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p-def-board">Board</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-def-moves">Moves</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-def-streams">Streamers</button>
+    </div>
+
+    <div class="panel active body-board" id="p-def-board" role="tabpanel">
+      <div class="board">
+        <div class="tier">
+          <div class="tier-label"><span class="n">Tier 1</span><span class="d">Worth a pick</span></div>
+          <div class="tier-body">
+            <span class="plr">Rams <span class="tm">LAR</span></span>
+            <span class="plr">Seahawks <span class="tm">SEA</span></span>
+            <span class="plr">Broncos <span class="tm">DEN</span></span>
+            <span class="plr">Eagles <span class="tm">PHI</span></span>
+          </div>
+          <p class="tier-note">SportsLine puts four in Tier 1; PFF's top tier runs six. Philadelphia is the asterisk — DST7 in back-to-back seasons, but no team faces a harder defensive schedule in 2026.</p>
+        </div>
+        <div class="tier">
+          <div class="tier-label"><span class="n">Tier 2</span><span class="d">Draft or stream</span></div>
+          <div class="tier-body">
+            <span class="plr">Ravens <span class="tm">BAL</span></span>
+            <span class="plr">Texans <span class="tm">HOU</span></span>
+            <span class="plr">Steelers <span class="tm">PIT</span></span>
+            <span class="plr">Lions <span class="tm">DET</span></span>
+          </div>
+          <p class="tier-note">Fine to roster, better to rotate. Baltimore and Detroit both draw soft openings.</p>
+        </div>
+        <div class="tier">
+          <div class="tier-label"><span class="n">Tier 3</span><span class="d">Matchup only</span></div>
+          <div class="tier-body">
+            <span class="plr">Chargers <span class="tm">LAC</span></span>
+          </div>
+          <p class="tier-note">Drafted for a schedule, not a unit. Check Week 1 lines the morning of your draft — the rest of this tier is decided by who they open against.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel body-list" id="p-def-moves" role="tabpanel">
+      <div class="ledger">
+        <div class="move">
+          <div><span class="nm">Myles Garrett</span><span class="path">CLE &rarr; <span class="to">LAR</span></span></div>
+          <p class="why">Last year's sack record-breaker joins a unit already <b>4th in pressure rate</b> (26%). The single biggest reason the Rams top most boards.</p>
+        </div>
+        <div class="move">
+          <div><span class="nm">Trent McDuffie &middot; Jaylen Watson</span><span class="path">&rarr; <span class="to">LAR</span></span></div>
+          <p class="why">Secondary rebuilt around the pass rush. Los Angeles <b>led the NFL in dropped interceptions</b> (10) — those become points now.</p>
+        </div>
+        <div class="move">
+          <div><span class="nm">Jesse Minter</span><span class="path">&rarr; <span class="to">BAL</span> &middot; head coach</span></div>
+          <p class="why">A healthier Ravens defense and the <b>second-easiest schedule</b> through six weeks.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel body-table" id="p-def-streams" role="tabpanel">
+      <div class="tablewrap">
+        <table>
+          <caption>Rent, don't buy</caption>
+          <thead><tr><th>Defense</th><th class="num">Window</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td class="name">Chargers <small>LAC</small></td><td class="num">Weeks 1&ndash;2</td><td>Arizona then Las Vegas &mdash; the best opening draw of any defense. Start with confidence, then move on.</td></tr>
+            <tr><td class="name">Ravens <small>BAL</small></td><td class="num">Weeks 1&ndash;6</td><td>Favoured in all six, and only Dallas rates as an above-average offense. Draft last and forget the position for a month.</td></tr>
+            <tr><td class="name">Lions <small>DET</small></td><td class="num">Weeks 1&ndash;5</td><td>Easiest schedule in the league over that stretch, plus positive injury regression due. The last-pick sleeper.</td></tr>
+            <tr><td class="name">Seahawks <small>SEA</small></td><td class="num">All season</td><td>Highest-scoring D/ST of 2025 on the fewest points allowed (17.2). Top-five in back-to-back years under Mike Macdonald &mdash; the one you don't rotate.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 08 · DRAFT PLAN ==================== -->
 <div class="view" id="v-plan" data-name="Draft Plan">
   <div class="sec-head">
     <div class="wrap">
-      <span class="sec-glyph">07</span>
+      <span class="sec-glyph">08</span>
       <div class="sec-title">
         <h2>Draft plan</h2>
         <p>RB or WR at pick 1? Answered for all twelve seats.</p>
@@ -1154,11 +1244,11 @@
   </div>
 </div>
 
-<!-- ==================== 08 · MOCK DRAFTS ==================== -->
+<!-- ==================== 09 · MOCK DRAFTS ==================== -->
 <div class="view" id="v-mocks" data-name="Mock Drafts">
   <div class="sec-head">
     <div class="wrap">
-      <span class="sec-glyph">08</span>
+      <span class="sec-glyph">09</span>
       <div class="sec-title">
         <h2>Mock drafts</h2>
         <p>Full 16-round mocks built off the boards. Name and position only.</p>
@@ -1190,7 +1280,7 @@
           <li><span class="rd">R12</span><span class="nm">Kenneth Gainwell</span><span class="pos-badge p-RB">RB</span></li>
           <li><span class="rd">R13</span><span class="nm">Gunnar Helm</span><span class="pos-badge p-TE">TE</span></li>
           <li><span class="rd">R14</span><span class="nm">Tyler Shough</span><span class="pos-badge p-QB">QB</span></li>
-          <li><span class="rd">R15</span><span class="nm">Defense</span><span class="pos-badge p-DST">DST</span></li>
+          <li><span class="rd">R15</span><span class="nm">Rams D/ST</span><span class="pos-badge p-DST">DST</span></li>
           <li><span class="rd">R16</span><span class="nm">Kicker</span><span class="pos-badge p-K">K</span></li>
         </ul>
       </div>
@@ -1214,7 +1304,7 @@
           <li><span class="rd">R12</span><span class="nm">Jadarian Price</span><span class="pos-badge p-RB">RB</span></li>
           <li><span class="rd">R13</span><span class="nm">Chig Okonkwo</span><span class="pos-badge p-TE">TE</span></li>
           <li><span class="rd">R14</span><span class="nm">Tyler Shough</span><span class="pos-badge p-QB">QB</span></li>
-          <li><span class="rd">R15</span><span class="nm">Defense</span><span class="pos-badge p-DST">DST</span></li>
+          <li><span class="rd">R15</span><span class="nm">Broncos D/ST</span><span class="pos-badge p-DST">DST</span></li>
           <li><span class="rd">R16</span><span class="nm">Kicker</span><span class="pos-badge p-K">K</span></li>
         </ul>
       </div>
@@ -1238,7 +1328,7 @@
           <li><span class="rd">R12</span><span class="nm">Ryan Flournoy</span><span class="pos-badge p-WR">WR</span></li>
           <li><span class="rd">R13</span><span class="nm">Gunnar Helm</span><span class="pos-badge p-TE">TE</span></li>
           <li><span class="rd">R14</span><span class="nm">Tyler Shough</span><span class="pos-badge p-QB">QB</span></li>
-          <li><span class="rd">R15</span><span class="nm">Defense</span><span class="pos-badge p-DST">DST</span></li>
+          <li><span class="rd">R15</span><span class="nm">Ravens D/ST</span><span class="pos-badge p-DST">DST</span></li>
           <li><span class="rd">R16</span><span class="nm">Kicker</span><span class="pos-badge p-K">K</span></li>
         </ul>
       </div>
@@ -1246,14 +1336,14 @@
   </div>
 </div>
 
-<!-- ==================== 09 · SOURCES ==================== -->
+<!-- ==================== 10 · SOURCES ==================== -->
 <div class="view" id="v-sources" data-name="Sources">
   <div class="sec-head">
     <div class="wrap">
-      <span class="sec-glyph">09</span>
+      <span class="sec-glyph">10</span>
       <div class="sec-title">
         <h2>Sources</h2>
-        <p>Forty links, and what this page can't promise.</p>
+        <p>Forty-six links, and what this page can't promise.</p>
       </div>
     </div>
   </div>
@@ -1300,6 +1390,12 @@
         <li><a href="https://www.si.com/fantasy/2026-football-sleepers-breakouts-bargains-all-32-nfl-teams">SI — Sleepers, all 32 teams</a></li>
         <li><a href="https://www.si.com/onsi/fantasy/nfl/2026-fantasy-football-deep-sleepers-best-late-round-values-qb-rb-wr-te">SI — Deep sleepers by position</a></li>
         <li><a href="https://www.draftsharks.com/article/fantasy-football-sleepers">Draft Sharks — Sleepers</a></li>
+        <li><a href="https://www.pff.com/news/2026-fantasy-football-team-defense-rankings-top-32-def-st-tiers-for-drafts">PFF — Team defense rankings and tiers</a></li>
+        <li><a href="https://www.sportsline.com/insiders/2026-fantasy-football-dst-rankings-four-defenses-appear-in-tier-1-and-are-worth-prioritizing-late-in-drafts/">SportsLine — DST tiers</a></li>
+        <li><a href="https://www.fantasypros.com/2026/07/best-defenses-dsts-for-fantasy-football/">FantasyPros — Best defenses</a></li>
+        <li><a href="https://www.fantasypros.com/2026/06/fantasy-football-draft-strategy-streaming-defenses-2026/">FantasyPros — Streaming defenses</a></li>
+        <li><a href="https://www.fantasylife.com/articles/fantasy/4-dst-streamers-to-target-for-fantasy-football-2026-bolt-up-for-the-chargers-early">Fantasy Life — DST streamers to target</a></li>
+        <li><a href="https://www.espn.com/fantasy/football/story/_/page/FFPreseasonRank26DST/nfl-fantasy-football-draft-rankings-2026-dst-defense">ESPN — D/ST draft rankings</a></li>
         <li><a href="https://www.fantasypros.com/nfl/adp/overall.php">FantasyPros — Consensus ADP</a></li>
       </ul>
     </div>

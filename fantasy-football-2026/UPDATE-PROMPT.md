@@ -14,7 +14,7 @@ RULES
 - If nothing material changed: reply "NO CHANGES", make no edits, no commit, stop.
 
 WATCH (only these move the page)
-Mahomes Week 1 status | Nabers return date | Charbonnet PUP -> Jadarian Price role | Rashee Rice availability | JAX RB split (Tuten/Rodriguez) | CHI WR split (Odunze/Burden/Loveland) | Brian Thomas Jr role | ARI RB split (Love/Conner/Benson) | LV starting QB | any trade, IR or suspension for a player named on the page
+Mahomes Week 1 status | Nabers return date | Charbonnet PUP -> Jadarian Price role | Rashee Rice availability | JAX RB split (Tuten/Rodriguez) | CHI WR split (Odunze/Burden/Loveland) | Brian Thomas Jr role | ARI RB split (Love/Conner/Benson) | LV starting QB | defense: any Tier 1 unit losing a starter to IR | any trade, IR or suspension for a player named on the page
 
 IF CHANGED
 1. Edit only the affected lines. House voice: short claims, no adjectives, numbers where you have them.
@@ -43,7 +43,7 @@ tab buttons via `aria-controls`. An edit to a player almost always lands inside
 one panel — grep the player's name and you are already in the right place.
 
 Position sections run Board, Moves, Names, Rookies, Gems (quarterback has no
-Names panel). Board is the landing tab. If you add or remove a panel, keep the
+Names panel; defense runs Board, Moves, Streamers). Board is the landing tab. If you add or remove a panel, keep the
 tab button's `aria-controls` and the panel's `id` in sync; exactly one panel per
 view carries the `active` class, and it must be the one the first tab controls.
 
