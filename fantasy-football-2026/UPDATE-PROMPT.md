@@ -47,6 +47,15 @@ Names panel; defense runs Board, Moves, Streamers). Board is the landing tab. If
 tab button's `aria-controls` and the panel's `id` in sync; exactly one panel per
 view carries the `active` class, and it must be the one the first tab controls.
 
+## Regenerating the PDF
+
+`./build-pdf.sh` rebuilds `The-Board-2026.pdf` from `index.html`. It extracts
+every panel in tab order, so the PDF cannot drift from the dashboard. Two render
+passes: the first finds where sections land, the second bakes those page numbers
+into the contents. It fails loudly if a panel is unreachable from any tab, if the
+contents drift, or if a page comes out blank. Run it after any content edit you
+want reflected on paper.
+
 ## When the season starts
 
 Swap the WATCH list for in-season concerns — snap counts, target share, waiver adds —
