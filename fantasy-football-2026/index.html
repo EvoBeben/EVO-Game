@@ -4,24 +4,29 @@
   :root{
     color-scheme: dark;
 
-    /* Gold on solid black. Two colours; the interface carries no other hue. */
-    --ground:#000000;
-    --ground-2:#000000;
-    --raise:#0B0A07;
-    --raise-2:#141109;
-    --rule:#1E1A10;
-    --rule-2:#332C1A;
+    /* Fall on warm near-black. Amber leads; rust and moss are used sparingly. */
+    --ground:#0C0907;
+    --ground-2:#080605;
+    --raise:#14100B;
+    --raise-2:#1C1710;
+    --rule:#241C12;
+    --rule-2:#3C2F1E;
 
-    --gold:#D4AF37;
-    --gold-hi:#E7C75C;
-    --gold-dim:#8C7530;
+    --amber:#D9A441;
+    --amber-hi:#EFC169;
+    --ochre:#C4872F;
+    --rust:#C25A34;
+    --moss:#8A9159;
+    --gold:var(--amber);          /* prior name, kept so existing rules resolve */
+    --gold-hi:var(--amber-hi);
+    --gold-dim:#7A5F22;
 
-    --bone:#F2EFE6;
-    --text:#D8D3C4;
-    --muted:#9C968A;
-    --dim:#877F6E;
+    --bone:#F2EDE3;
+    --text:#DAD3C5;
+    --muted:#A79C88;
+    --dim:#8E8371;
 
-    --pc:var(--gold);
+    --pc:var(--amber);
 
     --display: "Helvetica Neue", Helvetica, Arial, system-ui, -apple-system, sans-serif;
     --ui: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, system-ui, sans-serif;
@@ -33,7 +38,9 @@
   *{ box-sizing:border-box; }
   body{
     margin:0; min-height:100vh; display:flex; flex-direction:column;
-    background:var(--ground); color:var(--text);
+    background:var(--ground);
+    background-image:radial-gradient(1200px 620px at 50% -10%, #191309 0%, transparent 70%);
+    background-attachment:fixed; color:var(--text);
     font-family:var(--ui); font-size:15.5px; line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
@@ -49,7 +56,7 @@
   /* ================= chrome ================= */
   .topbar{
     position:sticky; top:0; z-index:60;
-    background:rgba(0,0,0,.92); backdrop-filter:blur(8px);
+    background:rgba(12,9,7,.92); backdrop-filter:blur(8px);
     border-bottom:1px solid var(--rule);
   }
   .topbar-in{ max-width:1080px; margin:0 auto; padding:11px 26px; display:flex; align-items:center; gap:14px; }
@@ -117,7 +124,7 @@
   .toc-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
   .toc-card{
     display:flex; align-items:center; justify-content:space-between; gap:10px;
-    min-height:66px; padding:0 16px; border:1px solid var(--gold-dim); background:#000;
+    min-height:66px; padding:0 16px; border:1px solid var(--gold-dim); background:transparent;
     color:var(--gold); text-decoration:none; cursor:pointer;
     font-family:var(--display); font-weight:700; font-size:.82rem;
     letter-spacing:.075em; text-transform:uppercase; line-height:1.2;
@@ -125,7 +132,7 @@
   }
   .toc-card::before{ content:none; }
   .toc-card::after{ content:"›"; font-size:1.15rem; line-height:1; color:inherit; opacity:.55; }
-  .toc-card:hover{ background:var(--gold); color:#000; border-color:var(--gold); }
+  .toc-card:hover{ background:var(--amber); color:var(--ground); border-color:var(--amber); }
   .toc-card:hover::after{ opacity:1; }
   .toc-card:focus-visible{ outline:2px solid var(--gold-hi); outline-offset:2px; }
 
@@ -329,6 +336,66 @@
   @media (min-width:1041px) and (max-width:1240px){ .srcgrid{ columns:3; } }
   @media (min-width:821px) and (max-width:1040px){ .srcgrid{ columns:2; } }
   @media (max-width:820px){ .toc-grid{ grid-template-columns:1fr; } }
+
+  /* ================= player button ================= */
+  .pl{
+    font:inherit; color:inherit; letter-spacing:inherit; text-transform:inherit;
+    background:none; border:0; padding:0; cursor:pointer; text-align:left;
+    border-bottom:1px dotted var(--rule); transition:color .14s ease, border-color .14s ease;
+  }
+  .pl:hover{ color:var(--amber); border-bottom-color:var(--amber); }
+  .pl[aria-expanded="true"]{ color:var(--amber); border-bottom-color:var(--amber); }
+  .pl:focus-visible{ outline:2px solid var(--amber-hi); outline-offset:2px; }
+
+  /* ================= player sheet ================= */
+  .sheet-wrap{ grid-column:1 / -1; }
+  .sheet{
+    border-top:1px solid var(--amber); background:var(--raise);
+    padding:16px 18px 18px; margin:10px 0 4px;
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .sheet{ animation:sheetIn .18s ease backwards; }
+    @keyframes sheetIn{ from{ opacity:0; transform:translateY(-4px) } to{ opacity:1; transform:none } }
+  }
+  .sheet-head{ display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
+  .sheet-name{
+    font-family:var(--display); font-weight:800; text-transform:uppercase;
+    font-size:1rem; letter-spacing:.04em; color:var(--bone);
+  }
+  .sheet-meta{ font-family:var(--data); font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); }
+  .sheet-x{
+    margin-left:auto; background:none; border:0; cursor:pointer; padding:2px 0;
+    font-family:var(--data); font-size:9.5px; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--dim); border-bottom:1px solid transparent;
+  }
+  .sheet-x:hover{ color:var(--bone); border-bottom-color:var(--rule-2); }
+  .sheet-note{ font-size:.9rem; color:var(--muted); margin:0; }
+
+  .sheet-heads{ display:grid; grid-template-columns:1fr 1fr; gap:0 26px; margin-bottom:16px; }
+  .sheet-col + .sheet-col{ border-left:1px solid var(--rule); padding-left:26px; }
+  .sheet-lbl{
+    font-family:var(--data); font-size:9.5px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--dim); margin:0 0 8px; padding-bottom:6px; border-bottom:1px solid var(--rule);
+  }
+  .sheet-col.hi .sheet-lbl{ color:var(--amber); }
+  .sheet-stats{ display:flex; flex-wrap:wrap; gap:6px 15px; margin:0; }
+  .sheet-stats div{ display:flex; flex-direction:column; gap:1px; }
+  .sheet-stats dt{
+    font-family:var(--data); font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--dim);
+  }
+  .sheet-stats dd{
+    margin:0; font-family:var(--data); font-variant-numeric:tabular-nums;
+    font-size:.95rem; color:var(--bone);
+  }
+  .sheet-col.hi .sheet-stats dd{ color:var(--amber); }
+
+  table.sheet-tbl{ min-width:0; font-size:.86rem; }
+  table.sheet-tbl th{ padding:0 14px 6px 0; }
+  table.sheet-tbl td{ padding:6px 14px 6px 0; }
+  table.sheet-tbl tr.career td{ border-top:1px solid var(--rule-2); border-bottom:0; color:var(--bone); }
+  table.sheet-tbl td.yr{ font-family:var(--data); color:var(--muted); }
+
+  tr.sheet-tr > td{ padding:0 !important; border-bottom:1px solid var(--rule) !important; }
 </style>
 
 <header class="topbar">
@@ -481,19 +548,19 @@
 <div class="panel body-list" id="p-rb-moves" role="tabpanel">
       <div class="ledger">
             <div class="move">
-              <div><span class="nm">Kenneth Walker III</span><span class="path">SEA → <span class="to">KC</span></span></div>
+              <div><span class="nm"><button class="pl" data-p="kenneth-walker-iii" aria-expanded="false">Kenneth Walker III</button></span><span class="path">SEA → <span class="to">KC</span></span></div>
               <p class="why">Value now rides on <b>Mahomes' knee</b>.</p>
             </div>
             <div class="move">
-              <div><span class="nm">Travis Etienne Jr.</span><span class="path">JAX → <span class="to">NO</span> · 4yr/$52M</span></div>
+              <div><span class="nm"><button class="pl" data-p="travis-etienne-jr" aria-expanded="false">Travis Etienne Jr.</button></span><span class="path">JAX → <span class="to">NO</span> · 4yr/$52M</span></div>
               <p class="why">Jacksonville's backfield is <b>Bhayshul Tuten's</b>.</p>
             </div>
             <div class="move">
-              <div><span class="nm">Kenneth Gainwell</span><span class="path">PIT → <span class="to">TB</span></span></div>
+              <div><span class="nm"><button class="pl" data-p="kenneth-gainwell" aria-expanded="false">Kenneth Gainwell</button></span><span class="path">PIT → <span class="to">TB</span></span></div>
               <p class="why">1B to Bucky Irving, off 1,023 scrimmage yards.</p>
             </div>
             <div class="move">
-              <div><span class="nm">Zach Charbonnet</span><span class="path">SEA · <span class="to">PUP</span>, 22 July</span></div>
+              <div><span class="nm"><button class="pl" data-p="zach-charbonnet" aria-expanded="false">Zach Charbonnet</button></span><span class="path">SEA · <span class="to">PUP</span>, 22 July</span></div>
               <p class="why">Playoff ACL tear, no timeline. Opens the door for <b>Jadarian Price</b>.</p>
         </div>
       </div>
@@ -504,53 +571,53 @@
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 1</span><span class="d">The 1.01</span></div>
           <div class="tier-body">
-            <span class="plr">Jahmyr Gibbs <span class="tm">DET</span></span>
-            <span class="plr">Bijan Robinson <span class="tm">ATL</span></span>
+            <span class="plr"><button class="pl" data-p="jahmyr-gibbs" aria-expanded="false">Jahmyr Gibbs</button> <span class="tm">DET</span></span>
+            <span class="plr"><button class="pl" data-p="bijan-robinson" aria-expanded="false">Bijan Robinson</button> <span class="tm">ATL</span></span>
           </div>
         </div>
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 2</span><span class="d">Round 1</span></div>
           <div class="tier-body">
-            <span class="plr">Christian McCaffrey <span class="tm">SF</span></span>
-            <span class="plr">Ashton Jeanty <span class="tm">LV</span></span>
-            <span class="plr">James Cook <span class="tm">BUF</span></span>
-            <span class="plr">Jonathan Taylor <span class="tm">IND</span></span>
+            <span class="plr"><button class="pl" data-p="christian-mccaffrey" aria-expanded="false">Christian McCaffrey</button> <span class="tm">SF</span></span>
+            <span class="plr"><button class="pl" data-p="ashton-jeanty" aria-expanded="false">Ashton Jeanty</button> <span class="tm">LV</span></span>
+            <span class="plr"><button class="pl" data-p="james-cook" aria-expanded="false">James Cook</button> <span class="tm">BUF</span></span>
+            <span class="plr"><button class="pl" data-p="jonathan-taylor" aria-expanded="false">Jonathan Taylor</button> <span class="tm">IND</span></span>
           </div>
         </div>
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 3</span><span class="d">Rounds 2–3</span></div>
           <div class="tier-body">
-            <span class="plr">Chase Brown <span class="tm">CIN</span></span>
-            <span class="plr">Josh Jacobs <span class="tm">GB</span></span>
-            <span class="plr">Breece Hall <span class="tm">—</span></span>
-            <span class="plr">De'Von Achane <span class="tm">MIA</span></span>
-            <span class="plr">Bucky Irving <span class="tm">TB</span></span>
-            <span class="plr">Jeremiyah Love <span class="tm">ARI</span></span>
-            <span class="plr">TreVeyon Henderson <span class="tm">NE</span></span>
+            <span class="plr"><button class="pl" data-p="chase-brown" aria-expanded="false">Chase Brown</button> <span class="tm">CIN</span></span>
+            <span class="plr"><button class="pl" data-p="josh-jacobs" aria-expanded="false">Josh Jacobs</button> <span class="tm">GB</span></span>
+            <span class="plr"><button class="pl" data-p="breece-hall" aria-expanded="false">Breece Hall</button> <span class="tm">—</span></span>
+            <span class="plr"><button class="pl" data-p="de-von-achane" aria-expanded="false">De'Von Achane</button> <span class="tm">MIA</span></span>
+            <span class="plr"><button class="pl" data-p="bucky-irving" aria-expanded="false">Bucky Irving</button> <span class="tm">TB</span></span>
+            <span class="plr"><button class="pl" data-p="jeremiyah-love" aria-expanded="false">Jeremiyah Love</button> <span class="tm">ARI</span></span>
+            <span class="plr"><button class="pl" data-p="treveyon-henderson" aria-expanded="false">TreVeyon Henderson</button> <span class="tm">NE</span></span>
           </div>
           <p class="tier-note">Chase Brown is the price break: RB10–13 in Round 3, 19.1 PPG over the last 10 games of 2025.</p>
         </div>
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 4</span><span class="d">Rounds 4–6</span></div>
           <div class="tier-body">
-            <span class="plr">Bhayshul Tuten <span class="tm">JAX</span></span>
-            <span class="plr">Cam Skattebo <span class="tm">NYG</span></span>
-            <span class="plr">Jadarian Price <span class="tm">SEA</span></span>
-            <span class="plr">Kenneth Walker III <span class="tm">KC</span></span>
-            <span class="plr">Derrick Henry <span class="tm">BAL</span></span>
-            <span class="plr">Omarion Hampton <span class="tm">LAC</span></span>
+            <span class="plr"><button class="pl" data-p="bhayshul-tuten" aria-expanded="false">Bhayshul Tuten</button> <span class="tm">JAX</span></span>
+            <span class="plr"><button class="pl" data-p="cam-skattebo" aria-expanded="false">Cam Skattebo</button> <span class="tm">NYG</span></span>
+            <span class="plr"><button class="pl" data-p="jadarian-price" aria-expanded="false">Jadarian Price</button> <span class="tm">SEA</span></span>
+            <span class="plr"><button class="pl" data-p="kenneth-walker-iii" aria-expanded="false">Kenneth Walker III</button> <span class="tm">KC</span></span>
+            <span class="plr"><button class="pl" data-p="derrick-henry" aria-expanded="false">Derrick Henry</button> <span class="tm">BAL</span></span>
+            <span class="plr"><button class="pl" data-p="omarion-hampton" aria-expanded="false">Omarion Hampton</button> <span class="tm">LAC</span></span>
           </div>
           <p class="tier-note">The leverage tier. Buy here if you skipped Round 1.</p>
         </div>
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 5</span><span class="d">Rounds 7–11</span></div>
           <div class="tier-body">
-            <span class="plr">Kenneth Gainwell <span class="tm">TB</span></span>
-            <span class="plr">Trey Benson <span class="tm">ARI</span></span>
-            <span class="plr">Rachaad White <span class="tm">—</span></span>
-            <span class="plr">Chris Rodriguez <span class="tm">JAX</span></span>
-            <span class="plr">Jonathon Brooks <span class="tm">CAR</span></span>
-            <span class="plr">Zach Charbonnet <span class="tm">SEA</span></span>
+            <span class="plr"><button class="pl" data-p="kenneth-gainwell" aria-expanded="false">Kenneth Gainwell</button> <span class="tm">TB</span></span>
+            <span class="plr"><button class="pl" data-p="trey-benson" aria-expanded="false">Trey Benson</button> <span class="tm">ARI</span></span>
+            <span class="plr"><button class="pl" data-p="rachaad-white" aria-expanded="false">Rachaad White</button> <span class="tm">—</span></span>
+            <span class="plr"><button class="pl" data-p="chris-rodriguez" aria-expanded="false">Chris Rodriguez</button> <span class="tm">JAX</span></span>
+            <span class="plr"><button class="pl" data-p="jonathon-brooks" aria-expanded="false">Jonathon Brooks</button> <span class="tm">CAR</span></span>
+            <span class="plr"><button class="pl" data-p="zach-charbonnet" aria-expanded="false">Zach Charbonnet</button> <span class="tm">SEA</span></span>
           </div>
         </div>
       </div>
@@ -559,7 +626,7 @@
     <div class="panel body-cards" id="p-rb-names" role="tabpanel">
       <div class="cards">
         <article class="pcard">
-          <div class="pcard-head"><span class="pos-badge p-RB">RB</span><h4>Jahmyr Gibbs</h4><span class="team">DET</span><span class="cost">1.01</span></div>
+          <div class="pcard-head"><span class="pos-badge p-RB">RB</span><h4><button class="pl" data-p="jahmyr-gibbs" aria-expanded="false">Jahmyr Gibbs</button></h4><span class="team">DET</span><span class="cost">1.01</span></div>
           <ul class="facts">
             <li>364.5 pts/season, last two years</li>
             <li>Montgomery gone — career-high workload</li>
@@ -567,7 +634,7 @@
           </ul>
         </article>
         <article class="pcard">
-          <div class="pcard-head"><span class="pos-badge p-RB">RB</span><h4>Bijan Robinson</h4><span class="team">ATL</span><span class="cost">1.02</span></div>
+          <div class="pcard-head"><span class="pos-badge p-RB">RB</span><h4><button class="pl" data-p="bijan-robinson" aria-expanded="false">Bijan Robinson</button></h4><span class="team">ATL</span><span class="cost">1.02</span></div>
           <ul class="facts">
             <li>Zero games missed, career</li>
             <li>RB3 then RB2</li>
@@ -575,7 +642,7 @@
           </ul>
         </article>
         <article class="pcard">
-          <div class="pcard-head"><span class="pos-badge p-RB">RB</span><h4>Chase Brown</h4><span class="team">CIN</span><span class="cost">Rd 3</span></div>
+          <div class="pcard-head"><span class="pos-badge p-RB">RB</span><h4><button class="pl" data-p="chase-brown" aria-expanded="false">Chase Brown</button></h4><span class="team">CIN</span><span class="cost">Rd 3</span></div>
           <ul class="facts">
             <li>23.7 PPG in the fantasy playoffs</li>
             <li>18.2 PPG minus 3 Browning starts — RB6 pace</li>
@@ -591,8 +658,8 @@
           <caption>2026 class · running backs</caption>
           <thead><tr><th>Player</th><th class="num">Pick</th><th>Read</th></tr></thead>
           <tbody>
-            <tr><td class="name">Jeremiyah Love <small>ARI</small></td><td class="num">Rd 1</td><td>Highest-drafted back since Barkley. Shares with Conner and Benson. Most likely rookie to finish top-15.</td></tr>
-            <tr><td class="name">Jadarian Price <small>SEA</small></td><td class="num">32</td><td>Walker gone, Charbonnet on PUP. Clear path to lead back in a run-heavy offense.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="jeremiyah-love" aria-expanded="false">Jeremiyah Love</button> <small>ARI</small></td><td class="num">Rd 1</td><td>Highest-drafted back since Barkley. Shares with Conner and Benson. Most likely rookie to finish top-15.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="jadarian-price" aria-expanded="false">Jadarian Price</button> <small>SEA</small></td><td class="num">32</td><td>Walker gone, Charbonnet on PUP. Clear path to lead back in a run-heavy offense.</td></tr>
           </tbody>
         </table>
       </div>
@@ -604,12 +671,12 @@
           <caption>Late-round backs</caption>
           <thead><tr><th>Player</th><th class="num">Cost</th><th>Mechanism</th></tr></thead>
           <tbody>
-            <tr><td class="name">Bhayshul Tuten <small>JAX</small></td><td class="num">~58</td><td><strong>Already true.</strong> Lead back, priced RB25.</td></tr>
-            <tr><td class="name">Kenneth Gainwell <small>TB</small></td><td class="num">~103</td><td><strong>Already true.</strong> 73 catches, and Tampa feeds its backs.</td></tr>
-            <tr><td class="name">Jadarian Price <small>SEA</small></td><td class="num">Rd 5–6</td><td>Needs to win camp, not an injury.</td></tr>
-            <tr><td class="name">Jonathon Brooks <small>CAR</small></td><td class="num">Rd 10</td><td>Talent was never the question. Availability was.</td></tr>
-            <tr><td class="name">Jordan James <small>SF</small></td><td class="num">Rd 14+</td><td>Handcuffed to 403 touches.</td></tr>
-            <tr><td class="name">Keaton Mitchell <small>BAL</small></td><td class="num">Rd 14+</td><td>Henry's workload is the domino.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="bhayshul-tuten" aria-expanded="false">Bhayshul Tuten</button> <small>JAX</small></td><td class="num">~58</td><td><strong>Already true.</strong> Lead back, priced RB25.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="kenneth-gainwell" aria-expanded="false">Kenneth Gainwell</button> <small>TB</small></td><td class="num">~103</td><td><strong>Already true.</strong> 73 catches, and Tampa feeds its backs.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="jadarian-price" aria-expanded="false">Jadarian Price</button> <small>SEA</small></td><td class="num">Rd 5–6</td><td>Needs to win camp, not an injury.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="jonathon-brooks" aria-expanded="false">Jonathon Brooks</button> <small>CAR</small></td><td class="num">Rd 10</td><td>Talent was never the question. Availability was.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="jordan-james" aria-expanded="false">Jordan James</button> <small>SF</small></td><td class="num">Rd 14+</td><td>Handcuffed to 403 touches.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="keaton-mitchell" aria-expanded="false">Keaton Mitchell</button> <small>BAL</small></td><td class="num">Rd 14+</td><td>Henry's workload is the domino.</td></tr>
           </tbody>
         </table>
       </div>
@@ -641,23 +708,23 @@
 <div class="panel body-list" id="p-wr-moves" role="tabpanel">
       <div class="ledger">
             <div class="move">
-              <div><span class="nm">A.J. Brown</span><span class="path">PHI → <span class="to">NE</span></span></div>
+              <div><span class="nm"><button class="pl" data-p="a-j-brown" aria-expanded="false">A.J. Brown</button></span><span class="path">PHI → <span class="to">NE</span></span></div>
               <p class="why">Reunites with Vrabel. <b>DeVonta Smith</b> inherits Philadelphia.</p>
             </div>
             <div class="move">
-              <div><span class="nm">D.J. Moore</span><span class="path">CHI → <span class="to">BUF</span></span></div>
+              <div><span class="nm"><button class="pl" data-p="d-j-moore" aria-expanded="false">D.J. Moore</button></span><span class="path">CHI → <span class="to">BUF</span></span></div>
               <p class="why">Chicago condenses to <b>Odunze, Burden, Loveland</b>.</p>
             </div>
             <div class="move">
-              <div><span class="nm">Jaylen Waddle</span><span class="path">MIA → <span class="to">DEN</span> · 1st + 3rd</span></div>
+              <div><span class="nm"><button class="pl" data-p="jaylen-waddle" aria-expanded="false">Jaylen Waddle</button></span><span class="path">MIA → <span class="to">DEN</span> · 1st + 3rd</span></div>
               <p class="why">29th in neutral pass rate to 4th. Sutton still caps him.</p>
             </div>
             <div class="move">
-              <div><span class="nm">Mike Evans</span><span class="path">TB → <span class="to">SF</span> · 3yr/$60.4M</span></div>
+              <div><span class="nm"><button class="pl" data-p="mike-evans" aria-expanded="false">Mike Evans</button></span><span class="path">TB → <span class="to">SF</span> · 3yr/$60.4M</span></div>
               <p class="why"><b>Emeka Egbuka</b> is now Tampa's unambiguous No. 1.</p>
             </div>
             <div class="move">
-              <div><span class="nm">Michael Pittman Jr.</span><span class="path">IND → <span class="to">PIT</span> · 3yr/$59M</span></div>
+              <div><span class="nm"><button class="pl" data-p="michael-pittman-jr" aria-expanded="false">Michael Pittman Jr.</button></span><span class="path">IND → <span class="to">PIT</span> · 3yr/$59M</span></div>
               <p class="why"><b>Josh Downs</b> collects the targets.</p>
         </div>
       </div>
@@ -668,56 +735,56 @@
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 1</span><span class="d">Round 1</span></div>
           <div class="tier-body">
-            <span class="plr">Ja'Marr Chase <span class="tm">CIN</span></span>
-            <span class="plr">Puka Nacua <span class="tm">LAR</span></span>
-            <span class="plr">Jaxon Smith-Njigba <span class="tm">SEA</span></span>
-            <span class="plr">Amon-Ra St. Brown <span class="tm">DET</span></span>
+            <span class="plr"><button class="pl" data-p="ja-marr-chase" aria-expanded="false">Ja'Marr Chase</button> <span class="tm">CIN</span></span>
+            <span class="plr"><button class="pl" data-p="puka-nacua" aria-expanded="false">Puka Nacua</button> <span class="tm">LAR</span></span>
+            <span class="plr"><button class="pl" data-p="jaxon-smith-njigba" aria-expanded="false">Jaxon Smith-Njigba</button> <span class="tm">SEA</span></span>
+            <span class="plr"><button class="pl" data-p="amon-ra-st-brown" aria-expanded="false">Amon-Ra St. Brown</button> <span class="tm">DET</span></span>
           </div>
         </div>
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 2</span><span class="d">Rounds 1–2</span></div>
           <div class="tier-body">
-            <span class="plr">CeeDee Lamb <span class="tm">DAL</span></span>
-            <span class="plr">Justin Jefferson <span class="tm">MIN</span></span>
-            <span class="plr">A.J. Brown <span class="tm">NE</span></span>
-            <span class="plr">Nico Collins <span class="tm">HOU</span></span>
+            <span class="plr"><button class="pl" data-p="ceedee-lamb" aria-expanded="false">CeeDee Lamb</button> <span class="tm">DAL</span></span>
+            <span class="plr"><button class="pl" data-p="justin-jefferson" aria-expanded="false">Justin Jefferson</button> <span class="tm">MIN</span></span>
+            <span class="plr"><button class="pl" data-p="a-j-brown" aria-expanded="false">A.J. Brown</button> <span class="tm">NE</span></span>
+            <span class="plr"><button class="pl" data-p="nico-collins" aria-expanded="false">Nico Collins</button> <span class="tm">HOU</span></span>
           </div>
         </div>
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 3</span><span class="d">Rounds 2–4</span></div>
           <div class="tier-body">
-            <span class="plr">DeVonta Smith <span class="tm">PHI</span></span>
-            <span class="plr">Emeka Egbuka <span class="tm">TB</span></span>
-            <span class="plr">George Pickens <span class="tm">DAL</span></span>
-            <span class="plr">Rashee Rice <span class="tm">KC</span></span>
-            <span class="plr">Malik Nabers <span class="tm">NYG</span></span>
-            <span class="plr">Rome Odunze <span class="tm">CHI</span></span>
+            <span class="plr"><button class="pl" data-p="devonta-smith" aria-expanded="false">DeVonta Smith</button> <span class="tm">PHI</span></span>
+            <span class="plr"><button class="pl" data-p="emeka-egbuka" aria-expanded="false">Emeka Egbuka</button> <span class="tm">TB</span></span>
+            <span class="plr"><button class="pl" data-p="george-pickens" aria-expanded="false">George Pickens</button> <span class="tm">DAL</span></span>
+            <span class="plr"><button class="pl" data-p="rashee-rice" aria-expanded="false">Rashee Rice</button> <span class="tm">KC</span></span>
+            <span class="plr"><button class="pl" data-p="malik-nabers" aria-expanded="false">Malik Nabers</button> <span class="tm">NYG</span></span>
+            <span class="plr"><button class="pl" data-p="rome-odunze" aria-expanded="false">Rome Odunze</button> <span class="tm">CHI</span></span>
           </div>
           <p class="tier-note">Smith and Egbuka are the clean bets. Rice and Nabers are the discounts — own at most one.</p>
         </div>
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 4</span><span class="d">Rounds 5–8</span></div>
           <div class="tier-body">
-            <span class="plr">Jaylen Waddle <span class="tm">DEN</span></span>
-            <span class="plr">Josh Downs <span class="tm">IND</span></span>
-            <span class="plr">Luther Burden III <span class="tm">CHI</span></span>
-            <span class="plr">D.J. Moore <span class="tm">BUF</span></span>
-            <span class="plr">Mike Evans <span class="tm">SF</span></span>
-            <span class="plr">Courtland Sutton <span class="tm">DEN</span></span>
-            <span class="plr">Carnell Tate <span class="tm">TEN</span></span>
+            <span class="plr"><button class="pl" data-p="jaylen-waddle" aria-expanded="false">Jaylen Waddle</button> <span class="tm">DEN</span></span>
+            <span class="plr"><button class="pl" data-p="josh-downs" aria-expanded="false">Josh Downs</button> <span class="tm">IND</span></span>
+            <span class="plr"><button class="pl" data-p="luther-burden-iii" aria-expanded="false">Luther Burden III</button> <span class="tm">CHI</span></span>
+            <span class="plr"><button class="pl" data-p="d-j-moore" aria-expanded="false">D.J. Moore</button> <span class="tm">BUF</span></span>
+            <span class="plr"><button class="pl" data-p="mike-evans" aria-expanded="false">Mike Evans</button> <span class="tm">SF</span></span>
+            <span class="plr"><button class="pl" data-p="courtland-sutton" aria-expanded="false">Courtland Sutton</button> <span class="tm">DEN</span></span>
+            <span class="plr"><button class="pl" data-p="carnell-tate" aria-expanded="false">Carnell Tate</button> <span class="tm">TEN</span></span>
           </div>
           <p class="tier-note">Every name here inherited targets this offseason. Most profitable stretch of the draft.</p>
         </div>
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 5</span><span class="d">Rounds 9+</span></div>
           <div class="tier-body">
-            <span class="plr">Brian Thomas Jr. <span class="tm">JAX</span></span>
-            <span class="plr">Parker Washington <span class="tm">JAX</span></span>
-            <span class="plr">Jordyn Tyson <span class="tm">NO</span></span>
-            <span class="plr">KC Concepcion <span class="tm">CLE</span></span>
-            <span class="plr">Ryan Flournoy <span class="tm">DAL</span></span>
-            <span class="plr">Jalen Nailor <span class="tm">MIN</span></span>
-            <span class="plr">Isaac TeSlaa <span class="tm">DET</span></span>
+            <span class="plr"><button class="pl" data-p="brian-thomas-jr" aria-expanded="false">Brian Thomas Jr.</button> <span class="tm">JAX</span></span>
+            <span class="plr"><button class="pl" data-p="parker-washington" aria-expanded="false">Parker Washington</button> <span class="tm">JAX</span></span>
+            <span class="plr"><button class="pl" data-p="jordyn-tyson" aria-expanded="false">Jordyn Tyson</button> <span class="tm">NO</span></span>
+            <span class="plr"><button class="pl" data-p="kc-concepcion" aria-expanded="false">KC Concepcion</button> <span class="tm">CLE</span></span>
+            <span class="plr"><button class="pl" data-p="ryan-flournoy" aria-expanded="false">Ryan Flournoy</button> <span class="tm">DAL</span></span>
+            <span class="plr"><button class="pl" data-p="jalen-nailor" aria-expanded="false">Jalen Nailor</button> <span class="tm">MIN</span></span>
+            <span class="plr"><button class="pl" data-p="isaac-teslaa" aria-expanded="false">Isaac TeSlaa</button> <span class="tm">DET</span></span>
           </div>
         </div>
       </div>
@@ -726,7 +793,7 @@
     <div class="panel body-cards" id="p-wr-names" role="tabpanel">
       <div class="cards">
         <article class="pcard">
-          <div class="pcard-head"><span class="pos-badge p-WR">WR</span><h4>DeVonta Smith</h4><span class="team">PHI</span><span class="cost">Rd 2–3</span></div>
+          <div class="pcard-head"><span class="pos-badge p-WR">WR</span><h4><button class="pl" data-p="devonta-smith" aria-expanded="false">DeVonta Smith</button></h4><span class="team">PHI</span><span class="cost">Rd 2–3</span></div>
           <ul class="facts">
             <li>A.J. Brown gone — no target competition</li>
             <li>Alpha role for the first time</li>
@@ -734,7 +801,7 @@
           </ul>
         </article>
         <article class="pcard">
-          <div class="pcard-head"><span class="pos-badge p-WR">WR</span><h4>Emeka Egbuka</h4><span class="team">TB</span><span class="cost">Rd 3</span></div>
+          <div class="pcard-head"><span class="pos-badge p-WR">WR</span><h4><button class="pl" data-p="emeka-egbuka" aria-expanded="false">Emeka Egbuka</button></h4><span class="team">TB</span><span class="cost">Rd 3</span></div>
           <ul class="facts">
             <li>WR3 in PPG across Weeks 1–5 as a rookie</li>
             <li>22.1% target share, 89 yds/game</li>
@@ -742,7 +809,7 @@
           </ul>
         </article>
         <article class="pcard">
-          <div class="pcard-head"><span class="pos-badge p-WR">WR</span><h4>Luther Burden III</h4><span class="team">CHI</span><span class="cost">Rd 6–7</span></div>
+          <div class="pcard-head"><span class="pos-badge p-WR">WR</span><h4><button class="pl" data-p="luther-burden-iii" aria-expanded="false">Luther Burden III</button></h4><span class="team">CHI</span><span class="cost">Rd 6–7</span></div>
           <ul class="facts">
             <li>2.3 yds/route run — led the Bears</li>
             <li>Did it on a sub-50% route rate</li>
@@ -750,7 +817,7 @@
           </ul>
         </article>
         <article class="pcard">
-          <div class="pcard-head"><span class="pos-badge p-WR">WR</span><h4>Malik Nabers</h4><span class="team">NYG</span><span class="cost">Rd 3–5</span></div>
+          <div class="pcard-head"><span class="pos-badge p-WR">WR</span><h4><button class="pl" data-p="malik-nabers" aria-expanded="false">Malik Nabers</button></h4><span class="team">NYG</span><span class="cost">Rd 3–5</span></div>
           <ul class="facts">
             <li>Second procedure — scar tissue</li>
             <li>Avoided PUP, may miss 4–5 games</li>
@@ -766,11 +833,11 @@
           <caption>2026 class · wide receivers</caption>
           <thead><tr><th>Player</th><th class="num">Pick</th><th>Read</th></tr></thead>
           <tbody>
-            <tr><td class="name">Carnell Tate <small>TEN</small></td><td class="num">4</td><td>Consensus WR1 of the class. Heavy target share with Ward and Daboll. Projected 56/773/4.</td></tr>
-            <tr><td class="name">Jordyn Tyson <small>NO</small></td><td class="num">8</td><td>CBS projects him the class's top producer: 61/869/4.</td></tr>
-            <tr><td class="name">KC Concepcion <small>CLE</small></td><td class="num">24</td><td>Late-round dart with first-round capital.</td></tr>
-            <tr><td class="name">Omar Cooper Jr. <small>NYJ</small></td><td class="num">30</td><td>Flex upside if the Jets' passing game sorts out.</td></tr>
-            <tr><td class="name">Makai Lemon <small>PHI</small></td><td class="num">Rd 1</td><td>Dynasty-first, but Philadelphia has a vacancy.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="carnell-tate" aria-expanded="false">Carnell Tate</button> <small>TEN</small></td><td class="num">4</td><td>Consensus WR1 of the class. Heavy target share with Ward and Daboll. Projected 56/773/4.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="jordyn-tyson" aria-expanded="false">Jordyn Tyson</button> <small>NO</small></td><td class="num">8</td><td>CBS projects him the class's top producer: 61/869/4.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="kc-concepcion" aria-expanded="false">KC Concepcion</button> <small>CLE</small></td><td class="num">24</td><td>Late-round dart with first-round capital.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="omar-cooper-jr" aria-expanded="false">Omar Cooper Jr.</button> <small>NYJ</small></td><td class="num">30</td><td>Flex upside if the Jets' passing game sorts out.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="makai-lemon" aria-expanded="false">Makai Lemon</button> <small>PHI</small></td><td class="num">Rd 1</td><td>Dynasty-first, but Philadelphia has a vacancy.</td></tr>
           </tbody>
         </table>
       </div>
@@ -782,11 +849,11 @@
           <caption>Late-round receivers</caption>
           <thead><tr><th>Player</th><th class="num">Cost</th><th>Mechanism</th></tr></thead>
           <tbody>
-            <tr><td class="name">Luther Burden III <small>CHI</small></td><td class="num">Rd 6–7</td><td><strong>Already true.</strong> Elite efficiency, snaps now unlocked.</td></tr>
-            <tr><td class="name">Josh Downs <small>IND</small></td><td class="num">Rd 6–8</td><td><strong>Already true.</strong> Needs Daniel Jones upright.</td></tr>
-            <tr><td class="name">Ryan Flournoy <small>DAL</small></td><td class="num">Rd 14+</td><td>WR3 behind Lamb and Pickens in a pass-heavy offense.</td></tr>
-            <tr><td class="name">Jalen Nailor <small>MIN</small></td><td class="num">Rd 14+</td><td>One Jefferson absence from a flex.</td></tr>
-            <tr><td class="name">Isaac TeSlaa <small>DET</small></td><td class="num">Rd 15+</td><td>Needs a route-share bump, not a leap.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="luther-burden-iii" aria-expanded="false">Luther Burden III</button> <small>CHI</small></td><td class="num">Rd 6–7</td><td><strong>Already true.</strong> Elite efficiency, snaps now unlocked.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="josh-downs" aria-expanded="false">Josh Downs</button> <small>IND</small></td><td class="num">Rd 6–8</td><td><strong>Already true.</strong> Needs Daniel Jones upright.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="ryan-flournoy" aria-expanded="false">Ryan Flournoy</button> <small>DAL</small></td><td class="num">Rd 14+</td><td>WR3 behind Lamb and Pickens in a pass-heavy offense.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="jalen-nailor" aria-expanded="false">Jalen Nailor</button> <small>MIN</small></td><td class="num">Rd 14+</td><td>One Jefferson absence from a flex.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="isaac-teslaa" aria-expanded="false">Isaac TeSlaa</button> <small>DET</small></td><td class="num">Rd 15+</td><td>Needs a route-share bump, not a leap.</td></tr>
           </tbody>
         </table>
       </div>
@@ -818,7 +885,7 @@
 <div class="panel body-list" id="p-te-moves" role="tabpanel">
       <div class="ledger">
             <div class="move">
-              <div><span class="nm">Chig Okonkwo</span><span class="path">TEN → <span class="to">WAS</span></span></div>
+              <div><span class="nm"><button class="pl" data-p="chig-okonkwo" aria-expanded="false">Chig Okonkwo</button></span><span class="path">TEN → <span class="to">WAS</span></span></div>
               <p class="why">Hands the Titans job to <b>Gunnar Helm</b>.</p>
             </div>
             <div class="move">
@@ -826,7 +893,7 @@
               <p class="why">Main reason <b>Bowers</b> tops most boards.</p>
             </div>
             <div class="move">
-              <div><span class="nm">D.J. Moore</span><span class="path">CHI → <span class="to">BUF</span></span></div>
+              <div><span class="nm"><button class="pl" data-p="d-j-moore" aria-expanded="false">D.J. Moore</button></span><span class="path">CHI → <span class="to">BUF</span></span></div>
               <p class="why">Gives <b>Loveland</b> the clearest mid-round volume path.</p>
         </div>
       </div>
@@ -837,42 +904,42 @@
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 1</span><span class="d">Round 2</span></div>
           <div class="tier-body">
-            <span class="plr">Brock Bowers <span class="tm">LV</span></span>
-            <span class="plr">Trey McBride <span class="tm">ARI</span></span>
+            <span class="plr"><button class="pl" data-p="brock-bowers" aria-expanded="false">Brock Bowers</button> <span class="tm">LV</span></span>
+            <span class="plr"><button class="pl" data-p="trey-mcbride" aria-expanded="false">Trey McBride</button> <span class="tm">ARI</span></span>
           </div>
           <p class="tier-note">Five to six points a week over replacement. Why Zero RB pairs with an elite TE.</p>
         </div>
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 2</span><span class="d">Rounds 4–6</span></div>
           <div class="tier-body">
-            <span class="plr">Colston Loveland <span class="tm">CHI</span></span>
-            <span class="plr">Tyler Warren <span class="tm">IND</span></span>
-            <span class="plr">Tucker Kraft <span class="tm">GB</span></span>
-            <span class="plr">Sam LaPorta <span class="tm">DET</span></span>
+            <span class="plr"><button class="pl" data-p="colston-loveland" aria-expanded="false">Colston Loveland</button> <span class="tm">CHI</span></span>
+            <span class="plr"><button class="pl" data-p="tyler-warren" aria-expanded="false">Tyler Warren</button> <span class="tm">IND</span></span>
+            <span class="plr"><button class="pl" data-p="tucker-kraft" aria-expanded="false">Tucker Kraft</button> <span class="tm">GB</span></span>
+            <span class="plr"><button class="pl" data-p="sam-laporta" aria-expanded="false">Sam LaPorta</button> <span class="tm">DET</span></span>
           </div>
           <p class="tier-note">The trap tier. Loveland is the one exception.</p>
         </div>
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 3</span><span class="d">Rounds 7–10</span></div>
           <div class="tier-body">
-            <span class="plr">Kyle Pitts <span class="tm">ATL</span></span>
-            <span class="plr">Harold Fannin Jr. <span class="tm">CLE</span></span>
-            <span class="plr">George Kittle <span class="tm">SF</span></span>
-            <span class="plr">Travis Kelce <span class="tm">KC</span></span>
-            <span class="plr">Jake Ferguson <span class="tm">DAL</span></span>
-            <span class="plr">Isaiah Likely <span class="tm">BAL</span></span>
+            <span class="plr"><button class="pl" data-p="kyle-pitts" aria-expanded="false">Kyle Pitts</button> <span class="tm">ATL</span></span>
+            <span class="plr"><button class="pl" data-p="harold-fannin-jr" aria-expanded="false">Harold Fannin Jr.</button> <span class="tm">CLE</span></span>
+            <span class="plr"><button class="pl" data-p="george-kittle" aria-expanded="false">George Kittle</button> <span class="tm">SF</span></span>
+            <span class="plr"><button class="pl" data-p="travis-kelce" aria-expanded="false">Travis Kelce</button> <span class="tm">KC</span></span>
+            <span class="plr"><button class="pl" data-p="jake-ferguson" aria-expanded="false">Jake Ferguson</button> <span class="tm">DAL</span></span>
+            <span class="plr"><button class="pl" data-p="isaiah-likely" aria-expanded="false">Isaiah Likely</button> <span class="tm">BAL</span></span>
           </div>
         </div>
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 4</span><span class="d">Round 11+</span></div>
           <div class="tier-body">
-            <span class="plr">Gunnar Helm <span class="tm">TEN</span></span>
-            <span class="plr">Chig Okonkwo <span class="tm">WAS</span></span>
-            <span class="plr">Brenton Strange <span class="tm">JAX</span></span>
-            <span class="plr">T.J. Hockenson <span class="tm">MIN</span></span>
-            <span class="plr">Hunter Henry <span class="tm">NE</span></span>
-            <span class="plr">Juwan Johnson <span class="tm">NO</span></span>
-            <span class="plr">Cade Otton <span class="tm">TB</span></span>
+            <span class="plr"><button class="pl" data-p="gunnar-helm" aria-expanded="false">Gunnar Helm</button> <span class="tm">TEN</span></span>
+            <span class="plr"><button class="pl" data-p="chig-okonkwo" aria-expanded="false">Chig Okonkwo</button> <span class="tm">WAS</span></span>
+            <span class="plr"><button class="pl" data-p="brenton-strange" aria-expanded="false">Brenton Strange</button> <span class="tm">JAX</span></span>
+            <span class="plr"><button class="pl" data-p="t-j-hockenson" aria-expanded="false">T.J. Hockenson</button> <span class="tm">MIN</span></span>
+            <span class="plr"><button class="pl" data-p="hunter-henry" aria-expanded="false">Hunter Henry</button> <span class="tm">NE</span></span>
+            <span class="plr"><button class="pl" data-p="juwan-johnson" aria-expanded="false">Juwan Johnson</button> <span class="tm">NO</span></span>
+            <span class="plr"><button class="pl" data-p="cade-otton" aria-expanded="false">Cade Otton</button> <span class="tm">TB</span></span>
           </div>
           <p class="tier-note">Take two, start the better matchup.</p>
         </div>
@@ -882,7 +949,7 @@
     <div class="panel body-cards" id="p-te-names" role="tabpanel">
       <div class="cards">
         <article class="pcard">
-          <div class="pcard-head"><span class="pos-badge p-TE">TE</span><h4>Brock Bowers</h4><span class="team">LV</span><span class="cost">Rd 2</span></div>
+          <div class="pcard-head"><span class="pos-badge p-TE">TE</span><h4><button class="pl" data-p="brock-bowers" aria-expanded="false">Brock Bowers</button></h4><span class="team">LV</span><span class="cost">Rd 2</span></div>
           <ul class="facts">
             <li>150+ targets last season</li>
             <li>Chasing McBride's record 126 catches</li>
@@ -890,7 +957,7 @@
           </ul>
         </article>
         <article class="pcard">
-          <div class="pcard-head"><span class="pos-badge p-TE">TE</span><h4>Trey McBride</h4><span class="team">ARI</span><span class="cost">Rd 2</span></div>
+          <div class="pcard-head"><span class="pos-badge p-TE">TE</span><h4><button class="pl" data-p="trey-mcbride" aria-expanded="false">Trey McBride</button></h4><span class="team">ARI</span><span class="cost">Rd 2</span></div>
           <ul class="facts">
             <li>Reigning fantasy TE1</li>
             <li>126 catches — position record</li>
@@ -898,7 +965,7 @@
           </ul>
         </article>
         <article class="pcard">
-          <div class="pcard-head"><span class="pos-badge p-TE">TE</span><h4>Gunnar Helm</h4><span class="team">TEN</span><span class="cost">Rd 12+</span></div>
+          <div class="pcard-head"><span class="pos-badge p-TE">TE</span><h4><button class="pl" data-p="gunnar-helm" aria-expanded="false">Gunnar Helm</button></h4><span class="team">TEN</span><span class="cost">Rd 12+</span></div>
           <ul class="facts">
             <li>Okonkwo left — job is his</li>
             <li>Ward and Daboll running the offense</li>
@@ -918,11 +985,11 @@
           <caption>Double-digit-round tight ends</caption>
           <thead><tr><th>Player</th><th class="num">Cost</th><th>Mechanism</th></tr></thead>
           <tbody>
-            <tr><td class="name">Gunnar Helm <small>TEN</small></td><td class="num">Rd 12+</td><td><strong>Already true.</strong> Okonkwo left; Helm starts.</td></tr>
-            <tr><td class="name">Chig Okonkwo <small>WAS</small></td><td class="num">Rd 13+</td><td>Clean role in an offense that feeds the position.</td></tr>
-            <tr><td class="name">Brenton Strange <small>JAX</small></td><td class="num">Rd 13+</td><td>The stable target in an unstable receiver room.</td></tr>
-            <tr><td class="name">T.J. Hockenson <small>MIN</small></td><td class="num">Rd 11+</td><td>Established role, depressed price.</td></tr>
-            <tr><td class="name">Cade Otton <small>TB</small></td><td class="num">Rd 13+</td><td>Evans gone, Egbuka drawing coverage.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="gunnar-helm" aria-expanded="false">Gunnar Helm</button> <small>TEN</small></td><td class="num">Rd 12+</td><td><strong>Already true.</strong> Okonkwo left; Helm starts.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="chig-okonkwo" aria-expanded="false">Chig Okonkwo</button> <small>WAS</small></td><td class="num">Rd 13+</td><td>Clean role in an offense that feeds the position.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="brenton-strange" aria-expanded="false">Brenton Strange</button> <small>JAX</small></td><td class="num">Rd 13+</td><td>The stable target in an unstable receiver room.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="t-j-hockenson" aria-expanded="false">T.J. Hockenson</button> <small>MIN</small></td><td class="num">Rd 11+</td><td>Established role, depressed price.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="cade-otton" aria-expanded="false">Cade Otton</button> <small>TB</small></td><td class="num">Rd 13+</td><td>Evans gone, Egbuka drawing coverage.</td></tr>
           </tbody>
         </table>
       </div>
@@ -953,19 +1020,19 @@
 <div class="panel body-list" id="p-qb-moves" role="tabpanel">
       <div class="ledger">
             <div class="move">
-              <div><span class="nm">Patrick Mahomes</span><span class="path">KC · <span class="to">ACL + LCL</span>, Week 15</span></div>
+              <div><span class="nm"><button class="pl" data-p="patrick-mahomes" aria-expanded="false">Patrick Mahomes</button></span><span class="path">KC · <span class="to">ACL + LCL</span>, Week 15</span></div>
               <p class="why">Cleared to practice, targeting Week 1. Was <b>QB4 at 21.2 PPG</b> before it.</p>
             </div>
             <div class="move">
-              <div><span class="nm">D.J. Moore</span><span class="path">CHI → <span class="to">BUF</span></span></div>
+              <div><span class="nm"><button class="pl" data-p="d-j-moore" aria-expanded="false">D.J. Moore</button></span><span class="path">CHI → <span class="to">BUF</span></span></div>
               <p class="why">Buffalo gave the position's top scorer a real WR1.</p>
             </div>
             <div class="move">
-              <div><span class="nm">Jaylen Waddle</span><span class="path">MIA → <span class="to">DEN</span></span></div>
+              <div><span class="nm"><button class="pl" data-p="jaylen-waddle" aria-expanded="false">Jaylen Waddle</button></span><span class="path">MIA → <span class="to">DEN</span></span></div>
               <p class="why">Denver spent a 1st to get <b>Bo Nix</b> a No. 1.</p>
             </div>
             <div class="move">
-              <div><span class="nm">Fernando Mendoza</span><span class="path">Indiana → <span class="to">LV</span> · No. 1</span></div>
+              <div><span class="nm"><button class="pl" data-p="fernando-mendoza" aria-expanded="false">Fernando Mendoza</button></span><span class="path">Indiana → <span class="to">LV</span> · No. 1</span></div>
               <p class="why">Matters more for Bowers than for your lineup.</p>
         </div>
       </div>
@@ -976,42 +1043,42 @@
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 1</span><span class="d">If you must pay</span></div>
           <div class="tier-body">
-            <span class="plr">Josh Allen <span class="tm">BUF</span></span>
-            <span class="plr">Joe Burrow <span class="tm">CIN</span></span>
-            <span class="plr">Drake Maye <span class="tm">NE</span></span>
+            <span class="plr"><button class="pl" data-p="josh-allen" aria-expanded="false">Josh Allen</button> <span class="tm">BUF</span></span>
+            <span class="plr"><button class="pl" data-p="joe-burrow" aria-expanded="false">Joe Burrow</button> <span class="tm">CIN</span></span>
+            <span class="plr"><button class="pl" data-p="drake-maye" aria-expanded="false">Drake Maye</button> <span class="tm">NE</span></span>
           </div>
         </div>
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 2</span><span class="d">Buy here</span></div>
           <div class="tier-body">
-            <span class="plr">Lamar Jackson <span class="tm">BAL</span></span>
-            <span class="plr">Jayden Daniels <span class="tm">WAS</span></span>
+            <span class="plr"><button class="pl" data-p="lamar-jackson" aria-expanded="false">Lamar Jackson</button> <span class="tm">BAL</span></span>
+            <span class="plr"><button class="pl" data-p="jayden-daniels" aria-expanded="false">Jayden Daniels</button> <span class="tm">WAS</span></span>
           </div>
           <p class="tier-note">Both drafted below what a healthy version is worth.</p>
         </div>
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 3</span><span class="d">Interchangeable</span></div>
           <div class="tier-body">
-            <span class="plr">Jaxson Dart <span class="tm">NYG</span></span>
-            <span class="plr">Brock Purdy <span class="tm">SF</span></span>
-            <span class="plr">Jalen Hurts <span class="tm">PHI</span></span>
-            <span class="plr">Patrick Mahomes <span class="tm">KC</span></span>
-            <span class="plr">Matthew Stafford <span class="tm">LAR</span></span>
-            <span class="plr">Dak Prescott <span class="tm">DAL</span></span>
-            <span class="plr">Caleb Williams <span class="tm">CHI</span></span>
-            <span class="plr">Trevor Lawrence <span class="tm">JAX</span></span>
+            <span class="plr"><button class="pl" data-p="jaxson-dart" aria-expanded="false">Jaxson Dart</button> <span class="tm">NYG</span></span>
+            <span class="plr"><button class="pl" data-p="brock-purdy" aria-expanded="false">Brock Purdy</button> <span class="tm">SF</span></span>
+            <span class="plr"><button class="pl" data-p="jalen-hurts" aria-expanded="false">Jalen Hurts</button> <span class="tm">PHI</span></span>
+            <span class="plr"><button class="pl" data-p="patrick-mahomes" aria-expanded="false">Patrick Mahomes</button> <span class="tm">KC</span></span>
+            <span class="plr"><button class="pl" data-p="matthew-stafford" aria-expanded="false">Matthew Stafford</button> <span class="tm">LAR</span></span>
+            <span class="plr"><button class="pl" data-p="dak-prescott" aria-expanded="false">Dak Prescott</button> <span class="tm">DAL</span></span>
+            <span class="plr"><button class="pl" data-p="caleb-williams" aria-expanded="false">Caleb Williams</button> <span class="tm">CHI</span></span>
+            <span class="plr"><button class="pl" data-p="trevor-lawrence" aria-expanded="false">Trevor Lawrence</button> <span class="tm">JAX</span></span>
           </div>
           <p class="tier-note">Mahomes belongs here, not higher. Low-end QB1 is the right price for a knee this fresh.</p>
         </div>
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 4</span><span class="d">Where to shop</span></div>
           <div class="tier-body">
-            <span class="plr">Bo Nix <span class="tm">DEN</span></span>
-            <span class="plr">Tyler Shough <span class="tm">NO</span></span>
-            <span class="plr">Cam Ward <span class="tm">TEN</span></span>
-            <span class="plr">Malik Willis <span class="tm">MIA</span></span>
-            <span class="plr">Fernando Mendoza <span class="tm">LV</span></span>
-            <span class="plr">Jacoby Brissett <span class="tm">—</span></span>
+            <span class="plr"><button class="pl" data-p="bo-nix" aria-expanded="false">Bo Nix</button> <span class="tm">DEN</span></span>
+            <span class="plr"><button class="pl" data-p="tyler-shough" aria-expanded="false">Tyler Shough</button> <span class="tm">NO</span></span>
+            <span class="plr"><button class="pl" data-p="cam-ward" aria-expanded="false">Cam Ward</button> <span class="tm">TEN</span></span>
+            <span class="plr"><button class="pl" data-p="malik-willis" aria-expanded="false">Malik Willis</button> <span class="tm">MIA</span></span>
+            <span class="plr"><button class="pl" data-p="fernando-mendoza" aria-expanded="false">Fernando Mendoza</button> <span class="tm">LV</span></span>
+            <span class="plr"><button class="pl" data-p="jacoby-brissett" aria-expanded="false">Jacoby Brissett</button> <span class="tm">—</span></span>
           </div>
         </div>
       </div>
@@ -1023,8 +1090,8 @@
           <caption>2026 class · quarterbacks</caption>
           <thead><tr><th>Player</th><th class="num">Pick</th><th>Read</th></tr></thead>
           <tbody>
-            <tr><td class="name">Fernando Mendoza <small>LV</small></td><td class="num">1</td><td>Heisman winner, first overall. QB2 value in the right matchups. Matters more for Bowers.</td></tr>
-            <tr><td class="name">Ty Simpson <small>—</small></td><td class="num">Rd 1</td><td>Dynasty stash only. Leave him on the board in redraft.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="fernando-mendoza" aria-expanded="false">Fernando Mendoza</button> <small>LV</small></td><td class="num">1</td><td>Heisman winner, first overall. QB2 value in the right matchups. Matters more for Bowers.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="ty-simpson" aria-expanded="false">Ty Simpson</button> <small>—</small></td><td class="num">Rd 1</td><td>Dynasty stash only. Leave him on the board in redraft.</td></tr>
           </tbody>
         </table>
       </div>
@@ -1036,10 +1103,10 @@
           <caption>Late-round quarterbacks</caption>
           <thead><tr><th>Player</th><th class="num">Cost</th><th>Mechanism</th></tr></thead>
           <tbody>
-            <tr><td class="name">Bo Nix <small>DEN</small></td><td class="num">QB15</td><td><strong>Two straight QB7 finishes, drafted QB15.</strong> Plus Waddle. Cleanest gap on the board.</td></tr>
-            <tr><td class="name">Jaxson Dart <small>NYG</small></td><td class="num">Rd 9–11</td><td>8th-most PPG at the position from Week 4 on.</td></tr>
-            <tr><td class="name">Tyler Shough <small>NO</small></td><td class="num">Rd 13+</td><td>QB12 in PPG across nine rookie starts. Now has Tyson.</td></tr>
-            <tr><td class="name">Malik Willis <small>MIA</small></td><td class="num">11.11</td><td>Rushing ceiling in any week he starts.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="bo-nix" aria-expanded="false">Bo Nix</button> <small>DEN</small></td><td class="num">QB15</td><td><strong>Two straight QB7 finishes, drafted QB15.</strong> Plus Waddle. Cleanest gap on the board.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="jaxson-dart" aria-expanded="false">Jaxson Dart</button> <small>NYG</small></td><td class="num">Rd 9–11</td><td>8th-most PPG at the position from Week 4 on.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="tyler-shough" aria-expanded="false">Tyler Shough</button> <small>NO</small></td><td class="num">Rd 13+</td><td>QB12 in PPG across nine rookie starts. Now has Tyson.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="malik-willis" aria-expanded="false">Malik Willis</button> <small>MIA</small></td><td class="num">11.11</td><td>Rushing ceiling in any week he starts.</td></tr>
           </tbody>
         </table>
       </div>
@@ -1101,7 +1168,7 @@
     <div class="panel body-list" id="p-def-moves" role="tabpanel">
       <div class="ledger">
         <div class="move">
-          <div><span class="nm">Myles Garrett</span><span class="path">CLE &rarr; <span class="to">LAR</span></span></div>
+          <div><span class="nm"><button class="pl" data-p="myles-garrett" aria-expanded="false">Myles Garrett</button></span><span class="path">CLE &rarr; <span class="to">LAR</span></span></div>
           <p class="why">Last year's sack record-breaker joins a unit already <b>4th in pressure rate</b> (26%). The single biggest reason the Rams top most boards.</p>
         </div>
         <div class="move">
@@ -1275,20 +1342,20 @@
       <div class="mock">
         <div class="mock-head"><span class="s">1st pick</span><span class="t">1.01</span></div>
         <ul>
-          <li><span class="rd">R1</span><span class="nm">Jahmyr Gibbs</span><span class="pos-badge p-RB">RB</span></li>
-          <li><span class="rd">R2</span><span class="nm">Chase Brown</span><span class="pos-badge p-RB">RB</span></li>
-          <li><span class="rd">R3</span><span class="nm">DeVonta Smith</span><span class="pos-badge p-WR">WR</span></li>
-          <li><span class="rd">R4</span><span class="nm">Emeka Egbuka</span><span class="pos-badge p-WR">WR</span></li>
-          <li><span class="rd">R5</span><span class="nm">Bhayshul Tuten</span><span class="pos-badge p-RB">RB</span></li>
-          <li><span class="rd">R6</span><span class="nm">Luther Burden III</span><span class="pos-badge p-WR">WR</span></li>
-          <li><span class="rd">R7</span><span class="nm">Colston Loveland</span><span class="pos-badge p-TE">TE</span></li>
-          <li><span class="rd">R8</span><span class="nm">Bo Nix</span><span class="pos-badge p-QB">QB</span></li>
-          <li><span class="rd">R9</span><span class="nm">Josh Downs</span><span class="pos-badge p-WR">WR</span></li>
-          <li><span class="rd">R10</span><span class="nm">Jadarian Price</span><span class="pos-badge p-RB">RB</span></li>
-          <li><span class="rd">R11</span><span class="nm">Ryan Flournoy</span><span class="pos-badge p-WR">WR</span></li>
-          <li><span class="rd">R12</span><span class="nm">Kenneth Gainwell</span><span class="pos-badge p-RB">RB</span></li>
-          <li><span class="rd">R13</span><span class="nm">Gunnar Helm</span><span class="pos-badge p-TE">TE</span></li>
-          <li><span class="rd">R14</span><span class="nm">Tyler Shough</span><span class="pos-badge p-QB">QB</span></li>
+          <li><span class="rd">R1</span><span class="nm"><button class="pl" data-p="jahmyr-gibbs" aria-expanded="false">Jahmyr Gibbs</button></span><span class="pos-badge p-RB">RB</span></li>
+          <li><span class="rd">R2</span><span class="nm"><button class="pl" data-p="chase-brown" aria-expanded="false">Chase Brown</button></span><span class="pos-badge p-RB">RB</span></li>
+          <li><span class="rd">R3</span><span class="nm"><button class="pl" data-p="devonta-smith" aria-expanded="false">DeVonta Smith</button></span><span class="pos-badge p-WR">WR</span></li>
+          <li><span class="rd">R4</span><span class="nm"><button class="pl" data-p="emeka-egbuka" aria-expanded="false">Emeka Egbuka</button></span><span class="pos-badge p-WR">WR</span></li>
+          <li><span class="rd">R5</span><span class="nm"><button class="pl" data-p="bhayshul-tuten" aria-expanded="false">Bhayshul Tuten</button></span><span class="pos-badge p-RB">RB</span></li>
+          <li><span class="rd">R6</span><span class="nm"><button class="pl" data-p="luther-burden-iii" aria-expanded="false">Luther Burden III</button></span><span class="pos-badge p-WR">WR</span></li>
+          <li><span class="rd">R7</span><span class="nm"><button class="pl" data-p="colston-loveland" aria-expanded="false">Colston Loveland</button></span><span class="pos-badge p-TE">TE</span></li>
+          <li><span class="rd">R8</span><span class="nm"><button class="pl" data-p="bo-nix" aria-expanded="false">Bo Nix</button></span><span class="pos-badge p-QB">QB</span></li>
+          <li><span class="rd">R9</span><span class="nm"><button class="pl" data-p="josh-downs" aria-expanded="false">Josh Downs</button></span><span class="pos-badge p-WR">WR</span></li>
+          <li><span class="rd">R10</span><span class="nm"><button class="pl" data-p="jadarian-price" aria-expanded="false">Jadarian Price</button></span><span class="pos-badge p-RB">RB</span></li>
+          <li><span class="rd">R11</span><span class="nm"><button class="pl" data-p="ryan-flournoy" aria-expanded="false">Ryan Flournoy</button></span><span class="pos-badge p-WR">WR</span></li>
+          <li><span class="rd">R12</span><span class="nm"><button class="pl" data-p="kenneth-gainwell" aria-expanded="false">Kenneth Gainwell</button></span><span class="pos-badge p-RB">RB</span></li>
+          <li><span class="rd">R13</span><span class="nm"><button class="pl" data-p="gunnar-helm" aria-expanded="false">Gunnar Helm</button></span><span class="pos-badge p-TE">TE</span></li>
+          <li><span class="rd">R14</span><span class="nm"><button class="pl" data-p="tyler-shough" aria-expanded="false">Tyler Shough</button></span><span class="pos-badge p-QB">QB</span></li>
           <li><span class="rd">R15</span><span class="nm">Rams D/ST</span><span class="pos-badge p-DST">DST</span></li>
           <li><span class="rd">R16</span><span class="nm">Kicker</span><span class="pos-badge p-K">K</span></li>
         </ul>
@@ -1299,20 +1366,20 @@
       <div class="mock">
         <div class="mock-head"><span class="s">Middle pick</span><span class="t">1.06</span></div>
         <ul>
-          <li><span class="rd">R1</span><span class="nm">Amon-Ra St. Brown</span><span class="pos-badge p-WR">WR</span></li>
-          <li><span class="rd">R2</span><span class="nm">James Cook</span><span class="pos-badge p-RB">RB</span></li>
-          <li><span class="rd">R3</span><span class="nm">George Pickens</span><span class="pos-badge p-WR">WR</span></li>
-          <li><span class="rd">R4</span><span class="nm">De'Von Achane</span><span class="pos-badge p-RB">RB</span></li>
-          <li><span class="rd">R5</span><span class="nm">Rashee Rice</span><span class="pos-badge p-WR">WR</span></li>
-          <li><span class="rd">R6</span><span class="nm">Cam Skattebo</span><span class="pos-badge p-RB">RB</span></li>
-          <li><span class="rd">R7</span><span class="nm">Luther Burden III</span><span class="pos-badge p-WR">WR</span></li>
-          <li><span class="rd">R8</span><span class="nm">Bo Nix</span><span class="pos-badge p-QB">QB</span></li>
-          <li><span class="rd">R9</span><span class="nm">Josh Downs</span><span class="pos-badge p-WR">WR</span></li>
-          <li><span class="rd">R10</span><span class="nm">Kenneth Gainwell</span><span class="pos-badge p-RB">RB</span></li>
-          <li><span class="rd">R11</span><span class="nm">Gunnar Helm</span><span class="pos-badge p-TE">TE</span></li>
-          <li><span class="rd">R12</span><span class="nm">Jadarian Price</span><span class="pos-badge p-RB">RB</span></li>
-          <li><span class="rd">R13</span><span class="nm">Chig Okonkwo</span><span class="pos-badge p-TE">TE</span></li>
-          <li><span class="rd">R14</span><span class="nm">Tyler Shough</span><span class="pos-badge p-QB">QB</span></li>
+          <li><span class="rd">R1</span><span class="nm"><button class="pl" data-p="amon-ra-st-brown" aria-expanded="false">Amon-Ra St. Brown</button></span><span class="pos-badge p-WR">WR</span></li>
+          <li><span class="rd">R2</span><span class="nm"><button class="pl" data-p="james-cook" aria-expanded="false">James Cook</button></span><span class="pos-badge p-RB">RB</span></li>
+          <li><span class="rd">R3</span><span class="nm"><button class="pl" data-p="george-pickens" aria-expanded="false">George Pickens</button></span><span class="pos-badge p-WR">WR</span></li>
+          <li><span class="rd">R4</span><span class="nm"><button class="pl" data-p="de-von-achane" aria-expanded="false">De'Von Achane</button></span><span class="pos-badge p-RB">RB</span></li>
+          <li><span class="rd">R5</span><span class="nm"><button class="pl" data-p="rashee-rice" aria-expanded="false">Rashee Rice</button></span><span class="pos-badge p-WR">WR</span></li>
+          <li><span class="rd">R6</span><span class="nm"><button class="pl" data-p="cam-skattebo" aria-expanded="false">Cam Skattebo</button></span><span class="pos-badge p-RB">RB</span></li>
+          <li><span class="rd">R7</span><span class="nm"><button class="pl" data-p="luther-burden-iii" aria-expanded="false">Luther Burden III</button></span><span class="pos-badge p-WR">WR</span></li>
+          <li><span class="rd">R8</span><span class="nm"><button class="pl" data-p="bo-nix" aria-expanded="false">Bo Nix</button></span><span class="pos-badge p-QB">QB</span></li>
+          <li><span class="rd">R9</span><span class="nm"><button class="pl" data-p="josh-downs" aria-expanded="false">Josh Downs</button></span><span class="pos-badge p-WR">WR</span></li>
+          <li><span class="rd">R10</span><span class="nm"><button class="pl" data-p="kenneth-gainwell" aria-expanded="false">Kenneth Gainwell</button></span><span class="pos-badge p-RB">RB</span></li>
+          <li><span class="rd">R11</span><span class="nm"><button class="pl" data-p="gunnar-helm" aria-expanded="false">Gunnar Helm</button></span><span class="pos-badge p-TE">TE</span></li>
+          <li><span class="rd">R12</span><span class="nm"><button class="pl" data-p="jadarian-price" aria-expanded="false">Jadarian Price</button></span><span class="pos-badge p-RB">RB</span></li>
+          <li><span class="rd">R13</span><span class="nm"><button class="pl" data-p="chig-okonkwo" aria-expanded="false">Chig Okonkwo</button></span><span class="pos-badge p-TE">TE</span></li>
+          <li><span class="rd">R14</span><span class="nm"><button class="pl" data-p="tyler-shough" aria-expanded="false">Tyler Shough</button></span><span class="pos-badge p-QB">QB</span></li>
           <li><span class="rd">R15</span><span class="nm">Broncos D/ST</span><span class="pos-badge p-DST">DST</span></li>
           <li><span class="rd">R16</span><span class="nm">Kicker</span><span class="pos-badge p-K">K</span></li>
         </ul>
@@ -1323,20 +1390,20 @@
       <div class="mock">
         <div class="mock-head"><span class="s">Last pick</span><span class="t">1.12</span></div>
         <ul>
-          <li><span class="rd">R1</span><span class="nm">Bijan Robinson</span><span class="pos-badge p-RB">RB</span></li>
-          <li><span class="rd">R2</span><span class="nm">CeeDee Lamb</span><span class="pos-badge p-WR">WR</span></li>
-          <li><span class="rd">R3</span><span class="nm">Jonathan Taylor</span><span class="pos-badge p-RB">RB</span></li>
-          <li><span class="rd">R4</span><span class="nm">Nico Collins</span><span class="pos-badge p-WR">WR</span></li>
-          <li><span class="rd">R5</span><span class="nm">Bucky Irving</span><span class="pos-badge p-RB">RB</span></li>
-          <li><span class="rd">R6</span><span class="nm">Malik Nabers</span><span class="pos-badge p-WR">WR</span></li>
-          <li><span class="rd">R7</span><span class="nm">TreVeyon Henderson</span><span class="pos-badge p-RB">RB</span></li>
-          <li><span class="rd">R8</span><span class="nm">Colston Loveland</span><span class="pos-badge p-TE">TE</span></li>
-          <li><span class="rd">R9</span><span class="nm">Josh Downs</span><span class="pos-badge p-WR">WR</span></li>
-          <li><span class="rd">R10</span><span class="nm">Bhayshul Tuten</span><span class="pos-badge p-RB">RB</span></li>
-          <li><span class="rd">R11</span><span class="nm">Bo Nix</span><span class="pos-badge p-QB">QB</span></li>
-          <li><span class="rd">R12</span><span class="nm">Ryan Flournoy</span><span class="pos-badge p-WR">WR</span></li>
-          <li><span class="rd">R13</span><span class="nm">Gunnar Helm</span><span class="pos-badge p-TE">TE</span></li>
-          <li><span class="rd">R14</span><span class="nm">Tyler Shough</span><span class="pos-badge p-QB">QB</span></li>
+          <li><span class="rd">R1</span><span class="nm"><button class="pl" data-p="bijan-robinson" aria-expanded="false">Bijan Robinson</button></span><span class="pos-badge p-RB">RB</span></li>
+          <li><span class="rd">R2</span><span class="nm"><button class="pl" data-p="ceedee-lamb" aria-expanded="false">CeeDee Lamb</button></span><span class="pos-badge p-WR">WR</span></li>
+          <li><span class="rd">R3</span><span class="nm"><button class="pl" data-p="jonathan-taylor" aria-expanded="false">Jonathan Taylor</button></span><span class="pos-badge p-RB">RB</span></li>
+          <li><span class="rd">R4</span><span class="nm"><button class="pl" data-p="nico-collins" aria-expanded="false">Nico Collins</button></span><span class="pos-badge p-WR">WR</span></li>
+          <li><span class="rd">R5</span><span class="nm"><button class="pl" data-p="bucky-irving" aria-expanded="false">Bucky Irving</button></span><span class="pos-badge p-RB">RB</span></li>
+          <li><span class="rd">R6</span><span class="nm"><button class="pl" data-p="malik-nabers" aria-expanded="false">Malik Nabers</button></span><span class="pos-badge p-WR">WR</span></li>
+          <li><span class="rd">R7</span><span class="nm"><button class="pl" data-p="treveyon-henderson" aria-expanded="false">TreVeyon Henderson</button></span><span class="pos-badge p-RB">RB</span></li>
+          <li><span class="rd">R8</span><span class="nm"><button class="pl" data-p="colston-loveland" aria-expanded="false">Colston Loveland</button></span><span class="pos-badge p-TE">TE</span></li>
+          <li><span class="rd">R9</span><span class="nm"><button class="pl" data-p="josh-downs" aria-expanded="false">Josh Downs</button></span><span class="pos-badge p-WR">WR</span></li>
+          <li><span class="rd">R10</span><span class="nm"><button class="pl" data-p="bhayshul-tuten" aria-expanded="false">Bhayshul Tuten</button></span><span class="pos-badge p-RB">RB</span></li>
+          <li><span class="rd">R11</span><span class="nm"><button class="pl" data-p="bo-nix" aria-expanded="false">Bo Nix</button></span><span class="pos-badge p-QB">QB</span></li>
+          <li><span class="rd">R12</span><span class="nm"><button class="pl" data-p="ryan-flournoy" aria-expanded="false">Ryan Flournoy</button></span><span class="pos-badge p-WR">WR</span></li>
+          <li><span class="rd">R13</span><span class="nm"><button class="pl" data-p="gunnar-helm" aria-expanded="false">Gunnar Helm</button></span><span class="pos-badge p-TE">TE</span></li>
+          <li><span class="rd">R14</span><span class="nm"><button class="pl" data-p="tyler-shough" aria-expanded="false">Tyler Shough</button></span><span class="pos-badge p-QB">QB</span></li>
           <li><span class="rd">R15</span><span class="nm">Ravens D/ST</span><span class="pos-badge p-DST">DST</span></li>
           <li><span class="rd">R16</span><span class="nm">Kicker</span><span class="pos-badge p-K">K</span></li>
         </ul>
@@ -1413,6 +1480,8 @@
 
 </main>
 
+<script type="application/json" id="player-data">{"a-j-brown":{"n":"A.J. Brown","p":"WR","t":"PHI","g":"WR","s":[[2019,"TEN",16,0,0,0,0,0,3,60,1,52,84,1051,8,217.1],[2020,"TEN",14,0,0,0,0,0,0,0,0,70,106,1075,11,247.5],[2021,"TEN",13,0,2,0,0,0,2,10,0,63,105,869,5,180.9],[2022,"PHI",17,0,0,0,0,0,0,0,0,88,145,1496,11,299.6],[2023,"PHI",17,0,0,0,0,0,0,0,0,106,158,1456,7,289.6],[2024,"PHI",13,0,0,0,0,0,0,0,0,67,97,1079,7,216.9],[2025,"PHI",15,0,0,0,0,0,0,0,0,78,121,1003,7,220.3]],"c":[105,0,2,0,0,0,5,70,1,524,816,8029,56,1671.9],"l":[2025,"PHI",15,0,0,0,0,0,0,0,0,78,121,1003,7,220.3]},"amon-ra-st-brown":{"n":"Amon-Ra St. Brown","p":"WR","t":"DET","g":"WR","s":[[2021,"DET",16,0,0,0,0,0,7,61,1,90,119,912,5,227.3],[2022,"DET",16,0,0,0,0,0,9,95,0,106,146,1161,6,267.6],[2023,"DET",16,0,0,0,0,0,4,24,0,119,164,1515,10,330.9],[2024,"DET",17,1,1,7,1,0,2,6,0,115,141,1263,12,316.2],[2025,"DET",17,0,0,0,0,0,3,9,0,117,172,1401,11,324]],"c":[82,1,1,7,1,0,25,195,1,547,742,6252,44,1466.0],"l":[2025,"DET",17,0,0,0,0,0,3,9,0,117,172,1401,11,324]},"ashton-jeanty":{"n":"Ashton Jeanty","p":"RB","t":"LV","g":"RB","s":[[2025,"LV",17,0,0,0,0,0,266,975,5,55,73,346,5,245.1]],"c":[17,0,0,0,0,0,266,975,5,55,73,346,5,245.1],"l":[2025,"LV",17,0,0,0,0,0,266,975,5,55,73,346,5,245.1]},"bhayshul-tuten":{"n":"Bhayshul Tuten","p":"RB","t":"JAX","g":"RB","s":[[2025,"JAX",15,0,0,0,0,0,83,307,5,10,14,79,2,88.6]],"c":[15,0,0,0,0,0,83,307,5,10,14,79,2,88.6],"l":[2025,"JAX",15,0,0,0,0,0,83,307,5,10,14,79,2,88.6]},"bijan-robinson":{"n":"Bijan Robinson","p":"RB","t":"ATL","g":"RB","s":[[2023,"ATL",17,0,0,0,0,0,214,976,4,58,86,487,4,246.3],[2024,"ATL",17,0,0,0,0,0,304,1456,14,61,72,431,1,341.7],[2025,"ATL",17,0,0,0,0,0,287,1478,7,79,103,820,4,370.8]],"c":[51,0,0,0,0,0,805,3910,25,198,261,1738,9,958.8],"l":[2025,"ATL",17,0,0,0,0,0,287,1478,7,79,103,820,4,370.8]},"bo-nix":{"n":"Bo Nix","p":"QB","t":"DEN","g":"QB","s":[[2024,"DEN",17,376,567,3775,29,12,92,430,4,1,1,2,1,317.2],[2025,"DEN",17,388,612,3931,25,11,83,356,5,0,1,0,0,304.8]],"c":[34,764,1179,7706,54,23,175,786,9,1,2,2,1,622.0],"l":[2025,"DEN",17,388,612,3931,25,11,83,356,5,0,1,0,0,304.8]},"breece-hall":{"n":"Breece Hall","p":"RB","t":"NYJ","g":"RB","s":[[2022,"NYJ",7,0,0,0,0,0,80,463,4,19,31,218,1,115.1],[2023,"NYJ",17,0,0,0,0,0,223,994,5,76,95,591,4,290.5],[2024,"NYJ",16,0,0,0,0,0,209,876,5,57,76,483,3,240.9],[2025,"NYJ",16,1,1,4,1,0,243,1065,4,36,48,350,1,207.7]],"c":[56,1,1,4,1,0,755,3398,18,188,250,1642,9,854.2],"l":[2025,"NYJ",16,1,1,4,1,0,243,1065,4,36,48,350,1,207.7]},"brenton-strange":{"n":"Brenton Strange","p":"TE","t":"JAX","g":"TE","s":[[2023,"JAX",7,0,0,0,0,0,0,0,0,5,9,35,1,14.5],[2024,"JAX",14,0,0,0,0,0,0,0,0,40,53,411,2,91.1],[2025,"JAX",12,0,0,0,0,0,0,0,0,46,60,540,3,118]],"c":[33,0,0,0,0,0,0,0,0,91,122,986,6,223.6],"l":[2025,"JAX",12,0,0,0,0,0,0,0,0,46,60,540,3,118]},"brian-thomas-jr":{"n":"Brian Thomas Jr.","p":"WR","t":"JAX","g":"WR","s":[[2024,"JAX",17,0,0,0,0,0,6,48,0,87,133,1282,10,284],[2025,"JAX",14,0,0,0,0,0,3,21,1,48,91,707,2,138.8]],"c":[31,0,0,0,0,0,9,69,1,135,224,1989,12,422.8],"l":[2025,"JAX",14,0,0,0,0,0,3,21,1,48,91,707,2,138.8]},"brock-bowers":{"n":"Brock Bowers","p":"TE","t":"LV","g":"TE","s":[[2024,"LV",17,0,0,0,0,0,5,13,0,112,153,1194,5,262.7],[2025,"LV",12,0,0,0,0,0,2,2,0,64,86,680,7,176.2]],"c":[29,0,0,0,0,0,7,15,0,176,239,1874,12,438.9],"l":[2025,"LV",12,0,0,0,0,0,2,2,0,64,86,680,7,176.2]},"brock-purdy":{"n":"Brock Purdy","p":"QB","t":"SF","g":"QB","s":[[2022,"SF",9,114,170,1374,13,4,22,13,1,0,0,0,0,106.3],[2023,"SF",16,308,444,4280,31,11,39,144,2,0,0,0,0,295.6],[2024,"SF",15,300,455,3864,20,12,66,323,5,0,0,0,0,266.9],[2025,"SF",9,197,284,2167,20,10,33,147,3,0,0,0,0,177.4]],"c":[49,919,1353,11685,84,37,160,627,11,0,0,0,0,846.2],"l":[2025,"SF",9,197,284,2167,20,10,33,147,3,0,0,0,0,177.4]},"bucky-irving":{"n":"Bucky Irving","p":"RB","t":"TB","g":"RB","s":[[2024,"TB",17,0,0,0,0,0,207,1122,8,47,52,392,0,244.4],[2025,"TB",10,0,0,0,0,0,173,588,1,30,35,277,3,138.5]],"c":[27,0,0,0,0,0,380,1710,9,77,87,669,3,382.9],"l":[2025,"TB",10,0,0,0,0,0,173,588,1,30,35,277,3,138.5]},"cade-otton":{"n":"Cade Otton","p":"TE","t":"TB","g":"TE","s":[[2022,"TB",16,0,0,0,0,0,0,0,0,42,65,391,2,93.1],[2023,"TB",17,0,0,0,0,0,0,0,0,47,67,455,4,118.5],[2024,"TB",14,0,0,0,0,0,1,-4,0,59,87,600,4,140.6],[2025,"TB",15,0,0,0,0,0,0,0,0,59,81,572,1,122.2]],"c":[62,0,0,0,0,0,1,-4,0,207,300,2018,11,474.4],"l":[2025,"TB",15,0,0,0,0,0,0,0,0,59,81,572,1,122.2]},"caleb-williams":{"n":"Caleb Williams","p":"QB","t":"CHI","g":"QB","s":[[2024,"CHI",17,351,562,3541,20,6,81,489,0,0,0,0,0,254.5],[2025,"CHI",17,330,568,3942,27,7,77,383,3,2,2,22,1,318.2]],"c":[34,681,1130,7483,47,13,158,872,3,2,2,22,1,572.7],"l":[2025,"CHI",17,330,568,3942,27,7,77,383,3,2,2,22,1,318.2]},"cam-skattebo":{"n":"Cam Skattebo","p":"RB","t":"NYG","g":"RB","s":[[2025,"NYG",8,0,0,0,0,0,101,410,5,24,32,207,2,127.7]],"c":[8,0,0,0,0,0,101,410,5,24,32,207,2,127.7],"l":[2025,"NYG",8,0,0,0,0,0,101,410,5,24,32,207,2,127.7]},"cam-ward":{"n":"Cam Ward","p":"QB","t":"TEN","g":"QB","s":[[2025,"TEN",17,323,540,3169,15,7,39,159,2,0,0,0,0,186.7]],"c":[17,323,540,3169,15,7,39,159,2,0,0,0,0,186.7],"l":[2025,"TEN",17,323,540,3169,15,7,39,159,2,0,0,0,0,186.7]},"carnell-tate":{"n":"Carnell Tate","note":"Enters the league in 2026 \u2014 no NFL stats yet."},"ceedee-lamb":{"n":"CeeDee Lamb","p":"WR","t":"DAL","g":"WR","s":[[2020,"DAL",16,0,0,0,0,0,10,82,1,74,111,935,5,217.7],[2021,"DAL",16,0,0,0,0,0,9,76,0,79,120,1102,6,232.8],[2022,"DAL",17,0,0,0,0,0,10,47,0,107,156,1359,9,301.6],[2023,"DAL",17,0,0,0,0,0,14,113,2,135,181,1749,12,403.2],[2024,"DAL",15,0,0,0,0,0,14,70,0,101,152,1194,6,263.4],[2025,"DAL",13,0,0,0,0,0,1,2,0,75,117,1077,3,200.9]],"c":[94,0,0,0,0,0,58,390,3,571,837,7416,41,1619.6],"l":[2025,"DAL",13,0,0,0,0,0,1,2,0,75,117,1077,3,200.9]},"chase-brown":{"n":"Chase Brown","p":"RB","t":"CIN","g":"RB","s":[[2023,"CIN",12,0,0,0,0,0,44,179,0,14,15,156,1,53.5],[2024,"CIN",16,0,0,0,0,0,229,990,7,54,65,360,4,255],[2025,"CIN",17,0,0,0,0,0,232,1019,6,69,88,437,5,282.6]],"c":[45,0,0,0,0,0,505,2188,13,137,168,953,10,591.1],"l":[2025,"CIN",17,0,0,0,0,0,232,1019,6,69,88,437,5,282.6]},"chig-okonkwo":{"n":"Chig Okonkwo","p":"TE","t":"TEN","g":"TE","s":[[2022,"TEN",16,0,0,0,0,0,3,2,0,32,46,450,3,97.2],[2023,"TEN",17,0,0,0,0,0,2,6,0,54,77,528,1,113.4],[2024,"TEN",16,0,0,0,0,0,1,17,0,52,70,479,2,113.6],[2025,"TEN",17,0,0,0,0,0,0,0,0,56,79,560,2,124]],"c":[66,0,0,0,0,0,6,25,0,194,272,2017,8,448.2],"l":[2025,"TEN",17,0,0,0,0,0,0,0,0,56,79,560,2,124]},"chris-rodriguez":{"n":"Chris Rodriguez","p":"RB","t":"WAS","g":"RB","s":[[2023,"WAS",9,0,0,0,0,0,51,247,2,2,2,12,0,37.9],[2024,"WAS",7,0,0,0,0,0,35,173,2,1,1,12,0,31.5],[2025,"WAS",12,0,0,0,0,0,112,500,6,3,4,30,0,92]],"c":[28,0,0,0,0,0,198,920,10,6,7,54,0,161.4],"l":[2025,"WAS",12,0,0,0,0,0,112,500,6,3,4,30,0,92]},"christian-mccaffrey":{"n":"Christian McCaffrey","p":"RB","t":"SF","g":"RB","s":[[2017,"CAR",16,0,0,0,0,0,117,435,2,80,113,651,5,228.6],[2018,"CAR",16,1,1,50,1,0,219,1098,7,107,124,867,6,385.5],[2019,"CAR",16,0,2,0,0,0,287,1387,15,116,142,1005,4,471.2],[2020,"CAR",3,0,0,0,0,0,59,225,5,17,19,149,1,90.4],[2021,"CAR",7,0,0,0,0,0,99,442,1,37,41,343,1,127.5],[2022,"SF",17,1,1,34,1,0,244,1139,8,85,108,741,5,356.4],[2023,"SF",16,0,0,0,0,0,272,1459,14,67,83,564,7,391.3],[2024,"SF",4,0,0,0,0,0,50,202,0,15,19,146,0,47.8],[2025,"SF",17,0,1,0,0,0,311,1202,10,102,129,924,7,416.6]],"c":[112,2,5,84,2,0,1658,7589,62,626,778,5390,36,2515.3],"l":[2025,"SF",17,0,1,0,0,0,311,1202,10,102,129,924,7,416.6]},"colston-loveland":{"n":"Colston Loveland","p":"TE","t":"CHI","g":"TE","s":[[2025,"CHI",16,0,0,0,0,0,1,-2,0,58,82,713,6,165.1]],"c":[16,0,0,0,0,0,1,-2,0,58,82,713,6,165.1],"l":[2025,"CHI",16,0,0,0,0,0,1,-2,0,58,82,713,6,165.1]},"courtland-sutton":{"n":"Courtland Sutton","p":"WR","t":"DEN","g":"WR","s":[[2018,"DEN",16,0,0,0,0,0,1,-1,0,42,84,704,4,136.3],[2019,"DEN",16,1,1,38,0,0,3,17,0,72,124,1112,6,222.4],[2020,"DEN",1,0,0,0,0,0,0,0,0,3,6,66,0,9.6],[2021,"DEN",17,1,1,16,0,0,0,0,0,58,98,776,2,150.2],[2022,"DEN",15,0,0,0,0,0,1,5,0,64,109,829,2,159.4],[2023,"DEN",16,0,0,0,0,0,0,0,0,59,90,772,10,190.2],[2024,"DEN",16,2,2,30,1,0,0,0,0,81,135,1081,8,240.3],[2025,"DEN",17,0,0,0,0,0,0,0,0,74,124,1017,7,219.7]],"c":[114,4,4,84,1,0,5,21,0,453,770,6357,39,1328.1],"l":[2025,"DEN",17,0,0,0,0,0,0,0,0,74,124,1017,7,219.7]},"d-j-moore":{"n":"D.J. Moore","p":"WR","t":"CHI","g":"WR","s":[[2018,"CAR",16,0,0,0,0,0,13,172,0,55,82,788,2,159],[2019,"CAR",15,0,0,0,0,0,6,40,0,87,135,1175,4,230.5],[2020,"CAR",15,0,1,0,0,0,2,22,0,66,118,1193,4,211.5],[2021,"CAR",17,0,0,0,0,0,8,48,0,93,163,1157,4,237.5],[2022,"CAR",17,0,0,0,0,0,10,53,0,63,118,888,7,199.1],[2023,"CHI",17,0,0,0,0,0,4,21,1,96,136,1364,8,286.5],[2024,"CHI",17,0,1,0,0,0,14,75,0,98,140,966,6,238.1],[2025,"CHI",17,1,1,2,1,0,15,79,1,50,85,682,6,172.2]],"c":[131,1,3,2,1,0,72,510,2,608,977,8213,41,1734.4],"l":[2025,"CHI",17,1,1,2,1,0,15,79,1,50,85,682,6,172.2]},"dak-prescott":{"n":"Dak Prescott","p":"QB","t":"DAL","g":"QB","s":[[2016,"DAL",16,311,459,3667,23,4,57,282,6,0,0,0,0,286.9],[2017,"DAL",16,308,490,3324,22,13,57,357,6,0,0,0,0,260.7],[2018,"DAL",16,356,526,3885,22,8,75,305,6,0,1,0,0,285.9],[2019,"DAL",16,388,596,4902,30,11,52,277,3,0,0,0,0,337.8],[2020,"DAL",5,151,222,1856,9,4,18,93,3,1,1,11,1,135.6],[2021,"DAL",16,410,596,4449,37,10,48,146,1,0,0,0,0,320.6],[2022,"DAL",12,261,394,2860,23,15,45,182,1,0,0,0,0,198.6],[2023,"DAL",17,410,590,4516,36,9,55,242,2,0,0,0,0,342.8],[2024,"DAL",8,185,286,1978,11,8,13,54,1,0,0,0,0,116.5],[2025,"DAL",17,404,600,4552,30,10,53,177,2,0,0,0,0,313.8]],"c":[139,3184,4759,35989,243,92,473,2115,31,1,2,11,1,2599.2],"l":[2025,"DAL",17,404,600,4552,30,10,53,177,2,0,0,0,0,313.8]},"de-von-achane":{"n":"De'Von Achane","p":"RB","t":"MIA","g":"RB","s":[[2023,"MIA",11,0,0,0,0,0,103,800,8,27,37,197,3,190.7],[2024,"MIA",17,0,0,0,0,0,203,907,6,78,87,592,6,299.9],[2025,"MIA",16,0,0,0,0,0,238,1350,8,67,85,488,4,322.8]],"c":[44,0,0,0,0,0,544,3057,22,172,209,1277,13,813.4],"l":[2025,"MIA",16,0,0,0,0,0,238,1350,8,67,85,488,4,322.8]},"devonta-smith":{"n":"DeVonta Smith","p":"WR","t":"PHI","g":"WR","s":[[2021,"PHI",17,0,0,0,0,0,0,0,0,64,104,916,5,185.6],[2022,"PHI",17,0,0,0,0,0,0,0,0,95,136,1196,7,256.6],[2023,"PHI",16,0,0,0,0,0,0,0,0,81,112,1066,7,227.6],[2024,"PHI",13,0,0,0,0,0,1,1,0,68,89,833,8,199.4],[2025,"PHI",17,0,0,0,0,0,0,0,0,77,113,1008,4,201.8]],"c":[80,0,0,0,0,0,1,1,0,385,554,5019,31,1071.0],"l":[2025,"PHI",17,0,0,0,0,0,0,0,0,77,113,1008,4,201.8]},"derrick-henry":{"n":"Derrick Henry","p":"RB","t":"BAL","g":"RB","s":[[2016,"TEN",14,0,0,0,0,0,110,490,5,13,15,137,0,105.7],[2017,"TEN",16,0,0,0,0,0,176,744,5,11,17,136,1,135],[2018,"TEN",16,2,3,14,0,0,215,1059,12,15,18,99,0,201.4],[2019,"TEN",15,0,0,0,0,0,303,1540,16,18,24,206,2,294.6],[2020,"TEN",16,0,0,0,0,0,378,2027,17,19,31,114,0,333.1],[2021,"TEN",8,1,1,5,1,0,219,937,10,18,20,154,0,193.3],[2022,"TEN",16,2,2,4,1,0,349,1538,13,33,41,398,0,302.8],[2023,"TEN",17,2,3,14,2,0,280,1167,12,28,36,214,0,246.7],[2024,"BAL",17,0,0,0,0,0,325,1921,16,19,22,193,2,336.4],[2025,"BAL",17,0,1,0,0,0,307,1595,16,15,21,150,0,279.5]],"c":[152,7,10,37,4,0,2662,13018,122,189,245,1801,5,2428.5],"l":[2025,"BAL",17,0,1,0,0,0,307,1595,16,15,21,150,0,279.5]},"drake-maye":{"n":"Drake Maye","p":"QB","t":"NE","g":"QB","s":[[2024,"NE",13,225,338,2276,15,10,54,421,2,0,0,0,0,177.1],[2025,"NE",17,354,492,4394,31,8,103,450,4,1,1,2,0,352.0]],"c":[30,579,830,6670,46,18,157,871,6,1,1,2,0,529.1],"l":[2025,"NE",17,354,492,4394,31,8,103,450,4,1,1,2,0,352.0]},"emeka-egbuka":{"n":"Emeka Egbuka","p":"WR","t":"TB","g":"WR","s":[[2025,"TB",17,0,0,0,0,0,2,9,0,63,127,938,6,195.7]],"c":[17,0,0,0,0,0,2,9,0,63,127,938,6,195.7],"l":[2025,"TB",17,0,0,0,0,0,2,9,0,63,127,938,6,195.7]},"fernando-mendoza":{"n":"Fernando Mendoza","note":"Enters the league in 2026 \u2014 no NFL stats yet."},"george-kittle":{"n":"George Kittle","p":"TE","t":"SF","g":"TE","s":[[2017,"SF",15,0,0,0,0,0,0,0,0,43,63,515,2,106.5],[2018,"SF",16,0,0,0,0,0,1,10,0,88,136,1377,5,258.7],[2019,"SF",14,0,0,0,0,0,5,22,0,85,107,1053,5,222.5],[2020,"SF",8,0,0,0,0,0,2,17,0,48,63,634,2,125.1],[2021,"SF",14,0,0,0,0,0,3,20,0,71,94,910,6,198],[2022,"SF",15,0,0,0,0,0,0,0,0,60,86,765,11,200.5],[2023,"SF",16,0,0,0,0,0,1,2,0,65,90,1020,6,203.2],[2024,"SF",15,0,0,0,0,0,0,0,0,78,94,1106,8,236.6],[2025,"SF",11,0,0,0,0,0,1,-3,0,57,69,628,7,161.5]],"c":[124,0,0,0,0,0,13,68,0,595,802,8008,52,1712.6],"l":[2025,"SF",11,0,0,0,0,0,1,-3,0,57,69,628,7,161.5]},"george-pickens":{"n":"George Pickens","p":"WR","t":"DAL","g":"WR","s":[[2022,"PIT",17,0,0,0,0,0,3,24,1,52,84,801,4,166.5],[2023,"PIT",17,0,0,0,0,0,3,18,0,63,106,1140,5,208.8],[2024,"PIT",14,0,0,0,0,0,2,-6,0,59,103,900,3,164.4],[2025,"DAL",17,0,0,0,0,0,0,0,0,93,137,1429,9,291.9]],"c":[65,0,0,0,0,0,8,36,1,267,430,4270,21,831.6],"l":[2025,"DAL",17,0,0,0,0,0,0,0,0,93,137,1429,9,291.9]},"gunnar-helm":{"n":"Gunnar Helm","p":"TE","t":"TEN","g":"TE","s":[[2025,"TEN",16,0,0,0,0,0,0,0,0,44,55,357,2,91.7]],"c":[16,0,0,0,0,0,0,0,0,44,55,357,2,91.7],"l":[2025,"TEN",16,0,0,0,0,0,0,0,0,44,55,357,2,91.7]},"harold-fannin-jr":{"n":"Harold Fannin Jr.","p":"TE","t":"CLE","g":"TE","s":[[2025,"CLE",16,0,0,0,0,0,7,13,1,72,107,731,6,186.4]],"c":[16,0,0,0,0,0,7,13,1,72,107,731,6,186.4],"l":[2025,"CLE",16,0,0,0,0,0,7,13,1,72,107,731,6,186.4]},"hunter-henry":{"n":"Hunter Henry","p":"TE","t":"NE","g":"TE","s":[[2016,"LAC",13,0,0,0,0,0,0,0,0,36,53,478,8,129.8],[2017,"LAC",12,0,0,0,0,0,0,0,0,45,62,579,4,126.9],[2019,"LAC",12,0,0,0,0,0,0,0,0,55,76,652,5,150.2],[2020,"LAC",14,0,0,0,0,0,0,0,0,60,93,613,4,145.3],[2021,"NE",16,0,0,0,0,0,0,0,0,50,75,603,9,164.3],[2022,"NE",16,0,0,0,0,0,0,0,0,41,59,509,2,103.9],[2023,"NE",13,0,0,0,0,0,0,0,0,42,61,419,6,119.9],[2024,"NE",16,0,0,0,0,0,0,0,0,66,97,674,2,145.4],[2025,"NE",17,0,0,0,0,0,0,0,0,60,87,768,7,178.8]],"c":[129,0,0,0,0,0,0,0,0,455,663,5295,47,1264.5],"l":[2025,"NE",17,0,0,0,0,0,0,0,0,60,87,768,7,178.8]},"isaac-teslaa":{"n":"Isaac TeSlaa","p":"WR","t":"DET","g":"WR","s":[[2025,"DET",14,0,0,0,0,0,0,0,0,16,27,239,6,75.9]],"c":[14,0,0,0,0,0,0,0,0,16,27,239,6,75.9],"l":[2025,"DET",14,0,0,0,0,0,0,0,0,16,27,239,6,75.9]},"isaiah-likely":{"n":"Isaiah Likely","p":"TE","t":"BAL","g":"TE","s":[[2022,"BAL",14,0,0,0,0,0,0,0,0,36,60,373,3,91.3],[2023,"BAL",14,0,0,0,0,0,0,0,0,30,40,411,5,101.1],[2024,"BAL",15,0,0,0,0,0,0,0,0,42,58,477,6,123.7],[2025,"BAL",12,0,0,0,0,0,0,0,0,27,36,307,1,61.7]],"c":[55,0,0,0,0,0,0,0,0,135,194,1568,15,377.8],"l":[2025,"BAL",12,0,0,0,0,0,0,0,0,27,36,307,1,61.7]},"ja-marr-chase":{"n":"Ja'Marr Chase","p":"WR","t":"CIN","g":"WR","s":[[2021,"CIN",17,0,0,0,0,0,7,21,0,81,128,1455,13,304.6],[2022,"CIN",12,0,0,0,0,0,5,8,0,87,134,1046,9,242.4],[2023,"CIN",16,1,1,-7,0,0,3,-6,0,100,145,1216,7,262.7],[2024,"CIN",17,0,0,0,0,0,3,32,0,127,175,1708,17,403],[2025,"CIN",16,0,0,0,0,0,3,14,0,125,185,1412,8,313.6]],"c":[78,1,1,-7,0,0,21,69,0,520,767,6837,54,1526.3],"l":[2025,"CIN",16,0,0,0,0,0,3,14,0,125,185,1412,8,313.6]},"jacoby-brissett":{"n":"Jacoby Brissett","p":"QB","t":"ARI","g":"QB","s":[[2016,"NE",3,34,55,400,0,0,16,83,1,0,0,0,0,28.3],[2017,"IND",16,276,469,3098,13,7,63,260,4,0,0,0,0,205.9],[2018,"IND",4,2,4,2,0,0,7,-7,0,0,0,0,0,-0.6],[2019,"IND",15,272,447,2942,18,6,56,228,4,1,1,2,0,217.7],[2020,"IND",11,2,8,17,0,0,17,19,3,0,0,0,0,20.6],[2021,"MIA",10,141,225,1283,5,4,19,70,1,0,0,0,0,72.3],[2022,"CLE",14,236,369,2608,12,6,49,243,2,0,0,0,0,168.6],[2023,"WAS",2,18,23,224,3,0,3,19,0,0,0,0,0,22.9],[2024,"NE",7,95,161,826,2,1,15,62,0,0,0,0,0,45.2],[2025,"ARI",14,315,485,3366,23,8,38,168,1,0,0,0,0,227.4]],"c":[96,1391,2246,14766,76,32,283,1145,16,1,1,2,0,1008.3],"l":[2025,"ARI",14,315,485,3366,23,8,38,168,1,0,0,0,0,227.4]},"jadarian-price":{"n":"Jadarian Price","note":"Enters the league in 2026 \u2014 no NFL stats yet."},"jahmyr-gibbs":{"n":"Jahmyr Gibbs","p":"RB","t":"DET","g":"RB","s":[[2023,"DET",15,0,0,0,0,0,182,945,10,52,71,316,1,242.1],[2024,"DET",17,0,0,0,0,0,250,1412,16,52,63,517,4,362.9],[2025,"DET",17,0,0,0,0,0,243,1223,13,77,94,616,5,366.9]],"c":[49,0,0,0,0,0,675,3580,39,181,228,1449,10,971.9],"l":[2025,"DET",17,0,0,0,0,0,243,1223,13,77,94,616,5,366.9]},"jake-ferguson":{"n":"Jake Ferguson","p":"TE","t":"DAL","g":"TE","s":[[2022,"DAL",11,0,0,0,0,0,0,0,0,19,22,174,2,48.4],[2023,"DAL",17,0,0,0,0,0,0,0,0,71,102,761,5,177.1],[2024,"DAL",14,0,0,0,0,0,0,0,0,59,86,494,0,104.4],[2025,"DAL",17,0,0,0,0,0,1,1,0,82,102,600,8,188.1]],"c":[59,0,0,0,0,0,1,1,0,231,312,2029,15,518.0],"l":[2025,"DAL",17,0,0,0,0,0,1,1,0,82,102,600,8,188.1]},"jalen-hurts":{"n":"Jalen Hurts","p":"QB","t":"PHI","g":"QB","s":[[2020,"PHI",14,77,148,1061,6,4,63,354,3,1,1,3,0,109.1],[2021,"PHI",15,265,432,3144,16,9,139,784,10,0,1,0,0,312.2],[2022,"PHI",15,306,460,3701,22,6,165,760,13,0,0,0,0,378.0],[2023,"PHI",17,352,538,3858,23,15,157,605,15,0,0,0,0,356.8],[2024,"PHI",15,248,361,2903,18,5,150,630,14,0,0,0,0,315.1],[2025,"PHI",16,294,454,3224,25,6,105,421,8,0,0,0,0,301.1]],"c":[92,1542,2393,17891,110,45,779,3554,63,1,2,3,0,1772.3],"l":[2025,"PHI",16,294,454,3224,25,6,105,421,8,0,0,0,0,301.1]},"jalen-nailor":{"n":"Jalen Nailor","p":"WR","t":"MIN","g":"WR","s":[[2022,"MIN",8,0,0,0,0,0,0,0,0,9,13,179,1,32.9],[2023,"MIN",3,0,0,0,0,0,0,0,0,3,6,29,0,5.9],[2024,"MIN",15,0,0,0,0,0,3,-4,0,28,42,414,6,105],[2025,"MIN",17,0,0,0,0,0,2,13,0,29,53,444,4,100.7]],"c":[43,0,0,0,0,0,5,9,0,69,114,1066,11,244.5],"l":[2025,"MIN",17,0,0,0,0,0,2,13,0,29,53,444,4,100.7]},"james-cook":{"n":"James Cook","p":"RB","t":"BUF","g":"RB","s":[[2022,"BUF",16,0,0,0,0,0,89,507,2,21,32,180,1,105.7],[2023,"BUF",17,0,0,0,0,0,237,1122,2,44,54,445,4,232.7],[2024,"BUF",16,0,0,0,0,0,207,1009,16,32,38,258,2,266.7],[2025,"BUF",17,0,0,0,0,0,309,1621,12,33,40,291,2,302.2]],"c":[66,0,0,0,0,0,842,4259,32,130,164,1174,9,907.3],"l":[2025,"BUF",17,0,0,0,0,0,309,1621,12,33,40,291,2,302.2]},"jaxon-smith-njigba":{"n":"Jaxon Smith-Njigba","p":"WR","t":"SEA","g":"WR","s":[[2023,"SEA",17,0,0,0,0,0,0,0,0,63,93,628,4,149.8],[2024,"SEA",17,1,1,35,0,0,5,26,0,100,137,1130,6,253],[2025,"SEA",17,0,0,0,0,0,7,36,0,119,163,1793,10,359.9]],"c":[51,1,1,35,0,0,12,62,0,282,393,3551,20,762.7],"l":[2025,"SEA",17,0,0,0,0,0,7,36,0,119,163,1793,10,359.9]},"jaxson-dart":{"n":"Jaxson Dart","p":"QB","t":"NYG","g":"QB","s":[[2025,"NYG",14,216,339,2272,15,5,86,487,9,0,0,0,0,241.6]],"c":[14,216,339,2272,15,5,86,487,9,0,0,0,0,241.6],"l":[2025,"NYG",14,216,339,2272,15,5,86,487,9,0,0,0,0,241.6]},"jayden-daniels":{"n":"Jayden Daniels","p":"QB","t":"WAS","g":"QB","s":[[2024,"WAS",17,331,480,3568,25,9,148,891,6,0,0,0,0,355.8],[2025,"WAS",7,114,188,1262,8,3,58,278,2,0,0,0,0,114.3]],"c":[24,445,668,4830,33,12,206,1169,8,0,0,0,0,470.1],"l":[2025,"WAS",7,114,188,1262,8,3,58,278,2,0,0,0,0,114.3]},"jaylen-waddle":{"n":"Jaylen Waddle","p":"WR","t":"MIA","g":"WR","s":[[2021,"MIA",16,0,0,0,0,0,2,3,1,104,140,1015,6,247.8],[2022,"MIA",17,0,0,0,0,0,3,26,0,75,117,1356,8,259.2],[2023,"MIA",14,0,0,0,0,0,3,12,0,72,104,1014,4,198.6],[2024,"MIA",15,0,0,0,0,0,4,12,0,58,83,744,2,149.6],[2025,"MIA",16,1,1,8,0,0,2,28,0,64,100,910,6,194.1]],"c":[78,1,1,8,0,0,14,81,1,373,544,5039,26,1049.3],"l":[2025,"MIA",16,1,1,8,0,0,2,28,0,64,100,910,6,194.1]},"jeremiyah-love":{"n":"Jeremiyah Love","note":"Enters the league in 2026 \u2014 no NFL stats yet."},"joe-burrow":{"n":"Joe Burrow","p":"QB","t":"CIN","g":"QB","s":[[2020,"CIN",10,264,404,2688,13,5,37,142,3,0,0,0,0,173.7],[2021,"CIN",16,366,520,4611,34,14,40,118,2,0,0,0,0,314.2],[2022,"CIN",16,414,606,4475,35,12,75,257,5,0,0,0,0,350.7],[2023,"CIN",10,244,365,2309,15,6,31,88,0,0,0,0,0,147.2],[2024,"CIN",17,460,652,4918,43,9,42,201,2,0,0,0,0,372.8],[2025,"CIN",8,173,259,1809,17,5,14,41,0,0,0,0,0,134.5]],"c":[77,1921,2806,20810,157,51,239,847,12,0,0,0,0,1493.1],"l":[2025,"CIN",8,173,259,1809,17,5,14,41,0,0,0,0,0,134.5]},"jonathan-taylor":{"n":"Jonathan Taylor","p":"RB","t":"IND","g":"RB","s":[[2020,"IND",15,0,0,0,0,0,232,1169,11,36,39,299,1,252.8],[2021,"IND",17,0,0,0,0,0,332,1811,18,40,51,360,2,373.1],[2022,"IND",11,0,0,0,0,0,192,861,4,28,40,143,0,146.4],[2023,"IND",10,0,0,0,0,0,169,741,7,19,23,153,1,156.4],[2024,"IND",14,0,0,0,0,0,303,1431,11,18,31,136,1,244.7],[2025,"IND",17,0,0,0,0,0,323,1585,18,46,55,378,2,362.3]],"c":[84,0,0,0,0,0,1551,7598,69,187,239,1469,7,1535.7],"l":[2025,"IND",17,0,0,0,0,0,323,1585,18,46,55,378,2,362.3]},"jonathon-brooks":{"n":"Jonathon Brooks","p":"RB","t":"CAR","g":"RB","s":[[2024,"CAR",3,0,0,0,0,0,9,22,0,3,3,23,0,7.5]],"c":[3,0,0,0,0,0,9,22,0,3,3,23,0,7.5],"l":null},"jordan-james":{"n":"Jordan James","note":"No regular-season stats recorded through 2025."},"jordyn-tyson":{"n":"Jordyn Tyson","note":"Enters the league in 2026 \u2014 no NFL stats yet."},"josh-allen":{"n":"Josh Allen","p":"QB","t":"BUF","g":"QB","s":[[2018,"BUF",12,168,319,2044,10,12,89,631,8,0,1,0,0,206.9],[2019,"BUF",16,271,461,3089,20,9,109,510,9,0,0,0,0,288.6],[2020,"BUF",16,396,572,4544,37,10,102,421,8,1,1,12,1,396.1],[2021,"BUF",17,409,646,4407,36,15,122,763,6,0,0,0,0,402.6],[2022,"BUF",16,359,567,4283,35,14,124,762,7,0,0,0,0,395.5],[2023,"BUF",17,385,579,4306,29,18,111,524,15,0,0,0,0,392.6],[2024,"BUF",16,307,483,3731,28,6,102,531,12,0,0,7,1,379.0],[2025,"BUF",16,319,460,3668,25,10,112,579,14,0,0,0,0,364.6]],"c":[126,2614,4087,30072,220,94,871,4721,79,1,2,19,2,2825.9],"l":[2025,"BUF",16,319,460,3668,25,10,112,579,14,0,0,0,0,364.6]},"josh-downs":{"n":"Josh Downs","p":"WR","t":"IND","g":"WR","s":[[2023,"IND",17,0,0,0,0,0,0,0,0,68,98,771,2,157.1],[2024,"IND",14,0,0,0,0,0,1,12,0,72,107,803,5,183.5],[2025,"IND",16,0,0,0,0,0,2,-2,0,58,88,566,4,138.4]],"c":[47,0,0,0,0,0,3,10,0,198,293,2140,11,479.0],"l":[2025,"IND",16,0,0,0,0,0,2,-2,0,58,88,566,4,138.4]},"josh-jacobs":{"n":"Josh Jacobs","p":"RB","t":"GB","g":"RB","s":[[2019,"LV",13,0,0,0,0,0,242,1150,7,20,27,166,0,191.6],[2020,"LV",15,0,0,0,0,0,273,1065,12,33,45,238,0,231.3],[2021,"LV",15,0,0,0,0,0,217,872,9,54,64,348,0,226],[2022,"LV",17,0,0,0,0,0,340,1653,12,53,64,400,0,328.3],[2023,"LV",13,0,0,0,0,0,233,805,6,37,54,296,0,181.1],[2024,"GB",17,0,0,0,0,0,301,1329,15,36,43,342,1,293.1],[2025,"GB",15,0,0,0,0,0,234,929,13,36,44,282,1,237.1]],"c":[105,0,0,0,0,0,1840,7803,74,269,341,2072,2,1688.5],"l":[2025,"GB",15,0,0,0,0,0,234,929,13,36,44,282,1,237.1]},"justin-jefferson":{"n":"Justin Jefferson","p":"WR","t":"MIN","g":"WR","s":[[2020,"MIN",16,0,0,0,0,0,1,2,0,88,125,1400,7,274.2],[2021,"MIN",17,2,4,35,0,0,6,14,0,108,167,1616,10,330.4],[2022,"MIN",17,2,2,34,0,0,4,24,1,128,184,1809,8,368.7],[2023,"MIN",10,0,1,0,0,0,1,-12,0,68,100,1074,5,202.2],[2024,"MIN",17,1,1,22,0,0,1,3,0,103,154,1533,10,317.5],[2025,"MIN",17,0,0,0,0,0,2,7,0,84,141,1048,2,201.5]],"c":[94,5,8,91,0,0,15,38,1,579,871,8480,42,1694.5],"l":[2025,"MIN",17,0,0,0,0,0,2,7,0,84,141,1048,2,201.5]},"juwan-johnson":{"n":"Juwan Johnson","p":"TE","t":"NO","g":"TE","s":[[2020,"NO",5,0,0,0,0,0,0,0,0,4,10,39,0,7.9],[2021,"NO",13,0,0,0,0,0,0,0,0,13,22,159,4,52.9],[2022,"NO",16,0,0,0,0,0,0,0,0,42,65,508,7,134.8],[2023,"NO",13,0,0,0,0,0,0,0,0,37,59,368,4,97.8],[2024,"NO",15,0,0,0,0,0,0,0,0,50,66,548,3,122.8],[2025,"NO",17,0,0,0,0,0,0,0,0,77,102,889,3,179.9]],"c":[79,0,0,0,0,0,0,0,0,223,324,2511,21,596.1],"l":[2025,"NO",17,0,0,0,0,0,0,0,0,77,102,889,3,179.9]},"kc-concepcion":{"n":"KC Concepcion","note":"Enters the league in 2026 \u2014 no NFL stats yet."},"keaton-mitchell":{"n":"Keaton Mitchell","p":"RB","t":"BAL","g":"RB","s":[[2023,"BAL",7,0,0,0,0,0,47,396,2,9,11,93,0,69.9],[2024,"BAL",4,0,0,0,0,0,15,30,0,1,1,28,0,6.8],[2025,"BAL",13,0,0,0,0,0,59,341,1,9,12,63,0,55.4]],"c":[24,0,0,0,0,0,121,767,3,19,24,184,0,132.1],"l":[2025,"BAL",13,0,0,0,0,0,59,341,1,9,12,63,0,55.4]},"kenneth-gainwell":{"n":"Kenneth Gainwell","p":"RB","t":"PIT","g":"RB","s":[[2021,"PHI",16,0,0,0,0,0,68,291,5,33,50,253,1,123.4],[2022,"PHI",17,0,0,0,0,0,53,240,4,23,29,169,0,87.9],[2023,"PHI",16,1,1,17,0,0,84,364,2,30,37,183,0,97.4],[2024,"PHI",17,0,0,0,0,0,75,290,1,16,22,116,0,62.6],[2025,"PIT",17,0,0,0,0,0,114,537,5,73,85,486,3,221.3]],"c":[83,1,1,17,0,0,394,1722,17,175,223,1207,4,592.6],"l":[2025,"PIT",17,0,0,0,0,0,114,537,5,73,85,486,3,221.3]},"kenneth-walker-iii":{"n":"Kenneth Walker III","p":"RB","t":"SEA","g":"RB","s":[[2022,"SEA",15,0,0,0,0,0,228,1050,9,27,35,165,0,202.5],[2023,"SEA",15,0,0,0,0,0,219,905,8,29,37,259,1,199.4],[2024,"SEA",11,0,0,0,0,0,153,573,7,46,53,299,1,181.2],[2025,"SEA",17,0,0,0,0,0,221,1027,5,31,36,282,0,191.9]],"c":[58,0,0,0,0,0,821,3555,29,133,161,1005,2,775.0],"l":[2025,"SEA",17,0,0,0,0,0,221,1027,5,31,36,282,0,191.9]},"kyle-pitts":{"n":"Kyle Pitts","p":"TE","t":"ATL","g":"TE","s":[[2021,"ATL",17,0,0,0,0,0,0,0,0,68,110,1026,1,176.6],[2022,"ATL",10,0,0,0,0,0,0,0,0,28,59,356,2,75.6],[2023,"ATL",17,0,0,0,0,0,1,-4,0,53,90,667,3,137.3],[2024,"ATL",17,0,0,0,0,0,0,0,0,47,74,602,4,131.2],[2025,"ATL",17,0,0,0,0,0,0,0,0,88,118,928,5,210.8]],"c":[78,0,0,0,0,0,1,-4,0,284,451,3579,15,731.5],"l":[2025,"ATL",17,0,0,0,0,0,0,0,0,88,118,928,5,210.8]},"lamar-jackson":{"n":"Lamar Jackson","p":"QB","t":"BAL","g":"QB","s":[[2018,"BAL",16,99,170,1201,6,3,147,695,5,0,2,0,0,157.5],[2019,"BAL",15,265,401,3127,36,6,176,1206,7,0,0,0,0,415.7],[2020,"BAL",15,242,376,2757,26,9,159,1005,7,0,0,0,0,332.8],[2021,"BAL",12,246,382,2882,16,13,133,767,2,0,0,0,0,240.0],[2022,"BAL",12,203,326,2242,17,7,112,764,3,0,0,0,0,236.1],[2023,"BAL",16,307,457,3678,24,7,148,821,5,0,0,0,0,331.2],[2024,"BAL",17,316,474,4172,41,4,139,915,4,0,0,0,0,430.4],[2025,"BAL",13,192,302,2549,21,7,67,349,2,0,0,0,0,214.9]],"c":[116,1870,2888,22608,187,56,1081,6522,35,0,2,0,0,2358.6],"l":[2025,"BAL",13,192,302,2549,21,7,67,349,2,0,0,0,0,214.9]},"luther-burden-iii":{"n":"Luther Burden III","p":"WR","t":"CHI","g":"WR","s":[[2025,"CHI",15,0,0,0,0,0,6,37,0,47,60,652,2,127.9]],"c":[15,0,0,0,0,0,6,37,0,47,60,652,2,127.9],"l":[2025,"CHI",15,0,0,0,0,0,6,37,0,47,60,652,2,127.9]},"makai-lemon":{"n":"Makai Lemon","note":"Enters the league in 2026 \u2014 no NFL stats yet."},"malik-nabers":{"n":"Malik Nabers","p":"WR","t":"NYG","g":"WR","s":[[2024,"NYG",15,0,1,0,0,0,5,2,0,109,170,1204,7,273.6],[2025,"NYG",4,0,0,0,0,0,0,0,0,18,35,271,2,57.1]],"c":[19,0,1,0,0,0,5,2,0,127,205,1475,9,330.7],"l":[2025,"NYG",4,0,0,0,0,0,0,0,0,18,35,271,2,57.1]},"malik-willis":{"n":"Malik Willis","p":"QB","t":"GB","g":"QB","s":[[2022,"TEN",7,31,61,276,0,3,27,123,1,0,0,0,0,19.3],[2023,"TEN",2,4,5,74,0,0,5,21,0,0,0,0,0,3.1],[2024,"GB",6,40,54,550,3,0,20,138,1,0,0,0,0,51.8],[2025,"GB",4,30,35,422,3,0,22,123,2,0,0,0,0,51.2]],"c":[19,105,155,1322,6,3,74,405,4,0,0,0,0,125.4],"l":[2025,"GB",4,30,35,422,3,0,22,123,2,0,0,0,0,51.2]},"matthew-stafford":{"n":"Matthew Stafford","p":"QB","t":"LA","g":"QB","s":[[2013,"DET",16,371,634,4650,29,19,37,69,2,0,0,0,0,278.9],[2014,"DET",16,363,602,4257,22,12,43,93,2,0,0,0,0,251.6],[2015,"DET",16,398,592,4262,32,13,44,159,1,1,1,-6,0,290.8],[2016,"DET",16,388,594,4327,24,10,37,207,2,0,0,0,0,279.8],[2017,"DET",16,371,565,4446,29,10,29,98,0,0,0,0,0,273.6],[2018,"DET",16,367,555,3777,21,11,25,71,0,0,0,0,0,212.2],[2019,"DET",8,187,291,2499,19,5,20,66,0,0,0,0,0,166.6],[2020,"DET",16,339,528,4084,26,10,29,112,0,0,1,0,0,260.6],[2021,"LA",17,404,601,4886,41,17,32,43,0,0,0,0,0,329.7],[2022,"LA",9,206,303,2087,10,8,13,9,1,0,0,0,0,108.4],[2023,"LA",15,326,521,3965,24,11,21,65,0,0,0,0,0,243.1],[2024,"LA",16,340,517,3762,20,8,30,41,0,0,0,0,0,214.6],[2025,"LA",17,388,597,4707,46,8,29,1,0,0,0,0,0,350.4]],"c":[194,4448,6900,51709,343,142,389,1034,8,1,2,-6,0,3260.3],"l":[2025,"LA",17,388,597,4707,46,8,29,1,0,0,0,0,0,350.4]},"michael-pittman-jr":{"n":"Michael Pittman Jr.","p":"WR","t":"IND","g":"WR","s":[[2020,"IND",13,0,0,0,0,0,3,26,0,40,61,503,1,98.9],[2021,"IND",17,0,0,0,0,0,5,44,0,88,129,1082,6,238.6],[2022,"IND",16,0,0,0,0,0,3,30,0,99,141,925,4,216.5],[2023,"IND",16,0,0,0,0,0,0,0,0,109,156,1152,4,252.2],[2024,"IND",16,0,0,0,0,0,0,0,0,69,111,808,3,165.8],[2025,"IND",17,0,0,0,0,0,0,0,0,80,111,784,7,202.4]],"c":[95,0,0,0,0,0,11,100,0,485,709,5254,25,1174.4],"l":[2025,"IND",17,0,0,0,0,0,0,0,0,80,111,784,7,202.4]},"mike-evans":{"n":"Mike Evans","p":"WR","t":"TB","g":"WR","s":[[2014,"TB",15,0,0,0,0,0,0,0,0,68,123,1051,12,245.1],[2015,"TB",15,0,0,0,0,0,0,0,0,74,148,1206,3,212.6],[2016,"TB",16,0,0,0,0,0,0,0,0,96,173,1321,12,304.1],[2017,"TB",15,0,0,0,0,0,0,0,0,71,136,1001,5,203.1],[2018,"TB",16,0,0,0,0,0,0,0,0,86,138,1524,8,284.4],[2019,"TB",13,0,0,0,0,0,0,0,0,67,118,1157,8,232.7],[2020,"TB",16,0,0,0,0,0,0,0,0,70,109,1006,13,248.6],[2021,"TB",16,0,0,0,0,0,1,10,0,74,114,1035,14,262.5],[2022,"TB",15,0,0,0,0,0,0,0,0,77,127,1124,6,225.4],[2023,"TB",17,0,0,0,0,0,0,0,0,79,136,1255,13,282.5],[2024,"TB",14,0,0,0,0,0,0,0,0,74,110,1004,11,240.4],[2025,"TB",8,0,0,0,0,0,0,0,0,30,62,368,3,84.8]],"c":[176,0,0,0,0,0,1,10,0,866,1494,13052,108,2826.2],"l":[2025,"TB",8,0,0,0,0,0,0,0,0,30,62,368,3,84.8]},"myles-garrett":{"n":"Myles Garrett","p":"DE","t":"CLE","g":"DL","s":[[2017,"CLE",11,0,0,0,0,0,0,0,0,0,0,0,0,0],[2018,"CLE",16,0,0,0,0,0,0,0,0,0,0,0,0,0],[2019,"CLE",10,0,0,0,0,0,0,0,0,0,0,0,0,0],[2020,"CLE",14,0,0,0,0,0,0,0,0,0,0,0,0,0],[2021,"CLE",17,0,0,0,0,0,0,0,0,0,0,0,0,0],[2022,"CLE",16,0,0,0,0,0,0,0,0,0,0,0,0,0],[2023,"CLE",15,0,0,0,0,0,0,0,0,0,0,0,0,0],[2024,"CLE",15,0,0,0,0,0,0,0,0,0,0,0,0,0],[2025,"CLE",17,0,0,0,0,0,0,0,0,0,0,0,0,0]],"c":[131,0,0,0,0,0,0,0,0,0,0,0,0,0],"l":[2025,"CLE",17,0,0,0,0,0,0,0,0,0,0,0,0,0]},"nico-collins":{"n":"Nico Collins","p":"WR","t":"HOU","g":"WR","s":[[2021,"HOU",14,0,0,0,0,0,0,0,0,33,60,446,1,83.6],[2022,"HOU",10,0,0,0,0,0,0,0,0,37,66,481,2,97.1],[2023,"HOU",15,0,0,0,0,0,1,7,0,80,109,1297,8,260.4],[2024,"HOU",12,0,0,0,0,0,0,0,0,68,99,1006,7,210.6],[2025,"HOU",15,0,0,0,0,0,2,15,1,71,120,1117,6,226.2]],"c":[66,0,0,0,0,0,3,22,1,289,454,4347,24,877.9],"l":[2025,"HOU",15,0,0,0,0,0,2,15,1,71,120,1117,6,226.2]},"omar-cooper-jr":{"n":"Omar Cooper Jr.","note":"Enters the league in 2026 \u2014 no NFL stats yet."},"omarion-hampton":{"n":"Omarion Hampton","p":"RB","t":"LAC","g":"RB","s":[[2025,"LAC",9,0,0,0,0,0,124,545,4,32,35,192,1,135.7]],"c":[9,0,0,0,0,0,124,545,4,32,35,192,1,135.7],"l":[2025,"LAC",9,0,0,0,0,0,124,545,4,32,35,192,1,135.7]},"parker-washington":{"n":"Parker Washington","p":"WR","t":"JAX","g":"WR","s":[[2023,"JAX",8,0,0,0,0,0,0,0,0,16,21,132,2,39.2],[2024,"JAX",14,0,0,0,0,0,0,0,0,32,51,390,3,97],[2025,"JAX",16,0,0,0,0,0,7,0,0,58,95,847,5,184.7]],"c":[38,0,0,0,0,0,7,0,0,106,167,1369,10,320.9],"l":[2025,"JAX",16,0,0,0,0,0,7,0,0,58,95,847,5,184.7]},"patrick-mahomes":{"n":"Patrick Mahomes","p":"QB","t":"KC","g":"QB","s":[[2017,"KC",1,22,35,284,0,1,7,10,0,0,0,0,0,10.4],[2018,"KC",16,383,580,5097,50,12,60,272,2,0,0,0,0,417.1],[2019,"KC",14,319,484,4031,26,5,43,218,2,0,0,0,0,287.0],[2020,"KC",15,390,588,4740,38,6,62,308,2,0,2,0,0,374.4],[2021,"KC",17,436,658,4839,37,13,66,381,2,0,0,0,0,361.7],[2022,"KC",17,435,648,5250,41,12,61,358,4,1,1,6,0,417.4],[2023,"KC",16,401,597,4183,27,14,75,389,0,0,0,0,0,280.2],[2024,"KC",16,392,581,3928,26,11,58,307,2,1,1,2,0,283.0],[2025,"KC",14,315,502,3587,22,11,64,422,5,1,1,-10,0,285.7]],"c":[126,3093,4673,35939,267,85,496,2665,19,3,5,-2,0,2716.9],"l":[2025,"KC",14,315,502,3587,22,11,64,422,5,1,1,-10,0,285.7]},"puka-nacua":{"n":"Puka Nacua","p":"WR","t":"LA","g":"WR","s":[[2023,"LA",17,0,0,0,0,0,12,89,0,105,160,1486,6,298.5],[2024,"LA",11,0,0,0,0,0,11,46,1,79,106,990,3,206.6],[2025,"LA",16,0,0,0,0,0,10,105,1,129,166,1715,10,375]],"c":[44,0,0,0,0,0,33,240,2,313,432,4191,19,880.1],"l":[2025,"LA",16,0,0,0,0,0,10,105,1,129,166,1715,10,375]},"rachaad-white":{"n":"Rachaad White","p":"RB","t":"TB","g":"RB","s":[[2022,"TB",17,0,0,0,0,0,129,481,1,50,58,290,2,141.1],[2023,"TB",17,0,0,0,0,0,272,990,6,64,70,549,3,267.9],[2024,"TB",15,0,0,0,0,0,144,613,3,51,57,393,6,199.6],[2025,"TB",17,0,0,0,0,0,132,572,4,40,45,218,0,143]],"c":[66,0,0,0,0,0,677,2656,14,205,230,1450,11,751.6],"l":[2025,"TB",17,0,0,0,0,0,132,572,4,40,45,218,0,143]},"rashee-rice":{"n":"Rashee Rice","p":"WR","t":"KC","g":"WR","s":[[2023,"KC",16,0,0,0,0,0,1,-3,0,79,102,938,7,212.5],[2024,"KC",4,0,0,0,0,0,1,1,0,24,29,288,2,64.9],[2025,"KC",8,0,0,0,0,0,5,20,1,53,78,571,5,150.1]],"c":[28,0,0,0,0,0,7,18,1,156,209,1797,14,427.5],"l":[2025,"KC",8,0,0,0,0,0,5,20,1,53,78,571,5,150.1]},"rome-odunze":{"n":"Rome Odunze","p":"WR","t":"CHI","g":"WR","s":[[2024,"CHI",17,0,0,0,0,0,3,15,0,54,101,734,3,144.9],[2025,"CHI",12,0,0,0,0,0,0,0,0,44,90,661,6,146.1]],"c":[29,0,0,0,0,0,3,15,0,98,191,1395,9,291.0],"l":[2025,"CHI",12,0,0,0,0,0,0,0,0,44,90,661,6,146.1]},"ryan-flournoy":{"n":"Ryan Flournoy","p":"WR","t":"DAL","g":"WR","s":[[2024,"DAL",9,0,0,0,0,0,0,0,0,10,14,102,0,18.2],[2025,"DAL",15,0,0,0,0,0,4,25,0,40,56,475,4,114]],"c":[24,0,0,0,0,0,4,25,0,50,70,577,4,132.2],"l":[2025,"DAL",15,0,0,0,0,0,4,25,0,40,56,475,4,114]},"sam-laporta":{"n":"Sam LaPorta","p":"TE","t":"DET","g":"TE","s":[[2023,"DET",17,0,0,0,0,0,1,4,0,86,120,889,10,239.3],[2024,"DET",16,0,0,0,0,0,0,0,0,60,83,726,7,174.6],[2025,"DET",9,0,0,0,0,0,0,0,0,40,49,489,3,106.9]],"c":[42,0,0,0,0,0,1,4,0,186,252,2104,20,520.8],"l":[2025,"DET",9,0,0,0,0,0,0,0,0,40,49,489,3,106.9]},"t-j-hockenson":{"n":"T.J. Hockenson","p":"TE","t":"MIN","g":"TE","s":[[2019,"DET",12,0,0,0,0,0,0,0,0,32,59,367,2,80.7],[2020,"DET",16,0,0,0,0,0,1,0,0,67,101,723,6,175.3],[2021,"DET",12,0,0,0,0,0,0,0,0,61,84,583,4,145.3],[2022,"MIN",17,0,0,0,0,0,0,0,0,86,129,914,6,217.4],[2023,"MIN",15,0,0,0,0,0,0,0,0,95,127,960,5,219],[2024,"MIN",10,0,0,0,0,0,0,0,0,41,62,455,0,86.5],[2025,"MIN",15,0,0,0,0,0,1,0,0,51,66,438,3,112.8]],"c":[97,0,0,0,0,0,2,0,0,433,628,4440,26,1037.0],"l":[2025,"MIN",15,0,0,0,0,0,1,0,0,51,66,438,3,112.8]},"travis-etienne-jr":{"n":"Travis Etienne Jr.","p":"RB","t":"JAX","g":"RB","s":[[2022,"JAX",17,0,0,0,0,0,220,1125,5,35,45,316,0,205.1],[2023,"JAX",17,0,0,0,0,0,267,1008,11,58,73,476,1,282.4],[2024,"JAX",15,0,0,0,0,0,150,558,2,39,52,254,0,130.2],[2025,"JAX",17,0,0,0,0,0,260,1107,7,36,52,292,6,253.9]],"c":[66,0,0,0,0,0,897,3798,25,168,222,1338,7,871.6],"l":[2025,"JAX",17,0,0,0,0,0,260,1107,7,36,52,292,6,253.9]},"travis-kelce":{"n":"Travis Kelce","p":"TE","t":"KC","g":"TE","s":[[2014,"KC",16,0,0,0,0,0,0,0,0,67,87,862,5,177.2],[2015,"KC",16,0,0,0,0,0,0,0,0,72,103,875,5,189.5],[2016,"KC",16,0,0,0,0,0,1,-5,0,85,117,1125,4,223],[2017,"KC",15,0,1,0,0,1,2,7,0,83,122,1038,8,233.5],[2018,"KC",16,0,0,0,0,0,0,0,0,103,150,1336,10,294.6],[2019,"KC",16,0,0,0,0,0,1,4,1,97,136,1229,5,254.3],[2020,"KC",15,1,2,4,0,0,0,0,0,105,145,1416,11,312.8],[2021,"KC",16,0,0,0,0,0,2,3,1,92,134,1125,9,262.8],[2022,"KC",17,0,0,0,0,0,2,5,0,110,152,1338,12,316.3],[2023,"KC",15,0,0,0,0,0,0,0,0,93,121,984,5,219.4],[2024,"KC",16,0,0,0,0,0,1,1,0,97,133,823,3,195.4],[2025,"KC",17,0,0,0,0,0,1,1,0,76,108,851,5,193.2]],"c":[191,1,3,4,0,1,10,16,2,1080,1508,13002,82,2872.0],"l":[2025,"KC",17,0,0,0,0,0,1,1,0,76,108,851,5,193.2]},"treveyon-henderson":{"n":"TreVeyon Henderson","p":"RB","t":"NE","g":"RB","s":[[2025,"NE",17,0,0,0,0,0,180,911,9,35,42,221,1,206.2]],"c":[17,0,0,0,0,0,180,911,9,35,42,221,1,206.2],"l":[2025,"NE",17,0,0,0,0,0,180,911,9,35,42,221,1,206.2]},"trevor-lawrence":{"n":"Trevor Lawrence","p":"QB","t":"JAX","g":"QB","s":[[2021,"JAX",17,359,602,3641,12,17,73,334,2,0,0,0,0,199.0],[2022,"JAX",17,387,584,4113,25,8,62,291,5,0,0,0,0,295.6],[2023,"JAX",16,370,564,4016,21,14,70,339,4,0,0,0,0,262.5],[2024,"JAX",10,172,284,2045,11,7,26,119,3,0,0,-5,0,145.2],[2025,"JAX",17,341,560,4007,29,12,82,359,9,0,0,0,0,338.2]],"c":[77,1629,2594,17822,98,58,313,1442,23,0,0,-5,0,1240.5],"l":[2025,"JAX",17,341,560,4007,29,12,82,359,9,0,0,0,0,338.2]},"trey-benson":{"n":"Trey Benson","p":"RB","t":"ARI","g":"RB","s":[[2024,"ARI",12,0,0,0,0,0,63,291,1,6,6,59,0,47],[2025,"ARI",4,0,0,0,0,0,29,160,0,13,16,64,0,35.4]],"c":[16,0,0,0,0,0,92,451,1,19,22,123,0,82.4],"l":[2025,"ARI",4,0,0,0,0,0,29,160,0,13,16,64,0,35.4]},"trey-mcbride":{"n":"Trey McBride","p":"TE","t":"ARI","g":"TE","s":[[2022,"ARI",12,0,0,0,0,0,0,0,0,29,39,265,1,61.5],[2023,"ARI",17,0,0,0,0,0,0,0,0,81,106,825,3,181.5],[2024,"ARI",16,0,0,0,0,0,1,2,1,111,147,1146,2,243.8],[2025,"ARI",17,0,0,0,0,0,0,0,0,126,169,1239,11,315.9]],"c":[62,0,0,0,0,0,1,2,1,347,461,3475,17,802.7],"l":[2025,"ARI",17,0,0,0,0,0,0,0,0,126,169,1239,11,315.9]},"tucker-kraft":{"n":"Tucker Kraft","p":"TE","t":"GB","g":"TE","s":[[2023,"GB",14,0,0,0,0,0,0,0,0,31,40,355,2,78.5],[2024,"GB",17,0,0,0,0,0,3,6,0,50,70,707,7,163.3],[2025,"GB",8,0,0,0,0,0,1,3,0,32,44,489,6,117.2]],"c":[39,0,0,0,0,0,4,9,0,113,154,1551,15,359.0],"l":[2025,"GB",8,0,0,0,0,0,1,3,0,32,44,489,6,117.2]},"ty-simpson":{"n":"Ty Simpson","note":"Enters the league in 2026 \u2014 no NFL stats yet."},"tyler-shough":{"n":"Tyler Shough","p":"QB","t":"NO","g":"QB","s":[[2025,"NO",11,221,327,2384,10,6,45,186,3,0,0,0,0,158.0]],"c":[11,221,327,2384,10,6,45,186,3,0,0,0,0,158.0],"l":[2025,"NO",11,221,327,2384,10,6,45,186,3,0,0,0,0,158.0]},"tyler-warren":{"n":"Tyler Warren","p":"TE","t":"IND","g":"TE","s":[[2025,"IND",17,0,1,0,0,0,6,8,1,76,112,817,4,188.5]],"c":[17,0,1,0,0,0,6,8,1,76,112,817,4,188.5],"l":[2025,"IND",17,0,1,0,0,0,6,8,1,76,112,817,4,188.5]},"zach-charbonnet":{"n":"Zach Charbonnet","p":"RB","t":"SEA","g":"RB","s":[[2023,"SEA",16,0,0,0,0,0,108,462,1,33,40,209,0,106.1],[2024,"SEA",17,0,0,0,0,0,135,569,8,42,52,340,1,186.9],[2025,"SEA",16,0,0,0,0,0,184,730,12,20,24,144,0,181.4]],"c":[49,0,0,0,0,0,427,1761,21,95,116,693,1,474.4],"l":[2025,"SEA",16,0,0,0,0,0,184,730,12,20,24,144,0,181.4]}}</script>
+
 <footer>
   <div class="wrap">
     <span class="fmark">The Board <b>·</b> 2026</span>
@@ -1462,5 +1531,139 @@
     });
 
     show(location.hash.replace('#',''));
+  })();
+</script>
+
+<script>
+  /* Player sheets: one node, relocated to whichever row was clicked. */
+  (function(){
+    var el = document.getElementById('player-data');
+    if (!el) return;
+    var DATA = JSON.parse(el.textContent);
+
+    // index into a season/career line (season rows are sliced to match career)
+    var F = { g:0, cmp:1, att:2, pyd:3, ptd:4, int:5, car:6, ryd:7, rtd:8,
+              rec:9, tgt:10, cyd:11, ctd:12, ppr:13 };
+
+    var COLS = {
+      QB:  [['G','g'],['CMP','cmp'],['ATT','att'],['PASS YDS','pyd'],['TD','ptd'],
+            ['INT','int'],['RUSH','ryd'],['RTD','rtd'],['PPR','ppr']],
+      RB:  [['G','g'],['CAR','car'],['RUSH YDS','ryd'],['TD','rtd'],['REC','rec'],
+            ['TGT','tgt'],['REC YDS','cyd'],['RTD','ctd'],['PPR','ppr']],
+      REC: [['G','g'],['REC','rec'],['TGT','tgt'],['REC YDS','cyd'],['TD','ctd'],
+            ['CAR','car'],['RUSH','ryd'],['PPR','ppr']]
+    };
+
+    function colsFor(p){
+      if (p.g === 'QB' || p.p === 'QB') return COLS.QB;
+      if (p.g === 'RB' || p.p === 'RB' || p.p === 'FB') return COLS.RB;
+      return COLS.REC;
+    }
+
+    function esc(t){ return String(t).replace(/[&<>]/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]; }); }
+
+    function statList(line, cols){
+      if (!line) return '<p class="sheet-note">Did not play.</p>';
+      return '<dl class="sheet-stats">' + cols.map(function(c){
+        return '<div><dt>' + c[0] + '</dt><dd>' + line[F[c[1]]] + '</dd></div>';
+      }).join('') + '</dl>';
+    }
+
+    function build(key){
+      var p = DATA[key];
+      if (!p) return null;
+      var wrap = document.createElement('div');
+      wrap.className = 'sheet';
+
+      var head = '<div class="sheet-head"><span class="sheet-name">' + esc(p.n) + '</span>' +
+        (p.p ? '<span class="sheet-meta">' + esc(p.p) + ' · ' + esc(p.t) + '</span>' : '') +
+        '<button class="sheet-x" type="button">Close</button></div>';
+
+      if (p.note){ wrap.innerHTML = head + '<p class="sheet-note">' + esc(p.note) + '</p>'; return wrap; }
+
+      var cols = colsFor(p);
+      var last = p.l ? p.l.slice(2) : null;
+
+      var rows = p.s.map(function(r){
+        var v = r.slice(2);
+        return '<tr><td class="yr">' + r[0] + '</td><td class="yr">' + esc(r[1]) + '</td>' +
+          cols.map(function(c){ return '<td class="num">' + v[F[c[1]]] + '</td>'; }).join('') + '</tr>';
+      }).join('');
+
+      var career = '<tr class="career"><td class="yr">Career</td><td class="yr">' + p.s.length + ' yr</td>' +
+        cols.map(function(c){ return '<td class="num">' + p.c[F[c[1]]] + '</td>'; }).join('') + '</tr>';
+
+      wrap.innerHTML = head +
+        '<div class="sheet-heads">' +
+          '<div class="sheet-col hi"><p class="sheet-lbl">2025</p>' + statList(last, cols) + '</div>' +
+          '<div class="sheet-col"><p class="sheet-lbl">Career</p>' + statList(p.c, cols) + '</div>' +
+        '</div>' +
+        '<div class="tablewrap"><table class="sheet-tbl"><thead><tr><th>Season</th><th>Tm</th>' +
+        cols.map(function(c){ return '<th class="num">' + c[0] + '</th>'; }).join('') +
+        '</tr></thead><tbody>' + rows + career + '</tbody></table></div>';
+      return wrap;
+    }
+
+    /* Where the sheet goes depends on what kind of row was clicked. Mock lists
+       are a column-flow grid, so an inline insert would reorder them — those
+       attach after the whole list instead. */
+    function mount(btn, sheet){
+      var tr = btn.closest('tr');
+      if (tr && !tr.closest('.sheet-tbl')){
+        var host = document.createElement('tr');
+        host.className = 'sheet-tr';
+        var cell = document.createElement('td');
+        cell.colSpan = tr.children.length;
+        cell.appendChild(sheet);
+        host.appendChild(cell);
+        tr.after(host);
+        return host;
+      }
+      var anchor = btn.closest('.tier') || btn.closest('.pcard') ||
+                   btn.closest('.mock') || btn.closest('.move');
+      if (!anchor) return null;
+      var host = document.createElement('div');
+      host.className = 'sheet-wrap';
+      host.appendChild(sheet);
+      anchor.after(host);
+      return host;
+    }
+
+    var openBtn = null, openHost = null;
+
+    function close(refocus){
+      if (openHost) openHost.remove();
+      if (openBtn){
+        openBtn.setAttribute('aria-expanded', 'false');
+        if (refocus) openBtn.focus();
+      }
+      openBtn = null; openHost = null;
+    }
+
+    document.addEventListener('click', function(e){
+      if (e.target.closest && e.target.closest('.sheet-x')){ close(true); return; }
+      var btn = e.target.closest && e.target.closest('.pl');
+      if (!btn) return;
+      e.preventDefault();
+      var same = (btn === openBtn);
+      close(false);
+      if (same) return;
+      var sheet = build(btn.dataset.p);
+      if (!sheet) return;
+      var host = mount(btn, sheet);
+      if (!host) return;
+      openBtn = btn; openHost = host;
+      btn.setAttribute('aria-expanded', 'true');
+      sheet.setAttribute('tabindex', '-1');
+      sheet.focus({ preventScroll: true });
+    });
+
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && openBtn) close(true);
+    });
+
+    // a section change must not leave an orphaned sheet behind
+    window.addEventListener('hashchange', function(){ close(false); });
   })();
 </script>

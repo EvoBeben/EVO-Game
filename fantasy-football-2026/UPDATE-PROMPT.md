@@ -47,14 +47,18 @@ Names panel; defense runs Board, Moves, Streamers). Board is the landing tab. If
 tab button's `aria-controls` and the panel's `id` in sync; exactly one panel per
 view carries the `active` class, and it must be the one the first tab controls.
 
-## Regenerating the PDF
+## Player stats
 
-`./build-pdf.sh` rebuilds `The-Board-2026.pdf` from `index.html`. It extracts
-every panel in tab order, so the PDF cannot drift from the dashboard. Two render
-passes: the first finds where sections land, the second bakes those page numbers
-into the contents. It fails loudly if a panel is unreachable from any tab, if the
-contents drift, or if a page comes out blank. Run it after any content edit you
-want reflected on paper.
+`python3 build-data.py` embeds real per-season and career stats from nflverse and
+wraps every player name in a clickable button. Content and data are generated in
+one pass, so they cannot drift. Season CSVs cache in `.cache/` (gitignored), so
+repeat builds are offline-fast.
+
+Run it after adding or renaming any player. It **fails loudly** on a name it cannot
+resolve rather than shipping a blank sheet — fix by adding the name to `NON_PLAYERS`
+(teams, coaches), `ALIASES` (page spelling vs nflverse spelling), or `NO_STATS`
+(no NFL line yet, with the reason). It also reports any name collision it resolved;
+the data contains a different Josh Allen and a different Lamar Jackson.
 
 ## When the season starts
 
