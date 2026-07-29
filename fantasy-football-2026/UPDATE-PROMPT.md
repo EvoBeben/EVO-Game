@@ -14,11 +14,11 @@ RULES
 - If nothing material changed: reply "NO CHANGES", make no edits, no commit, stop.
 
 WATCH (only these move the page)
-Mahomes Week 1 status | Nabers return date | Charbonnet PUP -> Jadarian Price role | Rashee Rice availability | JAX RB split (Tuten/Rodriguez) | CHI WR split (Odunze/Burden/Loveland) | Brian Thomas Jr role | ARI RB split (Love/Conner/Benson) | LV starting QB | defense: any Tier 1 unit losing a starter to IR | any trade, IR or suspension for a player named on the page
+Mahomes Week 1 status | Nabers Week 1 status (now trending yes) | Charbonnet return (now Oct-Nov; earlier would cut Jadarian Price) | Rashee Rice availability | JAX RB split (Tuten leading; Rodriguez foot) | CHI WR split (Odunze/Burden/Loveland) | Brian Thomas Jr role | ARI RB split (Love/Conner/Benson) | Raiders QB (Cousins named starter 28 Jul; a change would move Bowers and Mendoza) | defense: any Tier 1 unit losing a starter to IR | any trade, IR or suspension for a player named on the page
 
 IF CHANGED
 1. Edit only the affected lines. House voice: short claims, no adjectives, numbers where you have them.
-2. Edit "25 July 2026" -> today's date, replace_all (3 occurrences: hero kicker, sources note, footer).
+2. Edit "28 July 2026" -> today's date, replace_all (3 occurrences: hero kicker, sources note, footer).
 3. Republish: Artifact tool, that file_path, url https://claude.ai/code/artifact/b83b0771-0cda-4cb9-95cd-51cc2fd5342f, favicon 🏈
 4. Commit and push to branch claude/fantasy-football-breakdown-t9bnfk.
 5. Reply: one line per change, nothing else.

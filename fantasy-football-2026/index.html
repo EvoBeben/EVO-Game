@@ -12,6 +12,12 @@
     --rule:#241C12;
     --rule-2:#3C2F1E;
 
+    --qb:#C2603C;                 /* rust  */
+    --rb:#9CAE58;                 /* moss  */
+    --wr:#D9A441;                 /* amber, doubles as house chrome */
+    --te:#BE7FA8;                 /* plum  */
+    --dst:#94856C;                /* bronze */
+
     --amber:#D9A441;
     --amber-hi:#EFC169;
     --ochre:#C4872F;
@@ -90,7 +96,7 @@
 
   /* ================= masthead ================= */
   .hero{ border-bottom:0; position:relative; }
-  .hero-in{ padding:34px 0 26px; }
+  .hero-in{ padding:26px 0 18px; }
   .kicker{
     font-family:var(--data); font-size:9.5px; letter-spacing:.26em; text-transform:uppercase;
     color:var(--gold-dim); margin:0 0 12px;
@@ -112,24 +118,35 @@
       var(--gold-dim) 0 2px, transparent 2px 26px);
     opacity:.5;
   }
-  .legend{ display:none; }
+
+  .legend{ display:flex; flex-wrap:wrap; gap:14px; margin:14px 0 0; padding:0; list-style:none; }
+  .legend li{
+    display:flex; align-items:center; gap:7px; font-family:var(--data);
+    font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--dim);
+  }
+  .swatch{ width:8px; height:8px; flex:none; }
 
   /* ================= index buttons ================= */
-  .toc{ padding:30px 0 40px; }
+  .toc{ padding:22px 0 30px; }
   .toc-lbl{
     font-family:var(--data); font-size:9.5px; letter-spacing:.26em; text-transform:uppercase;
     color:var(--gold-dim); max-width:none; margin:0 0 12px; padding:0; border:0;
   }
-  .toc-grid + .toc-lbl{ margin-top:28px; }
+  .toc-grid + .toc-lbl{ margin-top:20px; }
   .toc-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
   .toc-card{
     display:flex; align-items:center; justify-content:space-between; gap:10px;
-    min-height:66px; padding:0 16px; border:1px solid var(--gold-dim); background:transparent;
+    min-height:60px; padding:0 16px; border:1px solid var(--gold-dim); background:transparent;
     color:var(--gold); text-decoration:none; cursor:pointer;
     font-family:var(--display); font-weight:700; font-size:.82rem;
     letter-spacing:.075em; text-transform:uppercase; line-height:1.2;
     transition:background .16s ease, color .16s ease, border-color .16s ease;
   }
+  .toc-card[data-pos="RB"]{ --pc:var(--rb); } .toc-card[data-pos="WR"]{ --pc:var(--wr); }
+  .toc-card[data-pos="TE"]{ --pc:var(--te); } .toc-card[data-pos="QB"]{ --pc:var(--qb); }
+  .toc-card[data-pos="DST"]{ --pc:var(--dst); }
+  .toc-card[data-pos]{ border-color:color-mix(in srgb, var(--pc) 52%, transparent); color:var(--pc); }
+  .toc-card[data-pos]:hover{ background:var(--pc); border-color:var(--pc); color:var(--ground); }
   .toc-card::before{ content:none; }
   .toc-card::after{ content:"›"; font-size:1.15rem; line-height:1; color:inherit; opacity:.55; }
   .toc-card:hover{ background:var(--amber); color:var(--ground); border-color:var(--amber); }
@@ -281,7 +298,7 @@
     margin-left:auto; font-family:var(--data); font-size:9.5px; letter-spacing:.14em; text-transform:uppercase;
     padding:0; border-radius:0; background:none; font-weight:400;
   }
-  .v-RB, .v-WR{ color:var(--gold); } .v-any{ color:var(--dim); }
+  .v-RB{ color:var(--rb); } .v-WR{ color:var(--wr); } .v-any{ color:var(--dim); }
   .slot p{ font-size:.88rem; line-height:1.5; margin:0; color:var(--muted); max-width:none; }
 
   /* ================= mocks ================= */
@@ -311,8 +328,9 @@
     font-family:var(--data); font-size:9.5px; font-weight:400; letter-spacing:.14em;
     padding:0; border-radius:0; background:none;
   }
-  .p-QB, .p-RB, .p-WR, .p-TE{ color:var(--gold); }
-  .p-DST, .p-K{ color:var(--dim); }
+  .p-QB{ color:var(--qb); } .p-RB{ color:var(--rb); }
+  .p-WR{ color:var(--wr); } .p-TE{ color:var(--te); }
+  .p-DST{ color:var(--dst); } .p-K{ color:var(--dim); }
 
   /* ================= sources ================= */
   .srcgrid{ columns:4; column-gap:28px; margin:0; list-style:none; padding:0; }
@@ -412,9 +430,16 @@
 <div class="view active" id="v-home" data-name="">
   <div class="hero">
     <div class="wrap hero-in">
-      <p class="kicker">2026 Season · Draft Guide · 25 July 2026</p>
+      <p class="kicker">2026 Season · Draft Guide · 28 July 2026</p>
       <h1>Everything you need before you're <em>on the clock</em></h1>
       <p class="standfirst">Ten sections. Pick one.</p>
+      <ul class="legend">
+        <li><span class="swatch" style="background:var(--rb)"></span> RB</li>
+        <li><span class="swatch" style="background:var(--wr)"></span> WR</li>
+        <li><span class="swatch" style="background:var(--te)"></span> TE</li>
+        <li><span class="swatch" style="background:var(--qb)"></span> QB</li>
+        <li><span class="swatch" style="background:var(--dst)"></span> DEF</li>
+      </ul>
     </div>
     <div class="hashes" aria-hidden="true"></div>
   </div>
@@ -428,11 +453,11 @@
 
     <p class="toc-lbl">Position Files</p>
     <div class="toc-grid">
-      <a class="toc-card" href="#rb">Running Back</a>
-      <a class="toc-card" href="#wr">Wide Receiver</a>
-      <a class="toc-card" href="#te">Tight End</a>
-      <a class="toc-card" href="#qb">Quarterback</a>
-      <a class="toc-card" href="#def">Defense</a>
+      <a class="toc-card" data-pos="RB" href="#rb">Running Back</a>
+      <a class="toc-card" data-pos="WR" href="#wr">Wide Receiver</a>
+      <a class="toc-card" data-pos="TE" href="#te">Tight End</a>
+      <a class="toc-card" data-pos="QB" href="#qb">Quarterback</a>
+      <a class="toc-card" data-pos="DST" href="#def">Defense</a>
     </div>
 
     <p class="toc-lbl">Draft Day</p>
@@ -526,7 +551,7 @@
 </div>
 
 <!-- ==================== 03 · RUNNING BACK ==================== -->
-<div class="view" id="v-rb" data-name="Running Back">
+<div class="view" id="v-rb" style="--pc:var(--rb)" data-name="Running Back">
   <div class="sec-head">
     <div class="wrap">
       <span class="sec-glyph">RB</span>
@@ -561,7 +586,7 @@
             </div>
             <div class="move">
               <div><span class="nm"><button class="pl" data-p="zach-charbonnet" aria-expanded="false">Zach Charbonnet</button></span><span class="path">SEA · <span class="to">PUP</span>, 22 July</span></div>
-              <p class="why">Playoff ACL tear, no timeline. Opens the door for <b>Jadarian Price</b>.</p>
+              <p class="why">Playoff ACL tear. A late-July checkup had him progressing but pointing at an <b>October–November</b> return. The job is <b>Jadarian Price's</b> for months, not weeks.</p>
         </div>
       </div>
     </div>
@@ -659,7 +684,7 @@
           <thead><tr><th>Player</th><th class="num">Pick</th><th>Read</th></tr></thead>
           <tbody>
             <tr><td class="name"><button class="pl" data-p="jeremiyah-love" aria-expanded="false">Jeremiyah Love</button> <small>ARI</small></td><td class="num">Rd 1</td><td>Highest-drafted back since Barkley. Shares with Conner and Benson. Most likely rookie to finish top-15.</td></tr>
-            <tr><td class="name"><button class="pl" data-p="jadarian-price" aria-expanded="false">Jadarian Price</button> <small>SEA</small></td><td class="num">32</td><td>Walker gone, Charbonnet on PUP. Clear path to lead back in a run-heavy offense.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="jadarian-price" aria-expanded="false">Jadarian Price</button> <small>SEA</small></td><td class="num">32</td><td>Walker gone, Charbonnet out to October–November. Clear path to lead back in a run-heavy offense, and for most of the season rather than a few weeks.</td></tr>
           </tbody>
         </table>
       </div>
@@ -671,9 +696,9 @@
           <caption>Late-round backs</caption>
           <thead><tr><th>Player</th><th class="num">Cost</th><th>Mechanism</th></tr></thead>
           <tbody>
-            <tr><td class="name"><button class="pl" data-p="bhayshul-tuten" aria-expanded="false">Bhayshul Tuten</button> <small>JAX</small></td><td class="num">~58</td><td><strong>Already true.</strong> Lead back, priced RB25.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="bhayshul-tuten" aria-expanded="false">Bhayshul Tuten</button> <small>JAX</small></td><td class="num">~58</td><td><strong>Already true.</strong> Lead back at an RB25 price, and pulling away — Rodriguez missed camp time after foot surgery.</td></tr>
             <tr><td class="name"><button class="pl" data-p="kenneth-gainwell" aria-expanded="false">Kenneth Gainwell</button> <small>TB</small></td><td class="num">~103</td><td><strong>Already true.</strong> 73 catches, and Tampa feeds its backs.</td></tr>
-            <tr><td class="name"><button class="pl" data-p="jadarian-price" aria-expanded="false">Jadarian Price</button> <small>SEA</small></td><td class="num">Rd 5–6</td><td>Needs to win camp, not an injury.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="jadarian-price" aria-expanded="false">Jadarian Price</button> <small>SEA</small></td><td class="num">Rd 5–6</td><td><strong>Already true.</strong> Charbonnet is out to October–November; the job is his.</td></tr>
             <tr><td class="name"><button class="pl" data-p="jonathon-brooks" aria-expanded="false">Jonathon Brooks</button> <small>CAR</small></td><td class="num">Rd 10</td><td>Talent was never the question. Availability was.</td></tr>
             <tr><td class="name"><button class="pl" data-p="jordan-james" aria-expanded="false">Jordan James</button> <small>SF</small></td><td class="num">Rd 14+</td><td>Handcuffed to 403 touches.</td></tr>
             <tr><td class="name"><button class="pl" data-p="keaton-mitchell" aria-expanded="false">Keaton Mitchell</button> <small>BAL</small></td><td class="num">Rd 14+</td><td>Henry's workload is the domino.</td></tr>
@@ -686,7 +711,7 @@
 </div>
 
 <!-- ==================== 04 · WIDE RECEIVER ==================== -->
-<div class="view" id="v-wr" data-name="Wide Receiver">
+<div class="view" id="v-wr" style="--pc:var(--wr)" data-name="Wide Receiver">
   <div class="sec-head">
     <div class="wrap">
       <span class="sec-glyph">WR</span>
@@ -760,7 +785,7 @@
             <span class="plr"><button class="pl" data-p="malik-nabers" aria-expanded="false">Malik Nabers</button> <span class="tm">NYG</span></span>
             <span class="plr"><button class="pl" data-p="rome-odunze" aria-expanded="false">Rome Odunze</button> <span class="tm">CHI</span></span>
           </div>
-          <p class="tier-note">Smith and Egbuka are the clean bets. Rice and Nabers are the discounts — own at most one.</p>
+          <p class="tier-note">Smith and Egbuka are the clean bets. Rice is the discount. Nabers is no longer much of one — he has a decent shot at Week 1.</p>
         </div>
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 4</span><span class="d">Rounds 5–8</span></div>
@@ -819,9 +844,9 @@
         <article class="pcard">
           <div class="pcard-head"><span class="pos-badge p-WR">WR</span><h4><button class="pl" data-p="malik-nabers" aria-expanded="false">Malik Nabers</button></h4><span class="team">NYG</span><span class="cost">Rd 3–5</span></div>
           <ul class="facts">
-            <li>Second procedure — scar tissue</li>
-            <li>Avoided PUP, may miss 4–5 games</li>
-            <li>Fine in Round 5. Not in Round 3.</li>
+            <li>Tore ACL and meniscus in Week 4</li>
+            <li>Avoided PUP; now a decent shot at Week 1</li>
+            <li>The Round 3 price finally looks fair</li>
           </ul>
         </article>
       </div>
@@ -863,7 +888,7 @@
 </div>
 
 <!-- ==================== 05 · TIGHT END ==================== -->
-<div class="view" id="v-te" data-name="Tight End">
+<div class="view" id="v-te" style="--pc:var(--te)" data-name="Tight End">
   <div class="sec-head">
     <div class="wrap">
       <span class="sec-glyph">TE</span>
@@ -917,7 +942,7 @@
             <span class="plr"><button class="pl" data-p="tucker-kraft" aria-expanded="false">Tucker Kraft</button> <span class="tm">GB</span></span>
             <span class="plr"><button class="pl" data-p="sam-laporta" aria-expanded="false">Sam LaPorta</button> <span class="tm">DET</span></span>
           </div>
-          <p class="tier-note">The trap tier. Loveland is the one exception.</p>
+          <p class="tier-note">The trap tier. Loveland is the one exception — and Tucker Kraft is expected back Week 1 from last season's ACL tear.</p>
         </div>
         <div class="tier">
           <div class="tier-label"><span class="n">Tier 3</span><span class="d">Rounds 7–10</span></div>
@@ -953,7 +978,7 @@
           <ul class="facts">
             <li>150+ targets last season</li>
             <li>Chasing McBride's record 126 catches</li>
-            <li>Rookie QB is the one risk</li>
+            <li>Kirk Cousins named starter — the veteran QB the case assumed</li>
           </ul>
         </article>
         <article class="pcard">
@@ -999,7 +1024,7 @@
 </div>
 
 <!-- ==================== 06 · QUARTERBACK ==================== -->
-<div class="view" id="v-qb" data-name="Quarterback">
+<div class="view" id="v-qb" style="--pc:var(--qb)" data-name="Quarterback">
   <div class="sec-head">
     <div class="wrap">
       <span class="sec-glyph">QB</span>
@@ -1020,7 +1045,7 @@
 <div class="panel body-list" id="p-qb-moves" role="tabpanel">
       <div class="ledger">
             <div class="move">
-              <div><span class="nm"><button class="pl" data-p="patrick-mahomes" aria-expanded="false">Patrick Mahomes</button></span><span class="path">KC · <span class="to">ACL + LCL</span>, Week 15</span></div>
+              <div><span class="nm"><button class="pl" data-p="patrick-mahomes" aria-expanded="false">Patrick Mahomes</button></span><span class="path">KC · <span class="to">torn ACL</span>, Week 15</span></div>
               <p class="why">Cleared to practice, targeting Week 1. Was <b>QB4 at 21.2 PPG</b> before it.</p>
             </div>
             <div class="move">
@@ -1033,7 +1058,7 @@
             </div>
             <div class="move">
               <div><span class="nm"><button class="pl" data-p="fernando-mendoza" aria-expanded="false">Fernando Mendoza</button></span><span class="path">Indiana → <span class="to">LV</span> · No. 1</span></div>
-              <p class="why">Matters more for Bowers than for your lineup.</p>
+              <p class="why">Opens camp behind <b>Kirk Cousins</b>, who Klint Kubiak named the starter on 28 July.</p>
         </div>
       </div>
     </div>
@@ -1077,8 +1102,7 @@
             <span class="plr"><button class="pl" data-p="tyler-shough" aria-expanded="false">Tyler Shough</button> <span class="tm">NO</span></span>
             <span class="plr"><button class="pl" data-p="cam-ward" aria-expanded="false">Cam Ward</button> <span class="tm">TEN</span></span>
             <span class="plr"><button class="pl" data-p="malik-willis" aria-expanded="false">Malik Willis</button> <span class="tm">MIA</span></span>
-            <span class="plr"><button class="pl" data-p="fernando-mendoza" aria-expanded="false">Fernando Mendoza</button> <span class="tm">LV</span></span>
-            <span class="plr"><button class="pl" data-p="jacoby-brissett" aria-expanded="false">Jacoby Brissett</button> <span class="tm">—</span></span>
+            <span class="plr"><button class="pl" data-p="jacoby-brissett" aria-expanded="false">Jacoby Brissett</button> <span class="tm">ARI</span></span>
           </div>
         </div>
       </div>
@@ -1090,7 +1114,7 @@
           <caption>2026 class · quarterbacks</caption>
           <thead><tr><th>Player</th><th class="num">Pick</th><th>Read</th></tr></thead>
           <tbody>
-            <tr><td class="name"><button class="pl" data-p="fernando-mendoza" aria-expanded="false">Fernando Mendoza</button> <small>LV</small></td><td class="num">1</td><td>Heisman winner, first overall. QB2 value in the right matchups. Matters more for Bowers.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="fernando-mendoza" aria-expanded="false">Fernando Mendoza</button> <small>LV</small></td><td class="num">1</td><td>Heisman winner, first overall — and opening camp behind Kirk Cousins. Not a streamer until that changes. Cousins starting is the better news for Brock Bowers.</td></tr>
             <tr><td class="name"><button class="pl" data-p="ty-simpson" aria-expanded="false">Ty Simpson</button> <small>—</small></td><td class="num">Rd 1</td><td>Dynasty stash only. Leave him on the board in redraft.</td></tr>
           </tbody>
         </table>
@@ -1107,6 +1131,7 @@
             <tr><td class="name"><button class="pl" data-p="jaxson-dart" aria-expanded="false">Jaxson Dart</button> <small>NYG</small></td><td class="num">Rd 9–11</td><td>8th-most PPG at the position from Week 4 on.</td></tr>
             <tr><td class="name"><button class="pl" data-p="tyler-shough" aria-expanded="false">Tyler Shough</button> <small>NO</small></td><td class="num">Rd 13+</td><td>QB12 in PPG across nine rookie starts. Now has Tyson.</td></tr>
             <tr><td class="name"><button class="pl" data-p="malik-willis" aria-expanded="false">Malik Willis</button> <small>MIA</small></td><td class="num">11.11</td><td>Rushing ceiling in any week he starts.</td></tr>
+            <tr><td class="name"><button class="pl" data-p="jacoby-brissett" aria-expanded="false">Jacoby Brissett</button> <small>ARI</small></td><td class="num">Rd 15+</td><td>Signed a one-year, $15.5M deal with Arizona on 28 July. Streaming-only, but the contract question is settled.</td></tr>
           </tbody>
         </table>
       </div>
@@ -1116,7 +1141,7 @@
 </div>
 
 <!-- ==================== 07 · DEFENSE ==================== -->
-<div class="view" id="v-def" data-name="Defense">
+<div class="view" id="v-def" style="--pc:var(--dst)" data-name="Defense">
   <div class="sec-head">
     <div class="wrap">
       <span class="sec-glyph">DEF</span>
@@ -1425,7 +1450,7 @@
   </div>
   <div class="wrap body-brief">
     <div class="stack">
-      <p>Consensus-leaning composites from established outlets, not any single board. Where credible shops disagreed — tight end especially — the disagreement is shown. ADP and injury status are perishable: this is the picture as of <strong>25 July 2026</strong>.</p>
+      <p>Consensus-leaning composites from established outlets, not any single board. Where credible shops disagreed — tight end especially — the disagreement is shown. ADP and injury status are perishable: this is the picture as of <strong>28 July 2026</strong>.</p>
       <ul class="srcgrid">
         <li><a href="https://www.nfl.com/news/fantasy-football-wr-rankings-for-2026-nfl-season-draft-tiers-and-analysis">NFL.com — WR rankings and tiers</a></li>
         <li><a href="https://www.nfl.com/news/fantasy-football-qb-rankings-for-2026-nfl-season-draft-tiers-and-analysis">NFL.com — QB rankings and tiers</a></li>
@@ -1485,7 +1510,7 @@
 <footer>
   <div class="wrap">
     <span class="fmark">The Board <b>·</b> 2026</span>
-    <span>25 July 2026 · Re-verify injuries before drafting.</span>
+    <span>28 July 2026 · Re-verify injuries before drafting.</span>
   </div>
 </footer>
 
@@ -1575,6 +1600,8 @@
       if (!p) return null;
       var wrap = document.createElement('div');
       wrap.className = 'sheet';
+      var hue = { QB:'qb', RB:'rb', FB:'rb', WR:'wr', TE:'te' }[p.p];
+      if (hue) wrap.style.setProperty('--pc', 'var(--' + hue + ')');
 
       var head = '<div class="sheet-head"><span class="sheet-name">' + esc(p.n) + '</span>' +
         (p.p ? '<span class="sheet-meta">' + esc(p.p) + ' · ' + esc(p.t) + '</span>' : '') +
