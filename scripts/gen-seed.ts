@@ -283,9 +283,6 @@ function buildProduct(entry: CatalogEntry, index: number): SeedProduct {
 
   for (const store of storesForProduct) {
     const profile = STORE_PROFILES[store.slug];
-    const todayMultiplier = shortageMultiplier(0, entry.shortageBeta);
-    const reference = entry.basePrice * todayMultiplier * profile.priceBias;
-    const price = Math.round(jitter(reference, 0.045) * 100) / 100;
 
     // Scarcity tracks the shortage: memory is far harder to find than a PSU.
     const scarcity = Math.min(0.85, profile.scarcity * (1 + entry.shortageBeta * 1.4));
@@ -325,11 +322,17 @@ function buildProduct(entry: CatalogEntry, index: number): SeedProduct {
 
     history[store.slug] = points;
 
+    // The live pipeline writes an offer and its newest history point together,
+    // so they always agree. Take the current price from the final point rather
+    // than generating it separately — otherwise the two differ by generator
+    // noise and every 7-day change on the site is that noise, not the curve.
+    const latest = points[points.length - 1];
+
     offers.push({
       storeSlug: store.slug,
       url: `${store.homepage}/product/${slug}`,
       storeSku: `${store.slug.slice(0, 3).toUpperCase()}${100000 + index * 7 + STORES.indexOf(store)}`,
-      priceCents: stockStatus === 'out_of_stock' && rng() < 0.3 ? null : Math.round(price * 100),
+      priceCents: latest?.priceCents ?? null,
       listPriceCents: Math.round(entry.basePrice * 100),
       shippingCents: buyable ? profile.shipping : 0,
       stockStatus,
