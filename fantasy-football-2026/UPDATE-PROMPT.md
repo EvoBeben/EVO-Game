@@ -43,7 +43,8 @@ tab buttons via `aria-controls`. An edit to a player almost always lands inside
 one panel — grep the player's name and you are already in the right place.
 
 Position sections run Board, Moves, Names, Rookies, Gems (quarterback has no
-Names panel; defense runs Board, Moves, Streamers). Board is the landing tab. If you add or remove a panel, keep the
+Names panel; defense runs Board, Moves, Streamers; kicker runs Board, 2025,
+Streamers). Board is the landing tab. If you add or remove a panel, keep the
 tab button's `aria-controls` and the panel's `id` in sync; exactly one panel per
 view carries the `active` class, and it must be the one the first tab controls.
 
@@ -59,6 +60,10 @@ resolve rather than shipping a blank sheet — fix by adding the name to `NON_PL
 (teams, coaches), `ALIASES` (page spelling vs nflverse spelling), or `NO_STATS`
 (no NFL line yet, with the reason). It also reports any name collision it resolved;
 the data contains a different Josh Allen and a different Lamar Jackson.
+
+Kickers use their own row layout (K_FIELDS) because nflverse does not score
+them; the last column is computed under standard scoring. All 32 team
+nicknames are in NON_PLAYERS, so defense chips never resolve as players.
 
 ## When the season starts
 

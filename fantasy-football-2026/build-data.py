@@ -33,9 +33,16 @@ SEASONS = range(2013, 2026)          # 2013 covers the oldest player on the boar
 LAST = 2025
 
 # Strings that appear in player-name slots but are not players.
+TEAMS = (
+    'Cardinals', 'Falcons', 'Ravens', 'Bills', 'Panthers', 'Bears', 'Bengals',
+    'Browns', 'Cowboys', 'Broncos', 'Lions', 'Packers', 'Texans', 'Colts',
+    'Jaguars', 'Chiefs', 'Raiders', 'Chargers', 'Rams', 'Dolphins', 'Vikings',
+    'Patriots', 'Saints', 'Giants', 'Jets', 'Eagles', 'Steelers', 'Seahawks',
+    '49ers', 'Buccaneers', 'Titans', 'Commanders',
+)
+
 NON_PLAYERS = {
-    'Broncos', 'Broncos D/ST', 'Chargers', 'Eagles', 'Lions', 'Rams', 'Rams D/ST',
-    'Ravens', 'Ravens D/ST', 'Seahawks', 'Steelers', 'Texans', 'Kicker', 'Defense',
+    *TEAMS, *(t + ' D/ST' for t in TEAMS), 'Kicker', 'Defense',
     'Klint Kubiak', 'Jesse Minter',                      # coaches
     'Trent McDuffie &middot; Jaylen Watson',             # combined ledger cell
 }
@@ -64,6 +71,21 @@ FIELDS = ['games', 'completions', 'attempts', 'passing_yards', 'passing_tds',
           'passing_interceptions', 'carries', 'rushing_yards', 'rushing_tds',
           'receptions', 'targets', 'receiving_yards', 'receiving_tds',
           'fantasy_points_ppr']
+
+# Kicker rows are shaped differently. nflverse does not score kickers, so the
+# last column is computed here under standard scoring: 3 points inside 40,
+# 4 from 40-49, 5 from 50+, 1 per extra point.
+K_FIELDS = ['games', 'fg_made', 'fg_att', 'fg_long',
+            'fg_made_40_49', 'fg_50_plus', 'pat_made', 'pat_att', 'k_points']
+
+
+def kicker_row(r):
+    g = lambda k: int(num(r.get(k)) or 0)
+    fifty = g('fg_made_50_59') + g('fg_made_60_')
+    short = g('fg_made_0_19') + g('fg_made_20_29') + g('fg_made_30_39')
+    points = short * 3 + g('fg_made_40_49') * 4 + fifty * 5 + g('pat_made')
+    return [g('games'), g('fg_made'), g('fg_att'), g('fg_long'),
+            g('fg_made_40_49'), fifty, g('pat_made'), g('pat_att'), points]
 
 # Where player names live in the markup.
 PATTERNS = [
@@ -155,16 +177,21 @@ def num(v):
 def build_player(name, seasons):
     latest = seasons[max(seasons)]
     pos, team, group = latest['position'], latest['recent_team'], latest['position_group']
+    kicker = pos == 'K'
+    fields = K_FIELDS if kicker else FIELDS
     rows = []
     for year in sorted(seasons):
         r = seasons[year]
-        rows.append([year, r['recent_team']] + [num(r.get(f)) for f in FIELDS])
+        vals = kicker_row(r) if kicker else [num(r.get(f)) for f in FIELDS]
+        rows.append([year, r['recent_team']] + vals)
 
-    career = [0] * len(FIELDS)
+    career = [0] * len(fields)
     for row in rows:
         for i, v in enumerate(row[2:]):
             career[i] += v
     career = [round(v, 1) if isinstance(v, float) else v for v in career]
+    if kicker:                      # a career "long" is the best, not the sum
+        career[K_FIELDS.index('fg_long')] = max(r[2 + K_FIELDS.index('fg_long')] for r in rows)
 
     return {
         'n': name,
