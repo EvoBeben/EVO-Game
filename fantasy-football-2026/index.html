@@ -576,7 +576,7 @@
   .lab-count{ border:1px solid var(--rule); border-radius:16px; padding:15px; background:rgba(5,12,22,.4); }
   .lab-count strong{ display:block; color:var(--bone); font-size:1.55rem; }
   .lab-count span{ color:var(--dim); font-family:var(--data); font-size:8px; letter-spacing:.12em; text-transform:uppercase; }
-  .lab-toolbar{ display:grid; grid-template-columns:minmax(200px,1fr) 150px 170px 170px; gap:10px; margin:18px 0; }
+  .lab-toolbar{ display:grid; grid-template-columns:minmax(200px,1fr) repeat(4,minmax(135px,165px)); gap:10px; margin:18px 0; }
   .lab-control{ width:100%; min-height:43px; border:1px solid var(--rule-2); border-radius:12px; background:#0a1728; color:var(--bone); padding:0 13px; font:600 .82rem var(--ui); }
   .lab-control:focus{ outline:2px solid color-mix(in srgb,var(--lime) 65%,transparent); outline-offset:2px; }
   .lab-table-wrap{ overflow:auto; max-height:690px; border:1px solid var(--rule-2); border-radius:18px; }
@@ -589,6 +589,21 @@
   .lab-note{ display:block; margin-top:3px; color:var(--dim); font-size:.7rem; max-width:48ch; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .compare-toggle{ border:1px solid var(--rule-2); border-radius:999px; background:transparent; color:var(--bone); padding:7px 10px; font:700 .72rem var(--ui); cursor:pointer; }
   .compare-toggle[aria-pressed="true"]{ border-color:var(--lime); background:var(--lime); color:var(--ground); }
+  .row-actions{ display:flex; flex-wrap:wrap; gap:5px; min-width:188px; }
+  .queue-toggle,.draft-toggle,.queue-chip button,.draft-room-reset{ border:1px solid var(--rule-2); border-radius:999px; background:transparent; color:var(--bone); padding:7px 9px; font:700 .69rem var(--ui); cursor:pointer; }
+  .queue-toggle[aria-pressed="true"]{ border-color:#60a5fa; color:#93c5fd; background:rgba(96,165,250,.1); }
+  .draft-toggle[aria-pressed="true"]{ border-color:#f59e0b; color:#ffd27a; background:rgba(245,158,11,.1); }
+  .lab-table tr.is-drafted .lab-player{ text-decoration:line-through; color:var(--dim); }
+  .draft-room-bar{ position:sticky; top:82px; z-index:8; display:grid; grid-template-columns:auto 1fr auto; gap:12px; align-items:center; margin:0 0 12px; border:1px solid var(--rule-2); border-radius:16px; padding:10px 12px; background:rgba(7,17,31,.96); box-shadow:0 12px 30px rgba(0,0,0,.2); }
+  .draft-room-counts{ display:flex; flex-wrap:wrap; gap:7px; color:var(--muted); font-size:.74rem; }
+  .draft-room-counts b{ color:var(--lime); }
+  .draft-queue{ display:flex; gap:7px; overflow:auto; padding:2px; }
+  .queue-chip{ display:flex; align-items:center; gap:7px; flex:none; border:1px solid rgba(96,165,250,.25); border-radius:999px; padding:5px 6px 5px 10px; background:rgba(96,165,250,.07); color:var(--bone); font-size:.72rem; }
+  .queue-chip small{ color:var(--dim); }
+  .queue-chip button{ display:grid; place-items:center; width:24px; height:24px; padding:0; }
+  .draft-room-reset{ white-space:nowrap; color:var(--dim); }
+  .freshness-bar{ display:flex; flex-wrap:wrap; gap:7px; margin-top:12px; }
+  .freshness-bar span{ border:1px solid var(--rule); border-radius:999px; padding:6px 9px; color:var(--dim); font-family:var(--data); font-size:7.5px; letter-spacing:.07em; text-transform:uppercase; }
   .lab-status{ min-height:22px; margin:10px 0 0; color:var(--muted); font-size:.76rem; }
   .lab-status strong{ color:var(--lime); }
   .compare-grid,.watch-grid,.tips-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
@@ -640,6 +655,9 @@
   .injury-detail dd{ margin:4px 0 0; color:var(--muted); font-size:.79rem; line-height:1.45; }
   .injury-detail .return-window dd{ color:var(--bone); font-weight:700; }
   .injury-source{ margin:12px 0 0; color:var(--dim); font-size:.69rem; }
+  .confidence-badge{ display:inline-block; margin-top:5px; border:1px solid var(--rule-2); border-radius:999px; padding:4px 7px; color:var(--dim); font-family:var(--data); font-size:7px; letter-spacing:.07em; text-transform:uppercase; }
+  .confidence-badge.low{ border-color:rgba(245,158,11,.35); color:#ffd27a; }
+  .confidence-badge.medium{ border-color:rgba(96,165,250,.35); color:#93c5fd; }
   .lab-empty{ grid-column:1/-1; border:1px dashed var(--rule-2); border-radius:18px; padding:26px; color:var(--muted); text-align:center; }
   .provenance{ margin-top:20px; padding:15px 17px; border-left:3px solid var(--lime); background:rgba(184,243,74,.045); color:var(--muted); font-size:.78rem; line-height:1.55; }
   .team-toolbar{ display:flex; align-items:center; gap:12px; margin:18px 0; }
@@ -689,6 +707,9 @@
     .compare-builder{ grid-template-columns:1fr 1fr; }
     .injury-overview{ grid-template-columns:1fr 1fr; }
     .team-strip{ grid-template-columns:repeat(3,1fr); }
+    .lab-toolbar{ grid-template-columns:1fr 1fr; }
+    .draft-room-bar{ grid-template-columns:1fr auto; }
+    .draft-queue{ grid-column:1/-1; grid-row:2; }
   }
   @media (max-width:700px){
     .wrap{ padding-inline:20px; }
@@ -711,6 +732,8 @@
     .depth-overview{ grid-template-columns:1fr 1fr; }
     .team-report-head,.team-columns{ grid-template-columns:1fr; }
     .team-strip{ grid-template-columns:1fr 1fr; }
+    .draft-room-bar{ top:70px; }
+    .draft-room-reset{ align-self:start; }
   }
 </style>
 </head>
@@ -731,9 +754,9 @@
   <div class="hero">
     <div class="wrap home-hero">
       <div class="hero-copy">
-        <p class="kicker">2026 Season · Complete Draft Guide · 6 August 2026</p>
+        <p class="kicker">2026 Season · Complete Draft Guide · Source dates shown in Player Lab</p>
         <h1>Turn every draft choice into an <em>edge.</em></h1>
-        <p class="standfirst">Your complete fantasy football draft room: rankings, roster moves, rookies, sleepers, comparisons, injury reports, mock drafts, and real career stats for every player on the board.</p>
+        <p class="standfirst">Your complete fantasy football draft room: rankings, roster moves, rookies, sleepers, comparisons, injury reports, mock drafts, and career history for 114 profiled players.</p>
         <div class="hero-actions">
           <a class="hero-action primary" href="#lab">Open Player Lab</a>
           <a class="hero-action" href="#plan">Build a draft plan</a>
@@ -1909,6 +1932,7 @@
           <span class="data-chip"><b>30</b> strategy + watch notes</span>
           <span class="data-chip"><b>32</b> full team reports</span>
         </div>
+        <div class="freshness-bar" id="lab-freshness" aria-label="Data freshness"><span>Loading source dates…</span></div>
       </div>
       <div class="lab-card">
         <div class="lab-counts">
@@ -1940,10 +1964,16 @@
           <option value="pts_ppr">Full PPR projection</option><option value="pts_half_ppr">Half PPR projection</option><option value="pts_std">Standard projection</option>
         </select>
         <select class="lab-control" id="lab-pool" aria-label="Filter ranking research tier"><option value="">Full expanded board</option><option value="expert">Expert-ranked 144</option><option value="depth">Depth extension</option></select>
+        <select class="lab-control" id="lab-availability" aria-label="Filter draft availability"><option value="available">Available players</option><option value="all">All players</option><option value="drafted">Drafted players</option></select>
+      </div>
+      <div class="draft-room-bar" aria-label="Draft room queue and availability">
+        <div class="draft-room-counts"><span><b id="available-count">359</b> available</span><span><b id="queue-count">0</b> queued</span><span><b id="drafted-count">0</b> drafted</span></div>
+        <div class="draft-queue" id="draft-queue"><span class="queue-chip">Queue is empty</span></div>
+        <button class="draft-room-reset" id="draft-room-reset" type="button">Reset draft room</button>
       </div>
       <div class="lab-table-wrap">
         <table class="lab-table">
-          <thead><tr><th>Ovr</th><th>Player</th><th>Pos</th><th>Team</th><th>Depth</th><th>Board ADP*</th><th>Board PPR*</th><th id="lab-proj-label">Sleeper PPR</th><th>Compare</th></tr></thead>
+          <thead><tr><th>Ovr</th><th>Player</th><th>Pos</th><th>Team</th><th>Depth</th><th>Board ADP*</th><th>Board PPR*</th><th id="lab-proj-label">Sleeper PPR</th><th>Draft actions</th></tr></thead>
           <tbody id="lab-rankings-body"><tr><td colspan="9">Loading merged data…</td></tr></tbody>
         </table>
       </div>
@@ -1975,10 +2005,11 @@
         <input class="lab-control" id="injury-search" type="search" placeholder="Search injured player or team…" aria-label="Search injury report">
         <select class="lab-control" id="injury-position" aria-label="Filter injuries by position"><option value="">All positions</option><option>QB</option><option>RB</option><option>WR</option><option>TE</option><option>K</option></select>
         <select class="lab-control" id="injury-status-filter" aria-label="Filter by injury status"><option value="">All statuses</option><option>Questionable</option><option>PUP</option><option>IR</option><option>DNR</option><option>NA</option></select>
+        <select class="lab-control" id="injury-scope" aria-label="Filter injury report scope"><option value="ranked">Ranked board only</option><option value="rostered">All rostered players</option><option value="all">All flags including free agents</option></select>
       </div>
       <p class="lab-status" id="injury-result-count" aria-live="polite"></p>
       <div class="injury-grid" id="injury-grid"><div class="lab-empty">Loading current injury data…</div></div>
-      <div class="provenance"><strong>Return-window note:</strong> estimates are conservative status-based planning guidance, not medical diagnoses or confirmed club dates. PUP, IR, surgery, and concussion cases remain “unconfirmed” until a team announces activation or clearance. Recheck official team reports before drafting or setting a lineup.</div>
+      <div class="provenance"><strong>Injury confidence:</strong> the feed supplies status and body-part detail, but not confirmed return dates. “Planning outlook” is explicitly status-based guidance. Low-confidence cards lack a club timetable or complete injury detail. Recheck official team reports before drafting or setting a lineup.</div>
     </div>
     <div class="panel" id="p-lab-depth" role="tabpanel">
       <div class="depth-toolbar"><select class="lab-control" id="depth-team" aria-label="Choose team depth chart"><option>Loading teams…</option></select><select class="lab-control" id="depth-position" aria-label="Filter team depth chart"><option value="">QB, RB, WR &amp; TE</option><option>QB</option><option>RB</option><option>WR</option><option>TE</option></select></div>
@@ -2016,8 +2047,8 @@
   </div>
   <div class="wrap body-brief">
     <div class="stack">
-      <p>Consensus-leaning composites from established outlets, not any single board. Where credible shops disagreed — tight end especially — the disagreement is shown. ADP and injury status are perishable: this is the picture as of <strong>6 August 2026</strong>.</p>
-      <div class="provenance"><strong>Merged data layer:</strong> positional ordering comes from the Bebo assistant's FantasyPros research snapshot dated 30 July 2026; projections are a static 12 August 2026 copy of Sleeper's Rotowire-backed 2026 feed; historical player seasons come from NFLverse. The copied board's ADP and PPR point fields are explicitly derived estimates. All four source JSON files remain in <code>fantasy-football-2026/data/</code> so the UI can be audited independently.</div>
+      <p>Consensus-leaning composites from established outlets, not any single board. Each dataset has its own freshness date, shown below and in Player Lab, because rankings, projections, team reports, and injury status do not update on the same schedule.</p>
+      <div class="provenance"><strong>Merged data layer:</strong> positional ordering uses the FantasyPros research snapshot dated <span id="source-rankings-date">30 July 2026</span>; Sleeper/Rotowire projections and injury status were fetched <span id="source-projections-date">13 August 2026</span>; team reports are dated <span id="source-team-date">25 July 2026</span>; historical player seasons run through 2025 from NFLverse. Board ADP and board PPR are derived estimates. Source JSON remains in <code>fantasy-football-2026/data/</code> so the UI can be audited independently.</div>
       <ul class="srcgrid">
         <li><a href="https://www.fantasypros.com/nfl/rankings/consensus-cheatsheets.php">FantasyPros — 2026 consensus cheat sheet order</a></li>
         <li><a href="https://api.sleeper.com/projections/nfl/2026?season_type=regular&amp;order_by=pts_ppr">Sleeper — 2026 projection feed snapshot</a></li>
@@ -2080,7 +2111,7 @@
 <footer>
   <div class="wrap">
     <span class="fmark">Draft Desk <b>·</b> Fantasy Football 2026</span>
-    <span>6 August 2026 · Re-verify injuries before drafting.</span>
+    <span>Source dates shown in Player Lab · Re-verify injuries before drafting.</span>
   </div>
 </footer>
 
@@ -2144,6 +2175,9 @@
     var injuries = [];
     var injuryFeedUpdated = '';
     var depthPlayers = [];
+    var draftedKeys = [];
+    var queueKeys = [];
+    var draftStateKey = 'draft-desk-2026-state-v1';
 
     function esc(value){
       return String(value == null ? '' : value).replace(/[&<>"']/g, function(c){
@@ -2159,6 +2193,33 @@
     function number(value){
       var n = Number(value);
       return Number.isFinite(n) ? n.toFixed(1).replace(/\.0$/, '') : '—';
+    }
+    function projectionSpan(stats){
+      var periods = Number(stats && stats.gp);
+      if (periods === 18) return 'Weeks 1–18';
+      if (periods === 1) return 'Week 1 unit';
+      return periods ? number(periods) + ' feed periods' : '—';
+    }
+    function formatSourceDate(value){
+      if (!value) return 'Date unavailable';
+      var input = String(value);
+      var date = new Date(input.length === 10 ? input + 'T12:00:00Z' : input);
+      return isNaN(date.getTime()) ? input : date.toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
+    }
+    function hasKey(list, key){ return list.indexOf(key) !== -1; }
+    function removeKey(list, key){ return list.filter(function(item){ return item !== key; }); }
+    function loadDraftState(){
+      try {
+        var saved = JSON.parse(localStorage.getItem(draftStateKey) || '{}');
+        draftedKeys = Array.isArray(saved.drafted) ? saved.drafted : [];
+        queueKeys = Array.isArray(saved.queue) ? saved.queue : [];
+      } catch (error) {
+        draftedKeys = [];
+        queueKeys = [];
+      }
+    }
+    function saveDraftState(){
+      try { localStorage.setItem(draftStateKey, JSON.stringify({ drafted:draftedKeys, queue:queueKeys })); } catch (error) {}
     }
     function projectionFor(row){
       return row.projection && row.projection.stats ? row.projection.stats[scoring] : null;
@@ -2180,15 +2241,21 @@
       var query = norm(document.getElementById('lab-search').value);
       var position = document.getElementById('lab-position').value;
       var pool = document.getElementById('lab-pool').value;
+      var availability = document.getElementById('lab-availability').value;
       var rows = board.filter(function(row){
+        var drafted = hasKey(draftedKeys, playerKey(row));
         return (!position || row.position === position) && (!pool || row.boardTier === pool) &&
+          (availability === 'all' || (availability === 'drafted' ? drafted : !drafted)) &&
           (!query || norm(row.name + row.team).indexOf(query) !== -1);
       });
       document.getElementById('lab-proj-label').textContent =
         scoring === 'pts_half_ppr' ? 'Sleeper Half' : scoring === 'pts_std' ? 'Sleeper Std' : 'Sleeper PPR';
       body.innerHTML = rows.map(function(row){
         var isSelected = selected.indexOf(row) !== -1;
-        return '<tr>' +
+        var key = playerKey(row);
+        var isQueued = hasKey(queueKeys, key);
+        var isDrafted = hasKey(draftedKeys, key);
+        return '<tr' + (isDrafted ? ' class="is-drafted"' : '') + '>' +
           '<td class="rank">' + row.overallRank + '</td>' +
           '<td><span class="lab-player">' + esc(row.name) + '</span><span class="lab-note" title="' + esc(row.note) + '">' + esc(row.note) + '</span></td>' +
           '<td><span class="pos-badge p-' + esc(row.position) + '">' + esc(row.position) + row.positionRank + '</span></td>' +
@@ -2197,10 +2264,24 @@
           '<td>' + number(row.adp) + '</td>' +
           '<td>' + number(row.ppr_projected_points) + '</td>' +
           '<td>' + number(projectionFor(row)) + '</td>' +
-          '<td><button class="compare-toggle" type="button" data-rank="' + row.overallRank + '" aria-pressed="' + isSelected + '">' + (isSelected ? 'Selected' : 'Add') + '</button></td>' +
+          '<td><div class="row-actions"><button class="compare-toggle" type="button" data-player-key="' + esc(key) + '" aria-pressed="' + isSelected + '">' + (isSelected ? 'Comparing' : 'Compare') + '</button><button class="queue-toggle" type="button" data-player-key="' + esc(key) + '" aria-pressed="' + isQueued + '">' + (isQueued ? 'Queued' : 'Queue') + '</button><button class="draft-toggle" type="button" data-player-key="' + esc(key) + '" aria-pressed="' + isDrafted + '">' + (isDrafted ? 'Drafted' : 'Mark drafted') + '</button></div></td>' +
         '</tr>';
       }).join('') || '<tr><td colspan="9">No players match those filters.</td></tr>';
       document.getElementById('lab-status').innerHTML = '<strong>' + rows.length + '</strong> players shown · <strong>' + selected.length + '</strong> selected for comparison';
+    }
+
+    function renderDraftRoom(){
+      var validDrafted = draftedKeys.filter(function(key){ return board.some(function(row){ return playerKey(row) === key; }); });
+      var queuedRows = queueKeys.map(function(key){ return board.find(function(row){ return playerKey(row) === key; }); }).filter(Boolean);
+      draftedKeys = validDrafted;
+      queueKeys = queuedRows.map(playerKey);
+      document.getElementById('available-count').textContent = board.length - draftedKeys.length;
+      document.getElementById('queue-count').textContent = queuedRows.length;
+      document.getElementById('drafted-count').textContent = draftedKeys.length;
+      document.getElementById('draft-queue').innerHTML = queuedRows.length ? queuedRows.map(function(row){
+        return '<span class="queue-chip"><span>' + esc(row.name) + ' <small>' + esc(positionText(row)) + '</small></span><button type="button" data-remove-queue="' + esc(playerKey(row)) + '" aria-label="Remove ' + esc(row.name) + ' from queue">×</button></span>';
+      }).join('') : '<span class="queue-chip">Queue is empty</span>';
+      saveDraftState();
     }
 
     function compareMetrics(row){
@@ -2217,7 +2298,7 @@
         { label:'Sleeper standard', value:number(stats.pts_std), raw:Number(stats.pts_std) },
         { label:'Sleeper ADP', value:number(stats.adp_ppr), raw:Number(stats.adp_ppr), low:true },
         { label:'2025 fantasy points', value:number(latestFor(row)), raw:Number(latestFor(row)) },
-        { label:'Projected games', value:number(stats.gp), raw:Number(stats.gp) },
+        { label:'Projection horizon', value:projectionSpan(stats), raw:NaN },
         { label:'Projected touchdowns', value:number((stats.pass_td || 0) + (stats.rush_td || 0) + (stats.rec_td || 0)), raw:Number((stats.pass_td || 0) + (stats.rush_td || 0) + (stats.rec_td || 0)) }
       ];
     }
@@ -2280,7 +2361,7 @@
             '<div><dt>Sleeper ADP</dt><dd>' + number(stats.adp_ppr) + '</dd></div>' +
             '<div><dt>Board PPR*</dt><dd>' + number(row.ppr_projected_points) + '</dd></div>' +
             '<div><dt>2025 fantasy pts</dt><dd>' + number(latestFor(row)) + '</dd></div>' +
-            '<div><dt>Projected games</dt><dd>' + number(stats.gp) + '</dd></div>' +
+            '<div><dt>Projection horizon</dt><dd>' + esc(projectionSpan(stats)) + '</dd></div>' +
             '<div><dt>Injury status</dt><dd>' + esc(injury) + '</dd></div>' +
           '</dl>' +
         '</article>';
@@ -2290,7 +2371,7 @@
         var leader = sorted[0], runner = sorted[1];
         var gap = projectedPpr(leader) - projectedPpr(runner);
         var ranked = selected.filter(hasBoardRank).sort(function(a,b){ return a.overallRank - b.overallRank; });
-        summary.innerHTML = '<span>Projection edge: <b>' + esc(leader.name) + '</b></span><span>PPR gap: <b>' + number(gap) + ' pts</b></span><span>' + (ranked.length ? 'Best board value: <b>' + esc(ranked[0].name) : 'Matchup: <b>depth pool') + '</b></span>';
+        summary.innerHTML = '<span>Projection edge: <b>' + esc(leader.name) + '</b></span><span>PPR gap: <b>' + number(gap) + ' pts</b></span><span>' + (ranked.length ? 'Highest board rank: <b>' + esc(ranked[0].name) : 'Matchup: <b>depth pool') + '</b></span>';
       } else summary.innerHTML = '<span>Add one more player for head-to-head advantages.</span>';
       var metricSets = selected.map(compareMetrics);
       var rows = metricSets[0].map(function(metric, index){
@@ -2305,38 +2386,46 @@
       matrix.innerHTML = '<div class="lab-table-wrap"><table class="lab-table"><thead><tr><th>Metric</th>' + selected.map(function(row){ return '<th>' + esc(row.name) + '</th>'; }).join('') + '</tr></thead><tbody>' + rows + '</tbody></table></div>';
     }
 
-    function returnWindow(player){
+    function injuryAssessment(player){
       var status = player.injury_status || '';
       var detail = ((player.injury_body_part || '') + ' ' + (player.injury_notes || '')).toLowerCase();
-      if (status === 'IR') return 'IR — no return date announced';
-      if (status === 'PUP') return 'PUP — activation date not announced';
-      if (status === 'DNR') return 'Not practicing — timetable unconfirmed';
-      if (status === 'NA') return 'Unavailable — no return estimate';
-      if (detail.indexOf('concussion') !== -1) return 'Protocol-dependent — no fixed date';
-      if (detail.indexOf('acl') !== -1 || detail.indexOf('achilles') !== -1 || detail.indexOf('surgery') !== -1) return 'Rehab watch — no confirmed return date';
-      if (detail.indexOf('fracture') !== -1) return 'Multi-week risk — awaiting club update';
-      return 'Day-to-day — recheck before Week 1';
+      if (status === 'IR') return { outlook:'IR status — return date not supplied', confidence:'Low · club date required', tone:'low' };
+      if (status === 'PUP') return { outlook:'PUP status — activation date not supplied', confidence:'Low · club date required', tone:'low' };
+      if (status === 'DNR') return { outlook:'Not practicing — timetable not supplied', confidence:'Low · practice status only', tone:'low' };
+      if (status === 'NA') return { outlook:'Unavailable — return estimate not supplied', confidence:'Low · availability status only', tone:'low' };
+      if (detail.indexOf('concussion') !== -1) return { outlook:'Protocol-dependent — no fixed return date', confidence:'Low · clearance required', tone:'low' };
+      if (detail.indexOf('acl') !== -1 || detail.indexOf('achilles') !== -1 || detail.indexOf('surgery') !== -1) return { outlook:'Rehab watch — no confirmed club timetable', confidence:'Low · recovery varies', tone:'low' };
+      if (detail.indexOf('fracture') !== -1) return { outlook:'Multi-week risk — awaiting club update', confidence:'Low · no club timetable', tone:'low' };
+      if (!detail.trim() || detail.indexOf('undisclosed') !== -1) return { outlook:'Questionable — no return date supplied', confidence:'Very low · injury detail missing', tone:'low' };
+      return { outlook:'Short-term flag — no confirmed return date', confidence:'Low · feed status only', tone:'medium' };
+    }
+    function rankedRowFor(player){
+      return board.find(function(row){ return row.position === player.position && norm(row.name) === norm(player.name); });
     }
     function renderInjuries(){
       var query = norm(document.getElementById('injury-search').value);
       var position = document.getElementById('injury-position').value;
       var status = document.getElementById('injury-status-filter').value;
+      var scope = document.getElementById('injury-scope').value;
       var rows = injuries.filter(function(player){
+        var ranked = rankedRowFor(player);
         return (!position || player.position === position) &&
           (!status || player.injury_status === status) &&
+          (scope === 'all' || (scope === 'ranked' ? !!ranked : !!player.team)) &&
           (!query || norm(player.name + player.team + player.injury_body_part).indexOf(query) !== -1);
       });
-      document.getElementById('injury-result-count').innerHTML = '<strong>' + rows.length + '</strong> injury flags shown, ordered by projected full-PPR impact';
+      document.getElementById('injury-result-count').innerHTML = '<strong>' + rows.length + '</strong> injury flags shown · planning outlooks are not confirmed return dates';
       document.getElementById('injury-grid').innerHTML = rows.map(function(player){
-        var ranked = board.find(function(row){ return row.position === player.position && norm(row.name) === norm(player.name); });
+        var ranked = rankedRowFor(player);
         var detail = [player.injury_body_part, player.injury_notes].filter(Boolean).join(' · ') || 'Details not supplied by feed';
+        var assessment = injuryAssessment(player);
         return '<article class="injury-card">' +
           '<div class="injury-head"><div><h3>' + esc(player.name) + '</h3><p class="injury-meta">' + esc(player.position) + ' · ' + esc(player.team || 'FA') + (ranked ? ' · Overall ' + ranked.overallRank : '') + '</p></div><span class="injury-status s-' + esc(player.injury_status) + '">' + esc(player.injury_status) + '</span></div>' +
           '<dl class="injury-detail">' +
             '<div><dt>Injury detail</dt><dd>' + esc(detail) + '</dd></div>' +
-            '<div class="return-window"><dt>Estimated return</dt><dd>' + esc(returnWindow(player)) + '</dd></div>' +
+            '<div class="return-window"><dt>Planning outlook</dt><dd>' + esc(assessment.outlook) + '</dd><span class="confidence-badge ' + assessment.tone + '">' + esc(assessment.confidence) + '</span></div>' +
             '<div><dt>Projected PPR</dt><dd>' + number(player.stats && player.stats.pts_ppr) + '</dd></div>' +
-            '<div><dt>Projected games</dt><dd>' + number(player.stats && player.stats.gp) + '</dd></div>' +
+            '<div><dt>Projection horizon</dt><dd>' + esc(projectionSpan(player.stats)) + '</dd></div>' +
           '</dl><p class="injury-source">Sleeper / Rotowire status snapshot</p>' +
         '</article>';
       }).join('') || '<div class="lab-empty">No injury flags match those filters.</div>';
@@ -2360,7 +2449,8 @@
           var order = player.display_depth_order || player.depth_chart_order || (index + 1);
           var injury = player.injury_status ? ' · ' + player.injury_status : '';
           var rank = board.find(function(row){ return playerKey(row) === player.position + ':' + norm(player.name); });
-          return '<div class="depth-player"><span class="depth-order">' + esc(order) + '</span><div><strong>' + esc(player.name) + '</strong><small>' + esc(player.depth_chart_position || pos) + injury + (rank ? ' · Overall ' + rank.overallRank : '') + '</small></div><div class="depth-points">' + number(player.stats && player.stats.pts_ppr) + '<small>PPR</small></div></div>';
+          var confidence = player.depth_confidence === 'reported' ? 'Reported order' : 'Projection fallback';
+          return '<div class="depth-player"><span class="depth-order">' + esc(order) + '</span><div><strong>' + esc(player.name) + '</strong><small>' + esc(player.depth_chart_position || pos) + injury + (rank ? ' · Overall ' + rank.overallRank : '') + ' · ' + confidence + '</small></div><div class="depth-points">' + number(player.stats && player.stats.pts_ppr) + '<small>PPR</small></div></div>';
         }).join('') + '</article>';
       }).join('');
     }
@@ -2422,6 +2512,13 @@
       fetch('data/team-reports-2026.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
     ]).then(function(data){
       var ranks = data[0], projections = data[1], watch = data[2], tips = data[3], teams = data[4];
+      var rankingDate = formatSourceDate(ranks.lastUpdated);
+      var projectionDate = formatSourceDate(projections.fetchedAt);
+      var teamDate = formatSourceDate(teams.lastUpdated);
+      document.getElementById('lab-freshness').innerHTML = '<span>Rankings ' + esc(rankingDate) + '</span><span>Projections + injuries ' + esc(projectionDate) + '</span><span>Team reports ' + esc(teamDate) + '</span><span>History through 2025</span>';
+      document.getElementById('source-rankings-date').textContent = rankingDate;
+      document.getElementById('source-projections-date').textContent = projectionDate;
+      document.getElementById('source-team-date').textContent = teamDate;
       var historyEl = document.getElementById('player-data');
       history = historyEl ? JSON.parse(historyEl.textContent) : {};
       var historyByName = {};
@@ -2504,7 +2601,8 @@
         return Number(b.stats && b.stats.pts_ppr || 0) - Number(a.stats && a.stats.pts_ppr || 0);
       });
       injuryFeedUpdated = projections.fetchedAt || '';
-      selected = board.slice(0, 2);
+      selected = [];
+      loadDraftState();
       var joined = board.filter(function(player){ return player.projection; }).length;
       document.getElementById('lab-ranked-count').textContent = board.length;
       document.getElementById('lab-proj-count').textContent = projections.playerCount;
@@ -2533,6 +2631,7 @@
       }).join('');
       renderTeam(teamReports[0].abbr);
       renderDepthChart();
+      renderDraftRoom();
       renderBoard();
       renderCompare();
       renderInjuries();
@@ -2544,6 +2643,7 @@
     document.getElementById('lab-search').addEventListener('input', renderBoard);
     document.getElementById('lab-position').addEventListener('change', renderBoard);
     document.getElementById('lab-pool').addEventListener('change', renderBoard);
+    document.getElementById('lab-availability').addEventListener('change', renderBoard);
     document.getElementById('lab-scoring').addEventListener('change', function(e){
       scoring = e.target.value;
       renderBoard();
@@ -2589,20 +2689,52 @@
     document.getElementById('injury-search').addEventListener('input', renderInjuries);
     document.getElementById('injury-position').addEventListener('change', renderInjuries);
     document.getElementById('injury-status-filter').addEventListener('change', renderInjuries);
-    body.addEventListener('click', function(e){
-      var button = e.target.closest('.compare-toggle');
+    document.getElementById('injury-scope').addEventListener('change', renderInjuries);
+    document.getElementById('draft-queue').addEventListener('click', function(e){
+      var button = e.target.closest('[data-remove-queue]');
       if (!button) return;
-      var row = board.find(function(item){ return item.overallRank === Number(button.dataset.rank); });
+      queueKeys = removeKey(queueKeys, button.dataset.removeQueue);
+      renderDraftRoom();
+      renderBoard();
+    });
+    document.getElementById('draft-room-reset').addEventListener('click', function(){
+      if (!window.confirm('Clear the drafted list and queue on this device?')) return;
+      draftedKeys = [];
+      queueKeys = [];
+      renderDraftRoom();
+      renderBoard();
+    });
+    body.addEventListener('click', function(e){
+      var button = e.target.closest('.compare-toggle,.queue-toggle,.draft-toggle');
+      if (!button) return;
+      var row = board.find(function(item){ return playerKey(item) === button.dataset.playerKey; });
       if (!row) return;
-      var index = selected.indexOf(row);
-      if (index !== -1) selected.splice(index, 1);
-      else if (selected.length < 3) selected.push(row);
-      else {
-        document.getElementById('lab-status').innerHTML = '<strong>Three-player limit.</strong> Remove one selection before adding another.';
-        return;
+      var key = playerKey(row);
+      if (button.classList.contains('compare-toggle')) {
+        var index = selected.indexOf(row);
+        if (index !== -1) selected.splice(index, 1);
+        else if (selected.length < 3) selected.push(row);
+        else {
+          document.getElementById('lab-status').innerHTML = '<strong>Three-player limit.</strong> Remove one selection before adding another.';
+          return;
+        }
+        renderCompare();
+      } else if (button.classList.contains('queue-toggle')) {
+        if (hasKey(draftedKeys, key)) {
+          document.getElementById('lab-status').innerHTML = '<strong>' + esc(row.name) + ' is drafted.</strong> Mark the player available before adding them to your queue.';
+          return;
+        }
+        queueKeys = hasKey(queueKeys, key) ? removeKey(queueKeys, key) : queueKeys.concat(key);
+        renderDraftRoom();
+      } else {
+        if (hasKey(draftedKeys, key)) draftedKeys = removeKey(draftedKeys, key);
+        else {
+          draftedKeys.push(key);
+          queueKeys = removeKey(queueKeys, key);
+        }
+        renderDraftRoom();
       }
       renderBoard();
-      renderCompare();
     });
   })();
 </script>
