@@ -5,7 +5,7 @@ This directory keeps the Player Lab inputs auditable and independent of the UI.
 | File | Records | Provenance |
 | --- | ---: | --- |
 | `rankings-2026.json` | 144 players | Copied from `EvoBeben/Bebo-FantasyFootball`, branch `claude/fantasy-football-draft-assistant-kj82xs`. The positional order is based on the FantasyPros 2026 cheat sheet. Its `adp` and `ppr_projected_points` fields are derived/calibrated values, not vendor projections. |
-| `sleeper-projections-2026.json` | 632 players/units | Static snapshot of Sleeper's 2026 regular-season projection endpoint. The feed identifies Rotowire as its projection company. |
+| `sleeper-projections-2026.json` | 632 players/units | Static snapshot combining Sleeper's 2026 regular-season projections with its NFL player directory. The merged fields include active/roster status, depth-chart position and order, number, age, college, and search rank. The projection feed identifies Rotowire as its projection company. |
 | `who-to-watch-2026.json` | 12 notes | Copied from the Bebo draft-assistant branch. |
 | `draft-tips-2026.json` | 18 notes | Copied from the Bebo draft-assistant branch and written for its stated 12-team full-PPR league settings. |
 | `sources-bebo.json` | 8 outlets | Source allowlist and methodology copied from the Bebo draft-assistant branch. |

@@ -576,7 +576,7 @@
   .lab-count{ border:1px solid var(--rule); border-radius:16px; padding:15px; background:rgba(5,12,22,.4); }
   .lab-count strong{ display:block; color:var(--bone); font-size:1.55rem; }
   .lab-count span{ color:var(--dim); font-family:var(--data); font-size:8px; letter-spacing:.12em; text-transform:uppercase; }
-  .lab-toolbar{ display:grid; grid-template-columns:minmax(200px,1fr) 160px 180px; gap:10px; margin:18px 0; }
+  .lab-toolbar{ display:grid; grid-template-columns:minmax(200px,1fr) 150px 170px 170px; gap:10px; margin:18px 0; }
   .lab-control{ width:100%; min-height:43px; border:1px solid var(--rule-2); border-radius:12px; background:#0a1728; color:var(--bone); padding:0 13px; font:600 .82rem var(--ui); }
   .lab-control:focus{ outline:2px solid color-mix(in srgb,var(--lime) 65%,transparent); outline-offset:2px; }
   .lab-table-wrap{ overflow:auto; max-height:690px; border:1px solid var(--rule-2); border-radius:18px; }
@@ -665,6 +665,19 @@
   .team-mini-table{ width:100%; border-collapse:collapse; }
   .team-mini-table td{ padding:8px; border-top:1px solid var(--rule); color:var(--muted); font-size:.78rem; }
   .team-mini-table td:first-child{ color:var(--bone); font-weight:700; }
+  .depth-toolbar{ display:grid; grid-template-columns:minmax(220px,1fr) 180px; gap:10px; margin:18px 0; }
+  .depth-overview{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:14px; }
+  .depth-team-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+  .depth-pos-card{ border:1px solid var(--rule-2); border-radius:18px; background:rgba(255,255,255,.035); padding:17px; }
+  .depth-pos-card h3{ display:flex; justify-content:space-between; gap:10px; margin:0 0 12px; color:var(--bone); font-size:1rem; }
+  .depth-pos-card h3 span{ color:var(--lime); font-family:var(--data); font-size:8px; letter-spacing:.1em; text-transform:uppercase; }
+  .depth-player{ display:grid; grid-template-columns:auto 1fr auto; gap:10px; align-items:center; border-top:1px solid var(--rule); padding:11px 0; }
+  .depth-player:first-of-type{ border-top:0; }
+  .depth-order{ display:grid; place-items:center; width:29px; height:29px; border:1px solid var(--rule-2); border-radius:9px; color:var(--lime); font-family:var(--data); font-size:9px; }
+  .depth-player strong{ display:block; color:var(--bone); font-size:.8rem; }
+  .depth-player small{ display:block; margin-top:3px; color:var(--dim); font-size:.69rem; }
+  .depth-points{ color:var(--bone); font-family:var(--data); font-size:.76rem; text-align:right; }
+  .depth-points small{ color:var(--dim); font-size:7px; text-transform:uppercase; }
   .team-sources{ margin-top:12px; color:var(--dim); font-size:.72rem; line-height:1.5; }
 
   @media (max-width:900px){
@@ -693,7 +706,9 @@
     .sheet-col + .sheet-col{ border-left:0; border-top:1px solid var(--rule); padding:18px 0 0; }
     .lab-toolbar{ grid-template-columns:1fr; }
     .compare-grid,.watch-grid,.tips-grid{ grid-template-columns:1fr; }
-    .compare-builder,.injury-grid{ grid-template-columns:1fr; }
+    .compare-builder,.injury-grid,.depth-team-grid{ grid-template-columns:1fr; }
+    .depth-toolbar{ grid-template-columns:1fr; }
+    .depth-overview{ grid-template-columns:1fr 1fr; }
     .team-report-head,.team-columns{ grid-template-columns:1fr; }
     .team-strip{ grid-template-columns:1fr 1fr; }
   }
@@ -740,7 +755,7 @@
           <span class="live-chip">2026 board</span>
         </div>
         <div class="pulse-grid">
-          <div class="pulse-stat"><span>Ranked players</span><strong>144</strong><small>Twenty-four at every fantasy position</small></div>
+          <div class="pulse-stat"><span>Ordered draft board</span><strong>359</strong><small>Expert core plus 32-team depth extension</small></div>
           <div class="pulse-stat"><span>Projections</span><strong>632</strong><small>Static Sleeper snapshot across six positions</small></div>
           <div class="pulse-stat"><span>History</span><strong>468</strong><small>Player-seasons from NFLverse, 2013–2025</small></div>
           <div class="pulse-stat"><span>Data mode</span><strong>Static</strong><small>No live API dependency on draft day</small></div>
@@ -771,7 +786,7 @@
     <div class="toc-grid">
       <a class="toc-card" href="#plan"><span class="toc-code">09</span><span class="toc-copy"><span class="toc-name">Draft Plan</span><span class="toc-desc">Roster construction by slot and round.</span></span></a>
       <a class="toc-card" href="#mocks"><span class="toc-code">10</span><span class="toc-copy"><span class="toc-name">Mock Drafts</span><span class="toc-desc">Complete builds from multiple draft positions.</span></span></a>
-      <a class="toc-card" href="#lab"><span class="toc-code">11</span><span class="toc-copy"><span class="toc-name">Player Lab</span><span class="toc-desc">Search 144 rankings, compare projections, and review watch notes.</span></span></a>
+      <a class="toc-card" href="#lab"><span class="toc-code">11</span><span class="toc-copy"><span class="toc-name">Player Lab</span><span class="toc-desc">Search the expanded board, compare projections, and check all 32 depth charts.</span></span></a>
       <a class="toc-card" href="#sources"><span class="toc-code">12</span><span class="toc-copy"><span class="toc-name">Sources</span><span class="toc-desc">The reporting, feeds, and methods behind the board.</span></span></a>
     </div>
   </div>
@@ -1888,7 +1903,7 @@
         <h3>The merged draft board</h3>
         <p>The 2026 positional order is joined to a static Sleeper projection snapshot and the NFLverse career file already in this guide. Select up to three players, then use Compare to see the signals side by side.</p>
         <div class="data-chips" aria-label="Merged data sources">
-          <span class="data-chip"><b>144</b> FantasyPros-ordered ranks</span>
+          <span class="data-chip"><b>144</b> expert ranks + <b>215</b> depth options</span>
           <span class="data-chip"><b>632</b> Sleeper projections</span>
           <span class="data-chip"><b>468</b> NFLverse seasons</span>
           <span class="data-chip"><b>30</b> strategy + watch notes</span>
@@ -1897,7 +1912,7 @@
       </div>
       <div class="lab-card">
         <div class="lab-counts">
-          <div class="lab-count"><strong id="lab-ranked-count">144</strong><span>Ranked</span></div>
+          <div class="lab-count"><strong id="lab-ranked-count">359</strong><span>Ordered board</span></div>
           <div class="lab-count"><strong id="lab-proj-count">632</strong><span>Projected</span></div>
           <div class="lab-count"><strong id="lab-match-count">—</strong><span>Joined</span></div>
           <div class="lab-count"><strong id="lab-history-count">114</strong><span>Profiles</span></div>
@@ -1909,6 +1924,7 @@
       <button class="tab active" role="tab" aria-selected="true" aria-controls="p-lab-rankings">Rankings</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-compare">Compare</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-injuries">Injury Report</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-depth">Depth Charts</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-watch">Who to Watch</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-tips">Draft Tips</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-teams">Team Intel</button>
@@ -1923,15 +1939,16 @@
         <select class="lab-control" id="lab-scoring" aria-label="Projection scoring">
           <option value="pts_ppr">Full PPR projection</option><option value="pts_half_ppr">Half PPR projection</option><option value="pts_std">Standard projection</option>
         </select>
+        <select class="lab-control" id="lab-pool" aria-label="Filter ranking research tier"><option value="">Full expanded board</option><option value="expert">Expert-ranked 144</option><option value="depth">Depth extension</option></select>
       </div>
       <div class="lab-table-wrap">
         <table class="lab-table">
-          <thead><tr><th>Ovr</th><th>Player</th><th>Pos</th><th>Team</th><th>Board ADP*</th><th>Board PPR*</th><th id="lab-proj-label">Sleeper PPR</th><th>Compare</th></tr></thead>
-          <tbody id="lab-rankings-body"><tr><td colspan="8">Loading merged data…</td></tr></tbody>
+          <thead><tr><th>Ovr</th><th>Player</th><th>Pos</th><th>Team</th><th>Depth</th><th>Board ADP*</th><th>Board PPR*</th><th id="lab-proj-label">Sleeper PPR</th><th>Compare</th></tr></thead>
+          <tbody id="lab-rankings-body"><tr><td colspan="9">Loading merged data…</td></tr></tbody>
         </table>
       </div>
       <p class="lab-status" id="lab-status" aria-live="polite"></p>
-      <div class="provenance"><strong>*Method note:</strong> board ADP and board PPR points are calibrated fields derived in the Bebo draft-assistant branch. They are displayed as modeled values, not as FantasyPros or Sleeper projections. The positional order is the FantasyPros-sourced component.</div>
+      <div class="provenance"><strong>*Method note:</strong> ranks 1–144 preserve the expert-ordered board. The extension adds each team’s first three RB, WR, and TE depth options, ordered by Sleeper full-PPR projection and ADP. Depth order comes from the current Sleeper player directory; projection-only fallbacks are labeled. Board ADP and board PPR are modeled fields and remain blank for newly added depth players.</div>
     </div>
 
     <div class="panel" id="p-lab-compare" role="tabpanel">
@@ -1962,6 +1979,12 @@
       <p class="lab-status" id="injury-result-count" aria-live="polite"></p>
       <div class="injury-grid" id="injury-grid"><div class="lab-empty">Loading current injury data…</div></div>
       <div class="provenance"><strong>Return-window note:</strong> estimates are conservative status-based planning guidance, not medical diagnoses or confirmed club dates. PUP, IR, surgery, and concussion cases remain “unconfirmed” until a team announces activation or clearance. Recheck official team reports before drafting or setting a lineup.</div>
+    </div>
+    <div class="panel" id="p-lab-depth" role="tabpanel">
+      <div class="depth-toolbar"><select class="lab-control" id="depth-team" aria-label="Choose team depth chart"><option>Loading teams…</option></select><select class="lab-control" id="depth-position" aria-label="Filter team depth chart"><option value="">QB, RB, WR &amp; TE</option><option>QB</option><option>RB</option><option>WR</option><option>TE</option></select></div>
+      <div class="depth-overview" id="depth-overview"></div>
+      <div class="depth-team-grid" id="depth-team-grid"><div class="lab-empty">Loading all 32 team depth charts…</div></div>
+      <div class="provenance"><strong>Depth-chart research:</strong> order is sourced from the current Sleeper NFL player directory and paired with Sleeper/Rotowire projections. Use <a href="https://g.espncdn.com/s/ffldraftkit/26/NFL26_CS_Depth.pdf?adddata=2026CS_Depth" target="_blank" rel="noopener">ESPN’s 2026 fantasy depth chart</a> and <a href="https://www.fantasypros.com/nfl/depth-charts.php" target="_blank" rel="noopener">FantasyPros’ 32-team depth charts</a> as draft-day cross-checks because preseason roles can change quickly.</div>
     </div>
     <div class="panel" id="p-lab-watch" role="tabpanel">
       <div class="watch-grid" id="lab-watch"><div class="lab-empty">Loading watch list…</div></div>
@@ -2120,6 +2143,7 @@
     var teamReports = [];
     var injuries = [];
     var injuryFeedUpdated = '';
+    var depthPlayers = [];
 
     function esc(value){
       return String(value == null ? '' : value).replace(/[&<>"']/g, function(c){
@@ -2155,8 +2179,9 @@
     function renderBoard(){
       var query = norm(document.getElementById('lab-search').value);
       var position = document.getElementById('lab-position').value;
+      var pool = document.getElementById('lab-pool').value;
       var rows = board.filter(function(row){
-        return (!position || row.position === position) &&
+        return (!position || row.position === position) && (!pool || row.boardTier === pool) &&
           (!query || norm(row.name + row.team).indexOf(query) !== -1);
       });
       document.getElementById('lab-proj-label').textContent =
@@ -2168,12 +2193,13 @@
           '<td><span class="lab-player">' + esc(row.name) + '</span><span class="lab-note" title="' + esc(row.note) + '">' + esc(row.note) + '</span></td>' +
           '<td><span class="pos-badge p-' + esc(row.position) + '">' + esc(row.position) + row.positionRank + '</span></td>' +
           '<td>' + esc(row.team) + '</td>' +
+          '<td>' + esc(row.depthLabel || '—') + '</td>' +
           '<td>' + number(row.adp) + '</td>' +
           '<td>' + number(row.ppr_projected_points) + '</td>' +
           '<td>' + number(projectionFor(row)) + '</td>' +
           '<td><button class="compare-toggle" type="button" data-rank="' + row.overallRank + '" aria-pressed="' + isSelected + '">' + (isSelected ? 'Selected' : 'Add') + '</button></td>' +
         '</tr>';
-      }).join('') || '<tr><td colspan="8">No players match those filters.</td></tr>';
+      }).join('') || '<tr><td colspan="9">No players match those filters.</td></tr>';
       document.getElementById('lab-status').innerHTML = '<strong>' + rows.length + '</strong> players shown · <strong>' + selected.length + '</strong> selected for comparison';
     }
 
@@ -2316,6 +2342,29 @@
       }).join('') || '<div class="lab-empty">No injury flags match those filters.</div>';
     }
 
+    function renderDepthChart(){
+      var team = document.getElementById('depth-team').value;
+      var position = document.getElementById('depth-position').value;
+      var positions = position ? [position] : ['QB','RB','WR','TE'];
+      var teamRows = depthPlayers.filter(function(player){ return player.team === team; });
+      document.getElementById('depth-overview').innerHTML = positions.map(function(pos){
+        var count = teamRows.filter(function(player){ return player.position === pos; }).length;
+        return '<div class="injury-stat"><strong>' + count + '</strong><span>' + esc(pos) + ' projected options</span></div>';
+      }).join('');
+      document.getElementById('depth-team-grid').innerHTML = positions.map(function(pos){
+        var rows = teamRows.filter(function(player){ return player.position === pos; }).sort(function(a,b){
+          var aOrder = Number(a.display_depth_order || a.depth_chart_order || 99), bOrder = Number(b.display_depth_order || b.depth_chart_order || 99);
+          return aOrder - bOrder || Number(b.stats && b.stats.pts_ppr || 0) - Number(a.stats && a.stats.pts_ppr || 0);
+        });
+        return '<article class="depth-pos-card"><h3>' + esc(pos) + '<span>' + esc(team) + ' depth</span></h3>' + rows.map(function(player, index){
+          var order = player.display_depth_order || player.depth_chart_order || (index + 1);
+          var injury = player.injury_status ? ' · ' + player.injury_status : '';
+          var rank = board.find(function(row){ return playerKey(row) === player.position + ':' + norm(player.name); });
+          return '<div class="depth-player"><span class="depth-order">' + esc(order) + '</span><div><strong>' + esc(player.name) + '</strong><small>' + esc(player.depth_chart_position || pos) + injury + (rank ? ' · Overall ' + rank.overallRank : '') + '</small></div><div class="depth-points">' + number(player.stats && player.stats.pts_ppr) + '<small>PPR</small></div></div>';
+        }).join('') + '</article>';
+      }).join('');
+    }
+
     function renderNotes(watch, tips){
       document.getElementById('lab-watch').innerHTML = watch.watchlist.map(function(item, index){
         return '<article class="watch-card"><span class="compare-meta">Watch ' + String(index + 1).padStart(2, '0') + '</span><h3>' + esc(item.name) + '</h3><p>' + esc(item.angle) + '</p></article>';
@@ -2394,46 +2443,63 @@
         player.history = historyByName[norm(player.name)] || null;
         player.playerKey = key;
         player.projectionPosRank = projectionPosRank[key] || null;
+        player.boardTier = 'expert';
         return player;
       });
-      comparePool = board.slice();
       var depthGroups = {};
       projections.players.forEach(function(player){
-        if (['RB','WR','TE'].indexOf(player.position) === -1 || !player.team || Number(player.stats && player.stats.pts_ppr || 0) <= 0) return;
+        if (['QB','RB','WR','TE'].indexOf(player.position) === -1 || !player.team || player.active === false || Number(player.stats && player.stats.pts_ppr || 0) <= 0) return;
         var groupKey = player.team + ':' + player.position;
         (depthGroups[groupKey] || (depthGroups[groupKey] = [])).push(player);
       });
+      depthPlayers = [];
       Object.keys(depthGroups).forEach(function(groupKey){
-        depthGroups[groupKey].sort(function(a,b){ return Number(b.stats.pts_ppr || 0) - Number(a.stats.pts_ppr || 0); }).slice(0, 3).forEach(function(player, index){
+        var group = depthGroups[groupKey];
+        var chosen = group.filter(function(player){ return Number(player.depth_chart_order) >= 1 && Number(player.depth_chart_order) <= 3; }).sort(function(a,b){ return a.depth_chart_order - b.depth_chart_order; });
+        group.slice().sort(function(a,b){ return Number(b.stats.pts_ppr || 0) - Number(a.stats.pts_ppr || 0); }).forEach(function(player){
+          if (chosen.length < 3 && chosen.indexOf(player) === -1) chosen.push(player);
+        });
+        chosen.slice(0, 3).forEach(function(player, index){
+          player.display_depth_order = player.depth_chart_order || (index + 1);
+          player.depth_confidence = player.depth_chart_order ? 'reported' : 'projection fallback';
+          depthPlayers.push(player);
           var key = player.position + ':' + norm(player.name);
-          var depthLabel = player.position + (index + 1);
-          var existing = comparePool.find(function(row){ return playerKey(row) === key; });
+          var depthLabel = player.position + player.display_depth_order + (player.depth_chart_order ? '' : ' proj');
+          var existing = board.find(function(row){ return playerKey(row) === key; });
           if (existing) {
             existing.depthLabel = depthLabel;
             return;
           }
-          comparePool.push({
+          if (['RB','WR','TE'].indexOf(player.position) === -1) return;
+          board.push({
             playerKey:key,
             name:player.name,
             position:player.position,
             team:player.team,
             overallRank:null,
-            positionRank:null,
+            positionRank:projectionPosRank[key] || null,
             projectionPosRank:projectionPosRank[key] || null,
-            adp:null,
+            adp:Number(player.stats && player.stats.adp_ppr) < 900 ? Number(player.stats.adp_ppr) : null,
             ppr_projected_points:null,
-            note:'Projected depth option · ' + depthLabel,
+            note:'Depth-chart extension · ' + depthLabel + ' · ' + player.depth_confidence,
             depthLabel:depthLabel,
+            boardTier:'depth',
             projection:player,
             history:historyByName[norm(player.name)] || null
           });
         });
       });
-      comparePool.sort(function(a,b){
-        var aRank = hasBoardRank(a) ? Number(a.overallRank) : 9999;
-        var bRank = hasBoardRank(b) ? Number(b.overallRank) : 9999;
-        return aRank - bRank || projectedPpr(b) - projectedPpr(a) || a.name.localeCompare(b.name);
+      var expertBoard = board.filter(function(row){ return row.boardTier === 'expert'; });
+      var depthBoard = board.filter(function(row){ return row.boardTier === 'depth'; }).sort(function(a,b){
+        var aAdp = Number(a.projection && a.projection.stats && a.projection.stats.adp_ppr);
+        var bAdp = Number(b.projection && b.projection.stats && b.projection.stats.adp_ppr);
+        aAdp = Number.isFinite(aAdp) && aAdp < 900 ? aAdp : 9999;
+        bAdp = Number.isFinite(bAdp) && bAdp < 900 ? bAdp : 9999;
+        return aAdp - bAdp || projectedPpr(b) - projectedPpr(a) || a.name.localeCompare(b.name);
       });
+      depthBoard.forEach(function(row, index){ row.overallRank = expertBoard.length + index + 1; });
+      board = expertBoard.concat(depthBoard);
+      comparePool = board.slice();
       injuries = projections.players.filter(function(player){ return player.injury_status; }).sort(function(a, b){
         return Number(b.stats && b.stats.pts_ppr || 0) - Number(a.stats && a.stats.pts_ppr || 0);
       });
@@ -2444,7 +2510,7 @@
       document.getElementById('lab-proj-count').textContent = projections.playerCount;
       document.getElementById('lab-match-count').textContent = joined;
       document.getElementById('lab-history-count').textContent = Object.keys(history).length;
-      document.getElementById('compare-pool-note').innerHTML = '<strong>' + comparePool.length + ' searchable players</strong> · ranked options plus the top three projected RBs, WRs, and TEs for every team. Type a name or team and press Enter for the first match.';
+      document.getElementById('compare-pool-note').innerHTML = '<strong>' + comparePool.length + ' searchable ranked players</strong> · the expert 144 plus all 32 teams’ first three RB, WR, and TE depth options. Type a name or team and press Enter for the first match.';
       var rankedInjuries = injuries.filter(function(injury){
         return board.some(function(player){ return player.position === injury.position && norm(player.name) === norm(injury.name); });
       }).length;
@@ -2462,22 +2528,29 @@
       document.getElementById('lab-team').innerHTML = teamReports.map(function(team){
         return '<option value="' + esc(team.abbr) + '">' + esc(team.city + ' ' + team.name) + '</option>';
       }).join('');
+      document.getElementById('depth-team').innerHTML = teamReports.map(function(team){
+        return '<option value="' + esc(team.abbr) + '">' + esc(team.city + ' ' + team.name) + '</option>';
+      }).join('');
       renderTeam(teamReports[0].abbr);
+      renderDepthChart();
       renderBoard();
       renderCompare();
       renderInjuries();
     }).catch(function(error){
-      body.innerHTML = '<tr><td colspan="8">Merged data could not load. Serve this directory over HTTP so its local JSON files are available.</td></tr>';
+      body.innerHTML = '<tr><td colspan="9">Merged data could not load. Serve this directory over HTTP so its local JSON files are available.</td></tr>';
       document.getElementById('lab-status').textContent = 'Data load error: ' + error.message;
     });
 
     document.getElementById('lab-search').addEventListener('input', renderBoard);
     document.getElementById('lab-position').addEventListener('change', renderBoard);
+    document.getElementById('lab-pool').addEventListener('change', renderBoard);
     document.getElementById('lab-scoring').addEventListener('change', function(e){
       scoring = e.target.value;
       renderBoard();
     });
     document.getElementById('lab-team').addEventListener('change', function(e){ renderTeam(e.target.value); });
+    document.getElementById('depth-team').addEventListener('change', renderDepthChart);
+    document.getElementById('depth-position').addEventListener('change', renderDepthChart);
     document.querySelectorAll('.compare-search').forEach(function(input){
       input.setAttribute('aria-expanded', 'false');
       input.addEventListener('focus', function(){ renderCompareSuggestions(input); });
