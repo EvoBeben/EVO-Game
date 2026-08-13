@@ -593,7 +593,19 @@
   .lab-status strong{ color:var(--lime); }
   .compare-grid,.watch-grid,.tips-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
   .compare-builder{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)) auto; gap:10px; align-items:end; margin:18px 0; }
+  .compare-field{ position:relative; }
   .compare-field label{ display:block; margin:0 0 7px; color:var(--dim); font-family:var(--data); font-size:8px; letter-spacing:.12em; text-transform:uppercase; }
+  .compare-search{ padding-right:38px; }
+  .compare-suggestions{ display:none; position:absolute; z-index:20; top:calc(100% + 6px); left:0; right:0; max-height:300px; overflow:auto; border:1px solid var(--rule-2); border-radius:14px; background:#091625; box-shadow:0 18px 44px rgba(0,0,0,.45); }
+  .compare-suggestions.open{ display:block; }
+  .compare-option{ display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%; border:0; border-top:1px solid var(--rule); background:transparent; color:var(--bone); padding:11px 12px; text-align:left; cursor:pointer; }
+  .compare-option:first-child{ border-top:0; }
+  .compare-option:hover,.compare-option.active{ background:rgba(184,243,74,.09); }
+  .compare-option strong{ display:block; font-size:.82rem; }
+  .compare-option span{ display:block; margin-top:2px; color:var(--dim); font-family:var(--data); font-size:7.5px; letter-spacing:.08em; text-transform:uppercase; }
+  .compare-option b{ flex:none; border:1px solid var(--rule-2); border-radius:999px; padding:5px 7px; color:var(--lime); font-family:var(--data); font-size:7px; letter-spacing:.08em; }
+  .compare-pool-note{ margin:-5px 0 14px; color:var(--muted); font-size:.78rem; line-height:1.5; }
+  .compare-pool-note strong{ color:var(--lime); }
   .compare-clear{ min-height:43px; border:1px solid var(--rule-2); border-radius:12px; background:transparent; color:var(--bone); padding:0 16px; font:700 .78rem var(--ui); cursor:pointer; }
   .compare-clear:hover{ border-color:var(--lime); color:var(--lime); }
   .compare-summary{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 14px; }
@@ -1924,15 +1936,16 @@
 
     <div class="panel" id="p-lab-compare" role="tabpanel">
       <div class="compare-builder" aria-label="Choose players to compare">
-        <div class="compare-field"><label for="compare-player-1">Player one</label><select class="lab-control compare-select" id="compare-player-1" data-slot="0"><option value="">Choose a player</option></select></div>
-        <div class="compare-field"><label for="compare-player-2">Player two</label><select class="lab-control compare-select" id="compare-player-2" data-slot="1"><option value="">Choose a player</option></select></div>
-        <div class="compare-field"><label for="compare-player-3">Player three · optional</label><select class="lab-control compare-select" id="compare-player-3" data-slot="2"><option value="">Choose a player</option></select></div>
+        <div class="compare-field"><label for="compare-player-1">Player one</label><input class="lab-control compare-search" id="compare-player-1" data-slot="0" type="search" autocomplete="off" placeholder="Type a player or team…" aria-autocomplete="list" aria-controls="compare-results-1"><div class="compare-suggestions" id="compare-results-1" role="listbox"></div></div>
+        <div class="compare-field"><label for="compare-player-2">Player two</label><input class="lab-control compare-search" id="compare-player-2" data-slot="1" type="search" autocomplete="off" placeholder="Type a player or team…" aria-autocomplete="list" aria-controls="compare-results-2"><div class="compare-suggestions" id="compare-results-2" role="listbox"></div></div>
+        <div class="compare-field"><label for="compare-player-3">Player three · optional</label><input class="lab-control compare-search" id="compare-player-3" data-slot="2" type="search" autocomplete="off" placeholder="Type a player or team…" aria-autocomplete="list" aria-controls="compare-results-3"><div class="compare-suggestions" id="compare-results-3" role="listbox"></div></div>
         <button class="compare-clear" id="compare-clear" type="button">Clear</button>
       </div>
+      <p class="compare-pool-note" id="compare-pool-note">Loading the expanded player pool…</p>
       <div class="compare-summary" id="compare-summary"></div>
       <div class="compare-grid" id="lab-compare"><div class="lab-empty">Select two or three players in Rankings to build a comparison.</div></div>
       <div class="compare-matrix" id="compare-matrix"></div>
-      <div class="provenance">Comparison combines the FantasyPros-ordered board, Sleeper/Rotowire projections, and NFLverse 2025 results. Board ADP and board PPR remain modeled fields; lower rank and ADP are better, while higher point totals are better.</div>
+      <div class="provenance">Comparison combines the FantasyPros-ordered board, Sleeper/Rotowire projections, and NFLverse 2025 results. The depth pool includes each team’s top three projected RBs, WRs, and TEs. RB1/RB2/RB3-style labels are projection-based ordering within a team, not official club depth charts. Board ADP and board PPR remain modeled fields.</div>
     </div>
     <div class="panel" id="p-lab-injuries" role="tabpanel">
       <div class="injury-overview">
@@ -2101,6 +2114,7 @@
 
     var selected = [];
     var board = [];
+    var comparePool = [];
     var scoring = 'pts_ppr';
     var history = {};
     var teamReports = [];
@@ -2128,6 +2142,14 @@
     function latestFor(row){
       var line = row.history && row.history.l;
       return line && line.length ? line[line.length - 1] : null;
+    }
+    function playerKey(row){ return row.playerKey || (row.position + ':' + norm(row.name)); }
+    function projectedPpr(row){ return Number(row.projection && row.projection.stats && row.projection.stats.pts_ppr || 0); }
+    function hasBoardRank(row){ return row.overallRank != null && Number.isFinite(Number(row.overallRank)); }
+    function rankText(row){ return hasBoardRank(row) ? 'Overall ' + row.overallRank : 'Unranked depth'; }
+    function positionText(row){
+      var rank = row.positionRank || row.projectionPosRank;
+      return row.depthLabel || (row.position + (rank || ''));
     }
 
     function renderBoard(){
@@ -2157,9 +2179,11 @@
 
     function compareMetrics(row){
       var stats = row.projection ? row.projection.stats : {};
+      var overall = hasBoardRank(row) ? Number(row.overallRank) : NaN;
+      var posRank = Number(row.positionRank || row.projectionPosRank);
       return [
-        { label:'Overall rank', value:number(row.overallRank), raw:Number(row.overallRank), low:true },
-        { label:'Position rank', value:esc(row.position) + number(row.positionRank), raw:Number(row.positionRank), low:true },
+        { label:'Overall rank', value:Number.isFinite(overall) ? number(overall) : 'Unranked', raw:overall, low:true },
+        { label:'Position rank', value:Number.isFinite(posRank) ? esc(row.position) + number(posRank) : '—', raw:posRank, low:true },
         { label:'Board ADP*', value:number(row.adp), raw:Number(row.adp), low:true },
         { label:'Board PPR*', value:number(row.ppr_projected_points), raw:Number(row.ppr_projected_points) },
         { label:'Sleeper PPR', value:number(stats.pts_ppr), raw:Number(stats.pts_ppr) },
@@ -2171,21 +2195,48 @@
         { label:'Projected touchdowns', value:number((stats.pass_td || 0) + (stats.rush_td || 0) + (stats.rec_td || 0)), raw:Number((stats.pass_td || 0) + (stats.rush_td || 0) + (stats.rec_td || 0)) }
       ];
     }
-    function populateCompareSelectors(){
-      var options = '<option value="">Choose a player</option>' + board.map(function(row){
-        return '<option value="' + row.overallRank + '">' + row.overallRank + ' · ' + esc(row.name) + ' · ' + esc(row.position) + esc(row.positionRank) + '</option>';
-      }).join('');
-      document.querySelectorAll('.compare-select').forEach(function(select){
-        var slot = Number(select.dataset.slot);
-        select.innerHTML = options;
-        select.value = selected[slot] ? String(selected[slot].overallRank) : '';
+    function syncCompareSearches(){
+      document.querySelectorAll('.compare-search').forEach(function(input){
+        var row = selected[Number(input.dataset.slot)];
+        input.value = row ? row.name + ' · ' + (row.team || 'FA') + ' · ' + positionText(row) : '';
       });
+    }
+    function closeCompareSuggestions(input){
+      var list = document.getElementById(input.getAttribute('aria-controls'));
+      list.classList.remove('open');
+      input.setAttribute('aria-expanded', 'false');
+      input._compareMatches = [];
+      input._compareActive = -1;
+    }
+    function renderCompareSuggestions(input){
+      var query = norm(input.value);
+      var matches = comparePool.filter(function(row){
+        return !query || norm(row.name + row.team + row.position + (row.depthLabel || '')).indexOf(query) !== -1;
+      }).slice(0, 9);
+      var list = document.getElementById(input.getAttribute('aria-controls'));
+      input._compareMatches = matches;
+      input._compareActive = -1;
+      list.innerHTML = matches.map(function(row){
+        return '<button class="compare-option" type="button" role="option" data-player-key="' + esc(playerKey(row)) + '"><span><strong>' + esc(row.name) + '</strong><span>' + esc(row.team || 'FA') + ' · ' + esc(row.position) + ' · ' + esc(rankText(row)) + '</span></span><b>' + esc(positionText(row)) + '</b></button>';
+      }).join('') || '<div class="lab-empty">No player found. Try a last name or team.</div>';
+      list.classList.add('open');
+      input.setAttribute('aria-expanded', 'true');
+    }
+    function chooseComparePlayer(input, row){
+      if (!row) return;
+      var slot = Number(input.dataset.slot);
+      selected = selected.filter(function(item, index){ return index === slot || playerKey(item) !== playerKey(row); });
+      selected[slot] = row;
+      selected = selected.filter(Boolean).slice(0, 3);
+      closeCompareSuggestions(input);
+      renderBoard();
+      renderCompare();
     }
     function renderCompare(){
       var host = document.getElementById('lab-compare');
       var matrix = document.getElementById('compare-matrix');
       var summary = document.getElementById('compare-summary');
-      populateCompareSelectors();
+      syncCompareSearches();
       if (!selected.length){
         host.innerHTML = '<div class="lab-empty">Choose two or three players above, or add them from Rankings.</div>';
         matrix.innerHTML = '';
@@ -2196,7 +2247,7 @@
         var stats = row.projection ? row.projection.stats : {};
         var injury = row.projection && row.projection.injury_status ? row.projection.injury_status : 'No injury flag';
         return '<article class="compare-card">' +
-          '<span class="compare-meta">Overall ' + row.overallRank + ' · ' + esc(row.position) + row.positionRank + ' · ' + esc(row.team) + '</span>' +
+          '<span class="compare-meta">' + esc(rankText(row)) + ' · ' + esc(positionText(row)) + ' · ' + esc(row.team || 'FA') + '</span>' +
           '<h3>' + esc(row.name) + '</h3>' +
           '<dl class="compare-stats">' +
             '<div><dt>Sleeper PPR</dt><dd>' + number(stats.pts_ppr) + '</dd></div>' +
@@ -2209,10 +2260,11 @@
         '</article>';
       }).join('');
       if (selected.length > 1){
-        var leader = selected.slice().sort(function(a,b){ return Number(b.projection.stats.pts_ppr || 0) - Number(a.projection.stats.pts_ppr || 0); })[0];
-        var runner = selected.slice().sort(function(a,b){ return Number(b.projection.stats.pts_ppr || 0) - Number(a.projection.stats.pts_ppr || 0); })[1];
-        var gap = Number(leader.projection.stats.pts_ppr || 0) - Number(runner.projection.stats.pts_ppr || 0);
-        summary.innerHTML = '<span>Projection edge: <b>' + esc(leader.name) + '</b></span><span>PPR gap: <b>' + number(gap) + ' pts</b></span><span>Best board value: <b>' + esc(selected.slice().sort(function(a,b){ return a.overallRank - b.overallRank; })[0].name) + '</b></span>';
+        var sorted = selected.slice().sort(function(a,b){ return projectedPpr(b) - projectedPpr(a); });
+        var leader = sorted[0], runner = sorted[1];
+        var gap = projectedPpr(leader) - projectedPpr(runner);
+        var ranked = selected.filter(hasBoardRank).sort(function(a,b){ return a.overallRank - b.overallRank; });
+        summary.innerHTML = '<span>Projection edge: <b>' + esc(leader.name) + '</b></span><span>PPR gap: <b>' + number(gap) + ' pts</b></span><span>' + (ranked.length ? 'Best board value: <b>' + esc(ranked[0].name) : 'Matchup: <b>depth pool') + '</b></span>';
       } else summary.innerHTML = '<span>Add one more player for head-to-head advantages.</span>';
       var metricSets = selected.map(compareMetrics);
       var rows = metricSets[0].map(function(metric, index){
@@ -2326,15 +2378,61 @@
       var historyByName = {};
       Object.keys(history).forEach(function(key){ historyByName[norm(history[key].n)] = history[key]; });
       var projectionByKey = {};
+      var projectionPosRank = {};
       projections.players.forEach(function(player){
         projectionByKey[player.position + ':' + norm(player.name)] = player;
         if (player.position === 'DEF') projectionByKey['DEF:' + player.team] = player;
+      });
+      ['QB','RB','WR','TE','K','DEF'].forEach(function(position){
+        projections.players.filter(function(player){ return player.position === position; }).sort(function(a,b){
+          return Number(b.stats && b.stats.pts_ppr || 0) - Number(a.stats && a.stats.pts_ppr || 0);
+        }).forEach(function(player, index){ projectionPosRank[position + ':' + norm(player.name)] = index + 1; });
       });
       board = ranks.players.map(function(player){
         var key = player.position + ':' + norm(player.name);
         player.projection = projectionByKey[key] || (player.position === 'DEF' ? projectionByKey['DEF:' + player.team] : null);
         player.history = historyByName[norm(player.name)] || null;
+        player.playerKey = key;
+        player.projectionPosRank = projectionPosRank[key] || null;
         return player;
+      });
+      comparePool = board.slice();
+      var depthGroups = {};
+      projections.players.forEach(function(player){
+        if (['RB','WR','TE'].indexOf(player.position) === -1 || !player.team || Number(player.stats && player.stats.pts_ppr || 0) <= 0) return;
+        var groupKey = player.team + ':' + player.position;
+        (depthGroups[groupKey] || (depthGroups[groupKey] = [])).push(player);
+      });
+      Object.keys(depthGroups).forEach(function(groupKey){
+        depthGroups[groupKey].sort(function(a,b){ return Number(b.stats.pts_ppr || 0) - Number(a.stats.pts_ppr || 0); }).slice(0, 3).forEach(function(player, index){
+          var key = player.position + ':' + norm(player.name);
+          var depthLabel = player.position + (index + 1);
+          var existing = comparePool.find(function(row){ return playerKey(row) === key; });
+          if (existing) {
+            existing.depthLabel = depthLabel;
+            return;
+          }
+          comparePool.push({
+            playerKey:key,
+            name:player.name,
+            position:player.position,
+            team:player.team,
+            overallRank:null,
+            positionRank:null,
+            projectionPosRank:projectionPosRank[key] || null,
+            adp:null,
+            ppr_projected_points:null,
+            note:'Projected depth option · ' + depthLabel,
+            depthLabel:depthLabel,
+            projection:player,
+            history:historyByName[norm(player.name)] || null
+          });
+        });
+      });
+      comparePool.sort(function(a,b){
+        var aRank = hasBoardRank(a) ? Number(a.overallRank) : 9999;
+        var bRank = hasBoardRank(b) ? Number(b.overallRank) : 9999;
+        return aRank - bRank || projectedPpr(b) - projectedPpr(a) || a.name.localeCompare(b.name);
       });
       injuries = projections.players.filter(function(player){ return player.injury_status; }).sort(function(a, b){
         return Number(b.stats && b.stats.pts_ppr || 0) - Number(a.stats && a.stats.pts_ppr || 0);
@@ -2346,6 +2444,7 @@
       document.getElementById('lab-proj-count').textContent = projections.playerCount;
       document.getElementById('lab-match-count').textContent = joined;
       document.getElementById('lab-history-count').textContent = Object.keys(history).length;
+      document.getElementById('compare-pool-note').innerHTML = '<strong>' + comparePool.length + ' searchable players</strong> · ranked options plus the top three projected RBs, WRs, and TEs for every team. Type a name or team and press Enter for the first match.';
       var rankedInjuries = injuries.filter(function(injury){
         return board.some(function(player){ return player.position === injury.position && norm(player.name) === norm(injury.name); });
       }).length;
@@ -2379,21 +2478,35 @@
       renderBoard();
     });
     document.getElementById('lab-team').addEventListener('change', function(e){ renderTeam(e.target.value); });
-    document.querySelectorAll('.compare-select').forEach(function(select){
-      select.addEventListener('change', function(e){
-        var slot = Number(e.target.dataset.slot);
-        var rank = Number(e.target.value);
-        var player = board.find(function(item){ return item.overallRank === rank; });
-        if (!player) {
-          selected.splice(slot, 1);
-        } else {
-          selected = selected.filter(function(item, index){ return index === slot || item.overallRank !== rank; });
-          selected[slot] = player;
+    document.querySelectorAll('.compare-search').forEach(function(input){
+      input.setAttribute('aria-expanded', 'false');
+      input.addEventListener('focus', function(){ renderCompareSuggestions(input); });
+      input.addEventListener('input', function(){ renderCompareSuggestions(input); });
+      input.addEventListener('keydown', function(e){
+        if (e.key === 'Escape') { closeCompareSuggestions(input); return; }
+        if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp' && e.key !== 'Enter') return;
+        var matches = input._compareMatches || [];
+        if (!matches.length) return;
+        e.preventDefault();
+        if (e.key === 'Enter') {
+          chooseComparePlayer(input, matches[input._compareActive >= 0 ? input._compareActive : 0]);
+          return;
         }
-        selected = selected.filter(Boolean).slice(0, 3);
-        renderBoard();
-        renderCompare();
+        input._compareActive = e.key === 'ArrowDown'
+          ? Math.min(matches.length - 1, input._compareActive + 1)
+          : Math.max(0, (input._compareActive < 0 ? matches.length : input._compareActive) - 1);
+        document.getElementById(input.getAttribute('aria-controls')).querySelectorAll('.compare-option').forEach(function(option, index){
+          option.classList.toggle('active', index === input._compareActive);
+        });
       });
+      var list = document.getElementById(input.getAttribute('aria-controls'));
+      list.addEventListener('mousedown', function(e){ e.preventDefault(); });
+      list.addEventListener('click', function(e){
+        var option = e.target.closest('.compare-option');
+        if (!option) return;
+        chooseComparePlayer(input, comparePool.find(function(row){ return playerKey(row) === option.dataset.playerKey; }));
+      });
+      input.addEventListener('blur', function(){ setTimeout(function(){ closeCompareSuggestions(input); }, 120); });
     });
     document.getElementById('compare-clear').addEventListener('click', function(){
       selected = [];
@@ -2402,7 +2515,7 @@
     });
     document.getElementById('injury-search').addEventListener('input', renderInjuries);
     document.getElementById('injury-position').addEventListener('change', renderInjuries);
-    document.getElementById('injury-status').addEventListener('change', renderInjuries);
+    document.getElementById('injury-status-filter').addEventListener('change', renderInjuries);
     body.addEventListener('click', function(e){
       var button = e.target.closest('.compare-toggle');
       if (!button) return;
