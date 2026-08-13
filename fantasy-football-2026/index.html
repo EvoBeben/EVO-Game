@@ -594,6 +594,17 @@
   .lab-status{ min-height:22px; margin:10px 0 0; color:var(--muted); font-size:.76rem; }
   .lab-status strong{ color:var(--lime); }
   .compare-grid,.watch-grid,.tips-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+  .compare-builder{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)) auto; gap:10px; align-items:end; margin:18px 0; }
+  .compare-field label{ display:block; margin:0 0 7px; color:var(--dim); font-family:var(--data); font-size:8px; letter-spacing:.12em; text-transform:uppercase; }
+  .compare-clear{ min-height:43px; border:1px solid var(--rule-2); border-radius:12px; background:transparent; color:var(--bone); padding:0 16px; font:700 .78rem var(--ui); cursor:pointer; }
+  .compare-clear:hover{ border-color:var(--lime); color:var(--lime); }
+  .compare-summary{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 14px; }
+  .compare-summary span{ border:1px solid rgba(184,243,74,.2); border-radius:999px; background:rgba(184,243,74,.07); color:var(--muted); padding:7px 10px; font-size:.74rem; }
+  .compare-summary b{ color:var(--lime); }
+  .compare-matrix{ margin-top:14px; }
+  .compare-matrix .lab-table-wrap{ max-height:none; }
+  .compare-matrix .lab-table{ min-width:640px; }
+  .metric-leader{ color:var(--lime)!important; font-weight:800; }
   .compare-card,.watch-card,.tip-card{ border:1px solid var(--rule-2); border-radius:18px; background:rgba(255,255,255,.035); padding:18px; }
   .compare-card h3,.watch-card h3,.tip-card h3{ margin:0 0 6px; color:var(--bone); font-size:.96rem; }
   .compare-meta,.tip-meta{ color:var(--lime); font-family:var(--data); font-size:8px; letter-spacing:.1em; text-transform:uppercase; }
@@ -602,6 +613,23 @@
   .compare-stats dt{ color:var(--dim); font-family:var(--data); font-size:7.5px; letter-spacing:.08em; text-transform:uppercase; }
   .compare-stats dd{ margin:3px 0 0; color:var(--bone); font-size:1rem; font-weight:800; }
   .watch-card p,.tip-card p{ margin:10px 0 0; color:var(--muted); font-size:.82rem; line-height:1.55; }
+  .injury-overview{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:18px 0; }
+  .injury-stat{ border:1px solid var(--rule-2); border-radius:16px; padding:15px; background:rgba(255,255,255,.035); }
+  .injury-stat strong{ display:block; color:var(--bone); font-size:1.45rem; }
+  .injury-stat span{ color:var(--dim); font-family:var(--data); font-size:8px; letter-spacing:.1em; text-transform:uppercase; }
+  .injury-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .injury-card{ border:1px solid var(--rule-2); border-radius:18px; padding:18px; background:rgba(255,255,255,.035); }
+  .injury-head{ display:flex; justify-content:space-between; gap:14px; align-items:flex-start; }
+  .injury-head h3{ margin:0; color:var(--bone); font-size:1rem; }
+  .injury-meta{ margin-top:5px; color:var(--dim); font-family:var(--data); font-size:8px; letter-spacing:.09em; text-transform:uppercase; }
+  .injury-status{ flex:none; border:1px solid var(--rule-2); border-radius:999px; padding:5px 8px; color:var(--bone); font-family:var(--data); font-size:7.5px; letter-spacing:.08em; text-transform:uppercase; }
+  .injury-status.s-IR,.injury-status.s-PUP,.injury-status.s-DNR{ border-color:rgba(245,158,11,.38); color:#ffd27a; background:rgba(245,158,11,.08); }
+  .injury-detail{ display:grid; grid-template-columns:1fr 1.25fr; gap:10px; margin-top:15px; }
+  .injury-detail div{ border-top:1px solid var(--rule); padding-top:9px; }
+  .injury-detail dt{ color:var(--dim); font-family:var(--data); font-size:7.5px; letter-spacing:.08em; text-transform:uppercase; }
+  .injury-detail dd{ margin:4px 0 0; color:var(--muted); font-size:.79rem; line-height:1.45; }
+  .injury-detail .return-window dd{ color:var(--bone); font-weight:700; }
+  .injury-source{ margin:12px 0 0; color:var(--dim); font-size:.69rem; }
   .lab-empty{ grid-column:1/-1; border:1px dashed var(--rule-2); border-radius:18px; padding:26px; color:var(--muted); text-align:center; }
   .provenance{ margin-top:20px; padding:15px 17px; border-left:3px solid var(--lime); background:rgba(184,243,74,.045); color:var(--muted); font-size:.78rem; line-height:1.55; }
   .team-toolbar{ display:flex; align-items:center; gap:12px; margin:18px 0; }
@@ -635,6 +663,8 @@
     .pulse-card{ max-width:620px; }
     .lab-intro{ grid-template-columns:1fr; }
     .compare-grid,.watch-grid,.tips-grid{ grid-template-columns:1fr 1fr; }
+    .compare-builder{ grid-template-columns:1fr 1fr; }
+    .injury-overview{ grid-template-columns:1fr 1fr; }
     .team-strip{ grid-template-columns:repeat(3,1fr); }
   }
   @media (max-width:700px){
@@ -653,6 +683,7 @@
     .sheet-col + .sheet-col{ border-left:0; border-top:1px solid var(--rule); padding:18px 0 0; }
     .lab-toolbar{ grid-template-columns:1fr; }
     .compare-grid,.watch-grid,.tips-grid{ grid-template-columns:1fr; }
+    .compare-builder,.injury-grid{ grid-template-columns:1fr; }
     .team-report-head,.team-columns{ grid-template-columns:1fr; }
     .team-strip{ grid-template-columns:1fr 1fr; }
   }
@@ -1867,6 +1898,7 @@
     <div class="tabs" role="tablist" aria-label="Player Lab views">
       <button class="tab active" role="tab" aria-selected="true" aria-controls="p-lab-rankings">Rankings</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-compare">Compare</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-injuries">Injury Report</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-watch">Who to Watch</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-tips">Draft Tips</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-teams">Team Intel</button>
@@ -1893,7 +1925,32 @@
     </div>
 
     <div class="panel" id="p-lab-compare" role="tabpanel">
+      <div class="compare-builder" aria-label="Choose players to compare">
+        <div class="compare-field"><label for="compare-player-1">Player one</label><select class="lab-control compare-select" id="compare-player-1" data-slot="0"><option value="">Choose a player</option></select></div>
+        <div class="compare-field"><label for="compare-player-2">Player two</label><select class="lab-control compare-select" id="compare-player-2" data-slot="1"><option value="">Choose a player</option></select></div>
+        <div class="compare-field"><label for="compare-player-3">Player three · optional</label><select class="lab-control compare-select" id="compare-player-3" data-slot="2"><option value="">Choose a player</option></select></div>
+        <button class="compare-clear" id="compare-clear" type="button">Clear</button>
+      </div>
+      <div class="compare-summary" id="compare-summary"></div>
       <div class="compare-grid" id="lab-compare"><div class="lab-empty">Select two or three players in Rankings to build a comparison.</div></div>
+      <div class="compare-matrix" id="compare-matrix"></div>
+      <div class="provenance">Comparison combines the FantasyPros-ordered board, Sleeper/Rotowire projections, and NFLverse 2025 results. Board ADP and board PPR remain modeled fields; lower rank and ADP are better, while higher point totals are better.</div>
+    </div>
+    <div class="panel" id="p-lab-injuries" role="tabpanel">
+      <div class="injury-overview">
+        <div class="injury-stat"><strong id="injury-total">—</strong><span>Flagged players</span></div>
+        <div class="injury-stat"><strong id="injury-ranked">—</strong><span>On ranked board</span></div>
+        <div class="injury-stat"><strong id="injury-pup">—</strong><span>PUP / IR</span></div>
+        <div class="injury-stat"><strong id="injury-updated">—</strong><span>Feed updated</span></div>
+      </div>
+      <div class="lab-toolbar">
+        <input class="lab-control" id="injury-search" type="search" placeholder="Search injured player or team…" aria-label="Search injury report">
+        <select class="lab-control" id="injury-position" aria-label="Filter injuries by position"><option value="">All positions</option><option>QB</option><option>RB</option><option>WR</option><option>TE</option><option>K</option></select>
+        <select class="lab-control" id="injury-status-filter" aria-label="Filter by injury status"><option value="">All statuses</option><option>Questionable</option><option>PUP</option><option>IR</option><option>DNR</option><option>NA</option></select>
+      </div>
+      <p class="lab-status" id="injury-result-count" aria-live="polite"></p>
+      <div class="injury-grid" id="injury-grid"><div class="lab-empty">Loading current injury data…</div></div>
+      <div class="provenance"><strong>Return-window note:</strong> estimates are conservative status-based planning guidance, not medical diagnoses or confirmed club dates. PUP, IR, surgery, and concussion cases remain “unconfirmed” until a team announces activation or clearance. Recheck official team reports before drafting or setting a lineup.</div>
     </div>
     <div class="panel" id="p-lab-watch" role="tabpanel">
       <div class="watch-grid" id="lab-watch"><div class="lab-empty">Loading watch list…</div></div>
@@ -2049,6 +2106,8 @@
     var scoring = 'pts_ppr';
     var history = {};
     var teamReports = [];
+    var injuries = [];
+    var injuryFeedUpdated = '';
 
     function esc(value){
       return String(value == null ? '' : value).replace(/[&<>"']/g, function(c){
@@ -2098,27 +2157,113 @@
       document.getElementById('lab-status').innerHTML = '<strong>' + rows.length + '</strong> players shown · <strong>' + selected.length + '</strong> selected for comparison';
     }
 
+    function compareMetrics(row){
+      var stats = row.projection ? row.projection.stats : {};
+      return [
+        { label:'Overall rank', value:number(row.overallRank), raw:Number(row.overallRank), low:true },
+        { label:'Position rank', value:esc(row.position) + number(row.positionRank), raw:Number(row.positionRank), low:true },
+        { label:'Board ADP*', value:number(row.adp), raw:Number(row.adp), low:true },
+        { label:'Board PPR*', value:number(row.ppr_projected_points), raw:Number(row.ppr_projected_points) },
+        { label:'Sleeper PPR', value:number(stats.pts_ppr), raw:Number(stats.pts_ppr) },
+        { label:'Sleeper half PPR', value:number(stats.pts_half_ppr), raw:Number(stats.pts_half_ppr) },
+        { label:'Sleeper standard', value:number(stats.pts_std), raw:Number(stats.pts_std) },
+        { label:'Sleeper ADP', value:number(stats.adp_ppr), raw:Number(stats.adp_ppr), low:true },
+        { label:'2025 fantasy points', value:number(latestFor(row)), raw:Number(latestFor(row)) },
+        { label:'Projected games', value:number(stats.gp), raw:Number(stats.gp) },
+        { label:'Projected touchdowns', value:number((stats.pass_td || 0) + (stats.rush_td || 0) + (stats.rec_td || 0)), raw:Number((stats.pass_td || 0) + (stats.rush_td || 0) + (stats.rec_td || 0)) }
+      ];
+    }
+    function populateCompareSelectors(){
+      var options = '<option value="">Choose a player</option>' + board.map(function(row){
+        return '<option value="' + row.overallRank + '">' + row.overallRank + ' · ' + esc(row.name) + ' · ' + esc(row.position) + esc(row.positionRank) + '</option>';
+      }).join('');
+      document.querySelectorAll('.compare-select').forEach(function(select){
+        var slot = Number(select.dataset.slot);
+        select.innerHTML = options;
+        select.value = selected[slot] ? String(selected[slot].overallRank) : '';
+      });
+    }
     function renderCompare(){
       var host = document.getElementById('lab-compare');
+      var matrix = document.getElementById('compare-matrix');
+      var summary = document.getElementById('compare-summary');
+      populateCompareSelectors();
       if (!selected.length){
-        host.innerHTML = '<div class="lab-empty">Select two or three players in Rankings to build a comparison.</div>';
+        host.innerHTML = '<div class="lab-empty">Choose two or three players above, or add them from Rankings.</div>';
+        matrix.innerHTML = '';
+        summary.innerHTML = '';
         return;
       }
       host.innerHTML = selected.map(function(row){
         var stats = row.projection ? row.projection.stats : {};
+        var injury = row.projection && row.projection.injury_status ? row.projection.injury_status : 'No injury flag';
         return '<article class="compare-card">' +
           '<span class="compare-meta">Overall ' + row.overallRank + ' · ' + esc(row.position) + row.positionRank + ' · ' + esc(row.team) + '</span>' +
           '<h3>' + esc(row.name) + '</h3>' +
           '<dl class="compare-stats">' +
-            '<div><dt>Board ADP*</dt><dd>' + number(row.adp) + '</dd></div>' +
-            '<div><dt>Board PPR*</dt><dd>' + number(row.ppr_projected_points) + '</dd></div>' +
             '<div><dt>Sleeper PPR</dt><dd>' + number(stats.pts_ppr) + '</dd></div>' +
             '<div><dt>Sleeper ADP</dt><dd>' + number(stats.adp_ppr) + '</dd></div>' +
+            '<div><dt>Board PPR*</dt><dd>' + number(row.ppr_projected_points) + '</dd></div>' +
             '<div><dt>2025 fantasy pts</dt><dd>' + number(latestFor(row)) + '</dd></div>' +
             '<div><dt>Projected games</dt><dd>' + number(stats.gp) + '</dd></div>' +
+            '<div><dt>Injury status</dt><dd>' + esc(injury) + '</dd></div>' +
           '</dl>' +
         '</article>';
       }).join('');
+      if (selected.length > 1){
+        var leader = selected.slice().sort(function(a,b){ return Number(b.projection.stats.pts_ppr || 0) - Number(a.projection.stats.pts_ppr || 0); })[0];
+        var runner = selected.slice().sort(function(a,b){ return Number(b.projection.stats.pts_ppr || 0) - Number(a.projection.stats.pts_ppr || 0); })[1];
+        var gap = Number(leader.projection.stats.pts_ppr || 0) - Number(runner.projection.stats.pts_ppr || 0);
+        summary.innerHTML = '<span>Projection edge: <b>' + esc(leader.name) + '</b></span><span>PPR gap: <b>' + number(gap) + ' pts</b></span><span>Best board value: <b>' + esc(selected.slice().sort(function(a,b){ return a.overallRank - b.overallRank; })[0].name) + '</b></span>';
+      } else summary.innerHTML = '<span>Add one more player for head-to-head advantages.</span>';
+      var metricSets = selected.map(compareMetrics);
+      var rows = metricSets[0].map(function(metric, index){
+        var finite = metricSets.map(function(set){ return set[index].raw; }).filter(Number.isFinite);
+        var best = finite.length ? (metric.low ? Math.min.apply(Math, finite) : Math.max.apply(Math, finite)) : null;
+        return '<tr><td class="lab-player">' + esc(metric.label) + '</td>' + metricSets.map(function(set){
+          var item = set[index];
+          var leaderClass = best !== null && Number.isFinite(item.raw) && item.raw === best ? ' class="metric-leader"' : '';
+          return '<td' + leaderClass + '>' + item.value + '</td>';
+        }).join('') + '</tr>';
+      }).join('');
+      matrix.innerHTML = '<div class="lab-table-wrap"><table class="lab-table"><thead><tr><th>Metric</th>' + selected.map(function(row){ return '<th>' + esc(row.name) + '</th>'; }).join('') + '</tr></thead><tbody>' + rows + '</tbody></table></div>';
+    }
+
+    function returnWindow(player){
+      var status = player.injury_status || '';
+      var detail = ((player.injury_body_part || '') + ' ' + (player.injury_notes || '')).toLowerCase();
+      if (status === 'IR') return 'IR — no return date announced';
+      if (status === 'PUP') return 'PUP — activation date not announced';
+      if (status === 'DNR') return 'Not practicing — timetable unconfirmed';
+      if (status === 'NA') return 'Unavailable — no return estimate';
+      if (detail.indexOf('concussion') !== -1) return 'Protocol-dependent — no fixed date';
+      if (detail.indexOf('acl') !== -1 || detail.indexOf('achilles') !== -1 || detail.indexOf('surgery') !== -1) return 'Rehab watch — no confirmed return date';
+      if (detail.indexOf('fracture') !== -1) return 'Multi-week risk — awaiting club update';
+      return 'Day-to-day — recheck before Week 1';
+    }
+    function renderInjuries(){
+      var query = norm(document.getElementById('injury-search').value);
+      var position = document.getElementById('injury-position').value;
+      var status = document.getElementById('injury-status-filter').value;
+      var rows = injuries.filter(function(player){
+        return (!position || player.position === position) &&
+          (!status || player.injury_status === status) &&
+          (!query || norm(player.name + player.team + player.injury_body_part).indexOf(query) !== -1);
+      });
+      document.getElementById('injury-result-count').innerHTML = '<strong>' + rows.length + '</strong> injury flags shown, ordered by projected full-PPR impact';
+      document.getElementById('injury-grid').innerHTML = rows.map(function(player){
+        var ranked = board.find(function(row){ return row.position === player.position && norm(row.name) === norm(player.name); });
+        var detail = [player.injury_body_part, player.injury_notes].filter(Boolean).join(' · ') || 'Details not supplied by feed';
+        return '<article class="injury-card">' +
+          '<div class="injury-head"><div><h3>' + esc(player.name) + '</h3><p class="injury-meta">' + esc(player.position) + ' · ' + esc(player.team || 'FA') + (ranked ? ' · Overall ' + ranked.overallRank : '') + '</p></div><span class="injury-status s-' + esc(player.injury_status) + '">' + esc(player.injury_status) + '</span></div>' +
+          '<dl class="injury-detail">' +
+            '<div><dt>Injury detail</dt><dd>' + esc(detail) + '</dd></div>' +
+            '<div class="return-window"><dt>Estimated return</dt><dd>' + esc(returnWindow(player)) + '</dd></div>' +
+            '<div><dt>Projected PPR</dt><dd>' + number(player.stats && player.stats.pts_ppr) + '</dd></div>' +
+            '<div><dt>Projected games</dt><dd>' + number(player.stats && player.stats.gp) + '</dd></div>' +
+          '</dl><p class="injury-source">Sleeper / Rotowire status snapshot</p>' +
+        '</article>';
+      }).join('') || '<div class="lab-empty">No injury flags match those filters.</div>';
     }
 
     function renderNotes(watch, tips){
@@ -2193,11 +2338,28 @@
         player.history = historyByName[norm(player.name)] || null;
         return player;
       });
+      injuries = projections.players.filter(function(player){ return player.injury_status; }).sort(function(a, b){
+        return Number(b.stats && b.stats.pts_ppr || 0) - Number(a.stats && a.stats.pts_ppr || 0);
+      });
+      injuryFeedUpdated = projections.fetchedAt || '';
+      selected = board.slice(0, 2);
       var joined = board.filter(function(player){ return player.projection; }).length;
       document.getElementById('lab-ranked-count').textContent = board.length;
       document.getElementById('lab-proj-count').textContent = projections.playerCount;
       document.getElementById('lab-match-count').textContent = joined;
       document.getElementById('lab-history-count').textContent = Object.keys(history).length;
+      var rankedInjuries = injuries.filter(function(injury){
+        return board.some(function(player){ return player.position === injury.position && norm(player.name) === norm(injury.name); });
+      }).length;
+      document.getElementById('injury-total').textContent = injuries.length;
+      document.getElementById('injury-ranked').textContent = rankedInjuries;
+      document.getElementById('injury-pup').textContent = injuries.filter(function(player){
+        return player.injury_status === 'PUP' || player.injury_status === 'IR';
+      }).length;
+      var updated = injuryFeedUpdated ? new Date(injuryFeedUpdated) : null;
+      document.getElementById('injury-updated').textContent = updated && !isNaN(updated.getTime())
+        ? updated.toLocaleDateString('en-US', { month:'short', day:'numeric' })
+        : 'Current feed';
       renderNotes(watch, tips);
       teamReports = teams.teams;
       document.getElementById('lab-team').innerHTML = teamReports.map(function(team){
@@ -2206,6 +2368,7 @@
       renderTeam(teamReports[0].abbr);
       renderBoard();
       renderCompare();
+      renderInjuries();
     }).catch(function(error){
       body.innerHTML = '<tr><td colspan="8">Merged data could not load. Serve this directory over HTTP so its local JSON files are available.</td></tr>';
       document.getElementById('lab-status').textContent = 'Data load error: ' + error.message;
@@ -2218,6 +2381,30 @@
       renderBoard();
     });
     document.getElementById('lab-team').addEventListener('change', function(e){ renderTeam(e.target.value); });
+    document.querySelectorAll('.compare-select').forEach(function(select){
+      select.addEventListener('change', function(e){
+        var slot = Number(e.target.dataset.slot);
+        var rank = Number(e.target.value);
+        var player = board.find(function(item){ return item.overallRank === rank; });
+        if (!player) {
+          selected.splice(slot, 1);
+        } else {
+          selected = selected.filter(function(item, index){ return index === slot || item.overallRank !== rank; });
+          selected[slot] = player;
+        }
+        selected = selected.filter(Boolean).slice(0, 3);
+        renderBoard();
+        renderCompare();
+      });
+    });
+    document.getElementById('compare-clear').addEventListener('click', function(){
+      selected = [];
+      renderBoard();
+      renderCompare();
+    });
+    document.getElementById('injury-search').addEventListener('input', renderInjuries);
+    document.getElementById('injury-position').addEventListener('change', renderInjuries);
+    document.getElementById('injury-status').addEventListener('change', renderInjuries);
     body.addEventListener('click', function(e){
       var button = e.target.closest('.compare-toggle');
       if (!button) return;

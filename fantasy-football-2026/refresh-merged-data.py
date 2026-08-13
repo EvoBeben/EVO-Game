@@ -36,6 +36,9 @@ def main() -> None:
                 "team": record.get("team") or player.get("team"),
                 "years_exp": player.get("years_exp"),
                 "injury_status": player.get("injury_status"),
+                "injury_body_part": player.get("injury_body_part"),
+                "injury_notes": player.get("injury_notes"),
+                "injury_start_date": player.get("injury_start_date"),
                 "stats": stats,
                 "updated_at": record.get("updated_at"),
             }
