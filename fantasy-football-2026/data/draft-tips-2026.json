@@ -1,0 +1,117 @@
+{
+  "lastUpdated": "2026-07-30",
+  "researchMethod": "General strategy content written for this league's exact settings (12 teams, Full PPR, 1 QB / 2 RB / 2 WR / 1 FLEX / 1 DEF / 1 K). Per the project brief this section is not sourced per-entry: the arithmetic comes from the league configuration itself and the reasoning is standard redraft strategy rather than a claim about any specific player. Nothing here depends on rankings, ADP or projections, so it is real content even while the player data files are still placeholders.",
+  "leagueContext": "12-team, Full PPR, 1 QB / 2 RB / 2 WR / 1 FLEX (RB/WR/TE) / 1 DEF / 1 K",
+  "tips": [
+    {
+      "category": "Roster Construction",
+      "title": "Five of your eight starting slots draw from the same pool",
+      "body": "The lineup is 1 QB, 2 RB, 2 WR, 1 FLEX, 1 DEF and 1 K. Set aside the three slots that are effectively fixed-cost late picks — quarterback, defense and kicker — and five of the remaining slots all pull from the same RB/WR/TE pool. That is where draft capital decides your season, so the default plan is to spend your first five or six picks on running backs and receivers and let the other three slots come to you at the end.",
+      "appliesTo": "All draft slots"
+    },
+    {
+      "category": "Roster Construction",
+      "title": "One quarterback means twelve starters league-wide",
+      "body": "There is no superflex here. Twelve teams need exactly twelve starting quarterbacks, so the twelfth-best quarterback is still a startable player and the cost of missing out on the top of the position is low. Compare that with running back, where the twenty-fifth-best back does not start anywhere. An early quarterback pick buys points at the one position where the drop-off behind you is shallowest.",
+      "appliesTo": "All draft slots"
+    },
+    {
+      "category": "Roster Construction",
+      "title": "A short bench changes what a late pick is for",
+      "body": "Eight starters plus a two-round bench in a ten-round draft leaves almost no room for speculation. Every pick after your starters competes against a waiver-wire add you can make for free in week two. That argues for players who could start this season over lottery tickets who need an injury ahead of them before they matter at all.",
+      "appliesTo": "Rounds 9-10"
+    },
+    {
+      "category": "Roster Construction",
+      "title": "Your slot shapes your turns, not your board",
+      "body": "From slot 1 you pick at 1.01 and 2.12 — a long wait, so take two players you are happy to build around and expect the board to move a lot in between. From slot 12 you pick 1.12 and 2.01 back to back, which lets you cover two positions in one turn. From the middle you are never waiting long, so you can react to runs instead of planning around them. The rankings do not change with your slot; only the gaps between your picks do.",
+      "appliesTo": "All draft slots"
+    },
+    {
+      "category": "Positional Scarcity",
+      "title": "There is no dedicated tight end slot",
+      "body": "A tight end can only reach your lineup through FLEX, which means he is not competing with other tight ends — he is competing with your third-best running back or receiver. That is a much higher bar. It does not make tight ends undraftable, but the only ones worth a pick are the few who command a genuine receiver-level target share, and a mid-tier tight end is close to worthless in this format.",
+      "appliesTo": "All draft slots"
+    },
+    {
+      "category": "Positional Scarcity",
+      "title": "Count the weekly starters before you value a position",
+      "body": "Across twelve teams this league starts 12 quarterbacks, 24 running backs, 24 receivers, 12 defenses, 12 kickers and 12 FLEX players. Those counts are where positional cliffs actually come from. RB24 and WR24 are the last players at their position with guaranteed standing value; QB12, DEF12 and K12 are the same line at theirs. Anyone drafted beyond those counts is a bench player, not a starter.",
+      "appliesTo": "All draft slots"
+    },
+    {
+      "category": "Positional Scarcity",
+      "title": "The FLEX slot rewards depth over stars",
+      "body": "Everyone's first two running backs and first two receivers are startable. The team that wins the FLEX slot most weeks is usually the one with the best fifth and sixth RB/WR, not the one with the best single player. In the middle rounds that makes another solid pass-catcher worth more than it looks, because it upgrades a slot your opponents are filling with a bye-week replacement.",
+      "appliesTo": "Middle rounds"
+    },
+    {
+      "category": "Positional Scarcity",
+      "title": "Twenty-four per position is exactly the league's demand",
+      "body": "Two running back slots across twelve teams is 24 backs, and the same for receivers. Working from a top-24-per-position board, the supply of startable RB and WR bodies is precisely what the league consumes before anyone drafts a bench player. Practically: runs at those positions are real, and being the last team without a second starting running back is a far worse place to be than being the last team without a quarterback.",
+      "appliesTo": "All draft slots"
+    },
+    {
+      "category": "Handcuffs",
+      "title": "Only handcuff a workload that transfers whole",
+      "body": "A handcuff earns its pick when the backup would inherit the entire job — all three downs and the goal-line work — if the starter missed time. When the depth chart behind that starter is a committee, the injury you are insuring against produces two mediocre players instead of one good one and your pick buys nothing. Judge it by how the team behaved the last time that starter was out, not by the ordering on the depth chart.",
+      "appliesTo": "Late rounds"
+    },
+    {
+      "category": "Handcuffs",
+      "title": "A two-man bench makes most handcuffs too expensive",
+      "body": "With only two bench spots, handcuffing your own first-round back costs half your flexibility all season for a player who scores nothing while your starter is healthy. In deeper formats that insurance is cheap; here it usually is not. The exception is a backup who would be a startable FLEX player in his own right, because then the pick has value whether or not the injury ever happens.",
+      "appliesTo": "Late rounds"
+    },
+    {
+      "category": "Handcuffs",
+      "title": "Do not handcuff another manager's problem",
+      "body": "Rostering the backup to someone else's star gives you a player you cannot start and they will not trade for at your price. Contingency picks should protect a slot you actually rely on. If you want exposure to a backfield you do not own, the productive version is drafting the player who would benefit from a change, not the one currently blocked by it.",
+      "appliesTo": "Late rounds"
+    },
+    {
+      "category": "Streaming DEF/K",
+      "title": "Defense and kicker belong in your last two picks",
+      "body": "Both positions are close to unpredictable week to week, and the gap between the first defense off the board and the twelfth is smaller than the swing a single favourable matchup produces. Spending an earlier pick locks in a small edge at the cost of a real one in your RB/WR room. Take them last, and take whichever has the better opening matchup first.",
+      "appliesTo": "Final two rounds"
+    },
+    {
+      "category": "Streaming DEF/K",
+      "title": "Stream on the opponent, not the name",
+      "body": "The most reliable weekly signal at defense is who they are playing. Turnover-prone quarterbacks, backups making a first start and bad offensive lines produce fantasy defense points regardless of how good the defense itself is. A simple habit of rotating to whoever draws the weakest offense beats holding one unit all season, and it costs nothing but a waiver claim.",
+      "appliesTo": "In-season"
+    },
+    {
+      "category": "Streaming DEF/K",
+      "title": "Kickers follow offenses, not legs",
+      "body": "Kicker scoring is mostly a function of how often the offense reaches scoring range, so the useful ones sit on good offenses — ideally offenses that stall a little in the red zone, since field goals pay better than extra points. Chasing last week's long-range makes is noise. Choosing between two kickers, take the one on the better offense playing indoors or in mild weather.",
+      "appliesTo": "In-season"
+    },
+    {
+      "category": "PPR Value Shifts",
+      "title": "A full point per catch compresses the RB/WR gap",
+      "body": "In Full PPR a running back who catches five passes a game collects five points before gaining a yard, which turns pass-catching backs into weekly starters and pushes pure early-down runners down the board. Comparing two backs with similar rushing workloads, receiving usage is usually the entire difference in this format.",
+      "appliesTo": "All draft slots"
+    },
+    {
+      "category": "PPR Value Shifts",
+      "title": "Target share beats yards per catch",
+      "body": "Points per reception rewards volume directly, so the receiver thrown at most often is the more reliable scorer even when someone else gains more per touch. A high-volume, short-area receiver with a big target share has a higher weekly floor than a downfield threat with the same yardage total — and floor is what wins the FLEX slot.",
+      "appliesTo": "All draft slots"
+    },
+    {
+      "category": "PPR Value Shifts",
+      "title": "Touchdown-dependent profiles swing hardest",
+      "body": "Players whose value comes from scoring rather than volume are the most volatile week to week, and in a format that pays for every catch they are giving up the steadiest source of points. Prefer the player whose median week is built on receptions and treat touchdowns as upside on top, rather than as the reason for the pick.",
+      "appliesTo": "Middle rounds"
+    },
+    {
+      "category": "PPR Value Shifts",
+      "title": "Reception volume is what makes a FLEX play safe",
+      "body": "The FLEX slot is where you most need a predictable score, because you are usually choosing between two imperfect options on a Sunday morning. In Full PPR the safe choice is almost always the higher-reception player even at lower total yardage: six catches for 50 yards outscores three catches for 70, and it does so far more consistently.",
+      "appliesTo": "In-season"
+    }
+  ]
+}
+
+

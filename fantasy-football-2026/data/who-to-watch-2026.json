@@ -1,0 +1,56 @@
+{
+  "lastUpdated": "2026-07-30",
+  "researchMethod": "Cross-position shortlist selected from the FantasyPros 2026 positional cheat sheet dated 07/30/2026. Each angle is grounded in two things only: where that sheet ranks the player, and this league's roster rules (12 teams, Full PPR, 1 QB / 2 RB / 2 WR / 1 FLEX / 1 DEF / 1 K, no dedicated TE slot). No claims are made about depth charts, schemes, usage or health — none of that could be verified against the source allowlist in this environment.",
+  "watchlist": [
+    {
+      "name": "Jahmyr Gibbs",
+      "angle": "The sheet's RB1, ahead of Bijan Robinson. If you hold 1.01 this is the pick the rest of your board hangs on, and in Full PPR the tiebreaker between those two is receiving work."
+    },
+    {
+      "name": "Ja'Marr Chase",
+      "angle": "WR1 on the sheet and the first receiver off the derived board. In a format paying a point per catch, taking him over the next running back tier is defensible anywhere in the first three picks."
+    },
+    {
+      "name": "Brock Bowers",
+      "angle": "TE1 by the sheet. With no dedicated TE slot he has to beat your third RB/WR for the FLEX spot — at TE1 he is one of the few tight ends who plausibly does."
+    },
+    {
+      "name": "Trey McBride",
+      "angle": "TE2, and the last tight end the sheet prices like a starter. Once these two are gone the position stops being worth an early pick in this format."
+    },
+    {
+      "name": "Josh Allen",
+      "angle": "QB1 in a league that starts twelve quarterbacks. The entire case for spending an early pick here is the gap between him and QB12 — measure that gap before you pay it."
+    },
+    {
+      "name": "Christian McCaffrey",
+      "angle": "RB4 on the sheet, ranked as an anchor back. The open question is not his rank but whether you want your first pick tied to the running back tier at all."
+    },
+    {
+      "name": "Colston Loveland",
+      "angle": "TE3 — the first tight end outside the elite pair. In a league with no TE slot this is exactly the tier where the position stops paying for the roster spot."
+    },
+    {
+      "name": "Tetairoa McMillan",
+      "angle": "WR16, right where the FLEX slot gets decided. Your fifth and sixth RB/WR win more weeks than your first, and this is the range they come from."
+    },
+    {
+      "name": "Emeka Egbuka",
+      "angle": "WR17 and inside the 24 receivers the league starts weekly. Middle-round receivers at this rank are the difference between a covered FLEX and a bye-week scramble."
+    },
+    {
+      "name": "Jameson Williams",
+      "angle": "WR22, near the edge of weekly starter demand. Twelve teams start 24 receivers, so this is roughly the last tier with guaranteed standing value."
+    },
+    {
+      "name": "TreVeyon Henderson",
+      "angle": "RB24 — the last back inside the league's 24 starting RB slots. Whoever finishes the draft without two startable backs is shopping below this line all season."
+    },
+    {
+      "name": "Jaxson Dart",
+      "angle": "QB12: by the arithmetic of a one-quarterback league, the last passer with a guaranteed weekly job. He is the anchor for deciding how long you can afford to wait."
+    }
+  ]
+}
+
+

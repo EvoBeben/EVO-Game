@@ -1,4 +1,11 @@
-<title>The Board — 2026 Fantasy Football Breakdown</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07111f">
+<meta name="description" content="EVO Game's complete 2026 fantasy football draft guide, rankings, player profiles, mock drafts, and strategy.">
+<title>EVO Game — 2026 Fantasy Football Breakdown</title>
 
 <style>
   :root{
@@ -423,11 +430,239 @@
   table.sheet-tbl td.yr{ font-family:var(--data); color:var(--muted); }
 
   tr.sheet-tr > td{ padding:0 !important; border-bottom:1px solid var(--rule) !important; }
+
+  /* ================= EVO site merge =================
+     The content remains the dense draft-room tool from this repository. The shell,
+     hierarchy and interaction surfaces borrow the clearer glass-and-lime language of
+     the EVO Game breakdown site. */
+  :root{
+    --ground:#07111F;
+    --ground-2:#050C16;
+    --raise:#111D27;
+    --raise-2:#182631;
+    --rule:rgba(255,255,255,.08);
+    --rule-2:rgba(255,255,255,.14);
+    --lime:#B8F34A;
+    --lime-soft:#D3FF7A;
+    --amber:var(--lime);
+    --amber-hi:var(--lime-soft);
+    --gold:var(--lime);
+    --gold-hi:var(--lime-soft);
+    --gold-dim:#91B94C;
+    --bone:#F4F8F2;
+    --text:#D8E1E5;
+    --muted:#A5B1BB;
+    --dim:#8A98A4;
+  }
+  body{
+    background-color:var(--ground);
+    background-image:
+      radial-gradient(850px 560px at 7% -5%, rgba(132,204,22,.18), transparent 62%),
+      radial-gradient(760px 520px at 96% 14%, rgba(245,158,11,.10), transparent 60%),
+      linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+    background-size:auto, auto, 52px 52px, 52px 52px;
+    background-attachment:fixed;
+  }
+  .wrap{ max-width:1180px; padding-inline:28px; }
+  .topbar{
+    top:16px; width:min(calc(100% - 40px), 1180px); margin:16px auto 0;
+    border:1px solid var(--rule-2); border-radius:999px;
+    background:rgba(15,29,34,.78); box-shadow:0 16px 50px rgba(0,0,0,.24);
+    backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+  }
+  .topbar-in{ max-width:none; padding:12px 18px; gap:18px; }
+  .mark{ display:flex; align-items:center; gap:13px; color:inherit; }
+  .brand-evo{ color:var(--lime); font-weight:700; letter-spacing:.32em; }
+  .brand-sub{ color:var(--muted); letter-spacing:.02em; text-transform:none; }
+  .crumb{ color:var(--bone); }
+  .crumb::before{ background:var(--lime); opacity:.45; }
+  .home-link{
+    color:var(--bone); border:1px solid var(--rule-2); border-radius:999px;
+    padding:7px 12px; line-height:1;
+  }
+  .home-link:hover{ color:var(--ground); background:var(--lime); border-color:var(--lime); }
+
+  .home-hero{ display:grid; grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr); gap:54px; align-items:center; padding:70px 0 44px; }
+  .hero-copy{ min-width:0; }
+  .home-hero .kicker, .toc-lbl{ color:var(--lime); }
+  .home-hero h1{
+    max-width:13ch; margin-bottom:20px; color:var(--bone); text-transform:none;
+    font-size:clamp(3rem,6.4vw,5.7rem); line-height:.98; letter-spacing:-.055em;
+  }
+  .home-hero h1 em{ color:var(--lime); }
+  .home-hero .standfirst{
+    max-width:61ch; color:var(--muted); font-family:var(--ui); font-size:1.06rem;
+    line-height:1.65; letter-spacing:0; text-transform:none;
+  }
+  .hero-actions{ display:flex; flex-wrap:wrap; gap:12px; margin:28px 0 24px; }
+  .hero-action{
+    display:inline-flex; align-items:center; justify-content:center; min-height:46px;
+    padding:0 20px; border:1px solid var(--rule-2); border-radius:999px;
+    color:var(--bone); font-weight:700; font-size:.9rem;
+  }
+  .hero-action.primary{ color:var(--ground); background:var(--lime); border-color:var(--lime); }
+  .hero-action:hover{ border-color:var(--lime); }
+  .hero-action.primary:hover{ background:var(--lime-soft); }
+  .home-hero .legend{ margin-top:0; }
+  .home-hero .legend li{ color:var(--muted); }
+  .home-hero .swatch{ border-radius:50%; }
+
+  .pulse-card{
+    position:relative; overflow:hidden; padding:24px; border:1px solid var(--rule-2);
+    border-radius:30px; background:rgba(255,255,255,.055);
+    box-shadow:inset 0 1px rgba(255,255,255,.04), 0 28px 80px rgba(0,0,0,.24);
+    backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+  }
+  .pulse-card::before{
+    content:""; position:absolute; inset:-1px; pointer-events:none;
+    background:radial-gradient(circle at 95% 0, rgba(184,243,74,.16), transparent 35%);
+  }
+  .pulse-head{ position:relative; display:flex; justify-content:space-between; align-items:flex-start; gap:18px; margin-bottom:22px; }
+  .pulse-label{ margin:0 0 5px; color:var(--muted); font-family:var(--data); font-size:9.5px; letter-spacing:.24em; text-transform:uppercase; }
+  .pulse-title{ margin:0; color:var(--bone); font-size:1.45rem; line-height:1.2; }
+  .live-chip{
+    white-space:nowrap; border:1px solid rgba(184,243,74,.2); border-radius:999px;
+    background:rgba(184,243,74,.08); color:var(--lime-soft); padding:6px 10px;
+    font-family:var(--data); font-size:9px; letter-spacing:.08em; text-transform:uppercase;
+  }
+  .live-chip::before{ content:""; display:inline-block; width:6px; height:6px; margin-right:7px; border-radius:50%; background:var(--lime); box-shadow:0 0 14px var(--lime); }
+  .pulse-grid{ position:relative; display:grid; grid-template-columns:1fr 1fr; gap:11px; }
+  .pulse-stat{ min-height:118px; padding:16px; border:1px solid var(--rule); border-radius:18px; background:rgba(5,12,22,.42); }
+  .pulse-stat span{ display:block; color:var(--dim); font-family:var(--data); font-size:9px; letter-spacing:.18em; text-transform:uppercase; }
+  .pulse-stat strong{ display:block; margin:7px 0 3px; color:var(--bone); font-size:1.75rem; line-height:1.1; }
+  .pulse-stat small{ color:var(--muted); font-size:.78rem; line-height:1.35; }
+
+  .hashes{ height:1px; opacity:1; background:linear-gradient(90deg, transparent, rgba(184,243,74,.34), transparent); }
+  .toc{ padding-top:34px; padding-bottom:64px; }
+  .toc-lbl{ margin:0 0 12px; }
+  .toc-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+  .toc-grid + .toc-lbl{ margin-top:30px; }
+  .toc-card{
+    position:relative; align-items:flex-start; justify-content:flex-start; min-height:116px;
+    padding:18px; border-color:var(--rule-2); border-radius:20px;
+    background:rgba(255,255,255,.035); color:var(--bone); overflow:hidden;
+    transition:transform .18s ease, background .18s ease, border-color .18s ease;
+  }
+  .toc-card[data-pos]{ color:var(--bone); border-color:var(--rule-2); }
+  .toc-card:hover, .toc-card[data-pos]:hover{
+    transform:translateY(-2px); color:var(--bone); background:rgba(255,255,255,.07);
+    border-color:color-mix(in srgb, var(--pc, var(--lime)) 62%, transparent);
+  }
+  .toc-card::after{ position:absolute; right:17px; top:13px; color:var(--pc,var(--lime)); }
+  .toc-code{ flex:none; width:34px; color:var(--pc,var(--lime)); font-family:var(--data); font-size:9px; letter-spacing:.12em; }
+  .toc-copy{ display:flex; flex-direction:column; gap:8px; padding-right:18px; }
+  .toc-name{ color:var(--bone); font-size:.92rem; }
+  .toc-desc{ color:var(--muted); font-family:var(--ui); font-size:.78rem; font-weight:400; letter-spacing:0; line-height:1.4; text-transform:none; }
+
+  .sec-head{ border:0; padding:40px 0 0; }
+  .sec-head .wrap{
+    align-items:center; padding-top:22px; padding-bottom:22px;
+    border:1px solid var(--rule-2); border-radius:24px;
+    background:rgba(255,255,255,.035); backdrop-filter:blur(12px);
+  }
+  .sec-glyph{ border-radius:999px; padding:6px 9px; background:color-mix(in srgb, var(--pc) 9%, transparent); }
+  .tabs{ gap:26px; border-bottom-color:var(--rule-2); }
+  .tab{ padding-top:16px; }
+  .sheet{ border:1px solid var(--rule-2); border-top-color:var(--pc,var(--lime)); border-radius:18px; box-shadow:0 20px 60px rgba(0,0,0,.24); }
+  footer{ background:rgba(5,12,22,.72); }
+
+  .lab-intro{ display:grid; grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr); gap:20px; margin-bottom:22px; }
+  .lab-card{ border:1px solid var(--rule-2); border-radius:22px; background:rgba(255,255,255,.035); padding:22px; }
+  .lab-card h3{ margin:0 0 9px; color:var(--bone); font-size:1.08rem; }
+  .lab-card p{ margin:0; color:var(--muted); font-size:.88rem; line-height:1.65; }
+  .data-chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .data-chip{ border:1px solid var(--rule-2); border-radius:999px; padding:7px 10px; color:var(--muted); font-family:var(--data); font-size:8.5px; letter-spacing:.08em; text-transform:uppercase; }
+  .data-chip b{ color:var(--lime); }
+  .lab-counts{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .lab-count{ border:1px solid var(--rule); border-radius:16px; padding:15px; background:rgba(5,12,22,.4); }
+  .lab-count strong{ display:block; color:var(--bone); font-size:1.55rem; }
+  .lab-count span{ color:var(--dim); font-family:var(--data); font-size:8px; letter-spacing:.12em; text-transform:uppercase; }
+  .lab-toolbar{ display:grid; grid-template-columns:minmax(200px,1fr) 160px 180px; gap:10px; margin:18px 0; }
+  .lab-control{ width:100%; min-height:43px; border:1px solid var(--rule-2); border-radius:12px; background:#0a1728; color:var(--bone); padding:0 13px; font:600 .82rem var(--ui); }
+  .lab-control:focus{ outline:2px solid color-mix(in srgb,var(--lime) 65%,transparent); outline-offset:2px; }
+  .lab-table-wrap{ overflow:auto; max-height:690px; border:1px solid var(--rule-2); border-radius:18px; }
+  .lab-table{ width:100%; border-collapse:collapse; min-width:790px; }
+  .lab-table th{ position:sticky; top:0; z-index:2; padding:12px 13px; background:#0b192b; color:var(--dim); font-family:var(--data); font-size:8px; letter-spacing:.12em; text-transform:uppercase; text-align:left; }
+  .lab-table td{ padding:12px 13px; border-top:1px solid var(--rule); color:var(--muted); font-size:.82rem; vertical-align:middle; }
+  .lab-table tbody tr:hover{ background:rgba(184,243,74,.035); }
+  .lab-table .rank{ color:var(--lime); font-family:var(--data); }
+  .lab-player{ display:block; color:var(--bone); font-weight:800; }
+  .lab-note{ display:block; margin-top:3px; color:var(--dim); font-size:.7rem; max-width:48ch; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .compare-toggle{ border:1px solid var(--rule-2); border-radius:999px; background:transparent; color:var(--bone); padding:7px 10px; font:700 .72rem var(--ui); cursor:pointer; }
+  .compare-toggle[aria-pressed="true"]{ border-color:var(--lime); background:var(--lime); color:var(--ground); }
+  .lab-status{ min-height:22px; margin:10px 0 0; color:var(--muted); font-size:.76rem; }
+  .lab-status strong{ color:var(--lime); }
+  .compare-grid,.watch-grid,.tips-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+  .compare-card,.watch-card,.tip-card{ border:1px solid var(--rule-2); border-radius:18px; background:rgba(255,255,255,.035); padding:18px; }
+  .compare-card h3,.watch-card h3,.tip-card h3{ margin:0 0 6px; color:var(--bone); font-size:.96rem; }
+  .compare-meta,.tip-meta{ color:var(--lime); font-family:var(--data); font-size:8px; letter-spacing:.1em; text-transform:uppercase; }
+  .compare-stats{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:15px; }
+  .compare-stats div{ border-top:1px solid var(--rule); padding-top:9px; }
+  .compare-stats dt{ color:var(--dim); font-family:var(--data); font-size:7.5px; letter-spacing:.08em; text-transform:uppercase; }
+  .compare-stats dd{ margin:3px 0 0; color:var(--bone); font-size:1rem; font-weight:800; }
+  .watch-card p,.tip-card p{ margin:10px 0 0; color:var(--muted); font-size:.82rem; line-height:1.55; }
+  .lab-empty{ grid-column:1/-1; border:1px dashed var(--rule-2); border-radius:18px; padding:26px; color:var(--muted); text-align:center; }
+  .provenance{ margin-top:20px; padding:15px 17px; border-left:3px solid var(--lime); background:rgba(184,243,74,.045); color:var(--muted); font-size:.78rem; line-height:1.55; }
+  .team-toolbar{ display:flex; align-items:center; gap:12px; margin:18px 0; }
+  .team-toolbar label{ color:var(--dim); font-family:var(--data); font-size:8px; letter-spacing:.12em; text-transform:uppercase; }
+  .team-toolbar .lab-control{ max-width:290px; }
+  .team-report-head{ display:grid; grid-template-columns:1fr auto; gap:18px; align-items:end; border:1px solid var(--rule-2); border-radius:22px; padding:22px; background:linear-gradient(135deg,rgba(255,255,255,.05),rgba(255,255,255,.02)); }
+  .team-report-head h3{ margin:0; color:var(--bone); font-size:1.7rem; }
+  .team-report-head p{ margin:8px 0 0; color:var(--muted); line-height:1.55; }
+  .team-date{ color:var(--lime); font-family:var(--data); font-size:9px; letter-spacing:.1em; text-transform:uppercase; white-space:nowrap; }
+  .team-strip{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin:12px 0; }
+  .team-strip div{ border:1px solid var(--rule); border-radius:14px; padding:12px; background:rgba(5,12,22,.4); }
+  .team-strip strong{ display:block; color:var(--bone); font-size:.95rem; }
+  .team-strip span{ color:var(--dim); font-family:var(--data); font-size:7px; letter-spacing:.08em; text-transform:uppercase; }
+  .team-columns{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .team-section{ border:1px solid var(--rule-2); border-radius:18px; padding:18px; background:rgba(255,255,255,.03); }
+  .team-section + .team-section{ margin-top:12px; }
+  .team-section h4{ margin:0 0 12px; color:var(--bone); font-size:.94rem; }
+  .team-section ul{ margin:0; padding-left:18px; }
+  .team-section li,.team-section p{ color:var(--muted); font-size:.8rem; line-height:1.55; }
+  .team-section li + li{ margin-top:8px; }
+  .team-section b{ color:var(--bone); }
+  .team-section .tag{ display:inline-block; margin-right:6px; border:1px solid var(--rule-2); border-radius:999px; padding:2px 6px; color:var(--lime); font-family:var(--data); font-size:7px; text-transform:uppercase; }
+  .team-mini-table{ width:100%; border-collapse:collapse; }
+  .team-mini-table td{ padding:8px; border-top:1px solid var(--rule); color:var(--muted); font-size:.78rem; }
+  .team-mini-table td:first-child{ color:var(--bone); font-weight:700; }
+  .team-sources{ margin-top:12px; color:var(--dim); font-size:.72rem; line-height:1.5; }
+
+  @media (max-width:900px){
+    .home-hero{ grid-template-columns:1fr; gap:30px; padding-top:48px; }
+    .home-hero h1{ max-width:14ch; }
+    .pulse-card{ max-width:620px; }
+    .lab-intro{ grid-template-columns:1fr; }
+    .compare-grid,.watch-grid,.tips-grid{ grid-template-columns:1fr 1fr; }
+    .team-strip{ grid-template-columns:repeat(3,1fr); }
+  }
+  @media (max-width:700px){
+    .wrap{ padding-inline:20px; }
+    .topbar{ top:10px; width:calc(100% - 24px); margin-top:10px; }
+    .topbar-in{ padding:10px 13px; }
+    .brand-sub{ display:none; }
+    .home-hero{ padding-top:38px; }
+    .home-hero h1{ font-size:clamp(2.7rem,14vw,4.2rem); }
+    .toc-grid{ grid-template-columns:1fr; }
+    .toc-card{ min-height:100px; }
+    .pulse-grid{ grid-template-columns:1fr; }
+    .pulse-stat{ min-height:96px; }
+    .sec-head .wrap{ margin-inline:12px; width:auto; }
+    .sheet-heads{ grid-template-columns:1fr; gap:18px; }
+    .sheet-col + .sheet-col{ border-left:0; border-top:1px solid var(--rule); padding:18px 0 0; }
+    .lab-toolbar{ grid-template-columns:1fr; }
+    .compare-grid,.watch-grid,.tips-grid{ grid-template-columns:1fr; }
+    .team-report-head,.team-columns{ grid-template-columns:1fr; }
+    .team-strip{ grid-template-columns:1fr 1fr; }
+  }
 </style>
+</head>
+<body>
 
 <header class="topbar">
   <div class="topbar-in">
-    <a class="mark" href="#home">The&nbsp;Board <b>/</b> 2026</a>
+    <a class="mark" href="#home"><span class="brand-evo">EVO Game</span><span class="brand-sub">Fantasy football draft desk</span></a>
     <span class="crumb" id="crumb"><span class="crumb-txt"></span></span>
     <a class="home-link" id="homelink" href="#home" hidden>← All sections</a>
   </div>
@@ -438,17 +673,38 @@
 <!-- ==================== HOME / TOC ==================== -->
 <div class="view active" id="v-home" data-name="">
   <div class="hero">
-    <div class="wrap hero-in">
-      <p class="kicker">2026 Season · Draft Guide · 6 August 2026</p>
-      <h1>Everything you need before you're <em>on the clock</em></h1>
-      <p class="standfirst">Eleven sections. Pick one.</p>
-      <ul class="legend">
-        <li><span class="swatch" style="background:var(--rb)"></span> RB</li>
-        <li><span class="swatch" style="background:var(--wr)"></span> WR</li>
-        <li><span class="swatch" style="background:var(--te)"></span> TE</li>
-        <li><span class="swatch" style="background:var(--qb)"></span> QB</li>
-        <li><span class="swatch" style="background:var(--dst)"></span> DEF</li>
-      </ul>
+    <div class="wrap home-hero">
+      <div class="hero-copy">
+        <p class="kicker">2026 Season · Complete Draft Guide · 6 August 2026</p>
+        <h1>Turn every draft choice into an <em>edge.</em></h1>
+        <p class="standfirst">The complete EVO Game draft room: rankings, roster moves, rookies, sleepers, mock drafts, sources, and real career stats for every player on the board.</p>
+        <div class="hero-actions">
+          <a class="hero-action primary" href="#lab">Open Player Lab</a>
+          <a class="hero-action" href="#plan">Build a draft plan</a>
+        </div>
+        <ul class="legend" aria-label="Position color key">
+          <li><span class="swatch" style="background:var(--rb)"></span> RB</li>
+          <li><span class="swatch" style="background:var(--wr)"></span> WR</li>
+          <li><span class="swatch" style="background:var(--te)"></span> TE</li>
+          <li><span class="swatch" style="background:var(--qb)"></span> QB</li>
+          <li><span class="swatch" style="background:var(--dst)"></span> DEF</li>
+        </ul>
+      </div>
+      <aside class="pulse-card" aria-label="Draft guide overview">
+        <div class="pulse-head">
+          <div>
+            <p class="pulse-label">Draft room pulse</p>
+            <h2 class="pulse-title">Everything in one board</h2>
+          </div>
+          <span class="live-chip">2026 board</span>
+        </div>
+        <div class="pulse-grid">
+          <div class="pulse-stat"><span>Ranked players</span><strong>144</strong><small>Twenty-four at every fantasy position</small></div>
+          <div class="pulse-stat"><span>Projections</span><strong>632</strong><small>Static Sleeper snapshot across six positions</small></div>
+          <div class="pulse-stat"><span>History</span><strong>468</strong><small>Player-seasons from NFLverse, 2013–2025</small></div>
+          <div class="pulse-stat"><span>Data mode</span><strong>Static</strong><small>No live API dependency on draft day</small></div>
+        </div>
+      </aside>
     </div>
     <div class="hashes" aria-hidden="true"></div>
   </div>
@@ -456,25 +712,26 @@
   <div class="wrap toc">
     <p class="toc-lbl">Groundwork</p>
     <div class="toc-grid">
-      <a class="toc-card" href="#recap">2025 Recap</a>
-      <a class="toc-card" href="#strategy">Strategy</a>
+      <a class="toc-card" href="#recap"><span class="toc-code">01</span><span class="toc-copy"><span class="toc-name">2025 Recap</span><span class="toc-desc">The results and trends shaping this year's board.</span></span></a>
+      <a class="toc-card" href="#strategy"><span class="toc-code">02</span><span class="toc-copy"><span class="toc-name">Strategy</span><span class="toc-desc">Round-by-round rules for building a balanced roster.</span></span></a>
     </div>
 
     <p class="toc-lbl">Position Files</p>
     <div class="toc-grid">
-      <a class="toc-card" data-pos="RB" href="#rb">Running Back</a>
-      <a class="toc-card" data-pos="WR" href="#wr">Wide Receiver</a>
-      <a class="toc-card" data-pos="TE" href="#te">Tight End</a>
-      <a class="toc-card" data-pos="QB" href="#qb">Quarterback</a>
-      <a class="toc-card" data-pos="DST" href="#def">Defense</a>
-      <a class="toc-card" data-pos="DST" href="#k">Kicker</a>
+      <a class="toc-card" data-pos="RB" href="#rb"><span class="toc-code">RB</span><span class="toc-copy"><span class="toc-name">Running Back</span><span class="toc-desc">Tiers, workload changes, rookies, and late values.</span></span></a>
+      <a class="toc-card" data-pos="WR" href="#wr"><span class="toc-code">WR</span><span class="toc-copy"><span class="toc-name">Wide Receiver</span><span class="toc-desc">Target volume, role changes, rookies, and sleepers.</span></span></a>
+      <a class="toc-card" data-pos="TE" href="#te"><span class="toc-code">TE</span><span class="toc-copy"><span class="toc-name">Tight End</span><span class="toc-desc">Elite advantages, breakout cases, and streamers.</span></span></a>
+      <a class="toc-card" data-pos="QB" href="#qb"><span class="toc-code">QB</span><span class="toc-copy"><span class="toc-name">Quarterback</span><span class="toc-desc">Ceiling tiers, job changes, rookies, and values.</span></span></a>
+      <a class="toc-card" data-pos="DST" href="#def"><span class="toc-code">DEF</span><span class="toc-copy"><span class="toc-name">Defense</span><span class="toc-desc">Ranked units, offseason moves, and streamers.</span></span></a>
+      <a class="toc-card" data-pos="DST" href="#k"><span class="toc-code">K</span><span class="toc-copy"><span class="toc-name">Kicker</span><span class="toc-desc">Reliable legs, 2025 scoring, and streaming options.</span></span></a>
     </div>
 
     <p class="toc-lbl">Draft Day</p>
     <div class="toc-grid">
-      <a class="toc-card" href="#plan">Draft Plan</a>
-      <a class="toc-card" href="#mocks">Mock Drafts</a>
-      <a class="toc-card" href="#sources">Sources</a>
+      <a class="toc-card" href="#plan"><span class="toc-code">09</span><span class="toc-copy"><span class="toc-name">Draft Plan</span><span class="toc-desc">Roster construction by slot and round.</span></span></a>
+      <a class="toc-card" href="#mocks"><span class="toc-code">10</span><span class="toc-copy"><span class="toc-name">Mock Drafts</span><span class="toc-desc">Complete builds from multiple draft positions.</span></span></a>
+      <a class="toc-card" href="#lab"><span class="toc-code">11</span><span class="toc-copy"><span class="toc-name">Player Lab</span><span class="toc-desc">Search 144 rankings, compare projections, and review watch notes.</span></span></a>
+      <a class="toc-card" href="#sources"><span class="toc-code">12</span><span class="toc-copy"><span class="toc-name">Sources</span><span class="toc-desc">The reporting, feeds, and methods behind the board.</span></span></a>
     </div>
   </div>
 </div>
@@ -1573,21 +1830,107 @@
   </div>
 </div>
 
-<!-- ==================== 11 · SOURCES ==================== -->
-<div class="view" id="v-sources" data-name="Sources">
+<!-- ==================== 11 · PLAYER LAB ==================== -->
+<div class="view" id="v-lab" data-name="Player Lab">
   <div class="sec-head">
     <div class="wrap">
       <span class="sec-glyph">11</span>
       <div class="sec-title">
+        <h2>Player Lab</h2>
+        <p>One searchable layer across rankings, projections, history, and draft strategy.</p>
+      </div>
+    </div>
+  </div>
+  <div class="wrap body-brief">
+    <div class="lab-intro">
+      <div class="lab-card">
+        <h3>The merged draft board</h3>
+        <p>The 2026 positional order is joined to a static Sleeper projection snapshot and the NFLverse career file already in this guide. Select up to three players, then use Compare to see the signals side by side.</p>
+        <div class="data-chips" aria-label="Merged data sources">
+          <span class="data-chip"><b>144</b> FantasyPros-ordered ranks</span>
+          <span class="data-chip"><b>632</b> Sleeper projections</span>
+          <span class="data-chip"><b>468</b> NFLverse seasons</span>
+          <span class="data-chip"><b>30</b> strategy + watch notes</span>
+          <span class="data-chip"><b>32</b> full team reports</span>
+        </div>
+      </div>
+      <div class="lab-card">
+        <div class="lab-counts">
+          <div class="lab-count"><strong id="lab-ranked-count">144</strong><span>Ranked</span></div>
+          <div class="lab-count"><strong id="lab-proj-count">632</strong><span>Projected</span></div>
+          <div class="lab-count"><strong id="lab-match-count">—</strong><span>Joined</span></div>
+          <div class="lab-count"><strong id="lab-history-count">114</strong><span>Profiles</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Player Lab views">
+      <button class="tab active" role="tab" aria-selected="true" aria-controls="p-lab-rankings">Rankings</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-compare">Compare</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-watch">Who to Watch</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-tips">Draft Tips</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-teams">Team Intel</button>
+    </div>
+
+    <div class="panel active" id="p-lab-rankings" role="tabpanel">
+      <div class="lab-toolbar">
+        <input class="lab-control" id="lab-search" type="search" placeholder="Search player or team…" aria-label="Search players">
+        <select class="lab-control" id="lab-position" aria-label="Filter by position">
+          <option value="">All positions</option><option>QB</option><option>RB</option><option>WR</option><option>TE</option><option>DEF</option><option>K</option>
+        </select>
+        <select class="lab-control" id="lab-scoring" aria-label="Projection scoring">
+          <option value="pts_ppr">Full PPR projection</option><option value="pts_half_ppr">Half PPR projection</option><option value="pts_std">Standard projection</option>
+        </select>
+      </div>
+      <div class="lab-table-wrap">
+        <table class="lab-table">
+          <thead><tr><th>Ovr</th><th>Player</th><th>Pos</th><th>Team</th><th>Board ADP*</th><th>Board PPR*</th><th id="lab-proj-label">Sleeper PPR</th><th>Compare</th></tr></thead>
+          <tbody id="lab-rankings-body"><tr><td colspan="8">Loading merged data…</td></tr></tbody>
+        </table>
+      </div>
+      <p class="lab-status" id="lab-status" aria-live="polite"></p>
+      <div class="provenance"><strong>*Method note:</strong> board ADP and board PPR points are calibrated fields derived in the Bebo draft-assistant branch. They are displayed as modeled values, not as FantasyPros or Sleeper projections. The positional order is the FantasyPros-sourced component.</div>
+    </div>
+
+    <div class="panel" id="p-lab-compare" role="tabpanel">
+      <div class="compare-grid" id="lab-compare"><div class="lab-empty">Select two or three players in Rankings to build a comparison.</div></div>
+    </div>
+    <div class="panel" id="p-lab-watch" role="tabpanel">
+      <div class="watch-grid" id="lab-watch"><div class="lab-empty">Loading watch list…</div></div>
+    </div>
+    <div class="panel" id="p-lab-tips" role="tabpanel">
+      <div class="tips-grid" id="lab-tips"><div class="lab-empty">Loading strategy notes…</div></div>
+    </div>
+    <div class="panel" id="p-lab-teams" role="tabpanel">
+      <div class="team-toolbar">
+        <label for="lab-team">32-team camp report</label>
+        <select class="lab-control" id="lab-team" aria-label="Choose an NFL team"><option>Loading teams…</option></select>
+      </div>
+      <div id="lab-team-report"><div class="lab-empty">Loading all 32 training-camp reports…</div></div>
+      <div class="provenance">Team reports were copied in full from the EVO-Game <code>claude/chicago-bears-news-pdf-dfi2c3</code> branch. They are dated snapshots; transactions, injuries, and camp roles should be rechecked before draft day.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 12 · SOURCES ==================== -->
+<div class="view" id="v-sources" data-name="Sources">
+  <div class="sec-head">
+    <div class="wrap">
+      <span class="sec-glyph">12</span>
+      <div class="sec-title">
         <h2>Sources</h2>
-        <p>Forty-six links, and what this page can't promise.</p>
+        <p>Editorial reporting, structured feeds, and what this page can't promise.</p>
       </div>
     </div>
   </div>
   <div class="wrap body-brief">
     <div class="stack">
       <p>Consensus-leaning composites from established outlets, not any single board. Where credible shops disagreed — tight end especially — the disagreement is shown. ADP and injury status are perishable: this is the picture as of <strong>6 August 2026</strong>.</p>
+      <div class="provenance"><strong>Merged data layer:</strong> positional ordering comes from the Bebo assistant's FantasyPros research snapshot dated 30 July 2026; projections are a static 12 August 2026 copy of Sleeper's Rotowire-backed 2026 feed; historical player seasons come from NFLverse. The copied board's ADP and PPR point fields are explicitly derived estimates. All four source JSON files remain in <code>fantasy-football-2026/data/</code> so the UI can be audited independently.</div>
       <ul class="srcgrid">
+        <li><a href="https://www.fantasypros.com/nfl/rankings/consensus-cheatsheets.php">FantasyPros — 2026 consensus cheat sheet order</a></li>
+        <li><a href="https://api.sleeper.com/projections/nfl/2026?season_type=regular&amp;order_by=pts_ppr">Sleeper — 2026 projection feed snapshot</a></li>
+        <li><a href="https://github.com/nflverse/nflverse-data/releases/tag/player_stats">NFLverse — historical player stats</a></li>
         <li><a href="https://www.nfl.com/news/fantasy-football-wr-rankings-for-2026-nfl-season-draft-tiers-and-analysis">NFL.com — WR rankings and tiers</a></li>
         <li><a href="https://www.nfl.com/news/fantasy-football-qb-rankings-for-2026-nfl-season-draft-tiers-and-analysis">NFL.com — QB rankings and tiers</a></li>
         <li><a href="https://www.nfl.com/news/fantasy-football-te-rankings-for-2026-nfl-season-draft-tiers-and-analysis">NFL.com — TE rankings and tiers</a></li>
@@ -1645,7 +1988,7 @@
 
 <footer>
   <div class="wrap">
-    <span class="fmark">The Board <b>·</b> 2026</span>
+    <span class="fmark">EVO Game <b>·</b> 2026 Draft Room</span>
     <span>6 August 2026 · Re-verify injuries before drafting.</span>
   </div>
 </footer>
@@ -1692,6 +2035,204 @@
     });
 
     show(location.hash.replace('#',''));
+  })();
+</script>
+
+<script>
+  /* Merged player lab: static local snapshots, joined in the browser by name/team. */
+  (function(){
+    var body = document.getElementById('lab-rankings-body');
+    if (!body) return;
+
+    var selected = [];
+    var board = [];
+    var scoring = 'pts_ppr';
+    var history = {};
+    var teamReports = [];
+
+    function esc(value){
+      return String(value == null ? '' : value).replace(/[&<>"']/g, function(c){
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+      });
+    }
+    function norm(value){
+      var normalized = String(value || '').toLowerCase()
+        .replace(/\b(jr|sr|ii|iii|iv)\b/g, '')
+        .replace(/[^a-z0-9]/g, '');
+      return normalized === 'andresborregales' ? 'andyborregales' : normalized;
+    }
+    function number(value){
+      var n = Number(value);
+      return Number.isFinite(n) ? n.toFixed(1).replace(/\.0$/, '') : '—';
+    }
+    function projectionFor(row){
+      return row.projection && row.projection.stats ? row.projection.stats[scoring] : null;
+    }
+    function latestFor(row){
+      var line = row.history && row.history.l;
+      return line && line.length ? line[line.length - 1] : null;
+    }
+
+    function renderBoard(){
+      var query = norm(document.getElementById('lab-search').value);
+      var position = document.getElementById('lab-position').value;
+      var rows = board.filter(function(row){
+        return (!position || row.position === position) &&
+          (!query || norm(row.name + row.team).indexOf(query) !== -1);
+      });
+      document.getElementById('lab-proj-label').textContent =
+        scoring === 'pts_half_ppr' ? 'Sleeper Half' : scoring === 'pts_std' ? 'Sleeper Std' : 'Sleeper PPR';
+      body.innerHTML = rows.map(function(row){
+        var isSelected = selected.indexOf(row) !== -1;
+        return '<tr>' +
+          '<td class="rank">' + row.overallRank + '</td>' +
+          '<td><span class="lab-player">' + esc(row.name) + '</span><span class="lab-note" title="' + esc(row.note) + '">' + esc(row.note) + '</span></td>' +
+          '<td><span class="pos-badge p-' + esc(row.position) + '">' + esc(row.position) + row.positionRank + '</span></td>' +
+          '<td>' + esc(row.team) + '</td>' +
+          '<td>' + number(row.adp) + '</td>' +
+          '<td>' + number(row.ppr_projected_points) + '</td>' +
+          '<td>' + number(projectionFor(row)) + '</td>' +
+          '<td><button class="compare-toggle" type="button" data-rank="' + row.overallRank + '" aria-pressed="' + isSelected + '">' + (isSelected ? 'Selected' : 'Add') + '</button></td>' +
+        '</tr>';
+      }).join('') || '<tr><td colspan="8">No players match those filters.</td></tr>';
+      document.getElementById('lab-status').innerHTML = '<strong>' + rows.length + '</strong> players shown · <strong>' + selected.length + '</strong> selected for comparison';
+    }
+
+    function renderCompare(){
+      var host = document.getElementById('lab-compare');
+      if (!selected.length){
+        host.innerHTML = '<div class="lab-empty">Select two or three players in Rankings to build a comparison.</div>';
+        return;
+      }
+      host.innerHTML = selected.map(function(row){
+        var stats = row.projection ? row.projection.stats : {};
+        return '<article class="compare-card">' +
+          '<span class="compare-meta">Overall ' + row.overallRank + ' · ' + esc(row.position) + row.positionRank + ' · ' + esc(row.team) + '</span>' +
+          '<h3>' + esc(row.name) + '</h3>' +
+          '<dl class="compare-stats">' +
+            '<div><dt>Board ADP*</dt><dd>' + number(row.adp) + '</dd></div>' +
+            '<div><dt>Board PPR*</dt><dd>' + number(row.ppr_projected_points) + '</dd></div>' +
+            '<div><dt>Sleeper PPR</dt><dd>' + number(stats.pts_ppr) + '</dd></div>' +
+            '<div><dt>Sleeper ADP</dt><dd>' + number(stats.adp_ppr) + '</dd></div>' +
+            '<div><dt>2025 fantasy pts</dt><dd>' + number(latestFor(row)) + '</dd></div>' +
+            '<div><dt>Projected games</dt><dd>' + number(stats.gp) + '</dd></div>' +
+          '</dl>' +
+        '</article>';
+      }).join('');
+    }
+
+    function renderNotes(watch, tips){
+      document.getElementById('lab-watch').innerHTML = watch.watchlist.map(function(item, index){
+        return '<article class="watch-card"><span class="compare-meta">Watch ' + String(index + 1).padStart(2, '0') + '</span><h3>' + esc(item.name) + '</h3><p>' + esc(item.angle) + '</p></article>';
+      }).join('');
+      document.getElementById('lab-tips').innerHTML = tips.tips.map(function(item){
+        return '<article class="tip-card"><span class="tip-meta">' + esc(item.category) + ' · ' + esc(item.appliesTo) + '</span><h3>' + esc(item.title) + '</h3><p>' + esc(item.body) + '</p></article>';
+      }).join('');
+    }
+
+    function rich(value){
+      var template = document.createElement('template');
+      template.innerHTML = String(value || '');
+      Array.prototype.slice.call(template.content.querySelectorAll('*')).forEach(function(node){
+        if (['B','EM','SPAN','BR'].indexOf(node.tagName) === -1){
+          node.replaceWith(document.createTextNode(node.textContent));
+          return;
+        }
+        Array.prototype.slice.call(node.attributes).forEach(function(attr){
+          if (!(node.tagName === 'SPAN' && attr.name === 'class' && /^(tag|tag hot)$/.test(attr.value))) node.removeAttribute(attr.name);
+        });
+      });
+      return template.innerHTML;
+    }
+    function teamSection(section){
+      var content;
+      if (section.type === 'table'){
+        content = '<table class="team-mini-table"><tbody>' + section.items.map(function(row){
+          return '<tr><td>' + rich(row[0]) + '</td><td>' + rich(row[1]) + '</td></tr>';
+        }).join('') + '</tbody></table>';
+      } else if (section.type === 'note'){
+        content = section.items.map(function(item){ return '<p>' + rich(item) + '</p>'; }).join('');
+      } else {
+        content = '<ul>' + section.items.map(function(item){ return '<li>' + rich(item) + '</li>'; }).join('') + '</ul>';
+      }
+      return '<section class="team-section"><h4>' + rich(section.title) + '</h4>' + content + '</section>';
+    }
+    function renderTeam(abbr){
+      var team = teamReports.find(function(item){ return item.abbr === abbr; });
+      if (!team) return;
+      document.getElementById('lab-team-report').innerHTML =
+        '<div class="team-report-head" style="border-top-color:' + esc(team.primary) + '">' +
+          '<div><h3>' + esc(team.city + ' ' + team.name) + '</h3><p>' + rich(team.subhead) + '</p></div>' +
+          '<span class="team-date">' + esc(team.date) + '</span>' +
+        '</div>' +
+        '<div class="team-strip">' + team.strip.map(function(item){ return '<div><strong>' + rich(item.n) + '</strong><span>' + rich(item.k) + '</span></div>'; }).join('') + '</div>' +
+        '<div class="team-columns"><div>' + team.left.map(teamSection).join('') + '</div><div>' + team.right.map(teamSection).join('') + '</div></div>' +
+        '<p class="team-sources"><strong>Report sources:</strong> ' + rich(team.sources) + '</p>';
+    }
+
+    Promise.all([
+      fetch('data/rankings-2026.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }),
+      fetch('data/sleeper-projections-2026.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }),
+      fetch('data/who-to-watch-2026.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }),
+      fetch('data/draft-tips-2026.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }),
+      fetch('data/team-reports-2026.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
+    ]).then(function(data){
+      var ranks = data[0], projections = data[1], watch = data[2], tips = data[3], teams = data[4];
+      var historyEl = document.getElementById('player-data');
+      history = historyEl ? JSON.parse(historyEl.textContent) : {};
+      var historyByName = {};
+      Object.keys(history).forEach(function(key){ historyByName[norm(history[key].n)] = history[key]; });
+      var projectionByKey = {};
+      projections.players.forEach(function(player){
+        projectionByKey[player.position + ':' + norm(player.name)] = player;
+        if (player.position === 'DEF') projectionByKey['DEF:' + player.team] = player;
+      });
+      board = ranks.players.map(function(player){
+        var key = player.position + ':' + norm(player.name);
+        player.projection = projectionByKey[key] || (player.position === 'DEF' ? projectionByKey['DEF:' + player.team] : null);
+        player.history = historyByName[norm(player.name)] || null;
+        return player;
+      });
+      var joined = board.filter(function(player){ return player.projection; }).length;
+      document.getElementById('lab-ranked-count').textContent = board.length;
+      document.getElementById('lab-proj-count').textContent = projections.playerCount;
+      document.getElementById('lab-match-count').textContent = joined;
+      document.getElementById('lab-history-count').textContent = Object.keys(history).length;
+      renderNotes(watch, tips);
+      teamReports = teams.teams;
+      document.getElementById('lab-team').innerHTML = teamReports.map(function(team){
+        return '<option value="' + esc(team.abbr) + '">' + esc(team.city + ' ' + team.name) + '</option>';
+      }).join('');
+      renderTeam(teamReports[0].abbr);
+      renderBoard();
+      renderCompare();
+    }).catch(function(error){
+      body.innerHTML = '<tr><td colspan="8">Merged data could not load. Serve this directory over HTTP so its local JSON files are available.</td></tr>';
+      document.getElementById('lab-status').textContent = 'Data load error: ' + error.message;
+    });
+
+    document.getElementById('lab-search').addEventListener('input', renderBoard);
+    document.getElementById('lab-position').addEventListener('change', renderBoard);
+    document.getElementById('lab-scoring').addEventListener('change', function(e){
+      scoring = e.target.value;
+      renderBoard();
+    });
+    document.getElementById('lab-team').addEventListener('change', function(e){ renderTeam(e.target.value); });
+    body.addEventListener('click', function(e){
+      var button = e.target.closest('.compare-toggle');
+      if (!button) return;
+      var row = board.find(function(item){ return item.overallRank === Number(button.dataset.rank); });
+      if (!row) return;
+      var index = selected.indexOf(row);
+      if (index !== -1) selected.splice(index, 1);
+      else if (selected.length < 3) selected.push(row);
+      else {
+        document.getElementById('lab-status').innerHTML = '<strong>Three-player limit.</strong> Remove one selection before adding another.';
+        return;
+      }
+      renderBoard();
+      renderCompare();
+    });
   })();
 </script>
 
@@ -1837,3 +2378,5 @@
     window.addEventListener('hashchange', function(){ close(false); });
   })();
 </script>
+</body>
+</html>

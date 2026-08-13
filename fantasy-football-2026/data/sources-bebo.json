@@ -1,0 +1,91 @@
+{
+  "lastUpdated": "2026-01-01",
+  "researchMethod": "Allowlist fixed at project setup. Phase A records which outlets the Phase B research pass is permitted to draw from; no data has been compiled from them yet.",
+  "allowlist": [
+    {
+      "outlet": "FantasyPros",
+      "url": "https://www.fantasypros.com/",
+      "usedFor": [
+        "Consensus rankings",
+        "ADP"
+      ],
+      "kind": "research-compiled",
+      "note": "Itself a cross-source aggregate, so it serves as the anchor for rankings and ADP."
+    },
+    {
+      "outlet": "ESPN Fantasy",
+      "url": "https://www.espn.com/fantasy/football/",
+      "usedFor": [
+        "Editorial rankings",
+        "Storylines"
+      ],
+      "kind": "research-compiled",
+      "note": "Editorial rankings and season previews. No API integration."
+    },
+    {
+      "outlet": "NFL.com Fantasy",
+      "url": "https://fantasy.nfl.com/",
+      "usedFor": [
+        "Editorial rankings",
+        "Rookie profiles"
+      ],
+      "kind": "research-compiled",
+      "note": "Rankings and rookie landing-spot coverage. No API integration."
+    },
+    {
+      "outlet": "PFF Fantasy",
+      "url": "https://www.pff.com/fantasy",
+      "usedFor": [
+        "Projections",
+        "Gems"
+      ],
+      "kind": "research-compiled",
+      "note": "Grades and snap/route data used to support breakout candidates."
+    },
+    {
+      "outlet": "The Athletic Fantasy",
+      "url": "https://www.nytimes.com/athletic/football/fantasy/",
+      "usedFor": [
+        "Storylines",
+        "Gems"
+      ],
+      "kind": "research-compiled",
+      "note": "Longer-form analysis behind storyline framing."
+    },
+    {
+      "outlet": "Yahoo Fantasy",
+      "url": "https://football.fantasysports.yahoo.com/",
+      "usedFor": [
+        "Editorial rankings",
+        "ADP"
+      ],
+      "kind": "research-compiled",
+      "note": "Editorial rankings used as a cross-check against consensus."
+    },
+    {
+      "outlet": "Sleeper API",
+      "url": "https://docs.sleeper.com/",
+      "usedFor": [
+        "Player metadata",
+        "Injury status",
+        "Trending adds",
+        "League sync"
+      ],
+      "kind": "live-api",
+      "note": "The only live integration. Public, unauthenticated, read-only."
+    },
+    {
+      "outlet": "RotoWire",
+      "url": "https://www.rotowire.com/football/",
+      "usedFor": [
+        "Player news",
+        "Depth charts",
+        "Rookie roles"
+      ],
+      "kind": "research-compiled",
+      "note": "Injury and depth-chart notes feeding gems and rookie role projections."
+    }
+  ]
+}
+
+

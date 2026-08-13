@@ -1,0 +1,20 @@
+# Merged football data
+
+This directory keeps the Player Lab inputs auditable and independent of the UI.
+
+| File | Records | Provenance |
+| --- | ---: | --- |
+| `rankings-2026.json` | 144 players | Copied from `EvoBeben/Bebo-FantasyFootball`, branch `claude/fantasy-football-draft-assistant-kj82xs`. The positional order is based on the FantasyPros 2026 cheat sheet. Its `adp` and `ppr_projected_points` fields are derived/calibrated values, not vendor projections. |
+| `sleeper-projections-2026.json` | 632 players/units | Static snapshot of Sleeper's 2026 regular-season projection endpoint. The feed identifies Rotowire as its projection company. |
+| `who-to-watch-2026.json` | 12 notes | Copied from the Bebo draft-assistant branch. |
+| `draft-tips-2026.json` | 18 notes | Copied from the Bebo draft-assistant branch and written for its stated 12-team full-PPR league settings. |
+| `sources-bebo.json` | 8 outlets | Source allowlist and methodology copied from the Bebo draft-assistant branch. |
+| `team-reports-2026.json` | 32 teams | All team JSON reports copied from `EvoBeben/EVO-Game`, branch `claude/chicago-bears-news-pdf-dfi2c3`. |
+
+Historical player profiles remain embedded in `../index.html` and are generated
+from NFLverse seasons 2013–2025 by `../build-data.py`.
+
+Run `python3 ../refresh-merged-data.py` from this directory, or
+`python3 refresh-merged-data.py` from `fantasy-football-2026/`, to refresh the
+Sleeper snapshot. Re-run `python3 build-data.py --check` from
+`fantasy-football-2026/` to validate the historical player mapping.

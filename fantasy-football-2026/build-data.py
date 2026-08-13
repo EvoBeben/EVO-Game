@@ -108,6 +108,9 @@ def unwrap(html):
 
 
 def page_names(html):
+    # Only inspect authored page markup. Client-side templates below </main>
+    # contain HTML-shaped strings that are not player names on the board.
+    html = html.split('</main>', 1)[0]
     names = []
     for pat, grp in PATTERNS:
         names += [m.group(grp).strip() for m in pat.finditer(html)]
