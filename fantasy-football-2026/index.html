@@ -1963,7 +1963,7 @@
         <select class="lab-control" id="lab-scoring" aria-label="Projection scoring">
           <option value="pts_ppr">Full PPR projection</option><option value="pts_half_ppr">Half PPR projection</option><option value="pts_std">Standard projection</option>
         </select>
-        <select class="lab-control" id="lab-pool" aria-label="Filter ranking research tier"><option value="">All rostered players</option><option value="expert">Expert-ranked core</option><option value="depth">Projection extension</option></select>
+        <select class="lab-control" id="lab-pool" aria-label="Filter draft pool"><option value="">All rostered players</option><option value="late" id="late-round-option">Late-round targets</option><option value="expert">Expert-ranked core</option><option value="depth">Projection extension</option></select>
         <select class="lab-control" id="lab-availability" aria-label="Filter draft availability"><option value="available">Available players</option><option value="all">All players</option><option value="drafted">Drafted players</option></select>
       </div>
       <div class="draft-room-bar" aria-label="Draft room queue and availability">
@@ -1978,7 +1978,7 @@
         </table>
       </div>
       <p class="lab-status" id="lab-status" aria-live="polite"></p>
-      <div class="provenance"><strong>*Method note:</strong> the expert-ordered core stays first. Every other rostered record in the current Sleeper snapshot follows by full-PPR ADP and projection; free agents are hidden. Team labels include the current Sleeper depth-chart position and order when available. Board ADP and board PPR are modeled fields and remain blank for projection-only additions.</div>
+      <div class="provenance"><strong>*Method note:</strong> the expert-ordered core stays first. Every other rostered record in the current Sleeper snapshot follows by full-PPR ADP and projection; free agents are hidden. <strong>Late-round targets</strong> starts around pick 96 and keeps useful projection floors: 150 PPR for QB, 70 for RB/WR, and 55 for TE; second- and third-string skill players can also qualify, while rostered K and DEF remain available. It is a discovery filter, not a recommendation. Board ADP and board PPR are modeled fields.</div>
     </div>
 
     <div class="panel" id="p-lab-compare" role="tabpanel">
@@ -2250,6 +2250,19 @@
       var rank = row.positionRank || row.projectionPosRank;
       return row.depthLabel || (row.position + (rank || ''));
     }
+    function isLateRoundTarget(row){
+      var stats = row.projection && row.projection.stats || {};
+      var adp = Number(stats.adp_ppr);
+      var points = Number(stats.pts_ppr || 0);
+      var depth = Number(row.projection && row.projection.depth_chart_order);
+      var lateAdp = !Number.isFinite(adp) || adp >= 96;
+      var backupRole = Number.isFinite(depth) && depth >= 2 && depth <= 3;
+      if (row.position === 'K' || row.position === 'DEF') return true;
+      if (row.position === 'QB') return points >= 150 && (lateAdp || backupRole);
+      if (row.position === 'RB' || row.position === 'WR') return points >= 70 && (lateAdp || backupRole);
+      if (row.position === 'TE') return points >= 55 && (lateAdp || backupRole);
+      return false;
+    }
 
     function renderBoard(){
       var query = norm(document.getElementById('lab-search').value);
@@ -2258,7 +2271,8 @@
       var availability = document.getElementById('lab-availability').value;
       var rows = board.filter(function(row){
         var drafted = hasKey(draftedKeys, playerKey(row));
-        return (!position || row.position === position) && (!pool || row.boardTier === pool) &&
+        var poolMatch = !pool || (pool === 'late' ? isLateRoundTarget(row) : row.boardTier === pool);
+        return (!position || row.position === position) && poolMatch &&
           (availability === 'all' || (availability === 'drafted' ? drafted : !drafted)) &&
           (!query || norm(row.name + row.team).indexOf(query) !== -1);
       });
@@ -2610,6 +2624,7 @@
       depthBoard.forEach(function(row, index){ row.overallRank = expertMaxRank + index + 1; });
       board = expertBoard.concat(depthBoard);
       comparePool = board.slice();
+      var lateRoundCount = board.filter(isLateRoundTarget).length;
       injuries = rosteredProjections.filter(function(player){ return player.injury_status; }).sort(function(a, b){
         return Number(b.stats && b.stats.pts_ppr || 0) - Number(a.stats && a.stats.pts_ppr || 0);
       });
@@ -2624,6 +2639,7 @@
       document.getElementById('lab-rostered-count').textContent = board.length;
       document.getElementById('lab-source-projection-count').textContent = projections.playerCount;
       document.getElementById('lab-free-agent-count').textContent = projections.playerCount - rosteredProjections.length;
+      document.getElementById('late-round-option').textContent = 'Late-round targets (' + lateRoundCount + ')';
       document.getElementById('lab-match-count').textContent = joined;
       document.getElementById('lab-history-count').textContent = Object.keys(history).length;
       document.getElementById('compare-pool-note').innerHTML = '<strong>' + comparePool.length + ' searchable rostered players/units</strong> · all ' + projections.playerCount + ' source records are loaded and ' + (projections.playerCount - rosteredProjections.length) + ' free agents are hidden. Type a name or team and press Enter for the first match.';

@@ -23,6 +23,9 @@ test("uses honest projection, injury, history, and freshness labels", () => {
 test("includes persistent drafted and queue controls", () => {
   assert.match(html, /id="lab-availability"/);
   assert.match(html, /id="draft-queue"/);
+  assert.match(html, /id="late-round-option"/);
+  assert.match(html, /function isLateRoundTarget/);
+  assert.match(html, /pool === 'late'/);
   assert.match(html, /id="drafted-count"/);
   assert.match(html, /draft-desk-2026-state-v1/);
   assert.match(html, /class="queue-toggle"/);
