@@ -703,6 +703,32 @@
   .depth-points{ color:var(--bone); font-family:var(--data); font-size:.76rem; text-align:right; }
   .depth-points small{ color:var(--dim); font-size:7px; text-transform:uppercase; }
   .team-sources{ margin-top:12px; color:var(--dim); font-size:.72rem; line-height:1.5; }
+  .league-toolbar{ display:flex; align-items:end; justify-content:space-between; gap:18px; margin:18px 0 12px; }
+  .league-toolbar label{ display:block; margin:0 0 7px; color:var(--dim); font-family:var(--data); font-size:8px; letter-spacing:.12em; text-transform:uppercase; }
+  .league-toolbar .lab-control{ width:150px; }
+  .league-format{ color:var(--muted); font-size:.76rem; text-align:right; line-height:1.45; }
+  .league-hero{ display:grid; grid-template-columns:1fr auto; gap:22px; align-items:center; border:1px solid rgba(184,243,74,.25); border-radius:22px; padding:22px; background:linear-gradient(135deg,rgba(184,243,74,.09),rgba(255,255,255,.025)); }
+  .league-kicker{ color:var(--lime); font-family:var(--data); font-size:8px; letter-spacing:.14em; text-transform:uppercase; }
+  .league-hero h3{ margin:7px 0 7px; color:var(--bone); font-size:1.65rem; }
+  .league-hero p{ margin:0; color:var(--muted); font-size:.82rem; line-height:1.5; }
+  .league-trophy{ display:grid; place-items:center; width:74px; height:74px; border:1px solid rgba(184,243,74,.3); border-radius:22px; background:rgba(184,243,74,.08); color:var(--lime); font-size:2rem; }
+  .league-stats{ display:grid; grid-template-columns:repeat(5,1fr); gap:9px; margin:12px 0; }
+  .league-stat{ border:1px solid var(--rule-2); border-radius:15px; padding:13px; background:rgba(255,255,255,.035); }
+  .league-stat strong{ display:block; color:var(--bone); font-size:1.2rem; }
+  .league-stat span{ color:var(--dim); font-family:var(--data); font-size:7.5px; letter-spacing:.09em; text-transform:uppercase; }
+  .league-grid{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:12px; }
+  .league-section{ min-width:0; border:1px solid var(--rule-2); border-radius:18px; padding:16px; background:rgba(255,255,255,.025); }
+  .league-section-head{ display:flex; align-items:end; justify-content:space-between; gap:12px; margin-bottom:11px; }
+  .league-section h3{ margin:0; color:var(--bone); font-size:.96rem; }
+  .league-section-head span{ color:var(--dim); font-family:var(--data); font-size:7px; letter-spacing:.08em; text-transform:uppercase; text-align:right; }
+  .league-table-wrap{ max-height:440px; overflow:auto; border:1px solid var(--rule); border-radius:12px; }
+  .league-table{ width:100%; border-collapse:collapse; min-width:420px; }
+  .league-table th{ position:sticky; top:0; z-index:1; padding:9px; background:#0b192b; color:var(--dim); font-family:var(--data); font-size:7px; letter-spacing:.09em; text-align:left; text-transform:uppercase; }
+  .league-table td{ padding:9px; border-top:1px solid var(--rule); color:var(--muted); font-size:.74rem; }
+  .league-table td:first-child{ color:var(--bone); font-weight:700; }
+  .league-table tr.is-pinoy{ background:rgba(184,243,74,.07); }
+  .league-table tr.is-pinoy td:first-child,.league-table .league-place{ color:var(--lime); }
+  .league-insight{ margin:12px 0 0; border-left:3px solid var(--lime); padding:9px 11px; background:rgba(184,243,74,.045); color:var(--muted); font-size:.74rem; line-height:1.5; }
 
   @media (max-width:900px){
     .home-hero{ grid-template-columns:1fr; gap:30px; padding-top:48px; }
@@ -712,6 +738,8 @@
     .compare-grid,.watch-grid,.tips-grid{ grid-template-columns:1fr 1fr; }
     .compare-builder{ grid-template-columns:1fr 1fr; }
     .injury-overview{ grid-template-columns:1fr 1fr; }
+    .league-stats{ grid-template-columns:repeat(3,1fr); }
+    .league-grid{ grid-template-columns:1fr; }
     .team-strip{ grid-template-columns:repeat(3,1fr); }
     .lab-toolbar{ grid-template-columns:1fr 1fr; }
     .draft-room-bar{ grid-template-columns:1fr auto; }
@@ -738,6 +766,10 @@
     .depth-overview{ grid-template-columns:1fr 1fr; }
     .team-report-head,.team-columns{ grid-template-columns:1fr; }
     .team-strip{ grid-template-columns:1fr 1fr; }
+    .league-toolbar,.league-hero{ grid-template-columns:1fr; display:grid; }
+    .league-format{ text-align:left; }
+    .league-trophy{ display:none; }
+    .league-stats{ grid-template-columns:1fr 1fr; }
     .draft-room-bar{ top:70px; }
     .draft-room-reset{ align-self:start; }
   }
@@ -1953,6 +1985,7 @@
     <div class="tabs" role="tablist" aria-label="Player Lab views">
       <button class="tab active" role="tab" aria-selected="true" aria-controls="p-lab-rankings">Rankings</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-compare">Compare</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-league">My League</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-injuries">Injury Report</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-depth">Depth Charts</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-lab-watch">Who to Watch</button>
@@ -1999,6 +2032,14 @@
       <div class="compare-grid" id="lab-compare"><div class="lab-empty">Select two or three players in Rankings to build a comparison.</div></div>
       <div class="compare-matrix" id="compare-matrix"></div>
       <div class="provenance">Comparison combines the FantasyPros-ordered core, rostered Sleeper/Rotowire projections, and NFLverse 2025 results. Free agents are hidden. Depth uses Sleeper’s player-directory snapshot. Board PPR is modeled.</div>
+    </div>
+    <div class="panel" id="p-lab-league" role="tabpanel">
+      <div class="league-toolbar">
+        <div><label for="league-season">ESPN league season</label><select class="lab-control" id="league-season" aria-label="Choose ESPN league season"><option value="2025">2025</option><option value="2024">2024</option></select></div>
+        <div class="league-format" id="league-format">Loading PINOY BOYZ history…</div>
+      </div>
+      <div id="league-history"><div class="lab-empty">Loading ESPN league history…</div></div>
+      <div class="provenance"><strong>Private league snapshot:</strong> imported from the signed-in ESPN archive for league 1634171350. Final standings show playoff finish, not regular-season seeding. Rosters are ESPN’s archived end-of-season lineups—not the original draft results. Missing ESPN archive fields stay blank instead of being estimated.</div>
     </div>
     <div class="panel" id="p-lab-injuries" role="tabpanel">
       <div class="injury-overview">
@@ -2177,6 +2218,7 @@
     var comparePool = [];
     var scoring = 'pts_ppr';
     var history = {};
+    var leagueHistory = null;
     var teamReports = [];
     var injuries = [];
     var injuryFeedUpdated = '';
@@ -2537,14 +2579,49 @@
         '<p class="team-sources"><strong>Report sources:</strong> ' + rich(team.sources) + '</p>';
     }
 
+    function renderLeagueHistory(){
+      if (!leagueHistory) return;
+      var seasonValue = Number(document.getElementById('league-season').value);
+      var season = leagueHistory.seasons.find(function(item){ return item.season === seasonValue; });
+      if (!season) return;
+      var summary = season.teamSummary || {};
+      function leagueNumber(value){ return value == null ? '—' : number(value); }
+      document.getElementById('league-format').innerHTML = '<strong>' + esc(leagueHistory.teamName) + '</strong> · ' + esc(leagueHistory.scoring) + '<br>' + esc(leagueHistory.teamCount) + ' teams · imported ' + esc(formatSourceDate(leagueHistory.accessedAt));
+      var statCards = [
+        [season.champion === leagueHistory.teamName ? 'Champion' : '#' + summary.finalPlace, 'Final finish'],
+        [summary.record || '—', 'Regular season'],
+        [leagueNumber(summary.pointsFor), 'League points'],
+        [leagueNumber(summary.pointsForPerGame), 'Points / game'],
+        [summary.perGameDifferential == null ? '—' : (summary.perGameDifferential > 0 ? '+' : '') + number(summary.perGameDifferential), 'Per-game diff']
+      ];
+      var standingsRows = season.standings.map(function(row){
+        return '<tr class="' + (row.team === leagueHistory.teamName ? 'is-pinoy' : '') + '"><td><span class="league-place">' + esc(row.place) + '</span> · ' + esc(row.team) + '</td><td>' + esc(row.record) + '</td><td>' + leagueNumber(row.pointsFor) + '</td><td>' + leagueNumber(row.pointsAgainst) + '</td><td>' + (row.perGameDifferential == null ? '—' : (row.perGameDifferential > 0 ? '+' : '') + number(row.perGameDifferential)) + '</td></tr>';
+      }).join('');
+      var rosterRows = season.finalRoster.map(function(player){
+        return '<tr><td>' + esc(player.name) + '</td><td>' + esc(player.slot) + '</td><td>' + esc(player.position) + '</td><td>' + number(player.fantasyPoints) + '</td><td>' + number(player.average) + '</td></tr>';
+      }).join('');
+      var championshipLine = summary.championshipScore == null
+        ? 'ESPN confirms the title and final record; its history screen does not expose 2024 PF/PA totals.'
+        : 'Championship: ' + esc(leagueHistory.teamName) + ' ' + number(summary.championshipScore) + ', ' + esc(summary.championshipOpponent) + ' ' + number(summary.championshipOpponentScore) + '.';
+      var topPlayers = season.finalRoster.slice().sort(function(a,b){ return b.fantasyPoints - a.fantasyPoints; }).slice(0,3).map(function(player){ return player.name + ' (' + number(player.fantasyPoints) + ')'; }).join(', ');
+      document.getElementById('league-history').innerHTML =
+        '<section class="league-hero"><div><span class="league-kicker">' + esc(season.season) + ' ESPN league history</span><h3>🏆 ' + esc(season.champion) + '</h3><p>Runner-up: ' + esc(season.runnerUp) + ' · Third: ' + esc(season.thirdPlace) + '</p></div><div class="league-trophy" aria-hidden="true">★</div></section>' +
+        '<div class="league-stats">' + statCards.map(function(stat){ return '<div class="league-stat"><strong>' + esc(stat[0]) + '</strong><span>' + esc(stat[1]) + '</span></div>'; }).join('') + '</div>' +
+        '<div class="league-grid"><section class="league-section"><div class="league-section-head"><h3>Final standings</h3><span>Playoff finish order</span></div><div class="league-table-wrap"><table class="league-table"><thead><tr><th>Team</th><th>Record</th><th>PF</th><th>PA</th><th>Diff/G</th></tr></thead><tbody>' + standingsRows + '</tbody></table></div></section>' +
+        '<section class="league-section"><div class="league-section-head"><h3>PINOY BOYZ final roster</h3><span>ESPN season scoring</span></div><div class="league-table-wrap"><table class="league-table"><thead><tr><th>Player</th><th>Slot</th><th>Pos</th><th>FPTS</th><th>Avg</th></tr></thead><tbody>' + rosterRows + '</tbody></table></div></section></div>' +
+        '<p class="league-insight"><strong>' + esc(championshipLine) + '</strong> Top players on the archived final roster: ' + esc(topPlayers) + '.</p>';
+    }
+
     Promise.all([
       fetch('data/rankings-2026.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }),
       fetch('data/sleeper-projections-2026.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }),
       fetch('data/who-to-watch-2026.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }),
       fetch('data/draft-tips-2026.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }),
-      fetch('data/team-reports-2026.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
+      fetch('data/team-reports-2026.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }),
+      fetch('data/espn-league-history.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
     ]).then(function(data){
       var ranks = data[0], projections = data[1], watch = data[2], tips = data[3], teams = data[4];
+      leagueHistory = data[5];
       var rankingDate = formatSourceDate(ranks.lastUpdated);
       var projectionDate = formatSourceDate(projections.fetchedAt);
       var teamDate = formatSourceDate(teams.lastUpdated);
@@ -2661,6 +2738,7 @@
         ? updated.toLocaleDateString('en-US', { month:'short', day:'numeric' })
         : 'Current feed';
       renderNotes(watch, tips);
+      renderLeagueHistory();
       teamReports = teams.teams;
       document.getElementById('lab-team').innerHTML = teamReports.map(function(team){
         return '<option value="' + esc(team.abbr) + '">' + esc(team.city + ' ' + team.name) + '</option>';
@@ -2688,6 +2766,7 @@
       renderBoard();
     });
     document.getElementById('lab-team').addEventListener('change', function(e){ renderTeam(e.target.value); });
+    document.getElementById('league-season').addEventListener('change', renderLeagueHistory);
     document.getElementById('depth-team').addEventListener('change', renderDepthChart);
     document.getElementById('depth-position').addEventListener('change', renderDepthChart);
     document.querySelectorAll('.compare-search').forEach(function(input){

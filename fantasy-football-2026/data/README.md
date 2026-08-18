@@ -10,6 +10,7 @@ This directory keeps the Player Lab inputs auditable and independent of the UI.
 | `draft-tips-2026.json` | 18 notes | Copied from the Bebo draft-assistant branch and written for its stated 12-team full-PPR league settings. |
 | `sources-bebo.json` | 8 outlets | Source allowlist and methodology copied from the Bebo draft-assistant branch. |
 | `team-reports-2026.json` | 32 teams | All team JSON reports copied from `EvoBeben/EVO-Game`, branch `claude/chicago-bears-news-pdf-dfi2c3`. |
+| `espn-league-history.json` | 2 seasons | Authenticated ESPN league archive snapshot for league `1634171350`: final standings plus PINOY BOYZ end-of-season rosters and player scoring for 2025 and 2024. Missing archive fields remain `null`; roster rows are not represented as original draft results. |
 
 Historical player profiles remain embedded in `../index.html` and are generated
 from NFLverse seasons 2013–2025 by `../build-data.py`.

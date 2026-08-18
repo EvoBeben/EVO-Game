@@ -1,0 +1,126 @@
+{
+  "leagueId": "1634171350",
+  "leagueName": "My 2025 League",
+  "teamId": 8,
+  "teamName": "PINOY BOYZ",
+  "owner": "Steven Evo",
+  "teamCount": 12,
+  "format": "League Manager",
+  "scoring": "Head to Head Points, Point Per Reception",
+  "accessedAt": "2026-08-17",
+  "source": "ESPN Fantasy Football authenticated league archive",
+  "sourceUrls": {
+    "league": "https://fantasy.espn.com/football/league?leagueId=1634171350&seasonId=2025",
+    "history": "https://fantasy.espn.com/football/league/history?leagueId=1634171350&seasonId=2024",
+    "standings2025": "https://fantasy.espn.com/football/league/standings?leagueId=1634171350&seasonId=2025",
+    "team2025": "https://fantasy.espn.com/football/team?leagueId=1634171350&seasonId=2025&teamId=8",
+    "team2024": "https://fantasy.espn.com/football/team?leagueId=1634171350&seasonId=2024&teamId=8&fromTeamId=8"
+  },
+  "seasons": [
+    {
+      "season": 2025,
+      "champion": "PINOY BOYZ",
+      "runnerUp": "Da Squad 25",
+      "thirdPlace": "Numbnuts",
+      "teamSummary": {
+        "finalPlace": 1,
+        "record": "9-5-0",
+        "division": "West",
+        "divisionPlace": 1,
+        "pointsFor": 1808.02,
+        "pointsAgainst": 1561.64,
+        "pointsForPerGame": 129.1,
+        "pointsAgainstPerGame": 111.5,
+        "perGameDifferential": 17.6,
+        "championshipScore": 150.6,
+        "championshipOpponent": "Da Squad 25",
+        "championshipOpponentScore": 81.44
+      },
+      "standings": [
+        { "place": 1, "team": "PINOY BOYZ", "record": "9-5-0", "pointsFor": 1808.02, "pointsAgainst": 1561.64, "pointsForPerGame": 129.1, "pointsAgainstPerGame": 111.5, "perGameDifferential": 17.6 },
+        { "place": 2, "team": "Da Squad 25", "record": "7-7-0", "pointsFor": 1571.9, "pointsAgainst": 1645.04, "pointsForPerGame": 112.3, "pointsAgainstPerGame": 117.5, "perGameDifferential": -5.2 },
+        { "place": 3, "team": "Numbnuts", "record": "9-5-0", "pointsFor": 1640.4, "pointsAgainst": 1559.48, "pointsForPerGame": 117.2, "pointsAgainstPerGame": 111.4, "perGameDifferential": 5.8 },
+        { "place": 4, "team": "TheHouseCrew", "record": "8-6-0", "pointsFor": 1557.38, "pointsAgainst": 1591.54, "pointsForPerGame": 111.2, "pointsAgainstPerGame": 113.7, "perGameDifferential": -2.4 },
+        { "place": 5, "team": "Universe 7", "record": "8-6-0", "pointsFor": 1668.78, "pointsAgainst": 1559.38, "pointsForPerGame": 119.2, "pointsAgainstPerGame": 111.4, "perGameDifferential": 7.8 },
+        { "place": 6, "team": "Blazin Susan", "record": "8-6-0", "pointsFor": 1593.58, "pointsAgainst": 1594.28, "pointsForPerGame": 113.8, "pointsAgainstPerGame": 113.9, "perGameDifferential": 0.0 },
+        { "place": 7, "team": "OT", "record": "6-8-0", "pointsFor": 1647.94, "pointsAgainst": 1747.76, "pointsForPerGame": 117.7, "pointsAgainstPerGame": 124.8, "perGameDifferential": -7.1 },
+        { "place": 8, "team": "KingOfTheNorth", "record": "5-9-0", "pointsFor": 1518.8, "pointsAgainst": 1562.7, "pointsForPerGame": 108.5, "pointsAgainstPerGame": 111.6, "perGameDifferential": -3.1 },
+        { "place": 9, "team": "Rowdy samaSon", "record": "7-7-0", "pointsFor": 1568.76, "pointsAgainst": 1576.34, "pointsForPerGame": 112.1, "pointsAgainstPerGame": 112.6, "perGameDifferential": -0.5 },
+        { "place": 10, "team": "Get off my Ditka", "record": "6-8-0", "pointsFor": 1449.6, "pointsAgainst": 1528.1, "pointsForPerGame": 103.5, "pointsAgainstPerGame": 109.2, "perGameDifferential": -5.6 },
+        { "place": 11, "team": "Blazing Warriors", "record": "6-8-0", "pointsFor": 1656.26, "pointsAgainst": 1694.82, "pointsForPerGame": 118.3, "pointsAgainstPerGame": 121.1, "perGameDifferential": -2.8 },
+        { "place": 12, "team": "Squirtle Squad", "record": "5-9-0", "pointsFor": 1528.06, "pointsAgainst": 1588.4, "pointsForPerGame": 109.1, "pointsAgainstPerGame": 113.5, "perGameDifferential": -4.3 }
+      ],
+      "finalRoster": [
+        { "slot": "QB", "name": "Jalen Hurts", "position": "QB", "fantasyPoints": 299.06, "average": 18.7 },
+        { "slot": "RB", "name": "Derrick Henry", "position": "RB", "fantasyPoints": 279.5, "average": 16.4 },
+        { "slot": "RB", "name": "Jonathan Taylor", "position": "RB", "fantasyPoints": 362.3, "average": 21.3 },
+        { "slot": "WR", "name": "George Pickens", "position": "WR", "fantasyPoints": 291.9, "average": 17.2 },
+        { "slot": "WR", "name": "Michael Wilson", "position": "WR", "fantasyPoints": 220.6, "average": 13.0 },
+        { "slot": "TE", "name": "Dallas Goedert", "position": "TE", "fantasyPoints": 185.1, "average": 12.3 },
+        { "slot": "FLEX", "name": "Rhamondre Stevenson", "position": "RB", "fantasyPoints": 178.8, "average": 12.8 },
+        { "slot": "D/ST", "name": "Broncos D/ST", "position": "DEF", "fantasyPoints": 144.0, "average": 8.5 },
+        { "slot": "K", "name": "Cameron Dicker", "position": "K", "fantasyPoints": 167.0, "average": 9.8 },
+        { "slot": "Bench", "name": "Terry McLaurin", "position": "WR", "fantasyPoints": 114.2, "average": 11.4 },
+        { "slot": "Bench", "name": "Rome Odunze", "position": "WR", "fantasyPoints": 146.1, "average": 12.2 },
+        { "slot": "Bench", "name": "Mark Andrews", "position": "TE", "fantasyPoints": 131.0, "average": 7.7 },
+        { "slot": "Bench", "name": "Emeka Egbuka", "position": "WR", "fantasyPoints": 195.7, "average": 11.5 },
+        { "slot": "Bench", "name": "Jayden Reed", "position": "WR", "fantasyPoints": 48.5, "average": 6.9 },
+        { "slot": "Bench", "name": "Blake Corum", "position": "RB", "fantasyPoints": 122.2, "average": 7.2 },
+        { "slot": "Bench", "name": "Brock Purdy", "position": "QB", "fantasyPoints": 177.38, "average": 19.7 }
+      ]
+    },
+    {
+      "season": 2024,
+      "champion": "PINOY BOYZ",
+      "runnerUp": "KingOfTheNorth",
+      "thirdPlace": "Shells",
+      "teamSummary": {
+        "finalPlace": 1,
+        "record": "7-7-0",
+        "pointsFor": null,
+        "pointsAgainst": null,
+        "pointsForPerGame": null,
+        "pointsAgainstPerGame": null,
+        "perGameDifferential": null
+      },
+      "standings": [
+        { "place": 1, "team": "PINOY BOYZ", "record": "7-7-0" },
+        { "place": 2, "team": "KingOfTheNorth", "record": "10-4-0" },
+        { "place": 3, "team": "Shells", "record": "11-3-0" },
+        { "place": 4, "team": "Squirtle Squad", "record": "11-3-0" },
+        { "place": 5, "team": "The Ladds", "record": "10-4-0" },
+        { "place": 6, "team": "OT", "record": "9-5-0" },
+        { "place": 7, "team": "Rowdy samaSon", "record": "4-10-0" },
+        { "place": 8, "team": "Da Squad 24", "record": "6-8-0" },
+        { "place": 9, "team": "Get off my Ditka", "record": "5-9-0" },
+        { "place": 10, "team": "Blazing Warriors", "record": "7-7-0" },
+        { "place": 11, "team": "Universe 7", "record": "2-12-0" },
+        { "place": 12, "team": "TheHouseCrew", "record": "2-12-0" }
+      ],
+      "finalRoster": [
+        { "slot": "QB", "name": "Jared Goff", "position": "QB", "fantasyPoints": 324.46, "average": 19.1 },
+        { "slot": "RB", "name": "Jahmyr Gibbs", "position": "RB", "fantasyPoints": 362.9, "average": 21.3 },
+        { "slot": "RB", "name": "James Cook", "position": "RB", "fantasyPoints": 266.7, "average": 16.7 },
+        { "slot": "WR", "name": "Puka Nacua", "position": "WR", "fantasyPoints": 206.6, "average": 18.8 },
+        { "slot": "WR", "name": "Jauan Jennings", "position": "WR", "fantasyPoints": 210.5, "average": 14.0 },
+        { "slot": "TE", "name": "Chig Okonkwo", "position": "TE", "fantasyPoints": 113.6, "average": 6.7 },
+        { "slot": "FLEX", "name": "Keenan Allen", "position": "WR", "fantasyPoints": 184.4, "average": 12.3 },
+        { "slot": "D/ST", "name": "Colts D/ST", "position": "DEF", "fantasyPoints": 74.0, "average": 4.4 },
+        { "slot": "K", "name": "Chase McLaughlin", "position": "K", "fantasyPoints": 162.0, "average": 9.5 },
+        { "slot": "Bench", "name": "Brock Purdy", "position": "QB", "fantasyPoints": 266.86, "average": 17.8 },
+        { "slot": "Bench", "name": "Lions D/ST", "position": "DEF", "fantasyPoints": 100.0, "average": 5.9 },
+        { "slot": "Bench", "name": "Rome Odunze", "position": "WR", "fantasyPoints": 144.9, "average": 8.5 },
+        { "slot": "Bench", "name": "Jake Ferguson", "position": "TE", "fantasyPoints": 104.4, "average": 7.5 },
+        { "slot": "Bench", "name": "Ravens D/ST", "position": "DEF", "fantasyPoints": 106.0, "average": 6.2 },
+        { "slot": "Bench", "name": "Javonte Williams", "position": "RB", "fantasyPoints": 157.9, "average": 9.3 },
+        { "slot": "Bench", "name": "Kendre Miller", "position": "RB", "fantasyPoints": 29.1, "average": 4.9 }
+      ]
+    }
+  ],
+  "notes": [
+    "Standings are final playoff finish order, not regular-season seeding.",
+    "Final roster is ESPN's archived end-of-season roster view, not the original draft roster.",
+    "Player fantasy points and averages are ESPN season totals displayed on the archived roster page.",
+    "ESPN's league history page exposes 2024 final records but not the 2024 PF/PA columns, so those fields remain null rather than estimated."
+  ]
+}

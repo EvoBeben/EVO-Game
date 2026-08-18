@@ -7,6 +7,7 @@ const html = await readFile(new URL("index.html", root), "utf8");
 const rankings = JSON.parse(await readFile(new URL("data/rankings-2026.json", root), "utf8"));
 const projections = JSON.parse(await readFile(new URL("data/sleeper-projections-2026.json", root), "utf8"));
 const teams = JSON.parse(await readFile(new URL("data/team-reports-2026.json", root), "utf8"));
+const league = JSON.parse(await readFile(new URL("data/espn-league-history.json", root), "utf8"));
 
 test("uses honest projection, injury, history, and freshness labels", () => {
   assert.doesNotMatch(html, /Projected games/i);
@@ -53,6 +54,24 @@ test("keeps the merged data contracts intact", () => {
   assert.ok(projections.fetchedAt);
   assert.ok(teams.lastUpdated);
   assert.equal(new Set(teams.teams.map((team) => team.abbr)).size, 32);
+});
+
+test("includes verified ESPN league history for both title seasons", () => {
+  assert.equal(league.leagueId, "1634171350");
+  assert.equal(league.teamName, "PINOY BOYZ");
+  assert.deepEqual(league.seasons.map((season) => season.season), [2025, 2024]);
+  assert.ok(league.seasons.every((season) => season.champion === "PINOY BOYZ"));
+  assert.equal(league.seasons[0].standings.length, 12);
+  assert.equal(league.seasons[1].standings.length, 12);
+  assert.equal(league.seasons[0].finalRoster.length, 16);
+  assert.equal(league.seasons[1].finalRoster.length, 16);
+  assert.equal(league.seasons[0].teamSummary.pointsFor, 1808.02);
+  assert.equal(league.seasons[1].teamSummary.pointsFor, null);
+  assert.match(html, /aria-controls="p-lab-league"/);
+  assert.match(html, /id="league-season"/);
+  assert.match(html, /data\/espn-league-history\.json/);
+  assert.match(html, /function renderLeagueHistory/);
+  assert.match(html, /end-of-season lineups/);
 });
 
 test("keeps ids, aria references, and inline JavaScript valid", () => {
