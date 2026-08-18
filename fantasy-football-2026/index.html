@@ -778,8 +778,8 @@
           <span class="live-chip">2026 board</span>
         </div>
         <div class="pulse-grid">
-          <div class="pulse-stat"><span>Ordered draft board</span><strong>359</strong><small>Expert core plus 32-team depth extension</small></div>
-          <div class="pulse-stat"><span>Projections</span><strong>632</strong><small>Static Sleeper snapshot across six positions</small></div>
+          <div class="pulse-stat"><span>Ordered draft board</span><strong id="home-board-count">360</strong><small>Expert core plus 32-team depth extension</small></div>
+          <div class="pulse-stat"><span>Projections</span><strong id="home-projection-count">634</strong><small>Current static Sleeper snapshot across six positions</small></div>
           <div class="pulse-stat"><span>History</span><strong>468</strong><small>Player-seasons from NFLverse, 2013–2025</small></div>
           <div class="pulse-stat"><span>Data mode</span><strong>Static</strong><small>No live API dependency on draft day</small></div>
         </div>
@@ -1926,8 +1926,8 @@
         <h3>The merged draft board</h3>
         <p>The 2026 positional order is joined to a static Sleeper projection snapshot and the NFLverse career file already in this guide. Select up to three players, then use Compare to see the signals side by side.</p>
         <div class="data-chips" aria-label="Merged data sources">
-          <span class="data-chip"><b>144</b> expert ranks + <b>215</b> depth options</span>
-          <span class="data-chip"><b>632</b> Sleeper projections</span>
+          <span class="data-chip"><b>144</b> expert ranks + <b id="lab-depth-count">216</b> depth options</span>
+          <span class="data-chip"><b id="lab-source-projection-count">634</b> Sleeper projections</span>
           <span class="data-chip"><b>468</b> NFLverse seasons</span>
           <span class="data-chip"><b>30</b> strategy + watch notes</span>
           <span class="data-chip"><b>32</b> full team reports</span>
@@ -1936,8 +1936,8 @@
       </div>
       <div class="lab-card">
         <div class="lab-counts">
-          <div class="lab-count"><strong id="lab-ranked-count">359</strong><span>Ordered board</span></div>
-          <div class="lab-count"><strong id="lab-proj-count">632</strong><span>Projected</span></div>
+          <div class="lab-count"><strong id="lab-ranked-count">360</strong><span>Ordered board</span></div>
+          <div class="lab-count"><strong id="lab-proj-count">634</strong><span>Projected</span></div>
           <div class="lab-count"><strong id="lab-match-count">—</strong><span>Joined</span></div>
           <div class="lab-count"><strong id="lab-history-count">114</strong><span>Profiles</span></div>
         </div>
@@ -1967,7 +1967,7 @@
         <select class="lab-control" id="lab-availability" aria-label="Filter draft availability"><option value="available">Available players</option><option value="all">All players</option><option value="drafted">Drafted players</option></select>
       </div>
       <div class="draft-room-bar" aria-label="Draft room queue and availability">
-        <div class="draft-room-counts"><span><b id="available-count">359</b> available</span><span><b id="queue-count">0</b> queued</span><span><b id="drafted-count">0</b> drafted</span></div>
+        <div class="draft-room-counts"><span><b id="available-count">360</b> available</span><span><b id="queue-count">0</b> queued</span><span><b id="drafted-count">0</b> drafted</span></div>
         <div class="draft-queue" id="draft-queue"><span class="queue-chip">Queue is empty</span></div>
         <button class="draft-room-reset" id="draft-room-reset" type="button">Reset draft room</button>
       </div>
@@ -2537,6 +2537,7 @@
       board = ranks.players.map(function(player){
         var key = player.position + ':' + norm(player.name);
         player.projection = projectionByKey[key] || (player.position === 'DEF' ? projectionByKey['DEF:' + player.team] : null);
+        if (player.projection && player.projection.team) player.team = player.projection.team;
         player.history = historyByName[norm(player.name)] || null;
         player.playerKey = key;
         player.projectionPosRank = projectionPosRank[key] || null;
@@ -2606,6 +2607,10 @@
       var joined = board.filter(function(player){ return player.projection; }).length;
       document.getElementById('lab-ranked-count').textContent = board.length;
       document.getElementById('lab-proj-count').textContent = projections.playerCount;
+      document.getElementById('home-board-count').textContent = board.length;
+      document.getElementById('home-projection-count').textContent = projections.playerCount;
+      document.getElementById('lab-depth-count').textContent = depthBoard.length;
+      document.getElementById('lab-source-projection-count').textContent = projections.playerCount;
       document.getElementById('lab-match-count').textContent = joined;
       document.getElementById('lab-history-count').textContent = Object.keys(history).length;
       document.getElementById('compare-pool-note').innerHTML = '<strong>' + comparePool.length + ' searchable ranked players</strong> · the expert 144 plus all 32 teams’ first three RB, WR, and TE depth options. Type a name or team and press Enter for the first match.';
