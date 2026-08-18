@@ -33,6 +33,17 @@ test("includes persistent drafted and queue controls", () => {
   assert.match(html, /localStorage\.setItem/);
 });
 
+test("keeps the draft board compact and action-ready", () => {
+  assert.match(html, /<th>Team<br><small>Depth<\/small><\/th>/);
+  assert.doesNotMatch(html, /<th>Depth<\/th>/);
+  assert.doesNotMatch(html, /<th>Board ADP/);
+  assert.doesNotMatch(html, /label:'Board ADP/);
+  assert.match(html, /class="team-cell"/);
+  assert.match(html, /colspan="7"/);
+  assert.match(html, /#p-lab-rankings \.lab-table th:last-child/);
+  assert.match(html, /isDrafted \? 'Drafted' : 'Draft'/);
+});
+
 test("keeps the merged data contracts intact", () => {
   assert.equal(rankings.players.length, 144);
   assert.equal(projections.playerCount, projections.players.length);

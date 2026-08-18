@@ -580,27 +580,30 @@
   .lab-control{ width:100%; min-height:43px; border:1px solid var(--rule-2); border-radius:12px; background:#0a1728; color:var(--bone); padding:0 13px; font:600 .82rem var(--ui); }
   .lab-control:focus{ outline:2px solid color-mix(in srgb,var(--lime) 65%,transparent); outline-offset:2px; }
   .lab-table-wrap{ overflow:auto; max-height:690px; border:1px solid var(--rule-2); border-radius:18px; }
-  .lab-table{ width:100%; border-collapse:collapse; min-width:790px; }
-  .lab-table th{ position:sticky; top:0; z-index:2; padding:12px 13px; background:#0b192b; color:var(--dim); font-family:var(--data); font-size:8px; letter-spacing:.12em; text-transform:uppercase; text-align:left; }
-  .lab-table td{ padding:12px 13px; border-top:1px solid var(--rule); color:var(--muted); font-size:.82rem; vertical-align:middle; }
+  .lab-table{ width:100%; border-collapse:collapse; min-width:690px; }
+  .lab-table th{ position:sticky; top:0; z-index:2; padding:10px; background:#0b192b; color:var(--dim); font-family:var(--data); font-size:8px; letter-spacing:.12em; text-transform:uppercase; text-align:left; }
+  .lab-table td{ padding:9px 10px; border-top:1px solid var(--rule); color:var(--muted); font-size:.78rem; vertical-align:middle; }
   .lab-table tbody tr:hover{ background:rgba(184,243,74,.035); }
   .lab-table .rank{ color:var(--lime); font-family:var(--data); }
   .lab-player{ display:block; color:var(--bone); font-weight:800; }
-  .lab-note{ display:block; margin-top:3px; color:var(--dim); font-size:.7rem; max-width:48ch; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .compare-toggle{ border:1px solid var(--rule-2); border-radius:999px; background:transparent; color:var(--bone); padding:7px 10px; font:700 .72rem var(--ui); cursor:pointer; }
+  .lab-note{ display:-webkit-box; margin-top:2px; color:var(--dim); font-size:.64rem; line-height:1.3; max-width:34ch; overflow:hidden; overflow-wrap:anywhere; -webkit-box-orient:vertical; -webkit-line-clamp:2; }
+  .team-cell{ display:grid; gap:2px; min-width:46px; }
+  .team-cell strong{ color:var(--bone); font-family:var(--data); font-size:.75rem; }
+  .team-cell small{ color:var(--dim); font-size:.62rem; line-height:1.15; }
+  .compare-toggle{ border:1px solid var(--rule-2); border-radius:999px; background:transparent; color:var(--bone); padding:5px 7px; font:700 .64rem var(--ui); cursor:pointer; }
   .compare-toggle[aria-pressed="true"]{ border-color:var(--lime); background:var(--lime); color:var(--ground); }
-  .row-actions{ display:flex; flex-wrap:wrap; gap:5px; min-width:188px; }
-  .queue-toggle,.draft-toggle,.queue-chip button,.draft-room-reset{ border:1px solid var(--rule-2); border-radius:999px; background:transparent; color:var(--bone); padding:7px 9px; font:700 .69rem var(--ui); cursor:pointer; }
+  .row-actions{ display:grid; grid-template-columns:repeat(3,auto); gap:4px; min-width:174px; }
+  .queue-toggle,.draft-toggle,.queue-chip button,.draft-room-reset{ border:1px solid var(--rule-2); border-radius:999px; background:transparent; color:var(--bone); padding:5px 7px; font:700 .64rem var(--ui); cursor:pointer; }
   .queue-toggle[aria-pressed="true"]{ border-color:#60a5fa; color:#93c5fd; background:rgba(96,165,250,.1); }
   .draft-toggle[aria-pressed="true"]{ border-color:#f59e0b; color:#ffd27a; background:rgba(245,158,11,.1); }
   .lab-table tr.is-drafted .lab-player{ text-decoration:line-through; color:var(--dim); }
-  .draft-room-bar{ position:sticky; top:82px; z-index:8; display:grid; grid-template-columns:auto 1fr auto; gap:12px; align-items:center; margin:0 0 12px; border:1px solid var(--rule-2); border-radius:16px; padding:10px 12px; background:rgba(7,17,31,.96); box-shadow:0 12px 30px rgba(0,0,0,.2); }
-  .draft-room-counts{ display:flex; flex-wrap:wrap; gap:7px; color:var(--muted); font-size:.74rem; }
+  .draft-room-bar{ position:sticky; top:82px; z-index:8; display:grid; grid-template-columns:auto 1fr auto; gap:8px; align-items:center; margin:0 0 9px; border:1px solid var(--rule-2); border-radius:13px; padding:7px 9px; background:rgba(7,17,31,.96); box-shadow:0 10px 24px rgba(0,0,0,.18); }
+  .draft-room-counts{ display:flex; flex-wrap:wrap; gap:6px; color:var(--muted); font-size:.67rem; }
   .draft-room-counts b{ color:var(--lime); }
-  .draft-queue{ display:flex; gap:7px; overflow:auto; padding:2px; }
-  .queue-chip{ display:flex; align-items:center; gap:7px; flex:none; border:1px solid rgba(96,165,250,.25); border-radius:999px; padding:5px 6px 5px 10px; background:rgba(96,165,250,.07); color:var(--bone); font-size:.72rem; }
+  .draft-queue{ display:flex; gap:5px; overflow:auto; padding:1px; }
+  .queue-chip{ display:flex; align-items:center; gap:5px; flex:none; border:1px solid rgba(96,165,250,.25); border-radius:999px; padding:3px 4px 3px 8px; background:rgba(96,165,250,.07); color:var(--bone); font-size:.66rem; }
   .queue-chip small{ color:var(--dim); }
-  .queue-chip button{ display:grid; place-items:center; width:24px; height:24px; padding:0; }
+  .queue-chip button{ display:grid; place-items:center; width:21px; height:21px; padding:0; }
   .draft-room-reset{ white-space:nowrap; color:var(--dim); }
   .freshness-bar{ display:flex; flex-wrap:wrap; gap:7px; margin-top:12px; }
   .freshness-bar span{ border:1px solid var(--rule); border-radius:999px; padding:6px 9px; color:var(--dim); font-family:var(--data); font-size:7.5px; letter-spacing:.07em; text-transform:uppercase; }
@@ -659,7 +662,10 @@
   .confidence-badge.low{ border-color:rgba(245,158,11,.35); color:#ffd27a; }
   .confidence-badge.medium{ border-color:rgba(96,165,250,.35); color:#93c5fd; }
   .lab-empty{ grid-column:1/-1; border:1px dashed var(--rule-2); border-radius:18px; padding:26px; color:var(--muted); text-align:center; }
-  .provenance{ margin-top:20px; padding:15px 17px; border-left:3px solid var(--lime); background:rgba(184,243,74,.045); color:var(--muted); font-size:.78rem; line-height:1.55; }
+  .provenance{ margin-top:14px; padding:10px 12px; border-left:3px solid var(--lime); background:rgba(184,243,74,.045); color:var(--muted); font-size:.68rem; line-height:1.4; white-space:normal; overflow-wrap:anywhere; }
+  #p-lab-rankings .lab-table th:last-child,#p-lab-rankings .lab-table td:last-child{ position:sticky; right:0; z-index:1; background:#0b192b; box-shadow:-10px 0 18px rgba(5,12,22,.28); }
+  #p-lab-rankings .lab-table th:last-child{ z-index:3; }
+  #p-lab-rankings .lab-table tbody tr:hover td:last-child{ background:#102036; }
   .team-toolbar{ display:flex; align-items:center; gap:12px; margin:18px 0; }
   .team-toolbar label{ color:var(--dim); font-family:var(--data); font-size:8px; letter-spacing:.12em; text-transform:uppercase; }
   .team-toolbar .lab-control{ max-width:290px; }
@@ -1973,12 +1979,12 @@
       </div>
       <div class="lab-table-wrap">
         <table class="lab-table">
-          <thead><tr><th>Ovr</th><th>Player</th><th>Pos</th><th>Team</th><th>Depth</th><th>Board ADP*</th><th>Board PPR*</th><th id="lab-proj-label">Sleeper PPR</th><th>Draft actions</th></tr></thead>
-          <tbody id="lab-rankings-body"><tr><td colspan="9">Loading merged data…</td></tr></tbody>
+          <thead><tr><th>Ovr</th><th>Player</th><th>Pos</th><th>Team<br><small>Depth</small></th><th>Board PPR*</th><th id="lab-proj-label">Sleeper PPR</th><th>Draft actions</th></tr></thead>
+          <tbody id="lab-rankings-body"><tr><td colspan="7">Loading merged data…</td></tr></tbody>
         </table>
       </div>
       <p class="lab-status" id="lab-status" aria-live="polite"></p>
-      <div class="provenance"><strong>*Method note:</strong> the expert-ordered core stays first. Every other rostered record in the current Sleeper snapshot follows by full-PPR ADP and projection; free agents are hidden. <strong>Late-round targets</strong> starts around pick 96 and keeps useful projection floors: 150 PPR for QB, 70 for RB/WR, and 55 for TE; second- and third-string skill players can also qualify, while rostered K and DEF remain available. It is a discovery filter, not a recommendation. Board ADP and board PPR are modeled fields.</div>
+      <div class="provenance"><strong>*Method note:</strong> expert ranks stay first; other rostered players follow by Sleeper PPR projection and ADP. Free agents are hidden. <strong>Late-round targets</strong> starts near pick 96 and includes useful backups, later QBs, kickers, and defenses. Board PPR is modeled.</div>
     </div>
 
     <div class="panel" id="p-lab-compare" role="tabpanel">
@@ -1992,7 +1998,7 @@
       <div class="compare-summary" id="compare-summary"></div>
       <div class="compare-grid" id="lab-compare"><div class="lab-empty">Select two or three players in Rankings to build a comparison.</div></div>
       <div class="compare-matrix" id="compare-matrix"></div>
-      <div class="provenance">Comparison combines the FantasyPros-ordered core, all rostered Sleeper/Rotowire projection records, and NFLverse 2025 results. Free agents are hidden. Depth labels use Sleeper’s player-directory position and order snapshot. Board ADP and board PPR remain modeled fields.</div>
+      <div class="provenance">Comparison combines the FantasyPros-ordered core, rostered Sleeper/Rotowire projections, and NFLverse 2025 results. Free agents are hidden. Depth uses Sleeper’s player-directory snapshot. Board PPR is modeled.</div>
     </div>
     <div class="panel" id="p-lab-injuries" role="tabpanel">
       <div class="injury-overview">
@@ -2283,18 +2289,18 @@
         var key = playerKey(row);
         var isQueued = hasKey(queueKeys, key);
         var isDrafted = hasKey(draftedKeys, key);
+        var team = row.team || row.projection && row.projection.team || 'FA';
+        var depth = row.depthLabel || depthLabelFor(row.projection || row) || '—';
         return '<tr' + (isDrafted ? ' class="is-drafted"' : '') + '>' +
           '<td class="rank">' + row.overallRank + '</td>' +
           '<td><span class="lab-player">' + esc(row.name) + '</span><span class="lab-note" title="' + esc(row.note) + '">' + esc(row.note) + '</span></td>' +
           '<td><span class="pos-badge p-' + esc(row.position) + '">' + esc(row.position) + row.positionRank + '</span></td>' +
-          '<td>' + esc(teamDepthText(row)) + '</td>' +
-          '<td>' + esc(row.depthLabel || '—') + '</td>' +
-          '<td>' + number(row.adp) + '</td>' +
+          '<td><span class="team-cell"><strong>' + esc(team) + '</strong><small>' + esc(depth) + '</small></span></td>' +
           '<td>' + number(row.ppr_projected_points) + '</td>' +
           '<td>' + number(projectionFor(row)) + '</td>' +
-          '<td><div class="row-actions"><button class="compare-toggle" type="button" data-player-key="' + esc(key) + '" aria-pressed="' + isSelected + '">' + (isSelected ? 'Comparing' : 'Compare') + '</button><button class="queue-toggle" type="button" data-player-key="' + esc(key) + '" aria-pressed="' + isQueued + '">' + (isQueued ? 'Queued' : 'Queue') + '</button><button class="draft-toggle" type="button" data-player-key="' + esc(key) + '" aria-pressed="' + isDrafted + '">' + (isDrafted ? 'Drafted' : 'Mark drafted') + '</button></div></td>' +
+          '<td><div class="row-actions"><button class="compare-toggle" type="button" data-player-key="' + esc(key) + '" aria-pressed="' + isSelected + '">' + (isSelected ? 'Comparing' : 'Compare') + '</button><button class="queue-toggle" type="button" data-player-key="' + esc(key) + '" aria-pressed="' + isQueued + '">' + (isQueued ? 'Queued' : 'Queue') + '</button><button class="draft-toggle" type="button" data-player-key="' + esc(key) + '" aria-pressed="' + isDrafted + '">' + (isDrafted ? 'Drafted' : 'Draft') + '</button></div></td>' +
         '</tr>';
-      }).join('') || '<tr><td colspan="9">No players match those filters.</td></tr>';
+      }).join('') || '<tr><td colspan="7">No players match those filters.</td></tr>';
       document.getElementById('lab-status').innerHTML = '<strong>' + rows.length + '</strong> players shown · <strong>' + selected.length + '</strong> selected for comparison';
     }
 
@@ -2319,7 +2325,6 @@
       return [
         { label:'Overall rank', value:Number.isFinite(overall) ? number(overall) : 'Unranked', raw:overall, low:true },
         { label:'Position rank', value:Number.isFinite(posRank) ? esc(row.position) + number(posRank) : '—', raw:posRank, low:true },
-        { label:'Board ADP*', value:number(row.adp), raw:Number(row.adp), low:true },
         { label:'Board PPR*', value:number(row.ppr_projected_points), raw:Number(row.ppr_projected_points) },
         { label:'Sleeper PPR', value:number(stats.pts_ppr), raw:Number(stats.pts_ppr) },
         { label:'Sleeper half PPR', value:number(stats.pts_half_ppr), raw:Number(stats.pts_half_ppr) },
@@ -2670,7 +2675,7 @@
       renderCompare();
       renderInjuries();
     }).catch(function(error){
-      body.innerHTML = '<tr><td colspan="9">Merged data could not load. Serve this directory over HTTP so its local JSON files are available.</td></tr>';
+      body.innerHTML = '<tr><td colspan="7">Merged data could not load. Serve this directory over HTTP so its local JSON files are available.</td></tr>';
       document.getElementById('lab-status').textContent = 'Data load error: ' + error.message;
     });
 
